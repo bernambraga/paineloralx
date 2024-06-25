@@ -1,22 +1,32 @@
 import React from 'react';
+import Layout from './Layout';
+import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 
-const Home = () => {
+const Home = ({ user, onLogout }) => {
+  const history = useHistory();
+
   const handleLogout = async () => {
     try {
-      await axios.post('/api/logout/');
+      const token = localStorage.getItem('token');
+      await axios.post('/api/logout/', {}, {
+        headers: {
+          'Authorization': `Token ${token}`
+        }
+      });
       localStorage.removeItem('token');
-      window.location.href = '/';
+      onLogout();
+      history.push('/');
     } catch (error) {
       console.error('There was an error logging out!', error);
     }
   };
 
   return (
-    <div>
+    <Layout user={user} onLogout={handleLogout}>
       <h2>Home Page</h2>
-      <button onClick={handleLogout}>Logout</button>
-    </div>
+      <p>Welcome to the home page!</p>
+    </Layout>
   );
 };
 

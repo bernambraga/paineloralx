@@ -30,6 +30,7 @@ const Login = ({ onLoginSuccess }) => {
       });
       if (response.data.token) {
         localStorage.setItem('token', response.data.token);
+        axios.defaults.headers.common['Authorization'] = `Token ${response.data.token}`;
         onLoginSuccess();
       }
     } catch (error) {

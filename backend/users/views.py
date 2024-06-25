@@ -44,3 +44,13 @@ class GetCSRFToken(APIView):
 
     def get(self, request):
         return JsonResponse({'csrfToken': request.META.get('CSRF_COOKIE')})
+
+class UserDetail(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        user = request.user
+        return Response({
+            'username': user.username,
+            'email': user.email,
+        })
