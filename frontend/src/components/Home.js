@@ -1,11 +1,7 @@
 import React from 'react';
-import Layout from './Layout';
-import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-const Home = ({ user, onLogout }) => {
-  const navigate = useNavigate();
-
+const Home = () => {
   const handleLogout = async () => {
     try {
       const token = localStorage.getItem('token');
@@ -15,18 +11,17 @@ const Home = ({ user, onLogout }) => {
         }
       });
       localStorage.removeItem('token');
-      onLogout();
-      navigate('/');
+      window.location.href = '/';
     } catch (error) {
       console.error('There was an error logging out!', error);
     }
   };
 
   return (
-    <Layout user={user} onLogout={handleLogout}>
+    <div>
       <h2>Home Page</h2>
-      <p>Welcome to the home page!</p>
-    </Layout>
+      <button onClick={handleLogout}>Logout</button>
+    </div>
   );
 };
 
