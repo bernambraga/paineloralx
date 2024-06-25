@@ -1,9 +1,15 @@
 import React from 'react';
+import axios from 'axios';
 
 const Home = () => {
-  const handleLogout = () => {
-    localStorage.removeItem('token');
-    window.location.href = '/';
+  const handleLogout = async () => {
+    try {
+      await axios.post('/api/logout/');
+      localStorage.removeItem('token');
+      window.location.href = '/';
+    } catch (error) {
+      console.error('There was an error logging out!', error);
+    }
   };
 
   return (

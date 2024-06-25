@@ -1,10 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Login.css';
+
+const getCsrfToken = async () => {
+  try {
+    const response = await axios.get('/api/csrf/');
+    const csrfToken = response.data.csrfToken;
+    axios.defaults.headers.common['X-CSRFToken'] = csrfToken;
+  } catch (error) {
+    console.error('Error fetching CSRF token:', error);
+  }
+};
 
 const Login = ({ onLoginSuccess }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+
+  useEffect(() => {
+    getCsrfToken();
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -18,13 +33,18 @@ const Login = ({ onLoginSuccess }) => {
         onLoginSuccess();
       }
     } catch (error) {
-      console.error('There was an error logging in!', error);
+      if (error.response && error.response.data) {
+        setErrorMessage(error.response.data.error);
+      } else {
+        setErrorMessage('An error occurred. Please try again.');
+      }
     }
   };
 
   return (
     <div className="login-container">
       <h2>Login</h2>
+      {errorMessage && <p className="error">{errorMessage}</p>}
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label>Username</label>
