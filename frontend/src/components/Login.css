@@ -46,4 +46,17 @@ button:hover {
   color: red;
   text-align: center;
   margin-bottom: 10px;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar-link:hover {
+  background-color: #ddd;
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
 }

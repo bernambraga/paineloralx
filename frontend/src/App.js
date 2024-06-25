@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import './App.css';
 import Login from './components/Login';
 import Home from './components/Home';
@@ -37,17 +37,11 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Switch>
-          <Route path="/login">
-            {isLoggedIn ? <Redirect to="/home" /> : <Login onLoginSuccess={handleLoginSuccess} />}
-          </Route>
-          <Route path="/home">
-            {isLoggedIn ? <Home user={user} onLogout={handleLogout} /> : <Redirect to="/login" />}
-          </Route>
-          <Route path="/">
-            {isLoggedIn ? <Redirect to="/home" /> : <Redirect to="/login" />}
-          </Route>
-        </Switch>
+        <Routes>
+          <Route path="/login" element={isLoggedIn ? <Navigate to="/home" /> : <Login onLoginSuccess={handleLoginSuccess} />} />
+          <Route path="/home" element={isLoggedIn ? <Home user={user} onLogout={handleLogout} /> : <Navigate to="/login" />} />
+          <Route path="/" element={isLoggedIn ? <Navigate to="/home" /> : <Navigate to="/login" />} />
+        </Routes>
       </div>
     </Router>
   );

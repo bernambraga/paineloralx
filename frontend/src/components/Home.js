@@ -1,10 +1,10 @@
 import React from 'react';
 import Layout from './Layout';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const Home = ({ user, onLogout }) => {
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const handleLogout = async () => {
     try {
@@ -16,7 +16,7 @@ const Home = ({ user, onLogout }) => {
       });
       localStorage.removeItem('token');
       onLogout();
-      history.push('/');
+      navigate('/');
     } catch (error) {
       console.error('There was an error logging out!', error);
     }
