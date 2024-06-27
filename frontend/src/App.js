@@ -1,35 +1,29 @@
-// src/App.js
-import React, { useState } from 'react';
-import Navbar from './components/Navbar';
-import Home from './components/Home';
-import Login from './components/Login';
-import axios from 'axios';
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import Home from './pages/Home'
+import Login from './pages/Login'
+import Register from './pages/Register'
+import Contact from './pages/Contact'
+import SAC from './pages/SAC'
+import About from './pages/About'
+import Header from './components/Header/Header'
 
 function App() {
-    const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem('token'));
-
-    const handleLoginSuccess = () => {
-        setIsLoggedIn(true);
-    };
-
-    const handleLogout = () => {
-        localStorage.removeItem('token');
-        delete axios.defaults.headers.common['Authorization'];
-        setIsLoggedIn(false);
-    };
-
     return (
         <div className="App">
-            {isLoggedIn ? (
-                <>
-                    <Navbar onLogout={handleLogout} />
-                    <Home />
-                </>
-            ) : (
-                <Login onLoginSuccess={handleLoginSuccess} />
-            )}
+            <BrowserRouter>
+                {/* Header */}
+                <Header />
+                <Routes>
+                    <Route path="/" element={<Home />}/>
+                    <Route path="/login" element={<Login />}/>
+                    <Route path='/about' element={<About />}/>
+                    <Route path='/sac' element={<SAC />}/>
+                    <Route path='/register' element={<Register />}/>
+                    <Route path='/contact' element={<Contact />}/>
+                </Routes>
+            </BrowserRouter>
         </div>
-    );
+    )
 }
 
-export default App;
+export default App
