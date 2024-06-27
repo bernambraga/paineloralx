@@ -1,3 +1,8 @@
+/* Sidebar Global Style 
+vermelho claro botão #e53d3a
+vermelho logo escuro #db3a37
+*/
+
 .sidebar{
     display: none;
     position: fixed;
@@ -38,18 +43,18 @@
 }
 
 .activeLink{
-    background-color: #ee1919 !important;
+    background-color: #e53d3a !important;
     color: #fff !important;
 }
 
 .login{
     background-color: #fff;
-    color: #ee1919;
+    color: #db3a37;
 }
 
 .login:hover{
     cursor: pointer;
-    background-color: #ee1919;
+    background-color: #e53d3a;
     color: #fff;
 }
 
