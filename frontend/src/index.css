@@ -5,7 +5,9 @@
 }
 
 :root{
-  --primary-color: #00a1ff;
+  --primary-color: #e53d3a;
+  --logo-color: #db3a37;
+  --text-color: #747070;
 }
 
 body{
@@ -27,5 +29,5 @@ body{
 
 .page h1{
   font-size: 3rem;
-  color: #000000;
+  color: #747070;
 }

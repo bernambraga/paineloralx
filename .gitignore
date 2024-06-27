@@ -2,7 +2,7 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=react,python,django
 
 ### Django ###
-*.log
+#*.log
 *.pot
 *.pyc
 dash/__pycache__

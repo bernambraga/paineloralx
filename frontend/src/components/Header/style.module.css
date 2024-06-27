@@ -1,6 +1,7 @@
 /* Header Global Style 
 vermelho claro botão #e53d3a
 vermelho logo escuro #db3a37
+Cinza Texto #747070
 */
 header a{
     text-decoration: none;
@@ -10,7 +11,7 @@ header a{
 }
 
 header a:hover{
-    color: #e53d3a;
+    color: var(--primary-color);
     cursor: pointer;
     }
 
@@ -33,7 +34,7 @@ header {
 
 .logo a{
     font-size: 1.9rem;
-    color: #db3a37;
+    color: var(--logo-color);
     font-weight: bold;
 }
 
@@ -47,7 +48,7 @@ header {
 }
 
 .activeLink{
-    border-bottom: 2px solid #e53d3a !important;
+    border-bottom: 2px solid var(--primary-color) !important;
 }
 
 .auth{
@@ -59,8 +60,8 @@ header {
 
 .login{
     padding: 0.5rem 1rem;
-    background-color: #db3a37;
-    color: #000000;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
     border-radius: 10px;
     font-size: 16px;
     font-weight: bold;

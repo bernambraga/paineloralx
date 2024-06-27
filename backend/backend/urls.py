@@ -12,4 +12,5 @@ urlpatterns = [
     path('api/user/', UserDetail.as_view(), name='user-detail'),
     path('', TemplateView.as_view(template_name='index.html')),
     path('ws/logs/', LogConsumer.as_asgi()),
+    path('users/', include('users.urls')),
 ]

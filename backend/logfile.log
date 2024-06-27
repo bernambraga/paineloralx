@@ -1,0 +1,10 @@
+2024-06-27 18:00:00,000 - INFO - Starting the application
+2024-06-27 18:01:00,000 - DEBUG - Initializing database connection
+2024-06-27 18:02:00,000 - WARNING - Database connection is slow
+2024-06-27 18:03:00,000 - ERROR - Failed to connect to the database
+2024-06-27 18:04:00,000 - INFO - Retrying database connection
+2024-06-27 18:05:00,000 - INFO - Database connection established
+2024-06-27 18:06:00,000 - INFO - Application is running
+2024-06-27 18:07:00,000 - DEBUG - Processing user request
+2024-06-27 18:08:00,000 - INFO - User request processed successfully
+2024-06-27 18:09:00,000 - INFO - Shutting down the application

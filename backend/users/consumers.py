@@ -4,6 +4,7 @@ from channels.generic.websocket import AsyncWebsocketConsumer
 
 class LogConsumer(AsyncWebsocketConsumer):
     async def connect(self):
+        print("hello")
         await self.accept()
         # Ajuste o caminho do arquivo de log
         self.logfile = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), 'logfile.log')

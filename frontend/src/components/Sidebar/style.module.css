@@ -1,6 +1,7 @@
 /* Sidebar Global Style 
 vermelho claro botão #e53d3a
 vermelho logo escuro #db3a37
+Cinza Texto #747070
 */
 
 .sidebar{
@@ -26,7 +27,7 @@ vermelho logo escuro #db3a37
     position: absolute;
     top: 10px;
     right: 10px;
-    color: #fff;
+    color: #e53d3a;
     cursor: pointer;
 }
 
