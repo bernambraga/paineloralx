@@ -29,5 +29,5 @@ body{
 
 .page h1{
   font-size: 3rem;
-  color: #747070;
+  color: var(--text-color);
 }

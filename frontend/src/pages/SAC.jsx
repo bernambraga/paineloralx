@@ -22,7 +22,14 @@ const SAC = () => {
       }
     };
 
+    // Call fetchLogs immediately to load data on page load
     fetchLogs();
+
+    // Set an interval to call fetchLogs every 30 seconds
+    const intervalId = setInterval(fetchLogs, 30000);
+
+    // Cleanup interval on component unmount
+    return () => clearInterval(intervalId);
   }, []);
 
   return (
