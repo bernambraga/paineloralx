@@ -85,9 +85,9 @@ header {
     display: none;
 }
 
-/* Responsive Design */
+/* Responsive Design ''''''992px''''''*/
 
-@media(max-width: 992px){
+@media(max-width: 900px){
     header{
         background-color: transparent;
         backdrop-filter: none;

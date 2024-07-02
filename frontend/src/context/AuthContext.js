@@ -9,7 +9,7 @@ const AuthProvider = ({ children }) => {
 
     const login = async (username, password) => {
         try {
-            const response = await axios.post('http://localhost:8000/api/login/', { username, password });
+            const response = await axios.post('http://localhost:8000/users/login/', { username, password });
             setUser(response.data);
             localStorage.setItem('token', response.data.token);
             return response.data;
@@ -21,15 +21,17 @@ const AuthProvider = ({ children }) => {
 
     const logout = async () => {
         try {
-            await axios.post('http://localhost:8000/api/logout/', {}, {
+            await axios.post('http://localhost:8000/users/logout/', {}, {
                 headers: {
                     'Authorization': `Token ${localStorage.getItem('token')}`
                 }
             });
             setUser(null);
             localStorage.removeItem('token');
+            return true; // Indica que o logout foi bem-sucedido
         } catch (error) {
             console.error('Logout failed', error);
+            return false; // Indica que o logout falhou
         }
     };
 
@@ -38,7 +40,7 @@ const AuthProvider = ({ children }) => {
             const token = localStorage.getItem('token');
             if (token) {
                 try {
-                    const response = await axios.get('http://localhost:8000/api/user/', {
+                    const response = await axios.get('http://localhost:8000/users/user/', {
                         headers: {
                             'Authorization': `Token ${token}`
                         }

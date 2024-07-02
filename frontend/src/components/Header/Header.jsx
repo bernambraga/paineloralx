@@ -7,13 +7,13 @@ import Sidebar from '../Sidebar/Sidebar'
 import { AuthContext } from '../../context/AuthContext'
 
 const Header = ({ show }) => {
-    const { user, logout } = useContext(AuthContext)
+    const { logout } = useContext(AuthContext)
     const navigate = useNavigate()
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        const user = await logout
-        if (user) {
+        const success = await logout()
+        if (success) {
             navigate('/')
         } else {
             alert('Logout failed')

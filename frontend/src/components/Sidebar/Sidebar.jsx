@@ -8,13 +8,14 @@ import { AuthContext } from '../../context/AuthContext'
 
 
 const Sidebar = ({isOpen, closeSidebar}) => {
-    const { user, logout } = useContext(AuthContext)
+    const { logout } = useContext(AuthContext)
     const navigate = useNavigate()
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        const user = await logout
+        const user = await logout() // Chame a função logout corretamente
         if (user) {
+            closeSidebar() // Execute a função closeSidebar corretamente
             navigate('/')
         } else {
             alert('Logout failed')
@@ -41,7 +42,7 @@ const Sidebar = ({isOpen, closeSidebar}) => {
                     }
             </div>
             {/* Auth Links */}  
-            <div className={classes.auth}>
+            <div className={classes.authContext}>
                 <button onClick={handleSubmit} className={classes.login}>Sair</button>
             </div>
         </div>

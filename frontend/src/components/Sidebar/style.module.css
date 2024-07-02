@@ -48,20 +48,36 @@ Cinza Texto #747070
     color: #fff !important;
 }
 
+.authContext{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .login{
-    background-color: #fff;
-    color: #db3a37;
-}
-
-.login:hover{
+    padding: .5rem 1.5rem;
+    background-color: var(--logo-color);
+    color: #ffffff;
+    border-radius: 15px;
+    border-color: rgba(0, 0, 0, 0.5);
+    border-width: 0.0cap;
+    font-size: 16px;
+    font-weight: bold;
     cursor: pointer;
-    background-color: #e53d3a;
-    color: #fff;
 }
 
-/* Responsive Design */
+.login:hover {
+    scale: 1.05;
+    color: #fff
+}
 
-@media(max-width: 992px){
+.login:active{
+    scale: 1;
+}
+
+/* Responsive Design ''''''992px''''''*/
+
+@media(max-width: 900px){
     .sidebar{
         display: flex;
         flex-direction: column;

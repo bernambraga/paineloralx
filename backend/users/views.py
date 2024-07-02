@@ -8,8 +8,6 @@ from django.contrib.auth.models import User
 from django.http import JsonResponse
 from django.views.decorators.csrf import ensure_csrf_cookie
 from django.utils.decorators import method_decorator
-import os
-from django.views import View
 
 class CustomAuthToken(ObtainAuthToken):
     def post(self, request, *args, **kwargs):
@@ -57,15 +55,3 @@ class UserDetail(APIView):
             'email': user.email,
         })
     
-class LogView(View):
-    def get(self, request):
-        log_file_path = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), 'logfile.log')
-        print(f"Reading log file from: {log_file_path}")  # Debugging information
-        try:
-            with open(log_file_path, 'r') as file:
-                logs = file.readlines()
-            print(f"Log contents: {logs}")  # Debugging information
-            return JsonResponse({'logs': logs, 'log_file_path': log_file_path}, safe=False)
-        except FileNotFoundError:
-            print("Log file not found")  # Debugging information
-            return JsonResponse({'error': 'Log file not found', 'log_file_path': log_file_path}, status=404)
