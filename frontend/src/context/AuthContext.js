@@ -7,7 +7,6 @@ const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
 
-    // Função para obter o token CSRF dos cookies
     const getCSRFToken = () => {
         let csrfToken = null;
         if (document.cookie && document.cookie !== '') {
@@ -23,9 +22,15 @@ const AuthProvider = ({ children }) => {
         return csrfToken;
     };
 
+    const getBaseUrl = () => {
+        return window.location.hostname === 'localhost'
+            ? 'http://localhost:8000'
+            : 'https://paineloralx.com.br';
+    };
+
     const login = async (username, password) => {
         try {
-            const response = await axios.post('http://localhost:8000/users/login/', 
+            const response = await axios.post(`${getBaseUrl()}/users/login/`, 
                 { username, password },
                 {
                     headers: {
@@ -45,7 +50,7 @@ const AuthProvider = ({ children }) => {
 
     const logout = async () => {
         try {
-            await axios.post('http://localhost:8000/users/logout/', {}, {
+            await axios.post(`${getBaseUrl()}/users/logout/`, {}, {
                 headers: {
                     'X-CSRFToken': getCSRFToken(),
                     'Authorization': `Token ${localStorage.getItem('token')}`
@@ -54,10 +59,10 @@ const AuthProvider = ({ children }) => {
             });
             setUser(null);
             localStorage.removeItem('token');
-            return true; // Indica que o logout foi bem-sucedido
+            return true;
         } catch (error) {
             console.error('Logout failed', error);
-            return false; // Indica que o logout falhou
+            return false;
         }
     };
 
@@ -66,7 +71,7 @@ const AuthProvider = ({ children }) => {
             const token = localStorage.getItem('token');
             if (token) {
                 try {
-                    const response = await axios.get('http://localhost:8000/users/user/', {
+                    const response = await axios.get(`${getBaseUrl()}/users/user/`, {
                         headers: {
                             'Authorization': `Token ${token}`
                         }

@@ -3,12 +3,42 @@ import axios from 'axios';
 import './CronTab.css'; // Importe o CSS aqui
 
 const CronConfig = () => {
-  const [interval, setInterval] = useState(5);
+  const [interval, setInterval] = useState(1);
+
+  const getBaseUrl = () => {
+    return window.location.hostname === 'localhost'
+      ? 'http://localhost:8000'
+      : 'https://paineloralx.com.br';
+  };
+
+  const getCSRFToken = () => {
+    let csrfToken = null;
+    if (document.cookie && document.cookie !== '') {
+      const cookies = document.cookie.split(';');
+      for (let i = 0; i < cookies.length; i++) {
+        const cookie = cookies[i].trim();
+        if (cookie.substring(0, 10) === 'csrftoken=') {
+          csrfToken = decodeURIComponent(cookie.substring(10));
+          break;
+        }
+      }
+    }
+    return csrfToken;
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:8000/update-cron/', { interval });
+      const response = await axios.post(
+        `${getBaseUrl()}/sac/update-cron/`,
+        { interval },
+        {
+          headers: {
+            'X-CSRFToken': getCSRFToken(),
+          },
+          withCredentials: true,
+        }
+      );
       alert(response.data.message);
     } catch (error) {
       console.error('Error updating cron:', error);

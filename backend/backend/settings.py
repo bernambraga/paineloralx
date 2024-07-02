@@ -135,12 +135,23 @@ ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
     '191.252.202.133',
+    'paineloralx.com.br',
 ]
 
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
     'http://127.0.0.1:3000',
     'http://191.252.202.133:3000',
+    'http://paineloralx.com.br',
+    'https://paineloralx.com.br',
+]
+CORS_ALLOW_ALL_ORIGINS = False
+
+CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_HEADERS = [
+    'content-type',
+    'authorization',
+    'X-CSRFToken',
 ]
 
 CSRF_COOKIE_NAME = 'csrftoken'
@@ -148,12 +159,6 @@ CSRF_TRUSTED_ORIGINS = [
     'http://localhost:3000',
     'http://127.0.0.1:3000',
     'http://191.252.202.133:3000',
-]
-
-CORS_ALLOW_ALL_ORIGINS = True
-CORS_ALLOW_CREDENTIALS = True
-CORS_ALLOW_HEADERS = [
-    'content-type',
-    'authorization',
-    'X-CSRFToken',
+    'http://paineloralx.com.br',
+    'https://paineloralx.com.br',
 ]

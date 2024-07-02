@@ -1,23 +1,29 @@
-import React, { useState, useContext } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { AuthContext } from '../../context/AuthContext'
-import './LoginForm.css'
+import React, { useState, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthContext';
+import './LoginForm.css';
+import { IoEye, IoEyeOff } from "react-icons/io5";
 
 const Login = () => {
-  const [username, setUsername] = useState('')
-  const [password, setPassword] = useState('')
-  const { login } = useContext(AuthContext)
-  const navigate = useNavigate()
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [type, setType] = useState('password');
+  const { login } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
-      e.preventDefault()
-      const user = await login(username, password)
-      if (user) {
-          navigate('/home')
-      } else {
-          alert('Login failed')
-      }
-  }
+    e.preventDefault();
+    const user = await login(username, password);
+    if (user) {
+      navigate('/home');
+    } else {
+      alert('Login failed');
+    }
+  };
+
+  const handleToggle = () => {
+    setType(type === 'password' ? 'text' : 'password');
+  };
 
   return (
     <div className="login-page">
@@ -29,7 +35,7 @@ const Login = () => {
           <label>Usuário</label>
           <input 
             id='username'
-            type="username"
+            type="text"
             name='username'
             autoComplete='username'
             value={username} 
@@ -37,17 +43,21 @@ const Login = () => {
             required
           />
           <label>Senha</label>
-          <input 
-            id="password"
-            name="password"
-            type="password"
-            autoComplete="current-password"
-            value={password} 
-            onChange={(event) => setPassword(event.target.value)} 
-            required
-          />
+          <div className="input-wrapper">
+            <input 
+              id="password"
+              name="password"
+              type={type}
+              autoComplete="current-password"
+              value={password} 
+              onChange={(event) => setPassword(event.target.value)} 
+              required
+            />
+            <span className="icon-eye" onClick={handleToggle}>
+              {type === 'password' ? <IoEyeOff size={20} /> : <IoEye size={20} />}
+            </span>
+          </div>
           <button type="submit">Continuar</button>
-          
         </form>
       </div>
       <div className="footer">
@@ -55,7 +65,7 @@ const Login = () => {
         <p>&copy; 2024</p>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;
