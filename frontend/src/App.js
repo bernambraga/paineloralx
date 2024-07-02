@@ -1,4 +1,5 @@
-import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import React from 'react'
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import Home from './pages/Home'
 import Login from './pages/Login'
 import Register from './pages/Register'
@@ -6,23 +7,45 @@ import Contact from './pages/Contact'
 import SAC from './pages/SAC'
 import About from './pages/About'
 import Header from './components/Header/Header'
+import { AuthProvider } from './context/AuthContext'
 
-function App() {
+const App = () => {
     return (
         <div className="App">
-            <BrowserRouter>
-                {/* Header */}
-                <Header />
-                <Routes>
-                    <Route path="/" element={<Home />}/>
-                    <Route path="/login" element={<Login />}/>
-                    <Route path='/about' element={<About />}/>
-                    <Route path='/sac' element={<SAC />}/>
-                    <Route path='/register' element={<Register />}/>
-                    <Route path='/contact' element={<Contact />}/>
-                </Routes>
-            </BrowserRouter>
+            <AuthProvider>
+                <BrowserRouter>
+                    <AppContent />
+                </BrowserRouter>
+            </AuthProvider>
         </div>
+    )
+}
+
+const AppContent = () => {
+    const [showNavBar, setShowNavBar] = React.useState(true)
+    const location = useLocation()
+
+    React.useEffect(() => {
+        // Oculta a navbar e sidebar se estiver na rota de login
+        if (location.pathname === '/') {
+            setShowNavBar(false)
+        } else {
+            setShowNavBar(true)
+        }
+    }, [location])
+
+    return (
+        <>
+            <Header show={showNavBar} />
+            <Routes>
+                <Route path="/" element={<Login />} />
+                <Route path="/home" element={<Home />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/sac" element={<SAC />} />
+                <Route path="/register" element={<Register />} />
+                <Route path="/contact" element={<Contact />} />
+            </Routes>
+        </>
     )
 }
 

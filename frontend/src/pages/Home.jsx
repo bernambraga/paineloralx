@@ -1,11 +1,22 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { AuthContext } from '../context/AuthContext'
 
 const Home = () => {
-  return (
-    <div className='page'>
-      <h1>Home</h1>
-    </div>
-  )
+    const { user } = useContext(AuthContext)
+
+    return (
+        <div>
+            <h2>Home</h2>
+            {user ? (
+                <div>
+                    <p>Bem vindo, {user.username}.</p>
+                </div>
+            ) : (
+                <p>Erro no Login.</p>
+            )}
+        </div>
+    )
 }
 
 export default Home
