@@ -31,7 +31,7 @@ const Login = () => {
             id='username'
             type="username"
             name='username'
-            autocomplete='username'
+            autoComplete='username'
             value={username} 
             onChange={(event) => setUsername(event.target.value)} 
             required
@@ -41,7 +41,7 @@ const Login = () => {
             id="password"
             name="password"
             type="password"
-            autocomplete="current-password"
+            autoComplete="current-password"
             value={password} 
             onChange={(event) => setPassword(event.target.value)} 
             required

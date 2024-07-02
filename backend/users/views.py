@@ -31,13 +31,6 @@ class CustomAuthToken(ObtainAuthToken):
             'email': user.email
         })
 
-class Logout(APIView):
-    permission_classes = [IsAuthenticated]
-
-    def post(self, request, *args, **kwargs):
-        request.user.auth_token.delete()
-        return Response(status=204)
-
 @method_decorator(ensure_csrf_cookie, name='dispatch')
 class GetCSRFToken(APIView):
     permission_classes = [AllowAny]  # Permitir acesso anônimo

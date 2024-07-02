@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
+import './LogReader.css'; // Importe o CSS aqui
 
 const SAC = () => {
   const [logs, setLogs] = useState([]);
@@ -42,10 +43,10 @@ const SAC = () => {
   }, [isFetching]); // Dependência de isFetching para reexecutar o efeito quando necessário
 
   return (
-    <div>
+    <div className="container">
       <h1>SAC - Log Viewer</h1>
       <p><strong>Log File Path:</strong> {logFilePath}</p>
-      <div style={{ whiteSpace: 'pre-wrap', fontFamily: 'monospace' }}>
+      <div className="log-container">
         {logs.map((log, index) => (
           <p key={index}>{log}</p>
         ))}

@@ -5,7 +5,11 @@ from crontab import CronTab
 
 class LogView(View):
     def get(self, request):
-        log_file_path = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), 'logfile.log')
+        # Calcula o caminho para a pasta principal subindo três níveis a partir do arquivo atual
+        base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+        # Adiciona os subdiretórios 'bots' e 'test' ao caminho
+        log_file_path = os.path.join(base_dir, 'bots', 'test', 'logfile.log')
         print(f"Reading log file from: {log_file_path}")  # Debugging information
         try:
             with open(log_file_path, 'r') as file:
@@ -20,16 +24,16 @@ class LogView(View):
 def update_cron(request):
     if request.method == 'POST':
         interval = int(request.POST.get('interval', 5))  # Default to 5 minutes if not specified
-        script_path = '/home/user/scripts/meu_script.py'
+        script_path = '/home/oralx/paineloralx/bots/test/script.py'
         python_path = '/usr/bin/python3'
 
         # Create a new cron job
         cron = CronTab(user=os.getlogin())
-        job = cron.new(command=f'{python_path} {script_path} >> /home/user/scripts/meu_script.log 2>&1')
+        job = cron.new(command=f'{python_path} {script_path} >> /home/oralx/paineloralx/bots/test/logfile.log 2>&1')
         job.minute.every(interval)
 
         # Remove existing jobs with the same command
-        cron.remove_all(command=f'{python_path} {script_path} >> /home/user/scripts/meu_script.log 2>&1')
+        cron.remove_all(command=f'{python_path} {script_path} >> /home/oralx/paineloralx/bots/test/logfile.log 2>&1')
 
         # Add the new job
         cron.write()

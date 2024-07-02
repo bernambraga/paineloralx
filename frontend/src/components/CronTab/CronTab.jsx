@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import './CronTab.css'; // Importe o CSS aqui
 
 const CronConfig = () => {
   const [interval, setInterval] = useState(5);
@@ -16,7 +17,7 @@ const CronConfig = () => {
   };
 
   return (
-    <div>
+    <div className="container">
       <h1>Configure Cron Job</h1>
       <form onSubmit={handleSubmit}>
         <label>
