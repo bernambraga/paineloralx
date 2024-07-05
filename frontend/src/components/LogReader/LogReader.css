@@ -1,4 +1,3 @@
-/* SAC.css */
 .container {
   max-width: 800px;
   margin: 0 auto;
@@ -13,6 +12,49 @@ h1 {
 
 p {
   color: #555;
+}
+
+.input-container {
+  display: flex;
+}
+
+.column{
+  width: 50%;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.input-container label {
+  padding: 10px;
+  color: #555;
+  font-weight: bold;
+}
+
+.input-container select {
+  padding: 10px;
+  margin-left: 10px;
+  border: 1px solid #999999;
+  border-radius: 5px;
+  width: 200px;
+  height: 35px;
+}
+
+.input-container button {
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #4085c5;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  height: 35px;
+  width: 180px;
+}
+
+button:hover {
+  background-color: #2f6496;
 }
 
 .log-container {

@@ -17,30 +17,59 @@ form {
   align-items: center;
 }
 
+.input-container{
+  display: flex;
+  align-items: center;
+}
+
 label {
   margin-bottom: 15px;
   color: #555;
   font-weight: bold;
+  padding: 10px;
 }
 
 input[type="number"] {
   padding: 10px;
   margin-left: 10px;
-  border: 1px solid #ddd;
+  border: 2px solid #acacac;
   border-radius: 5px;
-  width: 100px;
+  width: 60px;
+  height: 30px;
 }
 
-button {
+.container button{
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
-  background-color: #4CAF50;
+  background-color: #3f89ac;
   color: white;
   cursor: pointer;
   font-size: 16px;
+  width: 300px;
 }
 
-button:hover {
-  background-color: #45a049;
+.container button:hover{
+  background-color: #33708b;
+}
+
+.cron-jobs {
+  margin-top: 20px;
+}
+
+.cron-jobs h2 {
+  color: #333;
+}
+
+.cron-jobs ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.cron-jobs li {
+  background: #f9f9f9;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
 }

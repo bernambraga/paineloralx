@@ -12,7 +12,7 @@ export const LINKS = [
         name: 'Contact',
     },
     {
-        to: '/sac',
-        name: 'SAC',
+        to: '/bots',
+        name: 'Bots',
     },
 ]
