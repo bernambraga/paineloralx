@@ -25,12 +25,12 @@ const AuthProvider = ({ children }) => {
     const getBaseUrl = () => {
         return window.location.hostname === 'localhost'
             ? 'http://localhost:8000'
-            : 'http://paineloralx.com.br';
+            : 'https://paineloralx.com.br';
     };
 
     const login = async (username, password) => {
         try {
-            console.info('URLbase: ', getBaseUrl())
+            console.error('URLbase: ', getBaseUrl())
             const response = await axios.post(`${getBaseUrl()}/users/login/`, 
                 { username, password },
                 {
