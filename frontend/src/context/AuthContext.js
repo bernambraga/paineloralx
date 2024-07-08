@@ -25,7 +25,7 @@ const AuthProvider = ({ children }) => {
     const getBaseUrl = () => {
         return window.location.hostname === 'localhost'
             ? 'http://localhost:8000'
-            : 'https://paineloralx.com.br';
+            : 'http://paineloralx.com.br';
     };
 
     const login = async (username, password) => {
