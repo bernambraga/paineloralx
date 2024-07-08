@@ -152,6 +152,7 @@ CORS_ALLOWED_ORIGINS = [
     'http://dev.paineloralx.com.br',
     'http://qa.paineloralx.com.br',
     'https://paineloralx.com.br',
+    'http://paineloralx.com.br',
 ]
 CORS_ALLOW_ALL_ORIGINS = False
 
@@ -170,4 +171,5 @@ CSRF_TRUSTED_ORIGINS = [
     'http://dev.paineloralx.com.br',
     'http://qa.paineloralx.com.br',
     'https://paineloralx.com.br',
+    'http://paineloralx.com.br',
 ]
