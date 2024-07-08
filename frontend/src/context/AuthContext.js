@@ -30,6 +30,7 @@ const AuthProvider = ({ children }) => {
 
     const login = async (username, password) => {
         try {
+            console.info('URLbase: ', getBaseUrl())
             const response = await axios.post(`${getBaseUrl()}/users/login/`, 
                 { username, password },
                 {
