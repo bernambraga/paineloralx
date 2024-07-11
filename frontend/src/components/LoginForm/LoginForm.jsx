@@ -2,6 +2,8 @@ import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
 import './LoginForm.css';
+import { IoEyeOff } from "react-icons/io5";
+import { IoEye } from "react-icons/io5";
 
 const Login = () => {
   const [username, setUsername] = useState('');
@@ -38,7 +40,7 @@ const Login = () => {
             name='username'
             autoComplete='username'
             value={username} 
-            onChange={(event) => setUsername(event.target.value)} 
+            onChange={(e) => setUsername(e.target.value)} 
             required
           />
           <label>Senha</label>
@@ -49,7 +51,7 @@ const Login = () => {
               type={type}
               autoComplete="current-password"
               value={password} 
-              onChange={(event) => setPassword(event.target.value)} 
+              onChange={(e) => setPassword(e.target.value)} 
               required
             />
             <span className="icon-eye" onClick={handleToggle}>

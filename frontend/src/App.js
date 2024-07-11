@@ -8,6 +8,7 @@ import Bots from './pages/Bots'
 import About from './pages/About'
 import Header from './components/Header/Header'
 import { AuthProvider } from './context/AuthContext'
+import PrivateRoute from './PrivateRoute'
 
 const App = () => {
     return (
@@ -22,7 +23,7 @@ const App = () => {
 }
 
 const AppContent = () => {
-    const [showNavBar, setShowNavBar] = React.useState(true)
+    const [showNavBar, setShowNavBar] = React.useState(false)
     const location = useLocation()
 
     React.useEffect(() => {
@@ -39,11 +40,13 @@ const AppContent = () => {
             <Header show={showNavBar} />
             <Routes>
                 <Route path="/" element={<Login />} />
-                <Route path="/home" element={<Home />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/bots" element={<Bots />} />
-                <Route path="/register" element={<Register />} />
-                <Route path="/contact" element={<Contact />} />
+                <Route element={<PrivateRoute />}>
+                    <Route path="/home" element={<Home />} />
+                    <Route path="/about" element={<About />} />
+                    <Route path="/bots" element={<Bots />} />
+                    <Route path="/register" element={<Register />} />
+                    <Route path="/contact" element={<Contact />} />
+                </Route>
             </Routes>
         </>
     )
