@@ -2,7 +2,6 @@ import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
 import './LoginForm.css';
-import { IoEye, IoEyeOff } from "react-icons/io5";
 
 const Login = () => {
   const [username, setUsername] = useState('');
