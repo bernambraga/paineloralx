@@ -6,18 +6,18 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
-    "axios": "^1.7.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-icons": "^5.2.1",
-    "react-icons-kit": "^2.0.0",
-    "react-router-dom": "^6.24.0",
-    "react-scripts": "^5.0.1",
+    "react-router-dom": "^6.24.1",
+    "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "build:prod": "react-scripts build && mv build/* ../frontend_build/prod",
+    "build:dev": "react-scripts build && mv build/* ../frontend_build/dev",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -38,6 +38,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "proxy": "http://localhost:8000"
+  }
 }

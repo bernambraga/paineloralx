@@ -10,12 +10,14 @@ local_settings.py
 db.sqlite3
 db.sqlite3-journal
 media
+static/
 
 
 
 # Distribution / packaging
 .Python
 build/
+frontend_build/
 develop-eggs/
 dist/
 downloads/
@@ -86,7 +88,8 @@ target/
 profile_default/
 ipython_config.py
 
-
+# Gunicorn stuff
+gunicorn*
 
 # PEP 582; used by e.g. github.com/David-OConnor/pyflow and github.com/pdm-project/pdm
 __pypackages__/
