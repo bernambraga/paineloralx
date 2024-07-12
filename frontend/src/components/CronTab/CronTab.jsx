@@ -8,6 +8,9 @@ const CronConfig = () => {
   const [scriptName, setScriptName] = useState('');
   const [scripts, setScripts] = useState([]);
   const [cronJobs, setCronJobs] = useState([]);
+  const [message, setMessage] = useState(''); // Estado para a mensagem temporária
+  const [messageType, setMessageType] = useState(''); // Estado para o tipo de mensagem (success ou error)
+
 
   useEffect(() => {
     fetchScripts();
@@ -15,13 +18,21 @@ const CronConfig = () => {
   }, []);
 
   const fetchScripts = async () => {
-    const response = await axios.get(`${getBaseUrl()}/sac/list-scripts/`);
-    setScripts(response.data.scripts);
+    try {
+      const response = await axios.get(`${getBaseUrl()}/bots/list-scripts/`);
+      setScripts(response.data.scripts);
+    } catch (error) {
+      console.error('Failed to fetch scripts', error);
+    }
   };
 
   const fetchCronJobs = async () => {
-    const response = await axios.get(`${getBaseUrl()}/sac/list-cronjobs/`);
-    setCronJobs(response.data.jobs);
+    try {
+      const response = await axios.get(`${getBaseUrl()}/bots/list-cronjobs/`);
+      setCronJobs(response.data.jobs);
+    } catch (error) {
+        console.error('Failed to fetch cron jobs', error);
+      }
   };
 
   const getBaseUrl = () => {
@@ -49,11 +60,11 @@ const CronConfig = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        `${getBaseUrl()}/sac/update-cron/`,
+        `${getBaseUrl()}/bots/update-cron/`,
         {
           hour: parseInt(hour, 10),
           minute: parseInt(minute, 10),
-          script_name: scriptName,
+          script_folder: scriptName,
         },
         {
           headers: {
@@ -62,33 +73,82 @@ const CronConfig = () => {
           withCredentials: true,
         }
       );
-      alert(response.data.message);
+      setMessage(response.data.message); // Definir a mensagem de sucesso
+      if(response.data.status === 'failed')
+        setMessageType('error');
+      else
+        setMessageType('success');
       fetchCronJobs(); // Refresh the list of cron jobs
     } catch (error) {
-      console.error('Error updating cron:', error);
-      alert('Failed to update cron job.');
+      console.error('Error updating cron job:', error);
+      setMessage('Failed to update cron job.'); // Definir a mensagem de erro
+      setMessageType('error');
+    } finally {
+      // Limpar a mensagem após 3 segundos
+      setTimeout(() => {
+          setMessage('');
+          setMessageType('');
+      }, 3000);
     }
   };
+
+
+  const handleDelete = async (command) => {
+    try {
+      const response = await axios.post(
+        `${getBaseUrl()}/bots/delete-cron/`,
+        {
+          command: command,
+        },
+        {
+          headers: {
+            'X-CSRFToken': getCSRFToken(),
+          },
+          withCredentials: true,
+        }
+      );
+      setMessage(response.data.message); // Definir a mensagem de sucesso
+      setMessageType('success');
+      fetchCronJobs(); // Refresh the list of cron jobs
+    } catch (error) {
+      console.error('Error deleting cron job:', error);
+        setMessage('Failed to delete cron job.'); // Definir a mensagem de erro
+        setMessageType('error');
+    } finally {
+      // Limpar a mensagem após 3 segundos
+      setTimeout(() => {
+          setMessage('');
+          setMessageType('');
+      }, 2500);
+    }
+  };
+
 
   const handleHourChange = (e) => {
     const value = e.target.value.padStart(2, '0');
     setHour(value);
   };
 
+
   const handleMinuteChange = (e) => {
     const value = e.target.value.padStart(2, '0');
     setMinute(value);
   };
 
+
   const handleScriptChange = (e) => {
     setScriptName(e.target.value);
   };
 
+
   return (
-    <div className="container">
+    <div className="container-cron">
       <h1>Cron Job Scheduler</h1>
+      {message && (
+        <div className={`message-cron ${messageType}`}>{message}</div> // Exibir a mensagem temporária
+      )}
       <form onSubmit={handleSubmit}>
-        <div className="input-container">
+        <div className="input-container-cron">
           <label>
             Hour:
             <input
@@ -111,6 +171,8 @@ const CronConfig = () => {
               required
             />
           </label>
+          </div>
+          <div className='input-container-cron'>
           <label>
             Script:
             <select value={scriptName} onChange={handleScriptChange}>
@@ -122,8 +184,8 @@ const CronConfig = () => {
               ))}
             </select>
           </label>
+          <button className='button-cron' type="submit">Set Cron Job</button>
         </div>
-        <button type="submit">Set Cron Job</button>
       </form>
       <div className="cron-jobs">
         <h2>Configured Cron Jobs</h2>
@@ -131,6 +193,7 @@ const CronConfig = () => {
           {cronJobs.map((job, index) => (
             <li key={index}>
               {job.schedule} - {job.command}
+              <button className="button-delete" onClick={() => handleDelete(job.command)}>Delete</button>
             </li>
           ))}
         </ul>

@@ -8,6 +8,8 @@ const LogReader = () => {
   const [folders, setFolders] = useState([]);
   const [selectedFolder, setSelectedFolder] = useState('');
   const initialRender = useRef(true); // Flag para evitar chamadas múltiplas na montagem inicial
+  const [message, setMessage] = useState(''); // Estado para a mensagem temporária
+  const [messageType, setMessageType] = useState(''); // Estado para o tipo de mensagem (success ou error)
 
   useEffect(() => {
     fetchFolders();
@@ -19,7 +21,7 @@ const LogReader = () => {
 
       setIsFetching(true);
       try {
-        const response = await fetch(`http://localhost:8000/sac/logs/?folder=${selectedFolder}`);
+        const response = await fetch(`http://localhost:8000/bots/logs/?folder=${selectedFolder}`);
         const data = await response.json();
         if (response.ok) {
           setLogs(data.logs);
@@ -46,7 +48,7 @@ const LogReader = () => {
 
   const fetchFolders = async () => {
     try {
-      const response = await fetch('http://localhost:8000/sac/list-scripts/');
+      const response = await fetch('http://localhost:8000/bots/list-scripts/');
       const data = await response.json();
       setFolders(data.scripts);
     } catch (error) {
@@ -57,37 +59,40 @@ const LogReader = () => {
   const handleFolderChange = (e) => {
     setSelectedFolder(e.target.value);
   };
-  const [error, setError] = useState('');
   const handleDownloadClick = () => {
     if (selectedFolder) {
-      setError('')
+      setMessage("Download iniciado."); // Definir a mensagem de sucesso
+      setMessageType('success');
       window.location.href = `http://localhost:8000/sac/download-log/?folder=${selectedFolder}`;
     } else {
-      setError('Por favor, selecione uma pasta primeiro.');
+      setMessage('Por favor, selecione um Bot antes de realizar o download.'); // Definir a mensagem de erro
+      setMessageType('error');
     }
+    setTimeout(() => {
+      setMessage('');
+      setMessageType('');
+  }, 2500);
   };
 
   return (
-    <div className="container">
+    <div className="container-log">
       <h1>Leitor de Logs</h1>
-      <div className="input-container">
-        <div className='column'>
-          <label>
-            Selecione um Bot:
-            <select value={selectedFolder} onChange={handleFolderChange}>
-              <option value="">Selecione um Bot</option>
-              {folders.map((folder) => (
-                <option key={folder} value={folder}>
-                  {folder}
-                </option>
-              ))}
-            </select>
-          </label>
-        </div>
-        <div className='column'>
-        {error && <p style={{ color: 'red' }}>{error}</p>}
+      {message && (
+        <div className={`message ${messageType}`}>{message}</div> // Exibir a mensagem temporária
+      )}
+      <div className="input-container-log">
+        <label>
+          Selecione um Bot:
+          <select value={selectedFolder} onChange={handleFolderChange}>
+            <option value="">Selecione um Bot</option>
+            {folders.map((folder) => (
+              <option key={folder} value={folder}>
+                {folder}
+              </option>
+            ))}
+          </select>
+        </label>
         <button onClick={handleDownloadClick}>Baixar Log</button>
-        </div>
       </div>
       <p><strong>Caminho do arquivo de Log:</strong> {logFilePath}</p>
       <div className="log-container">

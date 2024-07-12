@@ -1,4 +1,4 @@
-.container {
+.container-log {
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
@@ -14,26 +14,19 @@ p {
   color: #555;
 }
 
-.input-container {
+.input-container-log {
   display: flex;
-}
-
-.column{
-  width: 50%;
-  padding: 10px;
-  display: flex;
-  justify-content: center;
   align-items: center;
-  text-align: center;
+  justify-content: center;
 }
 
-.input-container label {
+.input-container-log label {
   padding: 10px;
   color: #555;
   font-weight: bold;
 }
 
-.input-container select {
+.input-container-log select {
   padding: 10px;
   margin-left: 10px;
   border: 1px solid #999999;
@@ -42,15 +35,17 @@ p {
   height: 35px;
 }
 
-.input-container button {
+.input-container-log button {
   padding: 10px;
   border-radius: 5px;
+  border: none;
   background-color: #4085c5;
   color: white;
   cursor: pointer;
   font-size: 16px;
   height: 35px;
   width: 180px;
+  margin-bottom: 10px;
 }
 
 button:hover {
@@ -65,10 +60,30 @@ button:hover {
   margin-top: 20px;
   white-space: pre-wrap;
   font-family: monospace;
-  max-height: 400px; /* Altura máxima do container */
+  max-height: 300px; /* Altura máxima do container */
   overflow-y: auto; /* Adiciona a barra de rolagem vertical */
 }
 
 .log-container p {
   margin: 5px 0;
+}
+
+.message {
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  text-align: center;
+  width: 100%;
+}
+
+.message.success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.message.error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
 }

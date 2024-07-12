@@ -5,6 +5,7 @@ import getpass
 from django.http import JsonResponse, FileResponse
 from crontab import CronTab
 
+
 class LogView(View):
     def get(self, request):
         script_folder = request.GET.get('folder')
@@ -20,6 +21,7 @@ class LogView(View):
         except FileNotFoundError:
             return JsonResponse({'error': f'Log file not found in folder {script_folder}', 'log_file_path': log_file_path}, status=404)
 
+
 def list_scripts(request):
     base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
     bots_dir = os.path.join(base_dir, 'bots')
@@ -29,15 +31,16 @@ def list_scripts(request):
     except Exception as e:
         return JsonResponse({'status': 'failed', 'message': f'Exception occurred: {str(e)}'})
 
+
 def update_cron(request):
     if request.method == 'POST':
         try:
             data = json.loads(request.body)
             hour = data.get('hour')
             minute = data.get('minute')
-            script_folder = data.get('script_name')
-            if hour is None or minute is None or script_folder is None:
-                return JsonResponse({'status': 'failed', 'message': 'Hour, minute, and script folder name must be provided.'})
+            script_folder = data.get('script_folder')
+            if script_folder == '':
+                return JsonResponse({'status': 'failed', 'message': 'Um bot deve ser selecionado.'})
             
             hour = int(hour)
             minute = int(minute)
@@ -69,6 +72,7 @@ def update_cron(request):
 
     return JsonResponse({'status': 'failed', 'message': 'Invalid request method.'})
 
+
 def list_cronjobs(request):
     try:
         user = getpass.getuser()
@@ -94,3 +98,28 @@ def download_log(request):
         return FileResponse(open(log_file_path, 'rb'), as_attachment=True, filename=f'{script_folder}_logfile.log')
     except FileNotFoundError:
         return JsonResponse({'error': f'Log file not found in folder {script_folder}'}, status=404)
+
+
+def delete_cronjob(request):
+    if request.method == 'POST':
+        try:
+            data = json.loads(request.body)
+            command = data.get('command')
+            if command is None:
+                return JsonResponse({'status': 'failed', 'message': 'Command must be provided.'})
+            
+            user = getpass.getuser()
+            cron = CronTab(user=user)
+            cron.remove_all(command=command)
+            cron.write()
+
+            cron_jobs = list(cron.find_command(command))
+            if cron_jobs:
+                return JsonResponse({'status': 'failed', 'message': 'Cron job not deleted.'})
+            else:
+                return JsonResponse({'status': 'success', 'message': f'Cron job removed successfully.'})
+        except Exception as e:
+            return JsonResponse({'status': 'failed', 'message': f'Exception occurred: {str(e)}'})
+    
+    return JsonResponse({'status': 'failed', 'message': 'Invalid request method.'})
+
