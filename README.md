@@ -11,19 +11,15 @@ python3 -m venv venv
 
 # 3 - Restart Gunicorn e Nginx
 sudo systemctl daemon-reload
-sudo systemctl start gunicorn_dev
-sudo systemctl start gunicorn_qa
-sudo systemctl start gunicorn
+sudo supervisorctl restart dev_paineloralx
+sudo supervisorctl restart paineloralx
 sudo systemctl restart nginx
- 
+
+
 # Build para produção
-npm run build:prod
-mv build/* /var/www/prod
+sudo rm -rf /home/oralx/paineloralx/frontend_build/prod/*
+sudo npm run build:prod
 
 # Build para desenvolvimento
-npm run build:dev
-mv build/* /var/www/dev
-
-# Build para QA
-npm run build:qa
-mv build/* /var/www/qa
+sudo rm -rf /home/oralx/paineloralx/frontend_build/dev/*
+sudo npm run build:dev

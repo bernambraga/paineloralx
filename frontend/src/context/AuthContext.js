@@ -9,10 +9,16 @@ const AuthProvider = ({ children }) => {
     const [loading, setLoading] = useState(true);
 
     const getBaseUrl = () => {
-        return window.location.hostname === 'localhost'
-            ? 'http://localhost:8000'
-            : 'https://paineloralx.com.br';
-    };
+        const hostname = window.location.hostname;
+      
+        if (hostname === 'localhost') {
+          return 'http://localhost:8000';
+        } else if (hostname === 'dev.paineloralx.com.br') {
+          return 'https://dev.paineloralx.com.br';
+        } else {
+          return 'https://paineloralx.com.br';
+        }
+      };
 
     const getCSRFToken = () => {
         let csrfToken = null;

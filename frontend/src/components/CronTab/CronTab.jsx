@@ -36,9 +36,15 @@ const CronConfig = () => {
   };
 
   const getBaseUrl = () => {
-    return window.location.hostname === 'localhost'
-      ? 'http://localhost:8000'
-      : 'https://paineloralx.com.br';
+    const hostname = window.location.hostname;
+  
+    if (hostname === 'localhost') {
+      return 'http://localhost:8000';
+    } else if (hostname === 'dev.paineloralx.com.br') {
+      return 'https://dev.paineloralx.com.br';
+    } else {
+      return 'https://paineloralx.com.br';
+    }
   };
 
   const getCSRFToken = () => {
@@ -190,12 +196,16 @@ const CronConfig = () => {
       <div className="cron-jobs">
         <h2>Configured Cron Jobs</h2>
         <ul>
-          {cronJobs.map((job, index) => (
+          {cronJobs.length === 0 ? (
+            <li>No cron jobs found.</li>
+            ) : (
+          cronJobs.map((job, index) => (
             <li key={index}>
               {job.schedule} - {job.command}
               <button className="button-delete" onClick={() => handleDelete(job.command)}>Delete</button>
             </li>
-          ))}
+            ))
+          )}
         </ul>
       </div>
     </div>

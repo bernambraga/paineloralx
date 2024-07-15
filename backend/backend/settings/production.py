@@ -1,6 +1,6 @@
 from .base import *
 
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
 	'localhost',
@@ -11,7 +11,7 @@ ALLOWED_HOSTS = [
     '127.0.0.1:8000',
     '127.0.0.1:3000',
     '191.252.202.133',
-    'paineloralx.com.br'
+    'paineloralx.com.br',
 ]
 
 CORS_ALLOWED_ORIGINS = [
@@ -28,3 +28,5 @@ CSRF_TRUSTED_ORIGINS = [
     'http://0.0.0.0',
     'https://paineloralx.com.br',
     ]
+
+

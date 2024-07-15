@@ -15,13 +15,27 @@ const LogReader = () => {
     fetchFolders();
   }, []);
 
+
+  const getBaseUrl = () => {
+    const hostname = window.location.hostname;
+  
+    if (hostname === 'localhost') {
+      return 'http://localhost:8000';
+    } else if (hostname === 'dev.paineloralx.com.br') {
+      return 'https://dev.paineloralx.com.br';
+    } else {
+      return 'https://paineloralx.com.br';
+    }
+  };
+
+
   useEffect(() => {
     const fetchLogs = async () => {
       if (isFetching || !selectedFolder) return; // Prevent multiple simultaneous fetches and fetch only if a folder is selected
 
       setIsFetching(true);
       try {
-        const response = await fetch(`http://localhost:8000/bots/logs/?folder=${selectedFolder}`);
+        const response = await fetch(`${getBaseUrl()}/bots/logs/?folder=${selectedFolder}`);
         const data = await response.json();
         if (response.ok) {
           setLogs(data.logs);
@@ -48,7 +62,7 @@ const LogReader = () => {
 
   const fetchFolders = async () => {
     try {
-      const response = await fetch('http://localhost:8000/bots/list-scripts/');
+      const response = await fetch(`${getBaseUrl()}/bots/list-scripts/`);
       const data = await response.json();
       setFolders(data.scripts);
     } catch (error) {
@@ -63,7 +77,7 @@ const LogReader = () => {
     if (selectedFolder) {
       setMessage("Download iniciado."); // Definir a mensagem de sucesso
       setMessageType('success');
-      window.location.href = `http://localhost:8000/sac/download-log/?folder=${selectedFolder}`;
+      window.location.href = `${getBaseUrl()}/bots/download-log/?folder=${selectedFolder}`;
     } else {
       setMessage('Por favor, selecione um Bot antes de realizar o download.'); // Definir a mensagem de erro
       setMessageType('error');
