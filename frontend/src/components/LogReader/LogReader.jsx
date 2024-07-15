@@ -18,13 +18,13 @@ const LogReader = () => {
 
   const getBaseUrl = () => {
     const hostname = window.location.hostname;
-  
+    console.log(hostname)
     if (hostname === 'localhost') {
-      return 'http://localhost:8000';
+      return 'http://localhost:8000/api';
     } else if (hostname === 'dev.paineloralx.com.br') {
-      return 'https://dev.paineloralx.com.br';
+      return 'https://dev.paineloralx.com.br/api';
     } else {
-      return 'https://paineloralx.com.br';
+      return 'https://paineloralx.com.br/api';
     }
   };
 

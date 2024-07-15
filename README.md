@@ -15,6 +15,10 @@ sudo supervisorctl restart dev_paineloralx
 sudo supervisorctl restart paineloralx
 sudo systemctl restart nginx
 
+# 4 Logs
+sudo tail -f /var/log/nginx/error.log
+sudo tail -f /var/log/nginx/access.log
+sudo tail -f /var/log/supervisor/paineloralx-stdout---supervisor-3w6zn8y0.log
 
 # Build para produção
 sudo rm -rf /home/oralx/paineloralx/frontend_build/prod/*

@@ -6,15 +6,22 @@ from rest_framework import status
 from rest_framework_simplejwt.tokens import RefreshToken
 from django.views.decorators.csrf import ensure_csrf_cookie
 from django.http import JsonResponse
+import logging
+
+logger = logging.getLogger('django')
+
 
 @ensure_csrf_cookie
 def get_csrf_token(request):
+    logger.info('CSRF cookie set')
     return JsonResponse({"message": "CSRF cookie set"})
 
 class LoginView(TokenObtainPairView):
+    logger.info('Login realizado')
     permission_classes = (AllowAny,)  # Permitir acesso público
 
 class LogoutView(APIView):
+    logger.info('Logout realizado')
     permission_classes = (AllowAny,)  # Permitir acesso público
 
     def post(self, request):

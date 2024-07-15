@@ -200,7 +200,7 @@ LOGGING = {
             'formatter': 'verbose',
         },
         'file_error': {
-            'level': 'WARNING',
+            'level': 'ERROR',
             'class': 'logging.FileHandler',
             'filename': os.path.join(LOGGING_ROOT, log_error_filename),
             'formatter': 'simple',
@@ -224,13 +224,19 @@ LOGGING = {
     'loggers': {
         'django': {
             'handlers': ['file_debug', 'file_error', 'console'],
-            'level': 'DEBUG',
+            'level': 'INFO',
             'propagate': True,
+        },
+        'django.request': {
+            'handlers': ['file_error'],  # Log apenas os erros para django.request
+            'level': 'ERROR',
+            'propagate': False,
+        },
+        'django.server': {
+            'handlers': ['file_error'],  # Log apenas os erros para django.server
+            'level': 'ERROR',
+            'propagate': False,
         },
     },
 }
 
-import logging
-# Teste de logging manual
-logger = logging.getLogger('django')
-logger.error(DJANGO_ENV)

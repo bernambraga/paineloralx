@@ -28,22 +28,28 @@ const CronConfig = () => {
 
   const fetchCronJobs = async () => {
     try {
-      const response = await axios.get(`${getBaseUrl()}/bots/list-cronjobs/`);
-      setCronJobs(response.data.jobs);
+        const response = await axios.get(`${getBaseUrl()}/bots/list-cronjobs/`);
+        if (response.data.status !== 'success' || !response.data.jobs) {
+            console.error('CrontabError', response.data.message)
+            setCronJobs([]);
+        } else {
+            setCronJobs(response.data.jobs);
+        }
     } catch (error) {
         console.error('Failed to fetch cron jobs', error);
-      }
-  };
+        setCronJobs([]);  // Opcional: para lidar com erros definindo cronJobs como vazio
+    }
+};
 
   const getBaseUrl = () => {
     const hostname = window.location.hostname;
   
     if (hostname === 'localhost') {
-      return 'http://localhost:8000';
+      return 'http://localhost:8000/api';
     } else if (hostname === 'dev.paineloralx.com.br') {
-      return 'https://dev.paineloralx.com.br';
+      return 'https://dev.paineloralx.com.br/api';
     } else {
-      return 'https://paineloralx.com.br';
+      return 'https://paineloralx.com.br/api';
     }
   };
 

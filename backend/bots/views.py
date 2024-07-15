@@ -1,10 +1,12 @@
 from django.views import View
 import json
 import os
+import logging
 import getpass
 from django.http import JsonResponse, FileResponse
 from crontab import CronTab
 
+logger = logging.getLogger('django')
 
 class LogView(View):
     def get(self, request):
