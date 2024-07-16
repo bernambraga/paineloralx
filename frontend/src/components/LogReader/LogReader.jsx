@@ -85,7 +85,7 @@ const LogReader = () => {
     setTimeout(() => {
       setMessage('');
       setMessageType('');
-  }, 2500);
+    }, 2500);
   };
 
   return (

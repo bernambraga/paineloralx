@@ -5,15 +5,11 @@ const Home = () => {
     const { user } = useContext(AuthContext)
 
     return (
-        <div>
-            <h2>Home</h2>
-            {user ? (
-                <div>
-                    <p>Bem vindo, {user.username}.</p>
-                </div>
-            ) : (
-                <p>Erro no Login.</p>
-            )}
+        <div className='container'>
+            <div className="construction-container">
+                <h2>Bem-vindo ao Painel Oral X</h2>
+                {user && <p>Olá, {user.user}!</p>}
+            </div>
         </div>
     )
 }

@@ -2,8 +2,14 @@ import React from 'react'
 
 const About = () => {
   return (
-    <div className='page'>
-        <h1>About This App</h1>
+    <div className="container">
+        <div className="construction-container">
+            <div className="construction-icon">
+                🚧
+            </div>
+            <h1>Página em Construção</h1>
+            <p>Estamos trabalhando duro para trazer algo incrível. Volte em breve!</p>
+        </div>
     </div>
   )
 }

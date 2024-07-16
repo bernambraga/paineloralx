@@ -61,14 +61,20 @@ const AuthProvider = ({ children }) => {
                 }
             );
 
-            const { access, refresh } = response.data;
-            localStorage.setItem('access_token', access);
-            localStorage.setItem('refresh_token', refresh);
-            setUser(jwtDecode(access));
-            return response.data;
+            // Verifica se a resposta tem um status de sucesso
+            if (response.status === 200) {
+                const { access, refresh } = response.data;
+                localStorage.setItem('access_token', access);
+                localStorage.setItem('refresh_token', refresh);
+                setUser(jwtDecode(access));
+                return response.data;
+            } else {
+                // Retorna os dados do erro para códigos de status diferentes de 200
+                return response.data;
+            }
         } catch (error) {
             console.error('Login failed', error.response || error);
-            return null;
+            return error.response.data;
         }
     };
 

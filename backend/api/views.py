@@ -17,11 +17,9 @@ def get_csrf_token(request):
     return JsonResponse({"message": "CSRF cookie set"})
 
 class LoginView(TokenObtainPairView):
-    logger.info('Login realizado')
     permission_classes = (AllowAny,)  # Permitir acesso público
 
 class LogoutView(APIView):
-    logger.info('Logout realizado')
     permission_classes = (AllowAny,)  # Permitir acesso público
 
     def post(self, request):
@@ -33,3 +31,30 @@ class LogoutView(APIView):
             return Response(status=status.HTTP_205_RESET_CONTENT)
         except Exception as e:
             return Response(status=status.HTTP_400_BAD_REQUEST)
+
+
+from django.contrib.auth import authenticate
+from django.contrib.auth.models import User
+
+class CustomLoginView(APIView):
+    permission_classes = (AllowAny,)
+    def post(self, request, *args, **kwargs):
+        username = request.data.get('username')
+        password = request.data.get('password')
+
+        try:
+            user = User.objects.get(username=username)
+        except User.DoesNotExist:
+            return Response({"detail": "User does not exist"}, status=401)
+
+        user = authenticate(username=username, password=password)
+
+        if user is not None:
+            # User authenticated successfully
+            refresh = RefreshToken.for_user(user)
+            return Response({
+                'refresh': str(refresh),
+                'access': str(refresh.access_token),
+            }, status=status.HTTP_200_OK)
+        else:
+            return Response({"detail": "Incorrect password"}, status=401)

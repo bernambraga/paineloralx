@@ -5,21 +5,50 @@ import './LoginForm.css';
 import { IoEyeOff } from "react-icons/io5";
 import { IoEye } from "react-icons/io5";
 
-const Login = () => {
+const LoginForm = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const [errorType, setErrorType] = useState(''); // Estado para o tipo de mensagem (success ou error)
   const [type, setType] = useState('password');
   const { login } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const user = await login(username, password);
-    if (user) {
-      navigate('/home');
+    setError('');
+    setErrorType('');
+
+    const response = await login(username, password);
+
+    if (response && response.detail) {
+      if (response.detail === 'User does not exist') {
+        setErrorType('alerta');
+        setError('Usuário não existe');
+      } else if (response.detail === 'Incorrect password') {
+        setErrorType('alerta');
+        setError('Senha incorreta');
+      } else {
+        setErrorType('alerta');
+        setError(response.detail);
+      }
+    } else if (response) {
+      // Login successful, handle success case here if needed
+      setErrorType('success');
+      setError('Login realizado com sucesso');
+      // Atrasar a navegação por 1 segundo (1000 milissegundos)
+      setTimeout(() => {
+        navigate('/home');
+      }, 700);
     } else {
-      alert('Login failed');
+      setErrorType('alerta');
+      setError('Um erro ocorreu. Por favor tente novamente.');
     }
+
+    setTimeout(() => {
+      setError('');
+      setErrorType('');
+    }, 2500);
   };
 
   const handleToggle = () => {
@@ -58,6 +87,9 @@ const Login = () => {
               {type === 'password' ? <IoEyeOff size={20} /> : <IoEye size={20} />}
             </span>
           </div>
+          {error && (
+            <div className={`error ${errorType}`}>{error}</div> // Exibir a mensagem temporária
+          )}
           <button type="submit">Continuar</button>
         </form>
       </div>
@@ -69,4 +101,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default LoginForm;
