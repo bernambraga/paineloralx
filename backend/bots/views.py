@@ -53,7 +53,7 @@ def update_cron(request):
             python_path = '/usr/bin/python3'
             user = getpass.getuser()
 
-            command = f'{python_path} {script_path} >> {log_path} 2>&1'
+            command = f'TZ=America/Sao_Paulo {python_path} {script_path} >> {log_path} 2>&1'
 
             cron = CronTab(user=user)
             cron.remove_all(command=command)
