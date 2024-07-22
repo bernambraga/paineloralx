@@ -89,7 +89,7 @@ if DJANGO_ENV == 'development':
             'USER': 'oralx_dev',
             'PASSWORD': 'Tomografia',
             'HOST': '191.252.202.133',
-            'PORT': '',
+            'PORT': '5432',
         }
     }
 else:
@@ -102,7 +102,7 @@ else:
             'USER': 'oralx',
             'PASSWORD': 'Tomografia',
             'HOST': '191.252.202.133',
-            'PORT': '',
+            'PORT': '5432',
         }
     }
 

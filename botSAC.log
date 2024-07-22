@@ -1,0 +1,5 @@
+2024-07-22 16:15:45,677:ERROR:Erro ao inserir DataFrame no banco de dados: date/time field value out of range: "22/07/2024"
+LINE 1: ...DENTAL  / AMIL DENTAL', 'DOC BÁSICA', 'Agendado', '22/07/202...
+                                                             ^
+HINT:  Perhaps you need a different "datestyle" setting.
+
