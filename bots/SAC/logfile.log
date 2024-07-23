@@ -1,0 +1,108 @@
+2024-07-22 21:02:54,795:INFO:Starting Selenium
+2024-07-22 21:03:02,096:ERROR:Error fetching data from table SAC_SmartRis_Finalizado: List argument must consist only of tuples or dictionaries
+2024-07-22 21:03:02,096:ERROR:No data to process
+2024-07-22 21:05:22,972:INFO:Starting Selenium
+2024-07-22 21:05:30,754:ERROR:Error fetching data from table SAC_SmartRis_Finalizado: List argument must consist only of tuples or dictionaries
+2024-07-22 21:05:30,755:ERROR:No data to process
+2024-07-22 21:06:34,536:INFO:Starting Selenium
+2024-07-22 21:06:41,722:ERROR:Error fetching data from table SAC_SmartRis_Finalizado: List argument must consist only of tuples or dictionaries
+2024-07-22 21:06:41,723:ERROR:No data to process
+2024-07-22 21:07:54,229:INFO:Starting Selenium
+2024-07-22 21:08:22,896:INFO:11999885218 OK!
+2024-07-22 21:15:15,327:INFO:Starting Selenium
+2024-07-22 21:15:45,368:INFO:11999885218 OK!
+2024-07-22 21:15:45,484:ERROR:Error updating data in table SAC_SmartRis_Finalizado: List argument must consist only of tuples or dictionaries
+2024-07-22 21:15:45,613:INFO:Closing Selenium
+2024-07-22 21:17:32,494:INFO:Starting Selenium
+2024-07-22 21:18:07,304:INFO:11999885218 OK!
+2024-07-22 21:18:07,407:ERROR:Error updating data in table SAC_SmartRis_Finalizado: List argument must consist only of tuples or dictionaries
+2024-07-22 21:18:08,508:INFO:Closing Selenium
+2024-07-22 21:20:45,178:INFO:Starting Selenium
+2024-07-22 21:21:14,827:INFO:11999885218 OK!
+2024-07-22 21:21:14,951:ERROR:Error updating data in table SAC_SmartRis_Finalizado: List argument must consist only of tuples or dictionaries
+2024-07-22 21:21:15,099:INFO:Closing Selenium
+2024-07-22 21:24:21,154:INFO:Starting Selenium
+2024-07-22 21:24:50,822:INFO:11999885218 OK!
+2024-07-22 21:24:50,921:ERROR:Error updating data in table SAC_SmartRis_Finalizado: Not an executable object: 'UPDATE public."SAC_SmartRis_Finalizado" SET "Bot_Status" = :status, "Bot_DateTime" = :current_datetime WHERE "Pedido" = :pedido;'
+2024-07-22 21:24:51,033:INFO:Closing Selenium
+2024-07-22 21:28:13,682:INFO:Starting Selenium
+2024-07-22 21:28:30,658:INFO:Data              2024-07-21
+Hora                        
+Status                      
+Bot_Status                  
+Bot_DateTime                
+Agenda          Agenda teste
+Pedido                     1
+Procedimento                
+Paciente            Bernardo
+Telefone         11999885218
+Carteirinha                 
+Convênio                    
+Encaixe                     
+Name: 0, dtype: object
+2024-07-22 21:28:30,665:INFO:Olá $$Paciente$$, tudo bem com você?
+
+Gostaríamos de saber como foi a sua experiência aqui na OralX no dia $$Data$$
+2024-07-22 21:28:46,361:INFO:11999885218 OK!
+2024-07-22 21:28:46,496:ERROR:Error updating data in table SAC_SmartRis_Finalizado: (psycopg2.errors.StringDataRightTruncation) value too long for type character varying(20)
+
+[SQL: UPDATE public."SAC_SmartRis_Finalizado" SET "Bot_Status" = %(status)s, "Bot_DateTime" = %(current_datetime)s WHERE "Pedido" = %(pedido)s;]
+[parameters: {'status': 'OK', 'current_datetime': datetime.datetime(2024, 7, 22, 21, 28, 46, 475281), 'pedido': '1'}]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+2024-07-22 21:28:46,592:INFO:Closing Selenium
+2024-07-22 21:32:04,760:INFO:Starting Selenium
+2024-07-22 21:32:23,601:INFO:2024-07-21
+2024-07-22 21:32:23,789:ERROR:Message: no such element: Unable to locate element: {"method":"xpath","selector":"//select[@ng-model='novoAtendimentoNovoContato.canalChave']"}
+  (Session info: chrome-headless-shell=126.0.6478.126); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+#0 0x5bf82a864c7a <unknown>
+#1 0x5bf82a547e2c <unknown>
+#2 0x5bf82a594661 <unknown>
+#3 0x5bf82a594751 <unknown>
+#4 0x5bf82a5d8f64 <unknown>
+#5 0x5bf82a5b75ed <unknown>
+#6 0x5bf82a5d6303 <unknown>
+#7 0x5bf82a5b7363 <unknown>
+#8 0x5bf82a587247 <unknown>
+#9 0x5bf82a587b9e <unknown>
+#10 0x5bf82a82b24b <unknown>
+#11 0x5bf82a82f2f1 <unknown>
+#12 0x5bf82a816afe <unknown>
+#13 0x5bf82a82fe52 <unknown>
+#14 0x5bf82a7fb79f <unknown>
+#15 0x5bf82a854638 <unknown>
+#16 0x5bf82a854810 <unknown>
+#17 0x5bf82a863dac <unknown>
+#18 0x7140a6894ac3 <unknown>
+
+2024-07-22 21:32:23,903:ERROR:Error updating data in table SAC_SmartRis_Finalizado: (psycopg2.errors.StringDataRightTruncation) value too long for type character varying(20)
+
+[SQL: UPDATE public."SAC_SmartRis_Finalizado" SET "Bot_Status" = %(status)s, "Bot_DateTime" = %(current_datetime)s WHERE "Pedido" = %(pedido)s;]
+[parameters: {'status': 'Erro abertura do Chat', 'current_datetime': datetime.datetime(2024, 7, 22, 21, 32, 23, 884927), 'pedido': '1'}]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+2024-07-22 21:32:25,023:INFO:Closing Selenium
+2024-07-22 21:33:59,594:INFO:Starting Selenium
+2024-07-22 21:34:16,024:INFO:False
+2024-07-22 21:34:16,025:INFO:False
+2024-07-22 21:34:29,804:INFO:11999885218 OK!
+2024-07-22 21:34:29,919:ERROR:Error updating data in table SAC_SmartRis_Finalizado: (psycopg2.errors.StringDataRightTruncation) value too long for type character varying(20)
+
+[SQL: UPDATE public."SAC_SmartRis_Finalizado" SET "Bot_Status" = %(status)s, "Bot_DateTime" = %(current_datetime)s WHERE "Pedido" = %(pedido)s;]
+[parameters: {'status': 'OK', 'current_datetime': datetime.datetime(2024, 7, 22, 21, 34, 29, 900032), 'pedido': '1'}]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+2024-07-22 21:34:30,040:INFO:Closing Selenium
+2024-07-22 21:39:50,648:INFO:Starting Selenium
+2024-07-22 21:40:18,640:INFO:11999885218 OK!
+2024-07-22 21:40:19,095:INFO:Closing Selenium
+2024-07-22 21:47:40,087:INFO:Starting Selenium
+2024-07-22 21:48:13,572:INFO:11999885218 OK!
+2024-07-22 21:48:13,576:ERROR:Error updating data in table SAC_SmartRis_Finalizado: invalid integer value "sua_porta" for connection option "port"
+
+2024-07-22 21:49:07,987:INFO:Starting Selenium
+2024-07-22 21:49:41,599:INFO:11999885218 OK!
+2024-07-22 21:49:41,875:INFO:Closing Selenium
+2024-07-22 21:50:31,784:INFO:Starting Selenium
+2024-07-22 21:51:05,319:INFO:11999885218 OK!
+2024-07-22 21:51:26,112:INFO:11999885218 OK!
+2024-07-22 21:51:37,192:ERROR:Bernardo Erro: Ops, Chat já ativo.
+2024-07-22 21:51:37,416:INFO:Closing Selenium

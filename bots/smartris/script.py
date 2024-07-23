@@ -9,7 +9,7 @@ import psycopg2
 from psycopg2 import sql
 
 # Configurar logging
-log_file = "logfile.log"
+log_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'logfile.log')
 logging.basicConfig(filename=log_file, level=logging.INFO, format='%(asctime)s:%(levelname)s:%(message)s')
 
 # Função para buscar o DataFrame na internet
@@ -88,7 +88,9 @@ def create_table_if_not_exists(conn, table_name):
                 CREATE TABLE IF NOT EXISTS {table} (
                     "Data" DATE,
                     "Hora" VARCHAR(10),
-                    "Status" VARCHAR(20),
+                    "Status" VARCHAR(255),
+                    "Bot_Status" VARCHAR(20),
+                    "Bot_DateTime" VARCHAR(20),
                     "Agenda" VARCHAR(255),
                     "Pedido" VARCHAR(255) UNIQUE,
                     "Procedimento" VARCHAR(255),

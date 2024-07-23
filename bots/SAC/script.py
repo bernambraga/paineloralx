@@ -1,7 +1,10 @@
 import psycopg2
+from sqlalchemy import create_engine
+from sqlalchemy.sql import text
 import pandas as pd
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait, Select
+from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support import expected_conditions as EC
@@ -14,7 +17,7 @@ import re
 from datetime import datetime, timedelta
 
 # Configurar logging
-log_file = "logfile.log"
+log_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'logfile.log')
 logging.basicConfig(filename=log_file, level=logging.INFO, format='%(asctime)s:%(levelname)s:%(message)s')
 
 class SeleniumAutomation:
@@ -29,43 +32,67 @@ class SeleniumAutomation:
 
     def connect_to_db(self):
         try:
-            conn = psycopg2.connect(
-                dbname="dev_paineloralx",
-                user="oralx_dev",
-                password="Tomografia",
-                host="191.252.202.133",
-                port="5432"
+            engine = create_engine(
+                'postgresql+psycopg2://oralx_dev:Tomografia@191.252.202.133:5432/dev_paineloralx'
             )
-            return conn
+            return engine
         except Exception as e:
             logging.error(f"Error connecting to database: {e}")
             return None
+        
 
-    def fetch_data_from_table(self, connection, table, date):
-        query = f"SELECT * FROM {table} WHERE 'Data' = %s;"
+    def fetch_data_from_table(self, engine, table, date):
+        query = f'SELECT * FROM public."{table}" WHERE "Data" = %s AND "Bot_Status" = '';'
         try:
-            df = pd.read_sql_query(query, connection, params=[date])
+            with engine.connect() as connection:
+                df = pd.read_sql_query(query, connection, params=(date,))
             return df
         except Exception as e:
             logging.error(f"Error fetching data from table {table}: {e}")
             return None
-
-    def insert_data_into_table(self, connection, data, table):
-        cursor = connection.cursor()
+        
+    def fetch_data_from_table2(self, engine, table, date):
+            query = f'SELECT * FROM public."{table}" WHERE "Data" = %s AND "Bot_Status" = %s;'
+            try:
+                with engine.connect() as connection:
+                    df = pd.read_sql_query(query, connection, params=(date, 'Erro abertura do Chat'))
+                return df
+            except Exception as e:
+                logging.error(f"Error fetching data from table {table}: {e}")
+                return None
+            
+    def update_data_in_table(self, data, table):
+        connection_params = {
+            'dbname': 'dev_paineloralx',
+            'user': 'oralx_dev',
+            'password': 'Tomografia',
+            'host': '191.252.202.133',
+            'port': '5432'
+            }
         try:
+            connection = psycopg2.connect(**connection_params)
+            cursor = connection.cursor()
             for index, row in data.iterrows():
-                placeholders = ', '.join(['%s'] * len(row))
-                columns = ', '.join(row.index)
-                query = f"INSERT INTO {table} ({columns}) VALUES ({placeholders})"
-                cursor.execute(query, tuple(row))
+                status = row['Status']
+                pedido = row['Pedido']
+                current_datetime = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+                query = f'''
+                    UPDATE public."{table}" 
+                    SET "Bot_Status" = %s, "Bot_DateTime" = %s 
+                    WHERE "Pedido" = %s;
+                '''
+                cursor.execute(query, (status, current_datetime, pedido))
             connection.commit()
         except Exception as e:
-            logging.error(f"Error inserting data into table {table}: {e}")
-            connection.rollback()
+            logging.error(f"Error updating data in table {table}: {e}")
         finally:
-            cursor.close()
+            if cursor:
+                cursor.close()
+            if connection:
+                connection.close()
 
-    def start(self, URL):
+
+    def start(self, URL, flag = 0):
         logging.info("Starting Selenium")
         options = webdriver.ChromeOptions()
         options.add_argument("--window-size=1920,1080")
@@ -80,7 +107,8 @@ class SeleniumAutomation:
         try:
             if not os.access(chrome_driver_path, os.X_OK):
                 raise PermissionError(f"'{chrome_driver_path}' não tem permissões de execução.")
-            self.driver = webdriver.Chrome(executable_path=chrome_driver_path, options=options)
+            service = Service(chrome_driver_path)
+            self.driver = webdriver.Chrome(service=service, options=options)
             self.driver.get(URL)
         except (PermissionError, WebDriverException) as e:
             logging.error(f"Erro ao iniciar o ChromeDriver: {e}")
@@ -89,15 +117,16 @@ class SeleniumAutomation:
             logging.error(f"Erro inesperado ao iniciar o ChromeDriver: {e}")
             raise
         time.sleep(2)
-        self.loginMulti360()
+        self.loginMulti360(flag)
 
-    def loginMulti360(self):
+    def loginMulti360(self, flag=0):
         connection = self.connect_to_db()
         if not connection:
             return
-        df = self.fetch_data_from_table(connection, self.table, self.date_str)
-        connection.close()
-
+        if flag == 0:
+            df = self.fetch_data_from_table(connection, self.table, self.date_str)
+        elif flag == 1:
+            df = self.fetch_data_from_table2(connection, self.table, self.date_str)
         if df is None or df.empty:
             logging.error("No data to process")
             return
@@ -138,12 +167,12 @@ class SeleniumAutomation:
                 continue
         connection = self.connect_to_db()
         if connection:
-            self.insert_data_into_table(connection, df[['Telefone', 'Status']], 'your_table') # Atualize com seu table
-            connection.close()
+            self.update_data_in_table(df[['Pedido', 'Status']], self.table)
 
         self.driver.quit()
 
     def criar_chat(self, name, date, agenda, number, message):
+        date = '/'.join(str(date).split('-')[::-1])
         flag = 0
         try:
             self.click_element("//div[@ng-click='onMostrarModalCriarAtendimentoNovoContato()']")
@@ -297,19 +326,24 @@ class SeleniumAutomation:
         def replace_placeholder(match):
             placeholder = match.group(1)
             value = row_data.get(placeholder, placeholder)
-            if placeholder in ['Paciente']:
+            if placeholder == 'Paciente':
                 value = value.split(" ")[0].title()
-            if placeholder == 'Data':
+            elif placeholder == 'Data':
                 if isinstance(value, str):
                     try:
-                        value = datetime.strptime(value, '%d/%m/%Y')
+                        value = datetime.strptime(value, '%Y-%m-%d')
                     except ValueError:
-                        pass  # Se a conversão falhar, manter o valor original
-                # Garantir que value é um objeto datetime antes de chamar strftime
+                        try:
+                            value = datetime.strptime(value, '%d/%m/%Y')
+                        except ValueError:
+                            pass  # Se a conversão falhar, manter o valor original
                 if isinstance(value, datetime):
                     value = value.strftime('%d/%m/%Y')
+                else:
+                    value = '/'.join(str(value).split('-')[::-1])
             return str(value)
         return re.sub(r'\$\$(.*?)\$\$', replace_placeholder, message)
     
 selenium_automation = SeleniumAutomation()
 selenium_automation.start("https://painel.multi360.com.br")
+selenium_automation.start("https://painel.multi360.com.br",1)
