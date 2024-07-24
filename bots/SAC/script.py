@@ -29,6 +29,7 @@ class SeleniumAutomation:
         self.password = 'Oralx2023'
         self.date_str = (datetime.today() - timedelta(days=1)).strftime('%Y-%m-%d')
         self.table = 'SAC_SmartRis_Finalizado'
+        self.errorFlag = 0
 
     def connect_to_db(self):
         try:
@@ -39,28 +40,17 @@ class SeleniumAutomation:
         except Exception as e:
             logging.error(f"Error connecting to database: {e}")
             return None
-        
 
-    def fetch_data_from_table(self, engine, table, date):
+    def fetch_data_from_table(self, engine, table, date, bot_status):
         query = f'SELECT * FROM public."{table}" WHERE "Data" = %s AND "Bot_Status" = %s;'
         try:
             with engine.connect() as connection:
-                df = pd.read_sql_query(query, connection, params=(date, ''))
+                df = pd.read_sql_query(query, connection, params=(date, bot_status))
             return df
         except Exception as e:
             logging.error(f"Error fetching data from table {table}: {e}")
             return None
-        
-    def fetch_data_from_table2(self, engine, table, date):
-            query = f'SELECT * FROM public."{table}" WHERE "Data" = %s AND "Bot_Status" = %s;'
-            try:
-                with engine.connect() as connection:
-                    df = pd.read_sql_query(query, connection, params=(date, 'Erro abertura do Chat'))
-                return df
-            except Exception as e:
-                logging.error(f"Error fetching data from table {table}: {e}")
-                return None
-            
+
     def update_data_in_table(self, data, table):
         connection_params = {
             'dbname': 'dev_paineloralx',
@@ -91,8 +81,7 @@ class SeleniumAutomation:
             if connection:
                 connection.close()
 
-
-    def start(self, URL, flag = 0):
+    def start_selenium(self, URL):
         logging.info("Starting Selenium")
         options = webdriver.ChromeOptions()
         options.add_argument("--window-size=1920,1080")
@@ -120,26 +109,8 @@ class SeleniumAutomation:
             logging.error(f"Erro inesperado ao iniciar o ChromeDriver: {e}")
             raise
         time.sleep(2)
-        self.loginMulti360(flag)
 
-    def loginMulti360(self, flag=0):
-        connection = self.connect_to_db()
-        if not connection:
-            logging.info("Closing Selenium")
-            if self.driver:
-                self.driver.quit()
-            return
-        if flag == 0:
-            df = self.fetch_data_from_table(connection, self.table, self.date_str)
-        elif flag == 1:
-            df = self.fetch_data_from_table2(connection, self.table, self.date_str)
-        if df is None or df.empty:
-            logging.error("No data to process")
-            logging.info("Closing Selenium")
-            if self.driver:
-                self.driver.quit()
-            return
-
+    def login(self):
         if self.is_element_present("//input[@id='email']", 6):
             try:
                 self.fill_text_field("//input[@id='email']", self.username, Keys.TAB)
@@ -148,6 +119,25 @@ class SeleniumAutomation:
             except Exception as e:
                 logging.error(f"Erro no login: {e}")
                 self.driver.quit()
+
+    def process_data(self):
+        connection = self.connect_to_db()
+        if not connection:
+            logging.info("Closing Selenium")
+            if self.driver:
+                self.driver.quit()
+            return
+        
+        bot_status = '' if self.errorFlag == 0 else 'Erro abertura do Chat'
+        df = self.fetch_data_from_table(connection, self.table, self.date_str, bot_status)
+        self.errorFlag = 0
+        if df is None or df.empty:
+            logging.error("No data to process")
+            logging.info("Closing Selenium")
+            if self.driver:
+                self.driver.quit()
+            return
+
         self.fechar_novidades()
         time.sleep(1)
         self.trocar_status()
@@ -206,6 +196,7 @@ class SeleniumAutomation:
             self.click_element("//button[@ng-click='onModalCriarAtendimentoNovoContato()']")
         except Exception as e:
             self.Status = 'Erro abertura do Chat'
+            self.errorFlag = 1
             logging.error(e)
             return False
         ops = self.fechar_Ops()
@@ -363,7 +354,15 @@ class SeleniumAutomation:
         except Exception as e:
             logging.error(f'Erro ao fechar processos do Chrome: {str(e)}')
 
-selenium_automation = SeleniumAutomation()
-selenium_automation.start("https://painel.multi360.com.br")
-selenium_automation.start("https://painel.multi360.com.br",1)
-selenium_automation.close_chrome_processes()
+if __name__ == "__main__":
+    selenium_automation = SeleniumAutomation()
+    try:
+        selenium_automation.start_selenium("https://painel.multi360.com.br")
+        selenium_automation.login()
+        selenium_automation.process_data()
+        if selenium_automation.errorFlag == 1:
+            selenium_automation.start_selenium("https://painel.multi360.com.br")
+            selenium_automation.login()
+            selenium_automation.process_data(flag=1)
+    finally:
+        selenium_automation.close_chrome_processes()

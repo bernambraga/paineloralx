@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import Home from './pages/Home'
 import Login from './pages/Login'
 import Register from './pages/Register'
-import Contact from './pages/Contact'
+import SAC from './pages/SAC'
 import Bots from './pages/Bots'
 import About from './pages/About'
 import Header from './components/Header/Header'
@@ -45,7 +45,7 @@ const AppContent = () => {
                     <Route path="/about" element={<About />} />
                     <Route path="/bots" element={<Bots />} />
                     <Route path="/register" element={<Register />} />
-                    <Route path="/contact" element={<Contact />} />
+                    <Route path="/sac" element={<SAC />} />
                 </Route>
             </Routes>
         </>

@@ -1,0 +1,102 @@
+/* Pesquisa.css */
+.container-log {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    }
+
+h1 {
+    text-align: center;
+    color: #333;
+    }
+
+.input-container-log {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    }
+
+.input-container-log label {
+    padding: 10px;
+    color: #555;
+    font-weight: bold;
+    }
+
+.input-container-log DatePicker {
+    padding: 10px;
+    margin-left: 10px;
+    border: 1px solid #e92a2a;
+    border-radius: 5px;
+    width: 30px; /* Ajuste conforme necessário */
+    height: 35px;
+    }
+
+.input-container-log button {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #4085c5;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    height: 35px;
+    width: 180px;
+    margin: 0 10px;
+    }
+
+button:hover {
+    background-color: #2f6496;
+    }
+
+.log-container {
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 20px;
+    white-space: pre-wrap;
+    font-family: monospace;
+    max-height: 300px;
+    overflow-y: auto;
+    }
+
+.log-container table {
+    width: 100%;
+    border-collapse: collapse;
+    }
+
+.log-container th, .log-container td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+    }
+
+.positivo {
+    color: white;
+    background-color: green;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    }
+
+.negativo {
+    color: white;
+    background-color: red;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    }
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 100
+    }

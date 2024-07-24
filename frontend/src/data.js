@@ -8,8 +8,8 @@ export const LINKS = [
         name: 'About',
     },
     {
-        to: '/contact',
-        name: 'Contact',
+        to: '/sac',
+        name: 'SAC',
     },
     {
         to: '/bots',
