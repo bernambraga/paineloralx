@@ -42,10 +42,10 @@ class SeleniumAutomation:
         
 
     def fetch_data_from_table(self, engine, table, date):
-        query = f'SELECT * FROM public."{table}" WHERE "Data" = %s AND "Bot_Status" = '';'
+        query = f'SELECT * FROM public."{table}" WHERE "Data" = %s AND "Bot_Status" = %s;'
         try:
             with engine.connect() as connection:
-                df = pd.read_sql_query(query, connection, params=(date,))
+                df = pd.read_sql_query(query, connection, params=(date, ''))
             return df
         except Exception as e:
             logging.error(f"Error fetching data from table {table}: {e}")
@@ -96,6 +96,9 @@ class SeleniumAutomation:
         logging.info("Starting Selenium")
         options = webdriver.ChromeOptions()
         options.add_argument("--window-size=1920,1080")
+        options.add_argument("disable-infobars")
+        options.add_argument("--disable-extensions")
+        options.add_argument("--disable-gpu")
         options.add_argument('--headless')
         options.add_argument('--no-sandbox')
         options.add_argument('--disable-dev-shm-usage')
@@ -122,6 +125,9 @@ class SeleniumAutomation:
     def loginMulti360(self, flag=0):
         connection = self.connect_to_db()
         if not connection:
+            logging.info("Closing Selenium")
+            if self.driver:
+                self.driver.quit()
             return
         if flag == 0:
             df = self.fetch_data_from_table(connection, self.table, self.date_str)
@@ -129,6 +135,9 @@ class SeleniumAutomation:
             df = self.fetch_data_from_table2(connection, self.table, self.date_str)
         if df is None or df.empty:
             logging.error("No data to process")
+            logging.info("Closing Selenium")
+            if self.driver:
+                self.driver.quit()
             return
 
         if self.is_element_present("//input[@id='email']", 6):
@@ -144,10 +153,14 @@ class SeleniumAutomation:
         self.trocar_status()
         self.iterate_df(df)
         logging.info("Closing Selenium")
+        if self.driver:
+            self.driver.quit()
 
     def iterate_df(self, df):
         df['Status'] = ''
+        total_rows = len(df)
         for index, row in df.iterrows():
+            logging.info(f"Enviando mensagem {index + 1} de {total_rows}...")
             personalizedMessage = self.replace_placeholders(self.standardMessageA, row)
             if len(str(row['Telefone'])) == 11:
                 try:
@@ -168,8 +181,6 @@ class SeleniumAutomation:
         connection = self.connect_to_db()
         if connection:
             self.update_data_in_table(df[['Pedido', 'Status']], self.table)
-
-        self.driver.quit()
 
     def criar_chat(self, name, date, agenda, number, message):
         date = '/'.join(str(date).split('-')[::-1])
@@ -344,6 +355,15 @@ class SeleniumAutomation:
             return str(value)
         return re.sub(r'\$\$(.*?)\$\$', replace_placeholder, message)
     
+    def close_chrome_processes(self):
+        try:
+            # Comando para fechar processos do Chrome
+            os.system('pkill -f chrome')
+            logging.info('Todos os processos do Chrome foram fechados.')
+        except Exception as e:
+            logging.error(f'Erro ao fechar processos do Chrome: {str(e)}')
+
 selenium_automation = SeleniumAutomation()
 selenium_automation.start("https://painel.multi360.com.br")
 selenium_automation.start("https://painel.multi360.com.br",1)
+selenium_automation.close_chrome_processes()

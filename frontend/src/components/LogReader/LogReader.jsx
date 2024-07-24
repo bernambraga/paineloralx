@@ -15,10 +15,8 @@ const LogReader = () => {
     fetchFolders();
   }, []);
 
-
   const getBaseUrl = () => {
     const hostname = window.location.hostname;
-    console.log(hostname)
     if (hostname === 'localhost') {
       return 'http://localhost:8000/api';
     } else if (hostname === 'dev.paineloralx.com.br') {
@@ -28,10 +26,9 @@ const LogReader = () => {
     }
   };
 
-
   useEffect(() => {
     const fetchLogs = async () => {
-      if (isFetching || !selectedFolder) return; // Prevent multiple simultaneous fetches and fetch only if a folder is selected
+      if (!selectedFolder) return; // Fetch only if a folder is selected
 
       setIsFetching(true);
       try {
@@ -50,15 +47,12 @@ const LogReader = () => {
       setIsFetching(false);
     };
 
-    if (initialRender.current && selectedFolder) {
-      fetchLogs();
-      initialRender.current = false;
-    }
+    fetchLogs();
 
     const intervalId = setInterval(fetchLogs, 30000);
 
     return () => clearInterval(intervalId);
-  }, [isFetching, selectedFolder]);
+  }, [selectedFolder]);
 
   const fetchFolders = async () => {
     try {
@@ -72,7 +66,9 @@ const LogReader = () => {
 
   const handleFolderChange = (e) => {
     setSelectedFolder(e.target.value);
+    setLogs([]); // Clear logs when changing folder
   };
+
   const handleDownloadClick = () => {
     if (selectedFolder) {
       setMessage("Download iniciado."); // Definir a mensagem de sucesso

@@ -89,8 +89,8 @@ def create_table_if_not_exists(conn, table_name):
                     "Data" DATE,
                     "Hora" VARCHAR(10),
                     "Status" VARCHAR(255),
-                    "Bot_Status" VARCHAR(20),
-                    "Bot_DateTime" VARCHAR(20),
+                    "Bot_Status" VARCHAR(100),
+                    "Bot_DateTime" VARCHAR(50),
                     "Agenda" VARCHAR(255),
                     "Pedido" VARCHAR(255) UNIQUE,
                     "Procedimento" VARCHAR(255),
@@ -142,6 +142,7 @@ def fetch_and_insert_tomorrow_appointments(conn):
 
 # Função principal
 def main():
+    logging.info("Buscando dados SmartRis")
     date_str = datetime.today().strftime('%Y-%m-%d')
     df = fetch_dataframe(date_str)
     
@@ -162,6 +163,7 @@ def main():
         fetch_and_insert_tomorrow_appointments(conn)
     finally:
         conn.close()
+        logging.info("Dados inseridos com sucesso no banco")
 
 if __name__ == "__main__":
     main()
