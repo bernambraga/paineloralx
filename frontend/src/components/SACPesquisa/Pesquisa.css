@@ -11,6 +11,12 @@ h1 {
     color: #333;
     }
 
+h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 15px;
+}
+
 .input-container-log {
     display: flex;
     align-items: center;
@@ -49,6 +55,12 @@ button:hover {
     background-color: #2f6496;
     }
 
+button:disabled {
+    background-color: #e0e0e0;
+    color: #a0a0a0;
+    cursor: not-allowed;
+    }
+
 .log-container {
     background-color: #f4f4f4;
     border: 1px solid #ddd;
@@ -75,6 +87,7 @@ button:hover {
 .positivo {
     color: white;
     background-color: green;
+    margin-right: 5px;
     border: none;
     padding: 5px 10px;
     border-radius: 3px;
@@ -83,7 +96,8 @@ button:hover {
 
 .negativo {
     color: white;
-    background-color: red;
+    margin-right: 5px;
+    background-color: rgb(207, 0, 0);
     border: none;
     padding: 5px 10px;
     border-radius: 3px;
@@ -92,11 +106,85 @@ button:hover {
 
 .modal {
     position: fixed;
-    top: 50%;
+    top: 40%; /* Ajuste a posição vertical para estar um pouco acima */
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -40%); /* Ajuste a tradução para corresponder à nova posição */
     background: white;
     padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    z-index: 100
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+    z-index: 100;
+    border-radius: 10px; /* Adiciona bordas arredondadas */
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal select {
+    padding: 10px;
+    border: solid;
+    border-width: 0.5px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    width: 100%;
+    cursor: pointer;
+}
+.modal div {
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.modalButton{
+    padding: 10px;
+    margin: 10px;
+    border: solid;
+    border-width: 0.5px;
+    border-radius: 5px;
+    width: 40%;
+    cursor: pointer;
+}
+
+    
+    .tooltip-container {
+        position: relative;
+        display: inline-block;
     }
+    
+    .tooltip-container .tooltip {
+        visibility: hidden;
+        width: 200px;
+        background-color: #f9f9f9;
+        color: #000;
+        text-align: left;
+        border-radius: 5px;
+        padding: 5px;
+        position: absolute;
+        z-index: 1;
+        bottom: 125%; /* Posiciona o tooltip acima do texto */
+        left: 50%;
+        margin-left: -100px; /* Usa a metade da largura do tooltip para centralizá-lo */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+    }
+    
+    .tooltip-container .tooltip::after {
+        content: "";
+        position: absolute;
+        top: 100%; /* A ponta do tooltip deve estar no fundo */
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: #f9f9f9 transparent transparent transparent;
+    }
+    
+    .tooltip-container:hover .tooltip {
+        visibility: visible;
+    }
+    
+    .resposta-negativa {
+        text-decoration: underline;
+        cursor: pointer;
+    }
+    

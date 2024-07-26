@@ -108,6 +108,36 @@ def create_table_if_not_exists(conn, table_name):
         conn.rollback()
         raise
 
+def create_table_if_not_exists2(conn, table_name):
+    try:
+        with conn.cursor() as cur:
+            create_table_query = sql.SQL("""
+                CREATE TABLE IF NOT EXISTS {table} (
+                    "Data" DATE,
+                    "Hora" VARCHAR(10),
+                    "Status" VARCHAR(255),
+                    "Bot_Status" VARCHAR(100),
+                    "Bot_DateTime" VARCHAR(50),
+                    "Resposta" VARCHAR(20),
+                    "Motivo" VARCHAR(50),
+                    "Obs" VARCHAR(255),
+                    "Agenda" VARCHAR(255),
+                    "Pedido" VARCHAR(255) UNIQUE,
+                    "Procedimento" VARCHAR(255),
+                    "Paciente" VARCHAR(255),
+                    "Telefone" VARCHAR(20),
+                    "Carteirinha" VARCHAR(255),
+                    "Convênio" VARCHAR(255),
+                    "Encaixe" VARCHAR(10)
+                )
+            """).format(table=sql.Identifier(table_name))
+            cur.execute(create_table_query)
+            conn.commit()
+    except Exception as e:
+        logging.error(f"Erro ao criar a tabela: {e}")
+        conn.rollback()
+        raise
+
 # Função para inserir DataFrame no banco de dados
 def insert_dataframe_to_db(conn, df, table_name):
     try:
@@ -137,10 +167,15 @@ def fetch_and_insert_tomorrow_appointments(conn):
     df_lembretes = df_tomorrow[df_tomorrow['Status'] == 'Agendado']
     df_lembretes = clean_dataframe(df_lembretes)
     
-    create_table_if_not_exists(conn, 'SAC_SmartRis_Lembretes')
-    insert_dataframe_to_db(conn, df_lembretes, 'SAC_SmartRis_Lembretes')
+    create_table_if_not_exists2(conn, 'Lembretes')
+    insert_dataframe_to_db(conn, df_lembretes, 'Lembretes')
 
 # Função principal
+
+#####
+#Se tiver duas vezes o paciente em agendado e finalizado 
+#limpar o agendado para não ir para a repescagem sem querer
+#####
 def main():
     logging.info("Buscando dados SmartRis")
     date_str = datetime.today().strftime('%Y-%m-%d')
@@ -154,10 +189,10 @@ def main():
     
     conn = connect_to_db()
     try:
-        create_table_if_not_exists(conn, 'SAC_SmartRis_Agendado')
-        create_table_if_not_exists(conn, 'SAC_SmartRis_Finalizado')
-        insert_dataframe_to_db(conn, df_agendado, 'SAC_SmartRis_Agendado')
-        insert_dataframe_to_db(conn, df_finalizado, 'SAC_SmartRis_Finalizado')
+        create_table_if_not_exists2(conn, 'Repescagem')
+        insert_dataframe_to_db(conn, df_agendado, 'Repescagem')
+        create_table_if_not_exists(conn, 'SAC')
+        insert_dataframe_to_db(conn, df_finalizado, 'SAC')
         
         # Buscar e inserir lembretes do dia seguinte
         fetch_and_insert_tomorrow_appointments(conn)
