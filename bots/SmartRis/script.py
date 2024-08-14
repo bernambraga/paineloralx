@@ -55,6 +55,7 @@ def clean_dataframe(df):
         # Remover linhas com telefones duplicados, valores 0 ou vazios
         df.loc[:, 'Telefone'] = df['Telefone'].apply(lambda x: re.sub(r'\D', '', x))
         df = df.drop_duplicates(subset=['Telefone'])
+        df = df.drop(columns = ["Encaixe", "Carteirinha", "Convênio", "Procedimento"])
         df = df[df['Telefone'].apply(lambda x: bool(re.match(r'^\d{10,11}$', x)) and '0000000' not in x)]
         
         return df
@@ -93,12 +94,8 @@ def create_table_if_not_exists(conn, table_name):
                     "Bot_DateTime" VARCHAR(50),
                     "Agenda" VARCHAR(255),
                     "Pedido" VARCHAR(255) UNIQUE,
-                    "Procedimento" VARCHAR(255),
                     "Paciente" VARCHAR(255),
-                    "Telefone" VARCHAR(20),
-                    "Carteirinha" VARCHAR(255),
-                    "Convênio" VARCHAR(255),
-                    "Encaixe" VARCHAR(10)
+                    "Telefone" VARCHAR(20)
                 )
             """).format(table=sql.Identifier(table_name))
             cur.execute(create_table_query)
@@ -123,12 +120,8 @@ def create_table_if_not_exists2(conn, table_name):
                     "Obs" VARCHAR(255),
                     "Agenda" VARCHAR(255),
                     "Pedido" VARCHAR(255) UNIQUE,
-                    "Procedimento" VARCHAR(255),
                     "Paciente" VARCHAR(255),
-                    "Telefone" VARCHAR(20),
-                    "Carteirinha" VARCHAR(255),
-                    "Convênio" VARCHAR(255),
-                    "Encaixe" VARCHAR(10)
+                    "Telefone" VARCHAR(20)
                 )
             """).format(table=sql.Identifier(table_name))
             cur.execute(create_table_query)
@@ -167,7 +160,7 @@ def fetch_and_insert_tomorrow_appointments(conn):
     df_lembretes = df_tomorrow[df_tomorrow['Status'] == 'Agendado']
     df_lembretes = clean_dataframe(df_lembretes)
     
-    create_table_if_not_exists2(conn, 'Lembretes')
+    create_table_if_not_exists(conn, 'Lembretes')
     insert_dataframe_to_db(conn, df_lembretes, 'Lembretes')
 
 # Função principal
@@ -189,9 +182,9 @@ def main():
     
     conn = connect_to_db()
     try:
-        create_table_if_not_exists2(conn, 'Repescagem')
+        create_table_if_not_exists(conn, 'Repescagem')
         insert_dataframe_to_db(conn, df_agendado, 'Repescagem')
-        create_table_if_not_exists(conn, 'SAC')
+        create_table_if_not_exists2(conn, 'SAC')
         insert_dataframe_to_db(conn, df_finalizado, 'SAC')
         
         # Buscar e inserir lembretes do dia seguinte
