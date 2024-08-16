@@ -72,8 +72,8 @@ def clean_dataframe(df,flag=0):
 def remove_duplicate_patients(df):
     try:
         # Identificar pacientes que aparecem em ambos os estados
-        pacientes_finalizados = df[df['Status'] == 'Finalizado']['Paciente']
-        df = df[~((df['Status'] == 'Agendado') & (df['Paciente'].isin(pacientes_finalizados)))]
+        pacientes_finalizados = df[df['Status'] == 'Finalizado']['Telefone']
+        df = df[~((df['Status'] == 'Agendado') & (df['Telefone'].isin(pacientes_finalizados)))]
         return df
     except KeyError as ke:
         logging.error(f"Erro de chave no DataFrame: {ke}")

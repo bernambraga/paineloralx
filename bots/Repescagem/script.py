@@ -24,7 +24,7 @@ class SeleniumAutomation:
     def __init__(self):
         self.driver = None
         self.Status = ''
-        self.standardMessageA = "Olá $$Paciente$$, tudo bem?\n\n*Seu exame está agendado para amanhã*, dia $$Data$$, ás $$Hora$$ na Oral X $$Agenda$$ - $$endereco$$.\n"
+        self.standardMessageA = "Olá $$Paciente$$, tudo bem?\n\nNotamos a sua ausência hoje, dia $$Data$$, aqui na Oral X $$Agenda$$.\n"
         self.unidades = ["Pinheiros", "Angélica", "9 de Julho"]
         self.username = 'oralx.repescagem'
         self.password = 'Mudar@360'
@@ -95,14 +95,14 @@ class SeleniumAutomation:
     def start_selenium(self, URL):
         logging.info("Starting Selenium")
         options = webdriver.ChromeOptions()
-        #options.add_argument("--window-size=1920,1080")
-        #options.add_argument("disable-infobars")
-        #options.add_argument("--disable-extensions")
-        #options.add_argument("--disable-gpu")
-        #options.add_argument('--headless')
-        #options.add_argument('--no-sandbox')
-        #options.add_argument('--disable-dev-shm-usage')
-        #options.add_experimental_option("detach", True)
+        options.add_argument("--window-size=1920,1080")
+        options.add_argument("disable-infobars")
+        options.add_argument("--disable-extensions")
+        options.add_argument("--disable-gpu")
+        options.add_argument('--headless')
+        options.add_argument('--no-sandbox')
+        options.add_argument('--disable-dev-shm-usage')
+        options.add_experimental_option("detach", True)
 
         executable_path = os.path.dirname(os.path.abspath(__file__))
         chrome_driver_path = os.path.join(executable_path, 'chromedriver')
@@ -167,7 +167,7 @@ class SeleniumAutomation:
                 try:
                     retorno = self.criar_chat(row['Paciente'], row['Data'], row['Agenda'], row['Telefone'], personalizedMessage)
                     if retorno:
-                        self.finalizarConversa()
+                        #self.finalizarConversa()
                         df.at[index, 'Status'] = 'OK'
                         logging.info(f"{row['Telefone']} OK!")
                     else:
@@ -203,7 +203,7 @@ class SeleniumAutomation:
             self.fill_text_field("//input[@id='novoAtendimentoNovoContatoTelefone']", str(number), Keys.TAB)
             self.fill_text_field("//input[@ng-model='novoAtendimentoNovoContato.nome']", f"{name}", Keys.CONTROL)
             self.select_dropdown_option("//select[@ng-model='departamentoSelecionado.departamentoId']", "r")
-            self.select_dropdown_option("//select[@ng-model='departamentoSelecionado.atendenteId']", "Oral X - Lembretes")
+            self.select_dropdown_option("//select[@ng-model='departamentoSelecionado.atendenteId']", "Oral X - Agendamento de exames")
             self.click_element("//button[@ng-click='onModalCriarAtendimentoNovoContato()']")
         except Exception as e:
             self.Status = 'Erro abertura do Chat'
@@ -221,11 +221,9 @@ class SeleniumAutomation:
     def enviar_mensagem(self, message):
         try:
             actions = ActionChains(self.driver)
-            actions.send_keys("/lembrete")
+            actions.send_keys("/botrepescagem")
             actions.send_keys(Keys.ENTER)
             actions.perform()
-            actions.send_keys(Keys.PAGE_UP)
-            actions.send_keys(Keys.PAGE_UP)
             actions.send_keys(Keys.PAGE_UP)
             actions.send_keys(Keys.PAGE_UP)
             actions.perform()
@@ -377,12 +375,11 @@ class SeleniumAutomation:
 if __name__ == "__main__":
     selenium_automation = SeleniumAutomation()
     try:
-        selenium_automation.start_selenium("https://painel.multi360.com.br")
-        selenium_automation.login()
-        selenium_automation.process_data()
-        if selenium_automation.errorFlag == 1:
+        while True:
             selenium_automation.start_selenium("https://painel.multi360.com.br")
             selenium_automation.login()
             selenium_automation.process_data()
+            if selenium_automation.errorFlag != 1:
+                break
     finally:
         selenium_automation.close_chrome_processes()

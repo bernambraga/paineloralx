@@ -22,3 +22,5 @@ LINE 1: INSERT INTO "SAC" ("Agenda", "Pedido", "Hora", "Paciente", "...
 2024-08-15 17:34:01,215:INFO:Dados inseridos com sucesso no banco
 2024-08-16 18:53:21,993:INFO:Buscando dados SmartRis
 2024-08-16 18:53:25,325:INFO:Dados inseridos com sucesso no banco
+2024-08-16 20:22:46,356:INFO:Buscando dados SmartRis
+2024-08-16 20:22:49,379:INFO:Dados inseridos com sucesso no banco

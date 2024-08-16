@@ -385,12 +385,12 @@ class SeleniumAutomation:
 if __name__ == "__main__":
     selenium_automation = SeleniumAutomation()
     try:
-        selenium_automation.start_selenium("https://painel.multi360.com.br")
-        selenium_automation.login()
-        selenium_automation.process_data()
-        if selenium_automation.errorFlag == 1:
+        while True:
             selenium_automation.start_selenium("https://painel.multi360.com.br")
             selenium_automation.login()
             selenium_automation.process_data()
+            if selenium_automation.errorFlag != 1:
+                break
     finally:
         selenium_automation.close_chrome_processes()
+
