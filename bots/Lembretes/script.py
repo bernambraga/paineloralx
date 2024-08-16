@@ -1,18 +1,3 @@
-# Olá {nome_paciente}, tudo bem?
-
-# *Seu exame está agendado para amanhã*, dia {data_exame}, às {hora_exame} na Oral X {unidade} - {endereço}.
-
-# *Caso não possa comparecer, por favor, responda esta mensagem para realizarmos o reagendamento.*
-
-# Estamos ansiosos para lhe proporcionar o melhor atendimento! 😊
-
-# Obrigado por escolher a OralX! ❤
-
-# Orientações importantes para o seu exame:
-# ∘ 🕒 Procedimentos como Escaneamentos, Moldagens e Rx Periapicais, indicamos jejum de uma hora.
-# ∘ 💍 Outros tipos de exames, recomendamos a remoção de piercings, brincos e correntinhas antes de sua chegada.
-
-
 import psycopg2
 from sqlalchemy import create_engine
 from sqlalchemy.sql import text
@@ -39,11 +24,13 @@ class SeleniumAutomation:
     def __init__(self):
         self.driver = None
         self.Status = ''
-        self.standardMessageA = "Olá $$paciente$$, tudo bem?\n\n*Seu exame está agendado para amanhã*, dia $$data_exame$$, ás $$hora_exame$$ na Oral X $$unidade$$ - $$endereco$$.\n"
+        self.standardMessageA = "Olá $$Paciente$$, tudo bem?\n\n*Seu exame está agendado para amanhã*, dia $$Data$$, ás $$Hora$$ na Oral X $$Agenda$$ - $$endereco$$.\n"
+        self.unidades = ["Pinheiros", "Angélica", "9 de Julho"]
+        self.enderecos = ["Rua Teodoro Sampaio, 744 - Sala 76", "Avenida Angélica, 321 - Sala 122", "Avenida 9 de Julho 5483 - Sala 13"]
         self.username = 'oralx.lembretes'
         self.password = 'Mudar@360'
         self.date_str = (datetime.today() + timedelta(days=1)).strftime('%Y-%m-%d')
-        self.table = 'Lembrete'
+        self.table = 'Lembretes'
         self.errorFlag = 0
 
     def connect_to_db(self):
@@ -57,14 +44,24 @@ class SeleniumAutomation:
             return None
 
     def fetch_data_from_table(self, engine, table, date, bot_status):
-        query = f'SELECT * FROM public."{table}" WHERE "Data" = %s AND "Bot_Status" = %s;'
-        try:
-            with engine.connect() as connection:
-                df = pd.read_sql_query(query, connection, params=(date, bot_status))
-            return df
-        except Exception as e:
-            logging.error(f"Error fetching data from table {table}: {e}")
-            return None
+        if bot_status != '':
+            query = f'SELECT * FROM public."{table}" WHERE "Data" = %s AND "Bot_Status" = %s;'
+            try:
+                with engine.connect() as connection:
+                    df = pd.read_sql_query(query, connection, params=(date, bot_status))
+                return df
+            except Exception as e:
+                logging.error(f"Error fetching data from table {table}: {e}")
+                return None
+        else:
+            query = f'SELECT * FROM public."{table}" WHERE "Data" = %s AND "Bot_Status" is null;'
+            try:
+                with engine.connect() as connection:
+                    df = pd.read_sql_query(query, connection, params=(date,))
+                return df
+            except Exception as e:
+                logging.error(f"Error fetching data from table {table}: {e}")
+                return None
 
     def update_data_in_table(self, data, table):
         connection_params = {
@@ -197,7 +194,6 @@ class SeleniumAutomation:
             flag = 1
         if flag == 1:
             try:
-                self.click_element("//button[@ng-click='onFecharModalCriarAtendimentoNovoContato()']")
                 self.click_element("//div[@ng-click='onMostrarModalCriarAtendimentoNovoContato()']")
             except Exception as e:
                 self.Status = 'Erro abertura do Chat'
@@ -206,9 +202,9 @@ class SeleniumAutomation:
         try:
             self.select_dropdown_option("//select[@ng-model='novoAtendimentoNovoContato.canalChave']", "w")
             self.fill_text_field("//input[@id='novoAtendimentoNovoContatoTelefone']", str(number), Keys.TAB)
-            self.fill_text_field("//input[@ng-model='novoAtendimentoNovoContato.nome']", f"{name} - {str(date)[:10]} - {agenda}", Keys.CONTROL)
-            self.select_dropdown_option("//select[@ng-model='departamentoSelecionado.departamentoId']", "e")
-            self.select_dropdown_option("//select[@ng-model='departamentoSelecionado.atendenteId']", "Oral X - SAC")
+            self.fill_text_field("//input[@ng-model='novoAtendimentoNovoContato.nome']", f"{name}", Keys.CONTROL)
+            self.select_dropdown_option("//select[@ng-model='departamentoSelecionado.departamentoId']", "r")
+            self.select_dropdown_option("//select[@ng-model='departamentoSelecionado.atendenteId']", "Oral X - Lembretes")
             self.click_element("//button[@ng-click='onModalCriarAtendimentoNovoContato()']")
         except Exception as e:
             self.Status = 'Erro abertura do Chat'
@@ -255,7 +251,8 @@ class SeleniumAutomation:
                 self.click_element("//a[@class='dropdown-toggle icone m-r-0']", 1)
                 self.click_element("//a[@ng-click='onMostrarModalFinalizarAtendimento()']", 1)
             except Exception as e:
-                print('Erro finalizarConversa')
+                logging.error('Erro finalizarConversa')
+                logging.error(e)
         finally:
             time.sleep(1)
 
@@ -344,6 +341,7 @@ class SeleniumAutomation:
         def replace_placeholder(match):
             placeholder = match.group(1)
             value = row_data.get(placeholder, placeholder)
+
             if placeholder == 'Paciente':
                 value = value.split(" ")[0].title()
             elif placeholder == 'Data':
@@ -359,6 +357,20 @@ class SeleniumAutomation:
                     value = value.strftime('%d/%m/%Y')
                 else:
                     value = '/'.join(str(value).split('-')[::-1])
+            elif placeholder == 'Agenda':
+                if value.lower().startswith('p'):
+                    value = self.unidades[0]
+                elif value.lower().startswith('a'):
+                    value = self.unidades[1]
+                elif value.lower().startswith('9'):
+                    value = self.unidades[2]
+            elif placeholder == 'endereco':
+                if row_data.get('Agenda', '').lower().startswith('p'):
+                    value = self.enderecos[0]
+                elif row_data.get('Agenda', '').lower().startswith('a'):
+                    value = self.enderecos[1]
+                elif row_data.get('Agenda', '').lower().startswith('9'):
+                    value = self.enderecos[2]
             return str(value)
         return re.sub(r'\$\$(.*?)\$\$', replace_placeholder, message)
     
@@ -379,6 +391,6 @@ if __name__ == "__main__":
         if selenium_automation.errorFlag == 1:
             selenium_automation.start_selenium("https://painel.multi360.com.br")
             selenium_automation.login()
-            selenium_automation.process_data(flag=1)
+            selenium_automation.process_data()
     finally:
         selenium_automation.close_chrome_processes()

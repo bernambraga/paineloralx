@@ -50,12 +50,14 @@ def fetch_dataframe(date_str):
         raise
 
 # Função para limpar o DataFrame
-def clean_dataframe(df):
+def clean_dataframe(df,flag=0):
     try:
         # Remover linhas com telefones duplicados, valores 0 ou vazios
         df.loc[:, 'Telefone'] = df['Telefone'].apply(lambda x: re.sub(r'\D', '', x))
         df = df.drop_duplicates(subset=['Telefone'])
         df = df.drop(columns = ["Encaixe", "Carteirinha", "Convênio", "Procedimento"])
+        if flag==1:
+            df = df.drop(columns = ["Hora"])
         df = df[df['Telefone'].apply(lambda x: bool(re.match(r'^\d{10,11}$', x)) and '0000000' not in x)]
         
         return df
@@ -64,6 +66,20 @@ def clean_dataframe(df):
         raise
     except Exception as e:
         logging.error(f"Erro ao limpar o DataFrame: {e}")
+        raise
+
+# Função para remover pacientes duplicados nos DataFrames "Agendado" e "Finalizado"
+def remove_duplicate_patients(df):
+    try:
+        # Identificar pacientes que aparecem em ambos os estados
+        pacientes_finalizados = df[df['Status'] == 'Finalizado']['Paciente']
+        df = df[~((df['Status'] == 'Agendado') & (df['Paciente'].isin(pacientes_finalizados)))]
+        return df
+    except KeyError as ke:
+        logging.error(f"Erro de chave no DataFrame: {ke}")
+        raise
+    except Exception as e:
+        logging.error(f"Erro ao remover pacientes duplicados: {e}")
         raise
 
 # Função para conectar ao banco de dados PostgreSQL
@@ -173,12 +189,15 @@ def main():
     logging.info("Buscando dados SmartRis")
     date_str = datetime.today().strftime('%Y-%m-%d')
     df = fetch_dataframe(date_str)
-    
+
+    # Remover pacientes duplicados antes de dividir os DataFrames
+    df = remove_duplicate_patients(df)
+
     df_agendado = df[df['Status'] == 'Agendado']
     df_finalizado = df[df['Status'] == 'Finalizado']
     
     df_agendado = clean_dataframe(df_agendado)
-    df_finalizado = clean_dataframe(df_finalizado)
+    df_finalizado = clean_dataframe(df_finalizado,1)
     
     conn = connect_to_db()
     try:
