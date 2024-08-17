@@ -1,0 +1,781 @@
+2024-08-16 19:42:03,164:INFO:Starting Selenium
+2024-08-16 19:42:22,183:INFO:Enviando mensagem 1 de 13...
+2024-08-16 19:42:36,194:INFO:11970223563 OK!
+2024-08-16 19:42:36,195:INFO:Enviando mensagem 2 de 13...
+2024-08-16 19:42:42,789:ERROR:DANILO ALOISIO SILVA Erro: Ops, Chat já ativo.
+2024-08-16 19:42:42,790:INFO:Enviando mensagem 3 de 13...
+2024-08-16 19:50:54,396:INFO:Starting Selenium
+2024-08-16 19:51:14,177:ERROR:Message: element click intercepted: Element <span class="mz-header-user-name ng-binding">...</span> is not clickable at point (889, 29). Other element would receive the click: <div modal-render="true" tabindex="-1" role="dialog" class="modal fade ng-isolate-scope app-modal-news in" uib-modal-animation-class="fade" modal-in-class="in" ng-style="{'z-index': 1050 + index*10, display: 'block'}" uib-modal-window="modal-window" window-class="app-modal-news" index="0" animate="animate" modal-animation="true" style="z-index: 1050; display: block;">...</div>
+  (Session info: chrome=126.0.6478.126)
+Stacktrace:
+#0 0x5b2e2e42cc7a <unknown>
+#1 0x5b2e2e10fe2c <unknown>
+#2 0x5b2e2e163406 <unknown>
+#3 0x5b2e2e161246 <unknown>
+#4 0x5b2e2e15ec27 <unknown>
+#5 0x5b2e2e15da60 <unknown>
+#6 0x5b2e2e15115f <unknown>
+#7 0x5b2e2e17f5c2 <unknown>
+#8 0x5b2e2e150ad9 <unknown>
+#9 0x5b2e2e17f78e <unknown>
+#10 0x5b2e2e19e303 <unknown>
+#11 0x5b2e2e17f363 <unknown>
+#12 0x5b2e2e14f247 <unknown>
+#13 0x5b2e2e14fb9e <unknown>
+#14 0x5b2e2e3f324b <unknown>
+#15 0x5b2e2e3f72f1 <unknown>
+#16 0x5b2e2e3deafe <unknown>
+#17 0x5b2e2e3f7e52 <unknown>
+#18 0x5b2e2e3c379f <unknown>
+#19 0x5b2e2e41c638 <unknown>
+#20 0x5b2e2e41c810 <unknown>
+#21 0x5b2e2e42bdac <unknown>
+#22 0x7a9403894ac3 <unknown>
+
+2024-08-16 19:51:15,181:INFO:Enviando mensagem 1 de 11...
+2024-08-16 19:51:17,550:ERROR:Message: element click intercepted: Element <div ng-if="permissions.criarAtendimentoAtivo" class="left-menu-pesquisa-icone ng-scope" ng-click="onMostrarModalCriarAtendimentoNovoContato()" title="Create Attendance" style="">...</div> is not clickable at point (976, 164). Other element would receive the click: <div modal-render="true" tabindex="-1" role="dialog" class="modal fade ng-isolate-scope app-modal-news in" uib-modal-animation-class="fade" modal-in-class="in" ng-style="{'z-index': 1050 + index*10, display: 'block'}" uib-modal-window="modal-window" window-class="app-modal-news" index="0" animate="animate" modal-animation="true" style="z-index: 1050; display: block;">...</div>
+  (Session info: chrome=126.0.6478.126)
+Stacktrace:
+#0 0x5b2e2e42cc7a <unknown>
+#1 0x5b2e2e10fe2c <unknown>
+#2 0x5b2e2e163406 <unknown>
+#3 0x5b2e2e161246 <unknown>
+#4 0x5b2e2e15ec27 <unknown>
+#5 0x5b2e2e15da60 <unknown>
+#6 0x5b2e2e15115f <unknown>
+#7 0x5b2e2e17f5c2 <unknown>
+#8 0x5b2e2e150ad9 <unknown>
+#9 0x5b2e2e17f78e <unknown>
+#10 0x5b2e2e19e303 <unknown>
+#11 0x5b2e2e17f363 <unknown>
+#12 0x5b2e2e14f247 <unknown>
+#13 0x5b2e2e14fb9e <unknown>
+#14 0x5b2e2e3f324b <unknown>
+#15 0x5b2e2e3f72f1 <unknown>
+#16 0x5b2e2e3deafe <unknown>
+#17 0x5b2e2e3f7e52 <unknown>
+#18 0x5b2e2e3c379f <unknown>
+#19 0x5b2e2e41c638 <unknown>
+#20 0x5b2e2e41c810 <unknown>
+#21 0x5b2e2e42bdac <unknown>
+#22 0x7a9403894ac3 <unknown>
+
+2024-08-16 19:51:17,551:INFO:Enviando mensagem 2 de 11...
+2024-08-16 19:51:19,954:ERROR:Message: element click intercepted: Element <div ng-if="permissions.criarAtendimentoAtivo" class="left-menu-pesquisa-icone ng-scope" ng-click="onMostrarModalCriarAtendimentoNovoContato()" title="Create Attendance" style="">...</div> is not clickable at point (976, 164). Other element would receive the click: <div modal-render="true" tabindex="-1" role="dialog" class="modal fade ng-isolate-scope app-modal-news in" uib-modal-animation-class="fade" modal-in-class="in" ng-style="{'z-index': 1050 + index*10, display: 'block'}" uib-modal-window="modal-window" window-class="app-modal-news" index="0" animate="animate" modal-animation="true" style="z-index: 1050; display: block;">...</div>
+  (Session info: chrome=126.0.6478.126)
+Stacktrace:
+#0 0x5b2e2e42cc7a <unknown>
+#1 0x5b2e2e10fe2c <unknown>
+#2 0x5b2e2e163406 <unknown>
+#3 0x5b2e2e161246 <unknown>
+#4 0x5b2e2e15ec27 <unknown>
+#5 0x5b2e2e15da60 <unknown>
+#6 0x5b2e2e15115f <unknown>
+#7 0x5b2e2e17f5c2 <unknown>
+#8 0x5b2e2e150ad9 <unknown>
+#9 0x5b2e2e17f78e <unknown>
+#10 0x5b2e2e19e303 <unknown>
+#11 0x5b2e2e17f363 <unknown>
+#12 0x5b2e2e14f247 <unknown>
+#13 0x5b2e2e14fb9e <unknown>
+#14 0x5b2e2e3f324b <unknown>
+#15 0x5b2e2e3f72f1 <unknown>
+#16 0x5b2e2e3deafe <unknown>
+#17 0x5b2e2e3f7e52 <unknown>
+#18 0x5b2e2e3c379f <unknown>
+#19 0x5b2e2e41c638 <unknown>
+#20 0x5b2e2e41c810 <unknown>
+#21 0x5b2e2e42bdac <unknown>
+#22 0x7a9403894ac3 <unknown>
+
+2024-08-16 19:51:19,956:INFO:Enviando mensagem 3 de 11...
+2024-08-16 19:51:22,373:ERROR:Message: element click intercepted: Element <div ng-if="permissions.criarAtendimentoAtivo" class="left-menu-pesquisa-icone ng-scope" ng-click="onMostrarModalCriarAtendimentoNovoContato()" title="Create Attendance" style="">...</div> is not clickable at point (976, 164). Other element would receive the click: <div modal-render="true" tabindex="-1" role="dialog" class="modal fade ng-isolate-scope app-modal-news in" uib-modal-animation-class="fade" modal-in-class="in" ng-style="{'z-index': 1050 + index*10, display: 'block'}" uib-modal-window="modal-window" window-class="app-modal-news" index="0" animate="animate" modal-animation="true" style="z-index: 1050; display: block;">...</div>
+  (Session info: chrome=126.0.6478.126)
+Stacktrace:
+#0 0x5b2e2e42cc7a <unknown>
+#1 0x5b2e2e10fe2c <unknown>
+#2 0x5b2e2e163406 <unknown>
+#3 0x5b2e2e161246 <unknown>
+#4 0x5b2e2e15ec27 <unknown>
+#5 0x5b2e2e15da60 <unknown>
+#6 0x5b2e2e15115f <unknown>
+#7 0x5b2e2e17f5c2 <unknown>
+#8 0x5b2e2e150ad9 <unknown>
+#9 0x5b2e2e17f78e <unknown>
+#10 0x5b2e2e19e303 <unknown>
+#11 0x5b2e2e17f363 <unknown>
+#12 0x5b2e2e14f247 <unknown>
+#13 0x5b2e2e14fb9e <unknown>
+#14 0x5b2e2e3f324b <unknown>
+#15 0x5b2e2e3f72f1 <unknown>
+#16 0x5b2e2e3deafe <unknown>
+#17 0x5b2e2e3f7e52 <unknown>
+#18 0x5b2e2e3c379f <unknown>
+#19 0x5b2e2e41c638 <unknown>
+#20 0x5b2e2e41c810 <unknown>
+#21 0x5b2e2e42bdac <unknown>
+#22 0x7a9403894ac3 <unknown>
+
+2024-08-16 19:51:22,374:INFO:Enviando mensagem 4 de 11...
+2024-08-16 19:51:24,715:ERROR:Message: element click intercepted: Element <div ng-if="permissions.criarAtendimentoAtivo" class="left-menu-pesquisa-icone ng-scope" ng-click="onMostrarModalCriarAtendimentoNovoContato()" title="Create Attendance" style="">...</div> is not clickable at point (407, 164). Other element would receive the click: <div>...</div>
+  (Session info: chrome=126.0.6478.126)
+Stacktrace:
+#0 0x5b2e2e42cc7a <unknown>
+#1 0x5b2e2e10fe2c <unknown>
+#2 0x5b2e2e163406 <unknown>
+#3 0x5b2e2e161246 <unknown>
+#4 0x5b2e2e15ec27 <unknown>
+#5 0x5b2e2e15da60 <unknown>
+#6 0x5b2e2e15115f <unknown>
+#7 0x5b2e2e17f5c2 <unknown>
+#8 0x5b2e2e150ad9 <unknown>
+#9 0x5b2e2e17f78e <unknown>
+#10 0x5b2e2e19e303 <unknown>
+#11 0x5b2e2e17f363 <unknown>
+#12 0x5b2e2e14f247 <unknown>
+#13 0x5b2e2e14fb9e <unknown>
+#14 0x5b2e2e3f324b <unknown>
+#15 0x5b2e2e3f72f1 <unknown>
+#16 0x5b2e2e3deafe <unknown>
+#17 0x5b2e2e3f7e52 <unknown>
+#18 0x5b2e2e3c379f <unknown>
+#19 0x5b2e2e41c638 <unknown>
+#20 0x5b2e2e41c810 <unknown>
+#21 0x5b2e2e42bdac <unknown>
+#22 0x7a9403894ac3 <unknown>
+
+2024-08-16 19:51:24,716:INFO:Enviando mensagem 5 de 11...
+2024-08-16 19:51:28,994:ERROR:Message: element click intercepted: Element <input name="nome" type="text" class="form-control fg-input input-lg ng-pristine ng-valid ng-touched" ng-model="novoAtendimentoNovoContato.nome" tabindex="2" autofocus="" style=""> is not clickable at point (645, 365). Other element would receive the click: <p>...</p>
+  (Session info: chrome=126.0.6478.126)
+Stacktrace:
+#0 0x5b2e2e42cc7a <unknown>
+#1 0x5b2e2e10fe2c <unknown>
+#2 0x5b2e2e163406 <unknown>
+#3 0x5b2e2e161246 <unknown>
+#4 0x5b2e2e15ec27 <unknown>
+#5 0x5b2e2e15da60 <unknown>
+#6 0x5b2e2e15115f <unknown>
+#7 0x5b2e2e17f5c2 <unknown>
+#8 0x5b2e2e150ad9 <unknown>
+#9 0x5b2e2e17f78e <unknown>
+#10 0x5b2e2e19e303 <unknown>
+#11 0x5b2e2e17f363 <unknown>
+#12 0x5b2e2e14f247 <unknown>
+#13 0x5b2e2e14fb9e <unknown>
+#14 0x5b2e2e3f324b <unknown>
+#15 0x5b2e2e3f72f1 <unknown>
+#16 0x5b2e2e3deafe <unknown>
+#17 0x5b2e2e3f7e52 <unknown>
+#18 0x5b2e2e3c379f <unknown>
+#19 0x5b2e2e41c638 <unknown>
+#20 0x5b2e2e41c810 <unknown>
+#21 0x5b2e2e42bdac <unknown>
+#22 0x7a9403894ac3 <unknown>
+
+2024-08-16 19:51:40,473:INFO:Starting Selenium
+2024-08-16 19:52:01,805:INFO:Enviando mensagem 1 de 11...
+2024-08-16 19:52:07,814:ERROR:DANILO ALOISIO SILVA Erro: Ops, Chat já ativo.
+2024-08-16 19:52:07,815:INFO:Enviando mensagem 2 de 11...
+2024-08-16 19:52:20,782:INFO:11980161538 OK!
+2024-08-16 19:52:20,783:INFO:Enviando mensagem 3 de 11...
+2024-08-16 19:52:34,267:INFO:11993141221 OK!
+2024-08-16 19:52:34,268:INFO:Enviando mensagem 4 de 11...
+2024-08-16 19:52:49,135:INFO:11964249135 OK!
+2024-08-16 19:52:49,137:INFO:Enviando mensagem 5 de 11...
+2024-08-16 19:52:57,389:ERROR:PEDRO ROCHA ZOCCOLA Erro: Ops, Chat já ativo.
+2024-08-16 19:52:57,390:INFO:Enviando mensagem 6 de 11...
+2024-08-16 19:53:09,493:INFO:11982248706 OK!
+2024-08-16 19:53:09,494:INFO:Enviando mensagem 7 de 11...
+2024-08-16 19:53:23,300:INFO:11977579369 OK!
+2024-08-16 19:53:23,301:INFO:Enviando mensagem 8 de 11...
+2024-08-16 19:53:39,570:INFO:11996507352 OK!
+2024-08-16 19:53:39,571:INFO:Enviando mensagem 9 de 11...
+2024-08-16 19:53:55,172:INFO:19981097222 OK!
+2024-08-16 19:53:55,173:INFO:Enviando mensagem 10 de 11...
+2024-08-16 19:54:06,818:ERROR:JEFERSON DANILO INÁCIO DE SOUSA Erro: Ops, Chat já ativo.
+2024-08-16 19:54:06,819:INFO:Enviando mensagem 11 de 11...
+2024-08-16 19:54:18,266:ERROR:WU LIU YING Erro: Ops, Chat já ativo.
+2024-08-16 19:54:19,446:INFO:Closing Selenium
+2024-08-16 19:54:19,679:INFO:Todos os processos do Chrome foram fechados.
+2024-08-17 20:44:50,949:INFO:Starting Selenium
+2024-08-17 20:44:50,950:ERROR:Erro ao iniciar o ChromeDriver: '/home/oralx/paineloralx/bots/Repescagem/chromedriver' não tem permissões de execução.
+2024-08-17 20:44:50,950:INFO:Todos os processos do Chrome foram fechados.
+2024-08-17 20:46:08,343:INFO:Starting Selenium
+2024-08-17 20:46:08,714:ERROR:Erro ao iniciar o ChromeDriver: Message: session not created: Chrome failed to start: exited normally.
+  (session not created: DevToolsActivePort file doesn't exist)
+  (The process started from chrome location /opt/google/chrome/chrome is no longer running, so ChromeDriver is assuming that Chrome has crashed.)
+Stacktrace:
+#0 0x55fcb5d82c7a <unknown>
+#1 0x55fcb5a65e2c <unknown>
+#2 0x55fcb5a9ad6a <unknown>
+#3 0x55fcb5a9717b <unknown>
+#4 0x55fcb5ae1c49 <unknown>
+#5 0x55fcb5ad5363 <unknown>
+#6 0x55fcb5aa5247 <unknown>
+#7 0x55fcb5aa5b9e <unknown>
+#8 0x55fcb5d4924b <unknown>
+#9 0x55fcb5d4d2f1 <unknown>
+#10 0x55fcb5d34afe <unknown>
+#11 0x55fcb5d4de52 <unknown>
+#12 0x55fcb5d1979f <unknown>
+#13 0x55fcb5d72638 <unknown>
+#14 0x55fcb5d72810 <unknown>
+#15 0x55fcb5d81dac <unknown>
+#16 0x7f588d1eb609 start_thread
+
+2024-08-17 20:46:08,715:INFO:Todos os processos do Chrome foram fechados.
+2024-08-17 20:47:23,092:INFO:Starting Selenium
+2024-08-17 20:47:23,291:ERROR:Erro ao iniciar o ChromeDriver: Message: session not created: Chrome failed to start: exited normally.
+  (session not created: DevToolsActivePort file doesn't exist)
+  (The process started from chrome location /opt/google/chrome/chrome is no longer running, so ChromeDriver is assuming that Chrome has crashed.)
+Stacktrace:
+#0 0x562ab2e5dc7a <unknown>
+#1 0x562ab2b40e2c <unknown>
+#2 0x562ab2b75d6a <unknown>
+#3 0x562ab2b7217b <unknown>
+#4 0x562ab2bbcc49 <unknown>
+#5 0x562ab2bb0363 <unknown>
+#6 0x562ab2b80247 <unknown>
+#7 0x562ab2b80b9e <unknown>
+#8 0x562ab2e2424b <unknown>
+#9 0x562ab2e282f1 <unknown>
+#10 0x562ab2e0fafe <unknown>
+#11 0x562ab2e28e52 <unknown>
+#12 0x562ab2df479f <unknown>
+#13 0x562ab2e4d638 <unknown>
+#14 0x562ab2e4d810 <unknown>
+#15 0x562ab2e5cdac <unknown>
+#16 0x7fccf24a3609 start_thread
+
+2024-08-17 20:47:23,291:INFO:Todos os processos do Chrome foram fechados.
+2024-08-17 20:54:26,099:INFO:Starting Selenium
+2024-08-17 20:54:26,352:ERROR:Erro ao iniciar o ChromeDriver: Message: session not created: Chrome failed to start: exited normally.
+  (session not created: DevToolsActivePort file doesn't exist)
+  (The process started from chrome location /opt/google/chrome/chrome is no longer running, so ChromeDriver is assuming that Chrome has crashed.)
+Stacktrace:
+#0 0x55702011dc7a <unknown>
+#1 0x55701fe00e2c <unknown>
+#2 0x55701fe35d6a <unknown>
+#3 0x55701fe3217b <unknown>
+#4 0x55701fe7cc49 <unknown>
+#5 0x55701fe70363 <unknown>
+#6 0x55701fe40247 <unknown>
+#7 0x55701fe40b9e <unknown>
+#8 0x5570200e424b <unknown>
+#9 0x5570200e82f1 <unknown>
+#10 0x5570200cfafe <unknown>
+#11 0x5570200e8e52 <unknown>
+#12 0x5570200b479f <unknown>
+#13 0x55702010d638 <unknown>
+#14 0x55702010d810 <unknown>
+#15 0x55702011cdac <unknown>
+#16 0x7f9f8b9b8609 start_thread
+
+2024-08-17 20:54:26,352:INFO:Todos os processos do Chrome foram fechados.
+2024-08-17 20:55:38,482:INFO:Starting Selenium
+2024-08-17 20:56:00,024:ERROR:Message: 
+Stacktrace:
+#0 0x5568e962cc7a <unknown>
+#1 0x5568e930fe2c <unknown>
+#2 0x5568e935c661 <unknown>
+#3 0x5568e935c751 <unknown>
+#4 0x5568e93a0f64 <unknown>
+#5 0x5568e937f5ed <unknown>
+#6 0x5568e939e303 <unknown>
+#7 0x5568e937f363 <unknown>
+#8 0x5568e934f247 <unknown>
+#9 0x5568e934fb9e <unknown>
+#10 0x5568e95f324b <unknown>
+#11 0x5568e95f72f1 <unknown>
+#12 0x5568e95deafe <unknown>
+#13 0x5568e95f7e52 <unknown>
+#14 0x5568e95c379f <unknown>
+#15 0x5568e961c638 <unknown>
+#16 0x5568e961c810 <unknown>
+#17 0x5568e962bdac <unknown>
+#18 0x7f0d00bc2609 start_thread
+
+2024-08-17 20:56:01,028:INFO:Enviando mensagem 1 de 12...
+2024-08-17 20:56:11,392:ERROR:Message: 
+Stacktrace:
+#0 0x5568e962cc7a <unknown>
+#1 0x5568e930fe2c <unknown>
+#2 0x5568e935c661 <unknown>
+#3 0x5568e935c751 <unknown>
+#4 0x5568e93a0f64 <unknown>
+#5 0x5568e937f5ed <unknown>
+#6 0x5568e939e303 <unknown>
+#7 0x5568e937f363 <unknown>
+#8 0x5568e934f247 <unknown>
+#9 0x5568e934fb9e <unknown>
+#10 0x5568e95f324b <unknown>
+#11 0x5568e95f72f1 <unknown>
+#12 0x5568e95deafe <unknown>
+#13 0x5568e95f7e52 <unknown>
+#14 0x5568e95c379f <unknown>
+#15 0x5568e961c638 <unknown>
+#16 0x5568e961c810 <unknown>
+#17 0x5568e962bdac <unknown>
+#18 0x7f0d00bc2609 start_thread
+
+2024-08-17 20:56:11,393:INFO:Enviando mensagem 2 de 12...
+2024-08-17 20:56:11,668:INFO:Todos os processos do Chrome foram fechados.
+2024-08-17 21:01:03,619:INFO:Starting Selenium
+2024-08-17 21:01:10,270:INFO:Todos os processos do Chrome foram fechados.
+2024-08-17 21:02:01,544:INFO:Starting Selenium
+2024-08-17 21:02:01,974:ERROR:Erro ao iniciar o ChromeDriver: Message: session not created: Chrome failed to start: exited normally.
+  (session not created: DevToolsActivePort file doesn't exist)
+  (The process started from chrome location /opt/google/chrome/chrome is no longer running, so ChromeDriver is assuming that Chrome has crashed.)
+Stacktrace:
+#0 0x55a754daac7a <unknown>
+#1 0x55a754a8de2c <unknown>
+#2 0x55a754ac2d6a <unknown>
+#3 0x55a754abf17b <unknown>
+#4 0x55a754b09c49 <unknown>
+#5 0x55a754afd363 <unknown>
+#6 0x55a754acd247 <unknown>
+#7 0x55a754acdb9e <unknown>
+#8 0x55a754d7124b <unknown>
+#9 0x55a754d752f1 <unknown>
+#10 0x55a754d5cafe <unknown>
+#11 0x55a754d75e52 <unknown>
+#12 0x55a754d4179f <unknown>
+#13 0x55a754d9a638 <unknown>
+#14 0x55a754d9a810 <unknown>
+#15 0x55a754da9dac <unknown>
+#16 0x7f59a3413609 start_thread
+
+2024-08-17 21:02:01,974:INFO:Todos os processos do Chrome foram fechados.
+2024-08-17 21:02:35,133:INFO:Starting Selenium
+2024-08-17 21:02:35,329:ERROR:Erro ao iniciar o ChromeDriver: Message: session not created: Chrome failed to start: exited normally.
+  (session not created: DevToolsActivePort file doesn't exist)
+  (The process started from chrome location /opt/google/chrome/chrome is no longer running, so ChromeDriver is assuming that Chrome has crashed.)
+Stacktrace:
+#0 0x55f693ca5c7a <unknown>
+#1 0x55f693988e2c <unknown>
+#2 0x55f6939bdd6a <unknown>
+#3 0x55f6939ba17b <unknown>
+#4 0x55f693a04c49 <unknown>
+#5 0x55f6939f8363 <unknown>
+#6 0x55f6939c8247 <unknown>
+#7 0x55f6939c8b9e <unknown>
+#8 0x55f693c6c24b <unknown>
+#9 0x55f693c702f1 <unknown>
+#10 0x55f693c57afe <unknown>
+#11 0x55f693c70e52 <unknown>
+#12 0x55f693c3c79f <unknown>
+#13 0x55f693c95638 <unknown>
+#14 0x55f693c95810 <unknown>
+#15 0x55f693ca4dac <unknown>
+#16 0x7f324ff26609 start_thread
+
+2024-08-17 21:02:35,329:INFO:Todos os processos do Chrome foram fechados.
+2024-08-17 21:04:15,147:INFO:Starting Selenium
+2024-08-17 21:04:15,345:ERROR:Erro ao iniciar o ChromeDriver: Message: session not created: Chrome failed to start: exited normally.
+  (session not created: DevToolsActivePort file doesn't exist)
+  (The process started from chrome location /opt/google/chrome/chrome is no longer running, so ChromeDriver is assuming that Chrome has crashed.)
+Stacktrace:
+#0 0x565388101c7a <unknown>
+#1 0x565387de4e2c <unknown>
+#2 0x565387e19d6a <unknown>
+#3 0x565387e1617b <unknown>
+#4 0x565387e60c49 <unknown>
+#5 0x565387e54363 <unknown>
+#6 0x565387e24247 <unknown>
+#7 0x565387e24b9e <unknown>
+#8 0x5653880c824b <unknown>
+#9 0x5653880cc2f1 <unknown>
+#10 0x5653880b3afe <unknown>
+#11 0x5653880cce52 <unknown>
+#12 0x56538809879f <unknown>
+#13 0x5653880f1638 <unknown>
+#14 0x5653880f1810 <unknown>
+#15 0x565388100dac <unknown>
+#16 0x7f7028a52609 start_thread
+
+2024-08-17 21:04:15,345:INFO:Todos os processos do Chrome foram fechados.
+2024-08-17 21:06:48,354:INFO:Starting Selenium
+2024-08-17 21:06:48,551:ERROR:Erro ao iniciar o ChromeDriver: Message: session not created: Chrome failed to start: exited normally.
+  (session not created: DevToolsActivePort file doesn't exist)
+  (The process started from chrome location /opt/google/chrome/chrome is no longer running, so ChromeDriver is assuming that Chrome has crashed.)
+Stacktrace:
+#0 0x562f6e37cc7a <unknown>
+#1 0x562f6e05fe2c <unknown>
+#2 0x562f6e094d6a <unknown>
+#3 0x562f6e09117b <unknown>
+#4 0x562f6e0dbc49 <unknown>
+#5 0x562f6e0cf363 <unknown>
+#6 0x562f6e09f247 <unknown>
+#7 0x562f6e09fb9e <unknown>
+#8 0x562f6e34324b <unknown>
+#9 0x562f6e3472f1 <unknown>
+#10 0x562f6e32eafe <unknown>
+#11 0x562f6e347e52 <unknown>
+#12 0x562f6e31379f <unknown>
+#13 0x562f6e36c638 <unknown>
+#14 0x562f6e36c810 <unknown>
+#15 0x562f6e37bdac <unknown>
+#16 0x7f32003d5609 start_thread
+
+2024-08-17 21:06:48,551:INFO:Todos os processos do Chrome foram fechados.
+2024-08-17 21:08:13,507:INFO:Starting Selenium
+2024-08-17 21:08:18,406:INFO:Todos os processos do Chrome foram fechados.
+2024-08-17 21:17:39,068:INFO:Starting Selenium
+2024-08-17 21:17:39,271:ERROR:Erro ao iniciar o ChromeDriver: Message: session not created: Chrome failed to start: exited normally.
+  (session not created: DevToolsActivePort file doesn't exist)
+  (The process started from chrome location /opt/google/chrome/chrome is no longer running, so ChromeDriver is assuming that Chrome has crashed.)
+Stacktrace:
+#0 0x5588eb96ec7a <unknown>
+#1 0x5588eb651e2c <unknown>
+#2 0x5588eb686d6a <unknown>
+#3 0x5588eb68317b <unknown>
+#4 0x5588eb6cdc49 <unknown>
+#5 0x5588eb6c1363 <unknown>
+#6 0x5588eb691247 <unknown>
+#7 0x5588eb691b9e <unknown>
+#8 0x5588eb93524b <unknown>
+#9 0x5588eb9392f1 <unknown>
+#10 0x5588eb920afe <unknown>
+#11 0x5588eb939e52 <unknown>
+#12 0x5588eb90579f <unknown>
+#13 0x5588eb95e638 <unknown>
+#14 0x5588eb95e810 <unknown>
+#15 0x5588eb96ddac <unknown>
+#16 0x7f0bc8362609 start_thread
+
+2024-08-17 21:17:39,271:INFO:Todos os processos do Chrome foram fechados.
+2024-08-17 21:21:16,451:INFO:Starting Selenium
+2024-08-17 21:21:16,648:ERROR:Erro ao iniciar o ChromeDriver: Message: session not created: Chrome failed to start: exited normally.
+  (session not created: DevToolsActivePort file doesn't exist)
+  (The process started from chrome location /opt/google/chrome/chrome is no longer running, so ChromeDriver is assuming that Chrome has crashed.)
+Stacktrace:
+#0 0x5651e2219c7a <unknown>
+#1 0x5651e1efce2c <unknown>
+#2 0x5651e1f31d6a <unknown>
+#3 0x5651e1f2e17b <unknown>
+#4 0x5651e1f78c49 <unknown>
+#5 0x5651e1f6c363 <unknown>
+#6 0x5651e1f3c247 <unknown>
+#7 0x5651e1f3cb9e <unknown>
+#8 0x5651e21e024b <unknown>
+#9 0x5651e21e42f1 <unknown>
+#10 0x5651e21cbafe <unknown>
+#11 0x5651e21e4e52 <unknown>
+#12 0x5651e21b079f <unknown>
+#13 0x5651e2209638 <unknown>
+#14 0x5651e2209810 <unknown>
+#15 0x5651e2218dac <unknown>
+#16 0x7f1c44b73609 start_thread
+
+2024-08-17 21:21:16,649:INFO:Todos os processos do Chrome foram fechados.
+/bin/sh: 1: 6: not found
+/bin/sh: 1: 1-5: not found
+2024-08-19 11:49:09,722:INFO:Starting Selenium
+2024-08-19 11:49:25,758:INFO:Enviando mensagem 1 de 12...
+2024-08-19 11:49:25,878:ERROR:Message: no such element: Unable to locate element: {"method":"xpath","selector":"//select[@ng-model='novoAtendimentoNovoContato.canalChave']"}
+  (Session info: chrome-headless-shell=127.0.6533.119); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+#0 0x55aabe1226ca <unknown>
+#1 0x55aabddf3600 <unknown>
+#2 0x55aabde42bcb <unknown>
+#3 0x55aabde42eb1 <unknown>
+#4 0x55aabde86b24 <unknown>
+#5 0x55aabde658cd <unknown>
+#6 0x55aabde8404a <unknown>
+#7 0x55aabde65643 <unknown>
+#8 0x55aabde35d31 <unknown>
+#9 0x55aabde3679e <unknown>
+#10 0x55aabe0ea25b <unknown>
+#11 0x55aabe0ee1f2 <unknown>
+#12 0x55aabe0d7615 <unknown>
+#13 0x55aabe0eed82 <unknown>
+#14 0x55aabe0bc25f <unknown>
+#15 0x55aabe111e68 <unknown>
+#16 0x55aabe112040 <unknown>
+#17 0x55aabe12149c <unknown>
+#18 0x7fb5eeaa9609 start_thread
+
+2024-08-19 11:49:25,879:INFO:Enviando mensagem 2 de 12...
+2024-08-19 11:49:28,324:ERROR:Message: element click intercepted: Element <div ng-if="permissions.criarAtendimentoAtivo" class="left-menu-pesquisa-icone ng-scope" ng-click="onMostrarModalCriarAtendimentoNovoContato()" title="Create Attendance" style="">...</div> is not clickable at point (498, 92). Other element would receive the click: <div modal-render="true" tabindex="-1" role="dialog" class="modal fade ng-isolate-scope in" uib-modal-animation-class="fade" modal-in-class="in" ng-style="{'z-index': 1050 + index*10, display: 'block'}" uib-modal-window="modal-window" index="0" animate="animate" modal-animation="true" style="z-index: 1050; display: block;">...</div>
+  (Session info: chrome-headless-shell=127.0.6533.119)
+Stacktrace:
+#0 0x55aabe1226ca <unknown>
+#1 0x55aabddf3600 <unknown>
+#2 0x55aabde498e6 <unknown>
+#3 0x55aabde477f6 <unknown>
+#4 0x55aabde45277 <unknown>
+#5 0x55aabde4411c <unknown>
+#6 0x55aabde37be6 <unknown>
+#7 0x55aabde658a2 <unknown>
+#8 0x55aabde37599 <unknown>
+#9 0x55aabde65a6e <unknown>
+#10 0x55aabde8404a <unknown>
+#11 0x55aabde65643 <unknown>
+#12 0x55aabde35d31 <unknown>
+#13 0x55aabde3679e <unknown>
+#14 0x55aabe0ea25b <unknown>
+#15 0x55aabe0ee1f2 <unknown>
+#16 0x55aabe0d7615 <unknown>
+#17 0x55aabe0eed82 <unknown>
+#18 0x55aabe0bc25f <unknown>
+#19 0x55aabe111e68 <unknown>
+#20 0x55aabe112040 <unknown>
+#21 0x55aabe12149c <unknown>
+#22 0x7fb5eeaa9609 start_thread
+
+2024-08-19 11:49:28,324:INFO:Enviando mensagem 3 de 12...
+2024-08-19 11:49:30,569:ERROR:Message: element click intercepted: Element <div ng-if="permissions.criarAtendimentoAtivo" class="left-menu-pesquisa-icone ng-scope" ng-click="onMostrarModalCriarAtendimentoNovoContato()" title="Create Attendance" style="">...</div> is not clickable at point (498, 92). Other element would receive the click: <div modal-render="true" tabindex="-1" role="dialog" class="modal fade ng-isolate-scope in" uib-modal-animation-class="fade" modal-in-class="in" ng-style="{'z-index': 1050 + index*10, display: 'block'}" uib-modal-window="modal-window" index="0" animate="animate" modal-animation="true" style="z-index: 1050; display: block;">...</div>
+  (Session info: chrome-headless-shell=127.0.6533.119)
+Stacktrace:
+#0 0x55aabe1226ca <unknown>
+#1 0x55aabddf3600 <unknown>
+#2 0x55aabde498e6 <unknown>
+#3 0x55aabde477f6 <unknown>
+#4 0x55aabde45277 <unknown>
+#5 0x55aabde4411c <unknown>
+#6 0x55aabde37be6 <unknown>
+#7 0x55aabde658a2 <unknown>
+#8 0x55aabde37599 <unknown>
+#9 0x55aabde65a6e <unknown>
+#10 0x55aabde8404a <unknown>
+#11 0x55aabde65643 <unknown>
+#12 0x55aabde35d31 <unknown>
+#13 0x55aabde3679e <unknown>
+#14 0x55aabe0ea25b <unknown>
+#15 0x55aabe0ee1f2 <unknown>
+#16 0x55aabe0d7615 <unknown>
+#17 0x55aabe0eed82 <unknown>
+#18 0x55aabe0bc25f <unknown>
+#19 0x55aabe111e68 <unknown>
+#20 0x55aabe112040 <unknown>
+#21 0x55aabe12149c <unknown>
+#22 0x7fb5eeaa9609 start_thread
+
+2024-08-19 11:49:30,570:INFO:Enviando mensagem 4 de 12...
+2024-08-19 11:49:32,816:ERROR:Message: element click intercepted: Element <div ng-if="permissions.criarAtendimentoAtivo" class="left-menu-pesquisa-icone ng-scope" ng-click="onMostrarModalCriarAtendimentoNovoContato()" title="Create Attendance" style="">...</div> is not clickable at point (498, 92). Other element would receive the click: <div modal-render="true" tabindex="-1" role="dialog" class="modal fade ng-isolate-scope in" uib-modal-animation-class="fade" modal-in-class="in" ng-style="{'z-index': 1050 + index*10, display: 'block'}" uib-modal-window="modal-window" index="0" animate="animate" modal-animation="true" style="z-index: 1050; display: block;">...</div>
+  (Session info: chrome-headless-shell=127.0.6533.119)
+Stacktrace:
+#0 0x55aabe1226ca <unknown>
+#1 0x55aabddf3600 <unknown>
+#2 0x55aabde498e6 <unknown>
+#3 0x55aabde477f6 <unknown>
+#4 0x55aabde45277 <unknown>
+#5 0x55aabde4411c <unknown>
+#6 0x55aabde37be6 <unknown>
+#7 0x55aabde658a2 <unknown>
+#8 0x55aabde37599 <unknown>
+#9 0x55aabde65a6e <unknown>
+#10 0x55aabde8404a <unknown>
+#11 0x55aabde65643 <unknown>
+#12 0x55aabde35d31 <unknown>
+#13 0x55aabde3679e <unknown>
+#14 0x55aabe0ea25b <unknown>
+#15 0x55aabe0ee1f2 <unknown>
+#16 0x55aabe0d7615 <unknown>
+#17 0x55aabe0eed82 <unknown>
+#18 0x55aabe0bc25f <unknown>
+#19 0x55aabe111e68 <unknown>
+#20 0x55aabe112040 <unknown>
+#21 0x55aabe12149c <unknown>
+#22 0x7fb5eeaa9609 start_thread
+
+2024-08-19 11:49:32,817:INFO:Enviando mensagem 5 de 12...
+2024-08-19 11:49:35,093:ERROR:Message: element click intercepted: Element <div ng-if="permissions.criarAtendimentoAtivo" class="left-menu-pesquisa-icone ng-scope" ng-click="onMostrarModalCriarAtendimentoNovoContato()" title="Create Attendance" style="">...</div> is not clickable at point (498, 92). Other element would receive the click: <div modal-render="true" tabindex="-1" role="dialog" class="modal fade ng-isolate-scope in" uib-modal-animation-class="fade" modal-in-class="in" ng-style="{'z-index': 1050 + index*10, display: 'block'}" uib-modal-window="modal-window" index="0" animate="animate" modal-animation="true" style="z-index: 1050; display: block;">...</div>
+  (Session info: chrome-headless-shell=127.0.6533.119)
+Stacktrace:
+#0 0x55aabe1226ca <unknown>
+#1 0x55aabddf3600 <unknown>
+#2 0x55aabde498e6 <unknown>
+#3 0x55aabde477f6 <unknown>
+#4 0x55aabde45277 <unknown>
+#5 0x55aabde4411c <unknown>
+#6 0x55aabde37be6 <unknown>
+#7 0x55aabde658a2 <unknown>
+#8 0x55aabde37599 <unknown>
+#9 0x55aabde65a6e <unknown>
+#10 0x55aabde8404a <unknown>
+#11 0x55aabde65643 <unknown>
+#12 0x55aabde35d31 <unknown>
+#13 0x55aabde3679e <unknown>
+#14 0x55aabe0ea25b <unknown>
+#15 0x55aabe0ee1f2 <unknown>
+#16 0x55aabe0d7615 <unknown>
+#17 0x55aabe0eed82 <unknown>
+#18 0x55aabe0bc25f <unknown>
+#19 0x55aabe111e68 <unknown>
+#20 0x55aabe112040 <unknown>
+#21 0x55aabe12149c <unknown>
+#22 0x7fb5eeaa9609 start_thread
+
+2024-08-19 11:49:35,093:INFO:Enviando mensagem 6 de 12...
+2024-08-19 11:49:37,424:ERROR:Message: element click intercepted: Element <div ng-if="permissions.criarAtendimentoAtivo" class="left-menu-pesquisa-icone ng-scope" ng-click="onMostrarModalCriarAtendimentoNovoContato()" title="Create Attendance" style="">...</div> is not clickable at point (498, 92). Other element would receive the click: <div modal-render="true" tabindex="-1" role="dialog" class="modal fade ng-isolate-scope in" uib-modal-animation-class="fade" modal-in-class="in" ng-style="{'z-index': 1050 + index*10, display: 'block'}" uib-modal-window="modal-window" index="0" animate="animate" modal-animation="true" style="z-index: 1050; display: block;">...</div>
+  (Session info: chrome-headless-shell=127.0.6533.119)
+Stacktrace:
+#0 0x55aabe1226ca <unknown>
+#1 0x55aabddf3600 <unknown>
+#2 0x55aabde498e6 <unknown>
+#3 0x55aabde477f6 <unknown>
+#4 0x55aabde45277 <unknown>
+#5 0x55aabde4411c <unknown>
+#6 0x55aabde37be6 <unknown>
+#7 0x55aabde658a2 <unknown>
+#8 0x55aabde37599 <unknown>
+#9 0x55aabde65a6e <unknown>
+#10 0x55aabde8404a <unknown>
+#11 0x55aabde65643 <unknown>
+#12 0x55aabde35d31 <unknown>
+#13 0x55aabde3679e <unknown>
+#14 0x55aabe0ea25b <unknown>
+#15 0x55aabe0ee1f2 <unknown>
+#16 0x55aabe0d7615 <unknown>
+#17 0x55aabe0eed82 <unknown>
+#18 0x55aabe0bc25f <unknown>
+#19 0x55aabe111e68 <unknown>
+#20 0x55aabe112040 <unknown>
+#21 0x55aabe12149c <unknown>
+#22 0x7fb5eeaa9609 start_thread
+
+2024-08-19 11:49:37,425:INFO:Enviando mensagem 7 de 12...
+2024-08-19 11:49:39,692:ERROR:Message: element click intercepted: Element <div ng-if="permissions.criarAtendimentoAtivo" class="left-menu-pesquisa-icone ng-scope" ng-click="onMostrarModalCriarAtendimentoNovoContato()" title="Create Attendance" style="">...</div> is not clickable at point (498, 92). Other element would receive the click: <div modal-render="true" tabindex="-1" role="dialog" class="modal fade ng-isolate-scope in" uib-modal-animation-class="fade" modal-in-class="in" ng-style="{'z-index': 1050 + index*10, display: 'block'}" uib-modal-window="modal-window" index="0" animate="animate" modal-animation="true" style="z-index: 1050; display: block;">...</div>
+  (Session info: chrome-headless-shell=127.0.6533.119)
+Stacktrace:
+#0 0x55aabe1226ca <unknown>
+#1 0x55aabddf3600 <unknown>
+#2 0x55aabde498e6 <unknown>
+#3 0x55aabde477f6 <unknown>
+#4 0x55aabde45277 <unknown>
+#5 0x55aabde4411c <unknown>
+#6 0x55aabde37be6 <unknown>
+#7 0x55aabde658a2 <unknown>
+#8 0x55aabde37599 <unknown>
+#9 0x55aabde65a6e <unknown>
+#10 0x55aabde8404a <unknown>
+#11 0x55aabde65643 <unknown>
+#12 0x55aabde35d31 <unknown>
+#13 0x55aabde3679e <unknown>
+#14 0x55aabe0ea25b <unknown>
+#15 0x55aabe0ee1f2 <unknown>
+#16 0x55aabe0d7615 <unknown>
+#17 0x55aabe0eed82 <unknown>
+#18 0x55aabe0bc25f <unknown>
+#19 0x55aabe111e68 <unknown>
+#20 0x55aabe112040 <unknown>
+#21 0x55aabe12149c <unknown>
+#22 0x7fb5eeaa9609 start_thread
+
+2024-08-19 11:49:39,692:INFO:Enviando mensagem 8 de 12...
+2024-08-19 11:49:39,693:ERROR:1139724768 Número de Telefone Inválido!
+2024-08-19 11:49:39,693:INFO:Enviando mensagem 9 de 12...
+2024-08-19 11:49:41,934:ERROR:Message: element click intercepted: Element <div ng-if="permissions.criarAtendimentoAtivo" class="left-menu-pesquisa-icone ng-scope" ng-click="onMostrarModalCriarAtendimentoNovoContato()" title="Create Attendance" style="">...</div> is not clickable at point (498, 92). Other element would receive the click: <div modal-render="true" tabindex="-1" role="dialog" class="modal fade ng-isolate-scope in" uib-modal-animation-class="fade" modal-in-class="in" ng-style="{'z-index': 1050 + index*10, display: 'block'}" uib-modal-window="modal-window" index="0" animate="animate" modal-animation="true" style="z-index: 1050; display: block;">...</div>
+  (Session info: chrome-headless-shell=127.0.6533.119)
+Stacktrace:
+#0 0x55aabe1226ca <unknown>
+#1 0x55aabddf3600 <unknown>
+#2 0x55aabde498e6 <unknown>
+#3 0x55aabde477f6 <unknown>
+#4 0x55aabde45277 <unknown>
+#5 0x55aabde4411c <unknown>
+#6 0x55aabde37be6 <unknown>
+#7 0x55aabde658a2 <unknown>
+#8 0x55aabde37599 <unknown>
+#9 0x55aabde65a6e <unknown>
+#10 0x55aabde8404a <unknown>
+#11 0x55aabde65643 <unknown>
+#12 0x55aabde35d31 <unknown>
+#13 0x55aabde3679e <unknown>
+#14 0x55aabe0ea25b <unknown>
+#15 0x55aabe0ee1f2 <unknown>
+#16 0x55aabe0d7615 <unknown>
+#17 0x55aabe0eed82 <unknown>
+#18 0x55aabe0bc25f <unknown>
+#19 0x55aabe111e68 <unknown>
+#20 0x55aabe112040 <unknown>
+#21 0x55aabe12149c <unknown>
+#22 0x7fb5eeaa9609 start_thread
+
+2024-08-19 11:49:41,935:INFO:Enviando mensagem 10 de 12...
+2024-08-19 11:49:44,177:ERROR:Message: element click intercepted: Element <div ng-if="permissions.criarAtendimentoAtivo" class="left-menu-pesquisa-icone ng-scope" ng-click="onMostrarModalCriarAtendimentoNovoContato()" title="Create Attendance" style="">...</div> is not clickable at point (498, 92). Other element would receive the click: <div modal-render="true" tabindex="-1" role="dialog" class="modal fade ng-isolate-scope in" uib-modal-animation-class="fade" modal-in-class="in" ng-style="{'z-index': 1050 + index*10, display: 'block'}" uib-modal-window="modal-window" index="0" animate="animate" modal-animation="true" style="z-index: 1050; display: block;">...</div>
+  (Session info: chrome-headless-shell=127.0.6533.119)
+Stacktrace:
+#0 0x55aabe1226ca <unknown>
+#1 0x55aabddf3600 <unknown>
+#2 0x55aabde498e6 <unknown>
+#3 0x55aabde477f6 <unknown>
+#4 0x55aabde45277 <unknown>
+#5 0x55aabde4411c <unknown>
+#6 0x55aabde37be6 <unknown>
+#7 0x55aabde658a2 <unknown>
+#8 0x55aabde37599 <unknown>
+#9 0x55aabde65a6e <unknown>
+#10 0x55aabde8404a <unknown>
+#11 0x55aabde65643 <unknown>
+#12 0x55aabde35d31 <unknown>
+#13 0x55aabde3679e <unknown>
+#14 0x55aabe0ea25b <unknown>
+#15 0x55aabe0ee1f2 <unknown>
+#16 0x55aabe0d7615 <unknown>
+#17 0x55aabe0eed82 <unknown>
+#18 0x55aabe0bc25f <unknown>
+#19 0x55aabe111e68 <unknown>
+#20 0x55aabe112040 <unknown>
+#21 0x55aabe12149c <unknown>
+#22 0x7fb5eeaa9609 start_thread
+
+2024-08-19 11:49:44,177:INFO:Enviando mensagem 11 de 12...
+2024-08-19 11:49:46,449:ERROR:Message: element click intercepted: Element <div ng-if="permissions.criarAtendimentoAtivo" class="left-menu-pesquisa-icone ng-scope" ng-click="onMostrarModalCriarAtendimentoNovoContato()" title="Create Attendance" style="">...</div> is not clickable at point (498, 92). Other element would receive the click: <div modal-render="true" tabindex="-1" role="dialog" class="modal fade ng-isolate-scope in" uib-modal-animation-class="fade" modal-in-class="in" ng-style="{'z-index': 1050 + index*10, display: 'block'}" uib-modal-window="modal-window" index="0" animate="animate" modal-animation="true" style="z-index: 1050; display: block;">...</div>
+  (Session info: chrome-headless-shell=127.0.6533.119)
+Stacktrace:
+#0 0x55aabe1226ca <unknown>
+#1 0x55aabddf3600 <unknown>
+#2 0x55aabde498e6 <unknown>
+#3 0x55aabde477f6 <unknown>
+#4 0x55aabde45277 <unknown>
+#5 0x55aabde4411c <unknown>
+#6 0x55aabde37be6 <unknown>
+#7 0x55aabde658a2 <unknown>
+#8 0x55aabde37599 <unknown>
+#9 0x55aabde65a6e <unknown>
+#10 0x55aabde8404a <unknown>
+#11 0x55aabde65643 <unknown>
+#12 0x55aabde35d31 <unknown>
+#13 0x55aabde3679e <unknown>
+#14 0x55aabe0ea25b <unknown>
+#15 0x55aabe0ee1f2 <unknown>
+#16 0x55aabe0d7615 <unknown>
+#17 0x55aabe0eed82 <unknown>
+#18 0x55aabe0bc25f <unknown>
+#19 0x55aabe111e68 <unknown>
+#20 0x55aabe112040 <unknown>
+#21 0x55aabe12149c <unknown>
+#22 0x7fb5eeaa9609 start_thread
+
+2024-08-19 11:49:46,449:INFO:Enviando mensagem 12 de 12...
+2024-08-19 11:49:48,689:ERROR:Message: element click intercepted: Element <div ng-if="permissions.criarAtendimentoAtivo" class="left-menu-pesquisa-icone ng-scope" ng-click="onMostrarModalCriarAtendimentoNovoContato()" title="Create Attendance" style="">...</div> is not clickable at point (498, 92). Other element would receive the click: <div modal-render="true" tabindex="-1" role="dialog" class="modal fade ng-isolate-scope in" uib-modal-animation-class="fade" modal-in-class="in" ng-style="{'z-index': 1050 + index*10, display: 'block'}" uib-modal-window="modal-window" index="0" animate="animate" modal-animation="true" style="z-index: 1050; display: block;">...</div>
+  (Session info: chrome-headless-shell=127.0.6533.119)
+Stacktrace:
+#0 0x55aabe1226ca <unknown>
+#1 0x55aabddf3600 <unknown>
+#2 0x55aabde498e6 <unknown>
+#3 0x55aabde477f6 <unknown>
+#4 0x55aabde45277 <unknown>
+#5 0x55aabde4411c <unknown>
+#6 0x55aabde37be6 <unknown>
+#7 0x55aabde658a2 <unknown>
+#8 0x55aabde37599 <unknown>
+#9 0x55aabde65a6e <unknown>
+#10 0x55aabde8404a <unknown>
+#11 0x55aabde65643 <unknown>
+#12 0x55aabde35d31 <unknown>
+#13 0x55aabde3679e <unknown>
+#14 0x55aabe0ea25b <unknown>
+#15 0x55aabe0ee1f2 <unknown>
+#16 0x55aabe0d7615 <unknown>
+#17 0x55aabe0eed82 <unknown>
+#18 0x55aabe0bc25f <unknown>
+#19 0x55aabe111e68 <unknown>
+#20 0x55aabe112040 <unknown>
+#21 0x55aabe12149c <unknown>
+#22 0x7fb5eeaa9609 start_thread
+
+2024-08-19 11:49:48,751:INFO:Closing Selenium
+2024-08-19 11:49:48,842:INFO:Starting Selenium
