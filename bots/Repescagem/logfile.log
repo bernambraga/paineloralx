@@ -1,0 +1,199 @@
+2024-08-16 19:42:03,164:INFO:Starting Selenium
+2024-08-16 19:42:22,183:INFO:Enviando mensagem 1 de 13...
+2024-08-16 19:42:36,194:INFO:11970223563 OK!
+2024-08-16 19:42:36,195:INFO:Enviando mensagem 2 de 13...
+2024-08-16 19:42:42,789:ERROR:DANILO ALOISIO SILVA Erro: Ops, Chat já ativo.
+2024-08-16 19:42:42,790:INFO:Enviando mensagem 3 de 13...
+2024-08-16 19:50:54,396:INFO:Starting Selenium
+2024-08-16 19:51:14,177:ERROR:Message: element click intercepted: Element <span class="mz-header-user-name ng-binding">...</span> is not clickable at point (889, 29). Other element would receive the click: <div modal-render="true" tabindex="-1" role="dialog" class="modal fade ng-isolate-scope app-modal-news in" uib-modal-animation-class="fade" modal-in-class="in" ng-style="{'z-index': 1050 + index*10, display: 'block'}" uib-modal-window="modal-window" window-class="app-modal-news" index="0" animate="animate" modal-animation="true" style="z-index: 1050; display: block;">...</div>
+  (Session info: chrome=126.0.6478.126)
+Stacktrace:
+#0 0x5b2e2e42cc7a <unknown>
+#1 0x5b2e2e10fe2c <unknown>
+#2 0x5b2e2e163406 <unknown>
+#3 0x5b2e2e161246 <unknown>
+#4 0x5b2e2e15ec27 <unknown>
+#5 0x5b2e2e15da60 <unknown>
+#6 0x5b2e2e15115f <unknown>
+#7 0x5b2e2e17f5c2 <unknown>
+#8 0x5b2e2e150ad9 <unknown>
+#9 0x5b2e2e17f78e <unknown>
+#10 0x5b2e2e19e303 <unknown>
+#11 0x5b2e2e17f363 <unknown>
+#12 0x5b2e2e14f247 <unknown>
+#13 0x5b2e2e14fb9e <unknown>
+#14 0x5b2e2e3f324b <unknown>
+#15 0x5b2e2e3f72f1 <unknown>
+#16 0x5b2e2e3deafe <unknown>
+#17 0x5b2e2e3f7e52 <unknown>
+#18 0x5b2e2e3c379f <unknown>
+#19 0x5b2e2e41c638 <unknown>
+#20 0x5b2e2e41c810 <unknown>
+#21 0x5b2e2e42bdac <unknown>
+#22 0x7a9403894ac3 <unknown>
+
+2024-08-16 19:51:15,181:INFO:Enviando mensagem 1 de 11...
+2024-08-16 19:51:17,550:ERROR:Message: element click intercepted: Element <div ng-if="permissions.criarAtendimentoAtivo" class="left-menu-pesquisa-icone ng-scope" ng-click="onMostrarModalCriarAtendimentoNovoContato()" title="Create Attendance" style="">...</div> is not clickable at point (976, 164). Other element would receive the click: <div modal-render="true" tabindex="-1" role="dialog" class="modal fade ng-isolate-scope app-modal-news in" uib-modal-animation-class="fade" modal-in-class="in" ng-style="{'z-index': 1050 + index*10, display: 'block'}" uib-modal-window="modal-window" window-class="app-modal-news" index="0" animate="animate" modal-animation="true" style="z-index: 1050; display: block;">...</div>
+  (Session info: chrome=126.0.6478.126)
+Stacktrace:
+#0 0x5b2e2e42cc7a <unknown>
+#1 0x5b2e2e10fe2c <unknown>
+#2 0x5b2e2e163406 <unknown>
+#3 0x5b2e2e161246 <unknown>
+#4 0x5b2e2e15ec27 <unknown>
+#5 0x5b2e2e15da60 <unknown>
+#6 0x5b2e2e15115f <unknown>
+#7 0x5b2e2e17f5c2 <unknown>
+#8 0x5b2e2e150ad9 <unknown>
+#9 0x5b2e2e17f78e <unknown>
+#10 0x5b2e2e19e303 <unknown>
+#11 0x5b2e2e17f363 <unknown>
+#12 0x5b2e2e14f247 <unknown>
+#13 0x5b2e2e14fb9e <unknown>
+#14 0x5b2e2e3f324b <unknown>
+#15 0x5b2e2e3f72f1 <unknown>
+#16 0x5b2e2e3deafe <unknown>
+#17 0x5b2e2e3f7e52 <unknown>
+#18 0x5b2e2e3c379f <unknown>
+#19 0x5b2e2e41c638 <unknown>
+#20 0x5b2e2e41c810 <unknown>
+#21 0x5b2e2e42bdac <unknown>
+#22 0x7a9403894ac3 <unknown>
+
+2024-08-16 19:51:17,551:INFO:Enviando mensagem 2 de 11...
+2024-08-16 19:51:19,954:ERROR:Message: element click intercepted: Element <div ng-if="permissions.criarAtendimentoAtivo" class="left-menu-pesquisa-icone ng-scope" ng-click="onMostrarModalCriarAtendimentoNovoContato()" title="Create Attendance" style="">...</div> is not clickable at point (976, 164). Other element would receive the click: <div modal-render="true" tabindex="-1" role="dialog" class="modal fade ng-isolate-scope app-modal-news in" uib-modal-animation-class="fade" modal-in-class="in" ng-style="{'z-index': 1050 + index*10, display: 'block'}" uib-modal-window="modal-window" window-class="app-modal-news" index="0" animate="animate" modal-animation="true" style="z-index: 1050; display: block;">...</div>
+  (Session info: chrome=126.0.6478.126)
+Stacktrace:
+#0 0x5b2e2e42cc7a <unknown>
+#1 0x5b2e2e10fe2c <unknown>
+#2 0x5b2e2e163406 <unknown>
+#3 0x5b2e2e161246 <unknown>
+#4 0x5b2e2e15ec27 <unknown>
+#5 0x5b2e2e15da60 <unknown>
+#6 0x5b2e2e15115f <unknown>
+#7 0x5b2e2e17f5c2 <unknown>
+#8 0x5b2e2e150ad9 <unknown>
+#9 0x5b2e2e17f78e <unknown>
+#10 0x5b2e2e19e303 <unknown>
+#11 0x5b2e2e17f363 <unknown>
+#12 0x5b2e2e14f247 <unknown>
+#13 0x5b2e2e14fb9e <unknown>
+#14 0x5b2e2e3f324b <unknown>
+#15 0x5b2e2e3f72f1 <unknown>
+#16 0x5b2e2e3deafe <unknown>
+#17 0x5b2e2e3f7e52 <unknown>
+#18 0x5b2e2e3c379f <unknown>
+#19 0x5b2e2e41c638 <unknown>
+#20 0x5b2e2e41c810 <unknown>
+#21 0x5b2e2e42bdac <unknown>
+#22 0x7a9403894ac3 <unknown>
+
+2024-08-16 19:51:19,956:INFO:Enviando mensagem 3 de 11...
+2024-08-16 19:51:22,373:ERROR:Message: element click intercepted: Element <div ng-if="permissions.criarAtendimentoAtivo" class="left-menu-pesquisa-icone ng-scope" ng-click="onMostrarModalCriarAtendimentoNovoContato()" title="Create Attendance" style="">...</div> is not clickable at point (976, 164). Other element would receive the click: <div modal-render="true" tabindex="-1" role="dialog" class="modal fade ng-isolate-scope app-modal-news in" uib-modal-animation-class="fade" modal-in-class="in" ng-style="{'z-index': 1050 + index*10, display: 'block'}" uib-modal-window="modal-window" window-class="app-modal-news" index="0" animate="animate" modal-animation="true" style="z-index: 1050; display: block;">...</div>
+  (Session info: chrome=126.0.6478.126)
+Stacktrace:
+#0 0x5b2e2e42cc7a <unknown>
+#1 0x5b2e2e10fe2c <unknown>
+#2 0x5b2e2e163406 <unknown>
+#3 0x5b2e2e161246 <unknown>
+#4 0x5b2e2e15ec27 <unknown>
+#5 0x5b2e2e15da60 <unknown>
+#6 0x5b2e2e15115f <unknown>
+#7 0x5b2e2e17f5c2 <unknown>
+#8 0x5b2e2e150ad9 <unknown>
+#9 0x5b2e2e17f78e <unknown>
+#10 0x5b2e2e19e303 <unknown>
+#11 0x5b2e2e17f363 <unknown>
+#12 0x5b2e2e14f247 <unknown>
+#13 0x5b2e2e14fb9e <unknown>
+#14 0x5b2e2e3f324b <unknown>
+#15 0x5b2e2e3f72f1 <unknown>
+#16 0x5b2e2e3deafe <unknown>
+#17 0x5b2e2e3f7e52 <unknown>
+#18 0x5b2e2e3c379f <unknown>
+#19 0x5b2e2e41c638 <unknown>
+#20 0x5b2e2e41c810 <unknown>
+#21 0x5b2e2e42bdac <unknown>
+#22 0x7a9403894ac3 <unknown>
+
+2024-08-16 19:51:22,374:INFO:Enviando mensagem 4 de 11...
+2024-08-16 19:51:24,715:ERROR:Message: element click intercepted: Element <div ng-if="permissions.criarAtendimentoAtivo" class="left-menu-pesquisa-icone ng-scope" ng-click="onMostrarModalCriarAtendimentoNovoContato()" title="Create Attendance" style="">...</div> is not clickable at point (407, 164). Other element would receive the click: <div>...</div>
+  (Session info: chrome=126.0.6478.126)
+Stacktrace:
+#0 0x5b2e2e42cc7a <unknown>
+#1 0x5b2e2e10fe2c <unknown>
+#2 0x5b2e2e163406 <unknown>
+#3 0x5b2e2e161246 <unknown>
+#4 0x5b2e2e15ec27 <unknown>
+#5 0x5b2e2e15da60 <unknown>
+#6 0x5b2e2e15115f <unknown>
+#7 0x5b2e2e17f5c2 <unknown>
+#8 0x5b2e2e150ad9 <unknown>
+#9 0x5b2e2e17f78e <unknown>
+#10 0x5b2e2e19e303 <unknown>
+#11 0x5b2e2e17f363 <unknown>
+#12 0x5b2e2e14f247 <unknown>
+#13 0x5b2e2e14fb9e <unknown>
+#14 0x5b2e2e3f324b <unknown>
+#15 0x5b2e2e3f72f1 <unknown>
+#16 0x5b2e2e3deafe <unknown>
+#17 0x5b2e2e3f7e52 <unknown>
+#18 0x5b2e2e3c379f <unknown>
+#19 0x5b2e2e41c638 <unknown>
+#20 0x5b2e2e41c810 <unknown>
+#21 0x5b2e2e42bdac <unknown>
+#22 0x7a9403894ac3 <unknown>
+
+2024-08-16 19:51:24,716:INFO:Enviando mensagem 5 de 11...
+2024-08-16 19:51:28,994:ERROR:Message: element click intercepted: Element <input name="nome" type="text" class="form-control fg-input input-lg ng-pristine ng-valid ng-touched" ng-model="novoAtendimentoNovoContato.nome" tabindex="2" autofocus="" style=""> is not clickable at point (645, 365). Other element would receive the click: <p>...</p>
+  (Session info: chrome=126.0.6478.126)
+Stacktrace:
+#0 0x5b2e2e42cc7a <unknown>
+#1 0x5b2e2e10fe2c <unknown>
+#2 0x5b2e2e163406 <unknown>
+#3 0x5b2e2e161246 <unknown>
+#4 0x5b2e2e15ec27 <unknown>
+#5 0x5b2e2e15da60 <unknown>
+#6 0x5b2e2e15115f <unknown>
+#7 0x5b2e2e17f5c2 <unknown>
+#8 0x5b2e2e150ad9 <unknown>
+#9 0x5b2e2e17f78e <unknown>
+#10 0x5b2e2e19e303 <unknown>
+#11 0x5b2e2e17f363 <unknown>
+#12 0x5b2e2e14f247 <unknown>
+#13 0x5b2e2e14fb9e <unknown>
+#14 0x5b2e2e3f324b <unknown>
+#15 0x5b2e2e3f72f1 <unknown>
+#16 0x5b2e2e3deafe <unknown>
+#17 0x5b2e2e3f7e52 <unknown>
+#18 0x5b2e2e3c379f <unknown>
+#19 0x5b2e2e41c638 <unknown>
+#20 0x5b2e2e41c810 <unknown>
+#21 0x5b2e2e42bdac <unknown>
+#22 0x7a9403894ac3 <unknown>
+
+2024-08-16 19:51:40,473:INFO:Starting Selenium
+2024-08-16 19:52:01,805:INFO:Enviando mensagem 1 de 11...
+2024-08-16 19:52:07,814:ERROR:DANILO ALOISIO SILVA Erro: Ops, Chat já ativo.
+2024-08-16 19:52:07,815:INFO:Enviando mensagem 2 de 11...
+2024-08-16 19:52:20,782:INFO:11980161538 OK!
+2024-08-16 19:52:20,783:INFO:Enviando mensagem 3 de 11...
+2024-08-16 19:52:34,267:INFO:11993141221 OK!
+2024-08-16 19:52:34,268:INFO:Enviando mensagem 4 de 11...
+2024-08-16 19:52:49,135:INFO:11964249135 OK!
+2024-08-16 19:52:49,137:INFO:Enviando mensagem 5 de 11...
+2024-08-16 19:52:57,389:ERROR:PEDRO ROCHA ZOCCOLA Erro: Ops, Chat já ativo.
+2024-08-16 19:52:57,390:INFO:Enviando mensagem 6 de 11...
+2024-08-16 19:53:09,493:INFO:11982248706 OK!
+2024-08-16 19:53:09,494:INFO:Enviando mensagem 7 de 11...
+2024-08-16 19:53:23,300:INFO:11977579369 OK!
+2024-08-16 19:53:23,301:INFO:Enviando mensagem 8 de 11...
+2024-08-16 19:53:39,570:INFO:11996507352 OK!
+2024-08-16 19:53:39,571:INFO:Enviando mensagem 9 de 11...
+2024-08-16 19:53:55,172:INFO:19981097222 OK!
+2024-08-16 19:53:55,173:INFO:Enviando mensagem 10 de 11...
+2024-08-16 19:54:06,818:ERROR:JEFERSON DANILO INÁCIO DE SOUSA Erro: Ops, Chat já ativo.
+2024-08-16 19:54:06,819:INFO:Enviando mensagem 11 de 11...
+2024-08-16 19:54:18,266:ERROR:WU LIU YING Erro: Ops, Chat já ativo.
+2024-08-16 19:54:19,446:INFO:Closing Selenium
+2024-08-16 19:54:19,679:INFO:Todos os processos do Chrome foram fechados.

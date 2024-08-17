@@ -1,0 +1,26 @@
+2024-08-14 19:17:13,695:INFO:Buscando dados SmartRis
+2024-08-14 19:17:14,237:ERROR:Erro ao inserir DataFrame no banco de dados: column "Encaixe" of relation "Repescagem" does not exist
+LINE 1: INSERT INTO "Repescagem" ("Encaixe", "Agenda", "Pedido", "Ho...
+                                  ^
+
+2024-08-14 19:17:14,242:INFO:Dados inseridos com sucesso no banco
+2024-08-14 19:19:11,490:INFO:Buscando dados SmartRis
+2024-08-14 19:19:12,169:ERROR:Erro ao inserir DataFrame no banco de dados: column "Encaixe" of relation "SAC" does not exist
+LINE 1: INSERT INTO "SAC" ("Encaixe", "Agenda", "Pedido", "Hora", "P...
+                           ^
+
+2024-08-14 19:19:12,175:INFO:Dados inseridos com sucesso no banco
+2024-08-14 19:23:41,004:INFO:Buscando dados SmartRis
+2024-08-14 19:23:41,583:ERROR:Erro ao inserir DataFrame no banco de dados: column "Hora" of relation "SAC" does not exist
+LINE 1: INSERT INTO "SAC" ("Agenda", "Pedido", "Hora", "Paciente", "...
+                                               ^
+
+2024-08-14 19:23:41,589:INFO:Dados inseridos com sucesso no banco
+2024-08-15 15:01:19,548:INFO:Buscando dados SmartRis
+2024-08-15 15:01:21,657:INFO:Dados inseridos com sucesso no banco
+2024-08-15 17:33:59,308:INFO:Buscando dados SmartRis
+2024-08-15 17:34:01,215:INFO:Dados inseridos com sucesso no banco
+2024-08-16 18:53:21,993:INFO:Buscando dados SmartRis
+2024-08-16 18:53:25,325:INFO:Dados inseridos com sucesso no banco
+2024-08-16 20:22:46,356:INFO:Buscando dados SmartRis
+2024-08-16 20:22:49,379:INFO:Dados inseridos com sucesso no banco
