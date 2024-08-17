@@ -1,19 +1,18 @@
-// DatePicker.jsx
-import React from 'react';
-import Flatpickr from 'react-flatpickr';
-import 'flatpickr/dist/flatpickr.min.css';
-import { Portuguese } from 'flatpickr/dist/l10n/pt.js';
+import React from "react";
+import ReactDatePicker, { registerLocale } from 'react-datepicker';
+import ptBR from 'date-fns/locale/pt-BR';
+import "react-datepicker/dist/react-datepicker.css";
 
-const DatePicker = ({ value, onChange, className }) => {
+registerLocale('ptBR', ptBR);
+
+const DatePicker = ({ selectedDate, onChange }) => {
   return (
-    <Flatpickr
-      className={className} // Passa a classe recebida como props
-      value={value}
+    <ReactDatePicker 
+      name='date'
+      selected={selectedDate} 
       onChange={onChange}
-      options={{
-        dateFormat: 'd/m/Y',
-        locale: Portuguese
-      }}
+      dateFormat='dd/MM/yyyy'
+      locale="ptBR"
     />
   );
 };

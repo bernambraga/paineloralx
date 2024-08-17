@@ -3,9 +3,8 @@ import os
 import sys
 
 def main():
-    env = os.getenv('DJANGO_ENV', 'production')
+    env = os.getenv('DJANGO_ENV', 'development')
     settings_module = f"backend.settings.{env}"
-    print(f"Using settings module: {settings_module}")
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', settings_module)
     try:
         from django.core.management import execute_from_command_line

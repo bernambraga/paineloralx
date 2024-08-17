@@ -48,7 +48,7 @@ p {
   margin-bottom: 10px;
 }
 
-button:hover {
+.buttonlog:hover {
   background-color: #2f6496;
 }
 

@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'api',
     'bots',
+    'sac',
 ]
 
 MIDDLEWARE = [
@@ -78,7 +79,9 @@ ASGI_APPLICATION = 'backend.asgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DJANGO_ENV = os.getenv('DJANGO_ENV', 'production')
-
+##########
+DJANGO_ENV = "development"
+##########
 if DJANGO_ENV == 'development':
     # Configurações de desenvolvimento
     DEBUG = True
@@ -179,64 +182,23 @@ SIMPLE_JWT = {
     'TOKEN_TYPE_CLAIM': 'token_type',
 }
 
-LOGGING_ROOT = os.path.join(BASE_DIR, 'logs')
-
-# Garantir que o diretório de logs existe
-if not os.path.exists(LOGGING_ROOT):
-    os.makedirs(LOGGING_ROOT)
-
-# Determinar o arquivo de log com base no ambiente
-log_filename = 'django_dev.log' if os.environ.get('DJANGO_ENV') == 'development' else 'django_prod.log'
-log_error_filename = 'django_error_dev.log' if os.environ.get('DJANGO_ENV') == 'development' else 'django_error_prod.log'
+import logging
+from utils.utils import DatabaseLogHandler
 
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
     'handlers': {
-        'file_debug': {
-            'level': 'INFO',
-            'class': 'logging.FileHandler',
-            'filename': os.path.join(LOGGING_ROOT, log_filename),
-            'formatter': 'verbose',
-        },
-        'file_error': {
-            'level': 'ERROR',
-            'class': 'logging.FileHandler',
-            'filename': os.path.join(LOGGING_ROOT, log_error_filename),
-            'formatter': 'simple',
-        },
-        'console': {
-            'level': 'INFO',
-            'class': 'logging.StreamHandler',
-            'formatter': 'simple',
-        },
-    },
-    'formatters': {
-        'verbose': {
-            'format': '{levelname} {asctime} {module} {message}',
-            'style': '{',
-        },
-        'simple': {
-            'format': '{levelname} {message}',
-            'style': '{',
+        'db': {
+            'level': 'DEBUG',
+            'class': 'utils.utils.DatabaseLogHandler',
         },
     },
     'loggers': {
         'django': {
-            'handlers': ['file_debug', 'file_error', 'console'],
-            'level': 'INFO',
+            'handlers': ['db'],
+            'level': 'DEBUG',
             'propagate': True,
-        },
-        'django.request': {
-            'handlers': ['file_error'],  # Log apenas os erros para django.request
-            'level': 'ERROR',
-            'propagate': False,
-        },
-        'django.server': {
-            'handlers': ['file_error'],  # Log apenas os erros para django.server
-            'level': 'ERROR',
-            'propagate': False,
         },
     },
 }
-

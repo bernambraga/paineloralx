@@ -1,0 +1,20 @@
+.custom-datepicker .react-datepicker__input-container input {
+  width: 100px; /* Defina a largura desejada */
+  padding: 5px; /* Ajuste o padding conforme necessário */
+}
+
+.custom-datepicker .react-datepicker__day--selected,
+.custom-datepicker .react-datepicker__day--keyboard-selected {
+  background-color: #007bff; /* Cor de fundo do dia selecionado */
+  color: white; /* Cor do texto do dia selecionado */
+}
+
+.custom-datepicker .react-datepicker__header {
+  background-color: #007bff; /* Cor de fundo do cabeçalho */
+  color: white; /* Cor do texto do cabeçalho */
+}
+
+.custom-datepicker .react-datepicker__navigation {
+  background-color: #ff0000; /* Cor de fundo do botão */
+  width: 5px;
+}

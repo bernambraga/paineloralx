@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './Pesquisa.css';
+import axios from 'axios';
 import DatePicker from '../DatePicker/DatePicker';
+import { format, parse } from 'date-fns';
 
 const SACPesquisa = () => {
     const getBaseUrl = () => {
@@ -14,6 +16,21 @@ const SACPesquisa = () => {
         }
     };
 
+    const getCSRFToken = () => {
+        let csrfToken = null;
+        if (document.cookie && document.cookie !== '') {
+          const cookies = document.cookie.split(';');
+          for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            if (cookie.substring(0, 10) === 'csrftoken=') {
+              csrfToken = decodeURIComponent(cookie.substring(10));
+              break;
+            }
+          }
+        }
+        return csrfToken;
+    };
+
     const listaTeste = [
         { pedido: "234567", paciente: "Bernardo Mendonça Braga", agenda: "Pinheiros", Status: "Mensagem OK", Resposta: "Positiva", Motivo: "", Obs: "" },
         { pedido: "123456", paciente: "Felipe Moreira de Souza Campos", agenda: "Angélica", Status: "Mensagem OK", Resposta: "Negativa", Motivo: "a", Obs: "" },
@@ -21,17 +38,71 @@ const SACPesquisa = () => {
         { pedido: "4", paciente: "João", agenda: "Pinheiros", Status: "Mensagem OK", Resposta: "Negativa", Motivo: "Outro", Obs: "Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem IpsumLorem IpsumLorem IpsumLorem Ipsum" },
     ];
 
-    const [selectedDate, setSelectedDate] = useState('');
+    const handleDateChange = (date) => {
+        setSelectedDate(format(date, 'dd/MM/yyyy'));
+    };
+
+    const [selectedDate, setSelectedDate] = useState(format(new Date().setDate(new Date().getDate() - 1), 'dd/MM/yyyy'));
     const [relatorio, setRelatorio] = useState(listaTeste);
     const [motivoNegativo, setMotivoNegativo] = useState('');
     const [comentario, setComentario] = useState('');
     const [showMotivoModal, setShowMotivoModal] = useState(false);
     const [selectedPesquisa, setSelectedPesquisa] = useState(null);
+    const [motivosNegativos, setMotivosNegativos] = useState([]);
+    const [showModal, setShowModal] = useState(false);
+    const [searchTerm, setSearchTerm] = useState('');
+
+    useEffect(() => {
+        fetchMotivosNegativos();
+    }, []);
+
+    const fetchMotivosNegativos = async () => {
+        try {
+            const response = await fetch(`${getBaseUrl()}/sac/motivos/`);
+            const data = await response.json();
+            setMotivosNegativos(data);
+        } catch (error) {
+            console.error("There was an error fetching the motivos negativos!", error);
+        }
+    };
+
+    const handleShowModal = () => setShowModal(true);
+    const handleCloseModal = () => setShowModal(false);
+
+    const handleAddMotivo = async () => {
+        const motivo = document.getElementById('newMotivo').value;
+        try {
+            await axios.post(`${getBaseUrl()}/sac/criar_motivo`,
+                {
+                    motivo: motivo,
+                },
+                {
+                    headers: {
+                    'X-CSRFToken': getCSRFToken(),
+                    },
+                    withCredentials: true,
+                }
+            );
+            fetchMotivosNegativos();
+        } catch (error) {
+            console.error('Erro ao criar novo motivo:', error);
+        }
+    };
+
+    const handleDeleteMotivo = (id) => {
+        // Lógica para deletar um motivo
+    };
+    const [selectedMotivo1, setSelectedMotivo1] = useState('');
+    const handleTransferMotivo = (id, newMotivo) => {
+        // Lógica para transferir um motivo
+        setSelectedMotivo1('')
+    };
 
     const handleBuscar = async () => {
         try {
-            const response = await fetch(`${getBaseUrl()}/sac/relatorio?data=${selectedDate}`);
-            const result = await response.json();
+            const response = await axios.get(`${getBaseUrl()}/sac/relatorio?data=${selectedDate}`);
+            const result = await response.data;
+            console.info(result)
             setRelatorio(result);
         } catch (error) {
             console.error('Erro ao buscar pesquisas:', error);
@@ -97,7 +168,7 @@ const SACPesquisa = () => {
 
     const handleVoucher = async (pedidoId, pacienteNome) => {
         try {
-            const response = await fetch(`${getBaseUrl()}/api/voucher?pedidoId=${pedidoId}&data=${selectedDate}&pacienteNome=${pacienteNome}`);
+            const response = await fetch(`${getBaseUrl()}/sac/voucher?pedidoId=${pedidoId}&data=${selectedDate}&pacienteNome=${pacienteNome}`);
             const blob = await response.blob();
             const url = window.URL.createObjectURL(blob);
             const link = document.createElement('a');
@@ -121,16 +192,52 @@ const SACPesquisa = () => {
         clearMotivoModalValues();
     };
 
+    const filteredRelatorio = relatorio.filter((pedido) => 
+        pedido.paciente.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+
+    const handleSearchChange = (e) => {
+        setSearchTerm(e.target.value);
+    };
+
+    const handleClearSearch = () => {
+        setSearchTerm('');
+    };
+
+    const handleScrollToItem = (pedidoId) => {
+        const element = document.getElementById(`pedido-${pedidoId}`);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+            element.style.backgroundColor = '#ffff99'; // Highlight item
+            setTimeout(() => {
+                element.style.backgroundColor = ''; // Remove highlight after 2 seconds
+            }, 2000);
+        }
+    };
+
     return (
-        <div className="container-log">
+        <div className="container-pesquisa-sac">
             <h1>SAC - Pesquisa</h1>
-            <div className="input-container-log">
+            <div className="input-container-pesquisa-sac">
                 <label>Data: </label>
-                <DatePicker className="dateselector" value={selectedDate} onChange={(date) => setSelectedDate(date)} />
-                <button onClick={handleBuscar}>Buscar</button>
-                <button onClick={handleDownload}>Download</button>
+                <DatePicker
+                    selectedDate={parse(selectedDate, 'dd/MM/yyyy', new Date())} 
+                    onChange={handleDateChange}
+                />
+                <button className='button-sac' onClick={handleBuscar}>Buscar</button>
+                <button className='button-sac' onClick={handleDownload}>Download</button>
+                <button className='button-sac' onClick={handleShowModal}>Motivos</button>
             </div>
-            <table className="log-container">
+            <div className='searchContainer'>
+                <input
+                    type="text"
+                    placeholder="Buscar pelo nome"
+                    value={searchTerm}
+                    onChange={handleSearchChange}
+                />
+                <button className='button-clear' onClick={() => handleClearSearch}>Limpar</button>
+            </div>
+            <table className="pesquisa-sac-container">
                 <thead>
                     <tr>
                         <th>Paciente</th>
@@ -142,8 +249,8 @@ const SACPesquisa = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {relatorio.map((pedido) => (
-                        <tr key={pedido.pedido}>
+                    {filteredRelatorio.map((pedido) => (
+                        <tr key={pedido.pedido} id={`pedido-${pedido.pedido}`}>
                             <td>{pedido.paciente}</td>
                             <td>{pedido.agenda}</td>
                             <td>{pedido.pedido}</td>
@@ -162,32 +269,63 @@ const SACPesquisa = () => {
                                 )}
                             </td>
                             <td>
-                                <button 
-                                    className="positivo" 
-                                    onClick={() => handlePositivo(pedido.pedido)} 
-                                    disabled={pedido.Status !== 'Mensagem OK'}
-                                >
-                                    Positivo
-                                </button>
-                                <button 
-                                    className="negativo" 
-                                    onClick={() => handleNegativo(pedido)} 
-                                    disabled={pedido.Status !== 'Mensagem OK'}
-                                >
-                                    Negativo
-                                </button>
-                                <button 
-                                    onClick={() => handleVoucher(pedido.pedido, pedido.paciente)} 
-                                    disabled={pedido.Status !== 'Mensagem OK'}
-                                >
-                                    Voucher
-                                </button>
+                                {pedido.Status === 'Mensagem OK' ? (<>
+                                    {pedido.Resposta === 'Negativa' ? (<>
+                                        <button 
+                                            className="positivo" 
+                                            onClick={() => handlePositivo(pedido.pedido)} 
+                                            disabled={pedido.Status !== 'Mensagem OK'}
+                                        >
+                                            Positivo
+                                        </button>
+                                        <button className='voucher'
+                                            onClick={() => handleVoucher(pedido.pedido, pedido.paciente)} 
+                                        >
+                                            Voucher
+                                        </button></>
+                                    ) : pedido.Resposta === 'Positiva' ? (<>
+                                        <button 
+                                            className="negativo" 
+                                            onClick={() => handleNegativo(pedido)} 
+                                            disabled={pedido.Status !== 'Mensagem OK'}
+                                        >
+                                            Negativo
+                                        </button>
+                                        <button className='voucher'
+                                            onClick={() => handleVoucher(pedido.pedido, pedido.paciente)} 
+                                        >
+                                            Voucher
+                                        </button></>
+                                    ) : (
+                                        <div>
+                                            <button 
+                                                className="positivo" 
+                                                onClick={() => handlePositivo(pedido.pedido)} 
+                                            >
+                                                Positivo
+                                            </button>
+                                            <button 
+                                                className="negativo" 
+                                                onClick={() => handleNegativo(pedido)} 
+                                            >
+                                                Negativo
+                                            </button>
+                                            <button className='voucher'
+                                                onClick={() => handleVoucher(pedido.pedido, pedido.paciente)} 
+                                            >
+                                                Voucher
+                                            </button>
+                                        </div>
+                                    )}</>
+                                ):(
+                                    <div></div>
+                                )}
+                                
                             </td>
                         </tr>
                     ))}
                 </tbody>
             </table>
-
 
             {showMotivoModal && (
                 <div className="modal">
@@ -208,6 +346,58 @@ const SACPesquisa = () => {
                     <div>
                         <button className="modalButton" onClick={handleConfirmarNegativo}>Confirmar</button>
                         <button className="modalButton" onClick={handleCloseMotivoModal}>Cancelar</button>
+                    </div>
+                </div>
+            )}
+
+            {showModal && (
+                <div className="modal">
+                    <h2>Edição de Motivos</h2>
+                    <div>
+                        <div className='container-modal'>
+                            <label htmlFor="newMotivo">Adicionar Motivo</label>
+                            <input id="newMotivo" type="text" placeholder="Novo motivo" />
+                            <button onClick={handleAddMotivo}>
+                                Adicionar
+                            </button>
+                        </div>
+
+                        <div className='container-modal'>
+                            <label htmlFor="deleteMotivo">Deletar Motivo</label>
+                            <select id="deleteMotivo">
+                                {motivosNegativos.map(motivo => (
+                                    <option key={motivo.id} value={motivo.id}>{motivo.motivo}</option>
+                                ))}
+                            </select>
+                            <button onClick={() => handleDeleteMotivo("selectedMotivoId")}>
+                                Deletar
+                            </button>
+                        </div>
+
+                        <div className='container-modal'>
+                            <label htmlFor="transferMotivo">Transferir Atendimentos</label>
+                            <select id="transferMotivo1"
+                                value={selectedMotivo1}
+                                onChange={(e) => setSelectedMotivo1(e.target.value)}
+                            >
+                                <option value="" disabled>Selecione um motivo</option>
+                                {motivosNegativos.map(motivo => (
+                                    <option key={motivo.id} value={motivo.id}>{motivo.motivo}</option>
+                                ))}
+                            </select>
+                            <select id="transferMotivo2">
+                                <option value="" disabled>Selecione um motivo</option>
+                                {motivosNegativos.filter(motivo => motivo.id !== selectedMotivo1).map(motivo => (
+                                    <option key={motivo.id} value={motivo.id}>{motivo.motivo}</option>
+                                ))}
+                            </select>
+                            <button onClick={() => handleTransferMotivo("selectedMotivoId", "newMotivoId")}>
+                                Transferir
+                            </button>
+                        </div>
+                        <button onClick={handleCloseModal}>
+                            Fechar
+                        </button>
                     </div>
                 </div>
             )}

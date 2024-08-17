@@ -1,0 +1,12 @@
+from django.urls import path
+from .views import *
+
+urlpatterns = [
+    path('motivos/', listar_motivos_negativos, name='listar_motivos_negativos'),
+    path('criar_motivo/', criar_motivo, name='criar_motivo'),
+    path('transferir_atendimentos/', transferir_atendimentos, name='transferir_atendimentos'),
+    path('excluir_motivo/', excluir_motivo, name='excluir_motivo'),
+    path('relatorio/', listar_atendimentos, name='listar_atendimentos_por_data'),
+    path('relatorioDownload/', excel_atendimentos, name='fornecer_excel_atendimentos'),
+    path('editar_atendimento/', editar_atendimento, name='editar_atendimento'),
+]

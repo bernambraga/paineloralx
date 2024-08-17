@@ -102,7 +102,7 @@ const LogReader = () => {
             ))}
           </select>
         </label>
-        <button onClick={handleDownloadClick}>Baixar Log</button>
+        <button className='buttonlog' onClick={handleDownloadClick}>Baixar Log</button>
       </div>
       <p><strong>Caminho do arquivo de Log:</strong> {logFilePath}</p>
       <div className="log-container">

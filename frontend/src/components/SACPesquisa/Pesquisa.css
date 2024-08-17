@@ -1,5 +1,5 @@
 /* Pesquisa.css */
-.container-log {
+.container-pesquisa-sac {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
@@ -17,51 +17,73 @@ h2 {
     margin-bottom: 15px;
 }
 
-.input-container-log {
+.input-container-pesquisa-sac {
     display: flex;
     align-items: center;
     justify-content: center;
     }
 
-.input-container-log label {
-    padding: 10px;
+.input-container-pesquisa-sac label {
+    padding: 5px;
     color: #555;
     font-weight: bold;
+    align-self: center;
+    margin: auto;
     }
 
-.input-container-log DatePicker {
-    padding: 10px;
-    margin-left: 10px;
-    border: 1px solid #e92a2a;
-    border-radius: 5px;
-    width: 30px; /* Ajuste conforme necessário */
-    height: 35px;
-    }
+.react-datepicker-wrapper input{
+    margin: auto;
+    padding: 2px 5px 2px 2px;
+    text-align: center;
+}
+.react-datepicker__input-container{
+    width: 100%;
+    cursor: pointer;
+}
 
-.input-container-log button {
-    padding: 10px;
+.button-sac {
+    display: inline-block;
+    padding: 5px;
     border-radius: 5px;
     border: none;
     background-color: #4085c5;
-    color: white;
+    color: #fff;
     cursor: pointer;
     font-size: 16px;
     height: 35px;
     width: 180px;
     margin: 0 10px;
+    text-align: center;
+    box-sizing: border-box; /* add this to ensure padding is included in width and height */
+    transition: background-color 0.2s ease-in-out; /* add a transition effect for hover */
+    }
+    
+.button-sac:hover {
+    background-color: #337ab7; /* add a hover effect */
     }
 
-button:hover {
-    background-color: #2f6496;
-    }
+.button-clear {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #f5f5f5;
+    border: none;
+    cursor: pointer;
 
-button:disabled {
-    background-color: #e0e0e0;
-    color: #a0a0a0;
-    cursor: not-allowed;
-    }
+}
 
-.log-container {
+.searchContainer {
+    margin: auto;
+    padding: auto;
+    align-items: center;
+}
+
+.searchContainer input {
+    padding: 10px;
+}
+
+.pesquisa-sac-container {
     background-color: #f4f4f4;
     border: 1px solid #ddd;
     border-radius: 5px;
@@ -73,12 +95,12 @@ button:disabled {
     overflow-y: auto;
     }
 
-.log-container table {
+.pesquisa-sac-container table {
     width: 100%;
     border-collapse: collapse;
     }
 
-.log-container th, .log-container td {
+.pesquisa-sac-container th, .log-container td {
     padding: 10px;
     border: 1px solid #ddd;
     text-align: left;
@@ -87,7 +109,7 @@ button:disabled {
 .positivo {
     color: white;
     background-color: green;
-    margin-right: 5px;
+    margin: 5px;
     border: none;
     padding: 5px 10px;
     border-radius: 3px;
@@ -96,13 +118,23 @@ button:disabled {
 
 .negativo {
     color: white;
-    margin-right: 5px;
+    margin: 5px;
     background-color: rgb(207, 0, 0);
     border: none;
     padding: 5px 10px;
     border-radius: 3px;
     cursor: pointer;
     }
+
+.voucher{
+    color: white;
+    margin: 5px;
+    background-color: rgb(0, 55, 207);
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+}
 
 .modal {
     position: fixed;
@@ -134,6 +166,8 @@ button:disabled {
     align-items: center;
     justify-content: center;
     display: flex;
+    flex-direction: column;
+    margin-bottom: 5px;
 }
 
 .modalButton{
@@ -188,3 +222,11 @@ button:disabled {
         cursor: pointer;
     }
     
+.dateselector{
+    width: 100px;
+}
+
+.dateselector button{
+    width: 10%;
+    height: 30px;
+}
