@@ -24,7 +24,7 @@ class SeleniumAutomation:
     def __init__(self):
         self.driver = None
         self.Status = ''
-        self.standardMessageA = "Olá $$Paciente$$, tudo bem?\n\nNotamos a sua ausência hoje, dia $$Data$$, aqui na Oral X $$Agenda$$.\n"
+        self.standardMessageA = "Olá $$Paciente$$, tudo bem?\n\nNotamos a sua ausência no dia $$Data$$ aqui na Oral X $$Agenda$$.\n"
         self.unidades = ["Pinheiros", "Angélica", "9 de Julho"]
         self.username = 'oralx.repescagem'
         self.password = 'Mudar@360'
@@ -103,6 +103,7 @@ class SeleniumAutomation:
         options.add_argument('--no-sandbox')
         options.add_argument('--disable-dev-shm-usage')
         options.add_experimental_option("detach", True)
+        options.add_argument('--user-data-dir=/home/oralx/temp_chrome_profile')
 
         executable_path = os.path.dirname(os.path.abspath(__file__))
         chrome_driver_path = os.path.join(executable_path, 'chromedriver')
@@ -289,6 +290,7 @@ class SeleniumAutomation:
                 self.click_element("//span[@class='mz-header-user-name ng-binding']")
         except Exception as e:
             logging.error(e)
+            self.driver.quit()
         finally:
             time.sleep(1)
 
