@@ -13,7 +13,7 @@ pip install -r requirements.txt
 # 3 - Restart Gunicorn e Nginx
 sudo chown -R oralx:oralx /home/oralx/paineloralx
 sudo systemctl daemon-reload
-sudo supervisorctl restart dev_paineloralx
+sudo supervisorctl restart paineloralx_dev
 sudo supervisorctl restart paineloralx
 sudo systemctl restart nginx
  

@@ -180,11 +180,6 @@ def fetch_and_insert_tomorrow_appointments(conn):
     insert_dataframe_to_db(conn, df_lembretes, 'Lembretes')
 
 # Função principal
-
-#####
-#Se tiver duas vezes o paciente em agendado e finalizado 
-#limpar o agendado para não ir para a repescagem sem querer
-#####
 def main():
     logging.info("Buscando dados SmartRis")
     date_str = datetime.today().strftime('%Y-%m-%d')
