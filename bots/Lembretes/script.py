@@ -292,6 +292,7 @@ class SeleniumAutomation:
                 self.click_element("//span[@class='mz-header-user-name ng-binding']")
         except Exception as e:
             logging.error(e)
+            self.driver.quit()
         finally:
             time.sleep(1)
 
