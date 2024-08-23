@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 2024-08-16 19:42:03,164:INFO:Starting Selenium
 2024-08-16 19:42:22,183:INFO:Enviando mensagem 1 de 13...
 2024-08-16 19:42:36,194:INFO:11970223563 OK!
@@ -779,3 +780,9 @@ Stacktrace:
 
 2024-08-19 11:49:48,751:INFO:Closing Selenium
 2024-08-19 11:49:48,842:INFO:Starting Selenium
+=======
+2024-08-19 19:34:48,086:INFO:Starting Selenium
+2024-08-19 19:35:08,582:INFO:Enviando mensagem 1 de 13...
+2024-08-19 19:35:18,519:INFO:11939315154 OK!
+2024-08-19 19:35:18,520:INFO:Enviando mensagem 2 de 13...
+>>>>>>> c167aa9761db3e8907ecc7704607039dd1cd5c85
