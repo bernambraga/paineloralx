@@ -62,7 +62,7 @@ def listar_atendimentos(request):
             data = datetime.strptime(data, '%d/%m/%Y').strftime('%Y-%m-%d')
         except ValueError:
             return JsonResponse({"error": "Formato de data inválido"})
-        atendimentos = SAC.objects.filter(data=data)
+        atendimentos = SAC.objects.filter(data=data).order_by('paciente')
         data = list(atendimentos.values())
         return JsonResponse(data, safe=False)
     except json.JSONDecodeError:
@@ -79,18 +79,34 @@ def excel_atendimentos(request, data):
     df.to_excel(response, index=False)
     return response
 
-@require_http_methods(["POST"])
-def editar_atendimento(request, pedido):
-    atendimento = get_object_or_404(SAC, Pedido=pedido)
-    atendimento.Status = request.POST.get('Status', atendimento.Status)
-    atendimento.Bot_Status = request.POST.get('Bot_Status', atendimento.Bot_Status)
-    atendimento.Bot_DateTime = request.POST.get('Bot_DateTime', atendimento.Bot_DateTime)
-    atendimento.Resposta = request.POST.get('Resposta', atendimento.Resposta)
-    atendimento.Motivo = request.POST.get('Motivo', atendimento.Motivo)
-    atendimento.Obs = request.POST.get('Obs', atendimento.Obs)
-    atendimento.Voucher = request.POST.get('Voucher', atendimento.Voucher)
-    atendimento.Agenda = request.POST.get('Agenda', atendimento.Agenda)
-    atendimento.Paciente = request.POST.get('Paciente', atendimento.Paciente)
-    atendimento.Telefone = request.POST.get('Telefone', atendimento.Telefone)
-    atendimento.save()
-    return JsonResponse({'status': 'success'})
+@require_http_methods(["GET"])
+def editar_atendimento_pos(request):
+    try:
+        pedidoid = request.GET.get('pedido')
+        atendimento = get_object_or_404(SAC, pedido=pedidoid)
+        atendimento.resposta = "Positiva"
+        atendimento.motivo = ""
+        atendimento.obs = ""
+        atendimento.save()
+        return JsonResponse({'status': 'success'})
+    except json.JSONDecodeError:
+        return JsonResponse({'status': 'error', 'message': 'Erro ao decodificar JSON'}, status=400)
+    except Exception as e:
+        return JsonResponse({'status': 'error', 'message': str(e)}, status=500)
+
+@require_http_methods(["GET"])
+def editar_atendimento_neg(request):
+    try:
+        pedidoid = request.GET.get('pedido')
+        motivo = request.GET.get('motivo')
+        comentario = request.GET.get('comentario')
+        atendimento = get_object_or_404(SAC, pedido=pedidoid)
+        atendimento.resposta = "Negativa"
+        atendimento.motivo = motivo
+        atendimento.obs = comentario
+        atendimento.save()
+        return JsonResponse({'status': 'success'})
+    except json.JSONDecodeError:
+        return JsonResponse({'status': 'error', 'message': 'Erro ao decodificar JSON'}, status=400)
+    except Exception as e:
+        return JsonResponse({'status': 'error', 'message': str(e)}, status=500)

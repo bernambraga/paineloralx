@@ -2,13 +2,14 @@
 .container-pesquisa-sac {
     max-width: 800px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 10px;
     font-family: Arial, sans-serif;
     }
 
-h1 {
+.h1SAC {
     text-align: center;
     color: #333;
+    margin-bottom: 20px;
     }
 
 h2 {
@@ -64,54 +65,74 @@ h2 {
 
 .button-clear {
     position: absolute;
-    right: 10px;
-    top: 50%;
+    right: 4%;
+    top: 60%;
     transform: translateY(-50%);
-    background: #f5f5f5;
+    color: #333;
     border: none;
     cursor: pointer;
 
 }
 
 .searchContainer {
-    margin: auto;
-    padding: auto;
+    position: relative;
+    width: 100%;
+    margin-top: 15px;
+    padding: 10px 10px 2px 10px;
     align-items: center;
 }
 
 .searchContainer input {
-    padding: 10px;
+    padding: auto;
+    margin: auto;
 }
 
-.pesquisa-sac-container {
+.table-container {
+    padding: 0 10px 10px 10px;
+    z-index: 0;
+}
+
+.table-container table {
+    width: 100%;
+    border-collapse: collapse;
     background-color: #f4f4f4;
     border: 1px solid #ddd;
     border-radius: 5px;
     padding: 10px;
-    margin-top: 20px;
-    white-space: pre-wrap;
     font-family: monospace;
-    max-height: 300px;
+    max-height: 500px;
     overflow-y: auto;
     }
 
-.pesquisa-sac-container table {
-    width: 100%;
-    border-collapse: collapse;
-    }
-
-.pesquisa-sac-container th, .log-container td {
-    padding: 10px;
+.table-container th {
+    padding: 5px;
     border: 1px solid #ddd;
     text-align: left;
+    align-items: center;
+}
+
+.td-table {
+    max-width: 250px;
+    padding: 5px;
+    border: 1px solid #ddd;
+    white-space: nowrap;
     }
+
+.td-paciente {
+    max-width: 250px;
+    padding: 5px;
+    border: 1px solid #ddd;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 
 .positivo {
     color: white;
     background-color: green;
     margin: 5px;
     border: none;
-    padding: 5px 10px;
+    padding: 4px 13px;
     border-radius: 3px;
     cursor: pointer;
     }
@@ -121,7 +142,7 @@ h2 {
     margin: 5px;
     background-color: rgb(207, 0, 0);
     border: none;
-    padding: 5px 10px;
+    padding: 4px 10px;
     border-radius: 3px;
     cursor: pointer;
     }
@@ -131,9 +152,17 @@ h2 {
     margin: 5px;
     background-color: rgb(0, 55, 207);
     border: none;
-    padding: 5px 10px;
+    padding: 4px 10px;
     border-radius: 3px;
     cursor: pointer;
+}
+
+.invisible{
+    color: transparent;
+    background-color: transparent;
+    border: none;
+    padding: 4px 10px;
+    margin: 5px;
 }
 
 .modal {
@@ -181,46 +210,54 @@ h2 {
 }
 
     
-    .tooltip-container {
-        position: relative;
-        display: inline-block;
-    }
-    
-    .tooltip-container .tooltip {
-        visibility: hidden;
-        width: 200px;
-        background-color: #f9f9f9;
-        color: #000;
-        text-align: left;
-        border-radius: 5px;
-        padding: 5px;
-        position: absolute;
-        z-index: 1;
-        bottom: 125%; /* Posiciona o tooltip acima do texto */
-        left: 50%;
-        margin-left: -100px; /* Usa a metade da largura do tooltip para centralizá-lo */
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
-    }
-    
-    .tooltip-container .tooltip::after {
-        content: "";
-        position: absolute;
-        top: 100%; /* A ponta do tooltip deve estar no fundo */
-        left: 50%;
-        margin-left: -5px;
-        border-width: 5px;
-        border-style: solid;
-        border-color: #f9f9f9 transparent transparent transparent;
-    }
-    
-    .tooltip-container:hover .tooltip {
-        visibility: visible;
-    }
-    
-    .resposta-negativa {
-        text-decoration: underline;
-        cursor: pointer;
-    }
+.tooltip-container {
+    position: relative;
+    display: inline-block;
+    z-index: 10;
+}
+
+.tooltip {
+    visibility: hidden;
+    width: 200px;
+    background-color: #f9f9f9;
+    color: #000;
+    text-align: left;
+    border-radius: 5px;
+    padding: 5px;
+    position: absolute;
+    bottom: 125%; /* Posiciona o tooltip acima do texto */
+    left: 50%;
+    margin-left: -100px; /* Usa a metade da largura do tooltip para centralizá-lo */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+.tooltip-span {
+    display: block; /* Faz com que o span se comporte como um bloco */
+    white-space: normal; /* Permite que o texto quebre para a próxima linha */
+    word-wrap: break-word; /* Garante que palavras longas sejam quebradas */
+    word-break: break-word; /* Garante que palavras longas sejam quebradas */
+    overflow-wrap: break-word; /* Garante que palavras longas sejam quebradas */
+}
+
+.tooltip-container .tooltip::after {
+    content: "";
+    position: absolute;
+    top: 100%; /* A ponta do tooltip deve estar no fundo */
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #f9f9f9 transparent transparent transparent;
+}
+
+.tooltip-container:hover .tooltip {
+    visibility: visible;
+}
+
+.resposta-negativa {
+    text-decoration: underline;
+    cursor: pointer;
+}
     
 .dateselector{
     width: 100px;

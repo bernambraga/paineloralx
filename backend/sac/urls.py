@@ -8,5 +8,6 @@ urlpatterns = [
     path('excluir_motivo/', excluir_motivo, name='excluir_motivo'),
     path('relatorio/', listar_atendimentos, name='listar_atendimentos_por_data'),
     path('relatorioDownload/', excel_atendimentos, name='fornecer_excel_atendimentos'),
-    path('editar_atendimento/', editar_atendimento, name='editar_atendimento'),
+    path('editar_atendimento_pos/', editar_atendimento_pos, name='editar_atendimento_pos'),
+    path('editar_atendimento_neg/', editar_atendimento_neg, name='editar_atendimento_neg'),
 ]
