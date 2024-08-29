@@ -4,6 +4,8 @@
   margin: 0 auto;
   padding: 20px;
   font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -18,77 +20,77 @@ form {
   flex-direction: column;
   align-items: center;
   padding: 10px;
+  width: 100%;
 }
 
-.input-container-cron{
+.input-container-cron {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  margin-bottom: 15px;
 }
 
 .input-container-cron label {
   color: #555;
   font-weight: bold;
-  padding: 10px;
+  margin-bottom: 5px;
 }
 
-.input-container-cron input[type="number"] {
-  padding: 10px;
-  margin-left: 10px;
-  border: 2px solid #acacac;
-  border-radius: 5px;
-  width: 60px;
-  height: 30px;
-}
-
+.input-container-cron input[type="number"],
 .input-container-cron select {
   padding: 10px;
-  margin-left: 10px;
-  border: 1px solid #999999;
+  border: 2px solid #acacac;
   border-radius: 5px;
-  width: 200px;
-  height: 35px;
-}
-
-.input-container-cron button{
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  background-color: #3f89ac;
-  color: white;
-  cursor: pointer;
-  font-size: 16px;
-  width: 150px;
-  height: 35px;
+  width: 100%;
+  height: 40px;
+  box-sizing: border-box;
   margin-bottom: 10px;
 }
 
-.button-delete{
-  padding: 5px;
-  margin-left: 20px;
+.input-container-cron button {
+  padding: 10px;
   border: none;
   border-radius: 5px;
   background-color: #3f89ac;
   color: white;
   cursor: pointer;
   font-size: 16px;
-  width: 100px;
+  width: 100%;
+  height: 40px;
+  margin-bottom: 10px;
 }
 
-.container button:hover{
+.button-delete {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #3f89ac;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.container-cron button:hover {
   background-color: #33708b;
 }
 
 .cron-jobs {
   margin-top: 20px;
+  width: 100%;
 }
 
 .cron-jobs h2 {
   color: #333;
+  text-align: center;
 }
 
 .cron-jobs ul {
   list-style-type: none;
   padding: 0;
+  width: 100%;
 }
 
 .cron-jobs li {
@@ -105,6 +107,7 @@ form {
   border-radius: 5px;
   text-align: center;
   width: 100%;
+  box-sizing: border-box;
 }
 
 .message-cron.success {
@@ -117,4 +120,38 @@ form {
   background-color: #f8d7da;
   color: #721c24;
   border: 1px solid #f5c6cb;
+}
+
+/* Media Queries */
+@media (min-width: 768px) {
+  .input-container-cron {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .input-container-cron label {
+    margin-bottom: 0;
+    margin-right: 10px;
+  }
+
+  .input-container-cron input[type="number"],
+  .input-container-cron select {
+    width: auto;
+    flex: 1;
+  }
+
+  .input-container-cron button {
+    width: auto;
+  }
+
+  .button-delete {
+    width: auto;
+    margin-left: 20px;
+    margin-top: 0;
+  }
+
+  .cron-jobs h2 {
+    text-align: left;
+  }
 }

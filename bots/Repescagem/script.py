@@ -29,6 +29,7 @@ class SeleniumAutomation:
         self.username = 'oralx.repescagem'
         self.password = 'Mudar@360'
         self.date_str = datetime.today().strftime('%Y-%m-%d')
+        #self.date_str = (datetime.today() - timedelta(days=2)).strftime('%Y-%m-%d')
         self.table = 'Repescagem'
         self.errorFlag = 0
 
@@ -44,7 +45,7 @@ class SeleniumAutomation:
 
     def fetch_data_from_table(self, engine, table, date, bot_status):
         if bot_status != '':
-            query = f'SELECT * FROM public."{table}" WHERE "Data" = %s AND "Bot_Status" = %s;'
+            query = f'SELECT * FROM public."{table}" WHERE "Data" <= %s AND "Bot_Status" = %s;'
             try:
                 with engine.connect() as connection:
                     df = pd.read_sql_query(query, connection, params=(date, bot_status))
@@ -53,7 +54,7 @@ class SeleniumAutomation:
                 logging.error(f"Error fetching data from table {table}: {e}")
                 return None
         else:
-            query = f'SELECT * FROM public."{table}" WHERE "Data" = %s AND "Bot_Status" is null;'
+            query = f'SELECT * FROM public."{table}" WHERE "Data" <= %s AND "Bot_Status" is null;'
             try:
                 with engine.connect() as connection:
                     df = pd.read_sql_query(query, connection, params=(date,))
@@ -96,6 +97,7 @@ class SeleniumAutomation:
         logging.info("Starting Selenium")
         options = webdriver.ChromeOptions()
         options.add_argument("--window-size=1920,1080")
+        options.add_argument("--disable-gpu")
         options.add_argument('--headless')
         options.add_argument('--no-sandbox')
         options.add_argument('--disable-dev-shm-usage')
@@ -163,7 +165,6 @@ class SeleniumAutomation:
                 try:
                     retorno = self.criar_chat(row['Paciente'], row['Data'], row['Agenda'], row['Telefone'], personalizedMessage)
                     if retorno:
-                        #self.finalizarConversa()
                         df.at[index, 'Status'] = 'OK'
                         logging.info(f"{row['Telefone']} OK!")
                     else:
@@ -199,7 +200,7 @@ class SeleniumAutomation:
             self.fill_text_field("//input[@id='novoAtendimentoNovoContatoTelefone']", str(number), Keys.TAB)
             self.fill_text_field("//input[@ng-model='novoAtendimentoNovoContato.nome']", f"{name}", Keys.CONTROL)
             self.select_dropdown_option("//select[@ng-model='departamentoSelecionado.departamentoId']", "r")
-            self.select_dropdown_option("//select[@ng-model='departamentoSelecionado.atendenteId']", "Oral X - Agendamento de exames")
+            self.select_dropdown_option("//select[@ng-model='departamentoSelecionado.atendenteId']", "Agendamento de exames - Oral X")
             self.click_element("//button[@ng-click='onModalCriarAtendimentoNovoContato()']")
         except Exception as e:
             self.Status = 'Erro abertura do Chat'

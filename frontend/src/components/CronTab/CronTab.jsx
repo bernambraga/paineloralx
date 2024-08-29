@@ -155,8 +155,8 @@ const CronConfig = () => {
 
   return (
     <div className="container-cron">
-      <h1>Cron Job Scheduler</h1>
-      {message && (
+      <h1>Bots Cron</h1>
+      {/* {message && (
         <div className={`message-cron ${messageType}`}>{message}</div> // Exibir a mensagem temporária
       )}
       <form onSubmit={handleSubmit}>
@@ -198,23 +198,24 @@ const CronConfig = () => {
           </label>
           <button className='button-cron' type="submit">Set Cron Job</button>
         </div>
-      </form>
+      </form>*/}
       <div className="cron-jobs">
-        <h2>Configured Cron Jobs</h2>
+        {/* <h2>Configured Cron Jobs</h2>  */}
         <ul>
           {cronJobs.length === 0 ? (
             <li>No cron jobs found.</li>
             ) : (
           cronJobs.map((job, index) => (
             <li key={index}>
-              {job.schedule} - {job.command}
-              <button className="button-delete" onClick={() => handleDelete(job.command)}>Delete</button>
+              {job.schedule} {job.command}
+              {/* <button className="button-delete" onClick={() => handleDelete(job.command)}>Delete</button> */}
             </li>
             ))
           )}
         </ul>
       </div>
     </div>
+    
   );
 };
 

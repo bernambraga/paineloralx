@@ -1,3 +1,27 @@
 
 Script executado em: 2024-08-25 23:02:39.389190
 Título da página: Google
+Traceback (most recent call last):
+  File "/home/berna/.local/lib/python3.10/site-packages/selenium/webdriver/common/service.py", line 71, in start
+    self.process = subprocess.Popen(cmd, env=self.env,
+  File "/usr/lib/python3.10/subprocess.py", line 971, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/usr/lib/python3.10/subprocess.py", line 1863, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+PermissionError: [Errno 13] Permission denied: '/home/berna/GITHUB/paineloralx/bots/test/chromedriver'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/berna/GITHUB/paineloralx/bots/test/script.py", line 42, in <module>
+    main()
+  File "/home/berna/GITHUB/paineloralx/bots/test/script.py", line 24, in main
+    driver = webdriver.Chrome(service=service, options=chrome_options)
+  File "/home/berna/.local/lib/python3.10/site-packages/selenium/webdriver/chrome/webdriver.py", line 70, in __init__
+    super(WebDriver, self).__init__(DesiredCapabilities.CHROME['browserName'], "goog",
+  File "/home/berna/.local/lib/python3.10/site-packages/selenium/webdriver/chromium/webdriver.py", line 90, in __init__
+    self.service.start()
+  File "/home/berna/.local/lib/python3.10/site-packages/selenium/webdriver/common/service.py", line 86, in start
+    raise WebDriverException(
+selenium.common.exceptions.WebDriverException: Message: 'chromedriver' executable may have wrong permissions. Please see https://chromedriver.chromium.org/home
+

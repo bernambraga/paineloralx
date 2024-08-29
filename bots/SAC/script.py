@@ -24,11 +24,12 @@ class SeleniumAutomation:
     def __init__(self):
         self.driver = None
         self.Status = ''
-        self.standardMessageA = "Olá $$Paciente$$, tudo bem com você?\n\nGostaríamos de saber como foi a sua experiência aqui na OralX no dia $$Data$$"
+        self.standardMessageA = "Olá $$Paciente$$, tudo bem com você?\n\nGostaríamos de saber como foi a sua experiência no dia $$Data$$ aqui na OralX $$Agenda$$"
+        self.unidades = ["Pinheiros", "Angélica", "9 de Julho"]
         self.username = 'oralx.sac'
         self.password = 'Oralx2023'
         self.date_str = (datetime.today() - timedelta(days=1)).strftime('%Y-%m-%d')
-        self.table = 'SAC_SmartRis_Finalizado'
+        self.table = 'SAC'
         self.errorFlag = 0
 
     def connect_to_db(self):
@@ -42,14 +43,24 @@ class SeleniumAutomation:
             return None
 
     def fetch_data_from_table(self, engine, table, date, bot_status):
-        query = f'SELECT * FROM public."{table}" WHERE "Data" = %s AND "Bot_Status" = %s;'
-        try:
-            with engine.connect() as connection:
-                df = pd.read_sql_query(query, connection, params=(date, bot_status))
-            return df
-        except Exception as e:
-            logging.error(f"Error fetching data from table {table}: {e}")
-            return None
+        if bot_status != '':
+            query = f'SELECT * FROM public."{table}" WHERE "Data" <= %s AND "Bot_Status" = %s;'
+            try:
+                with engine.connect() as connection:
+                    df = pd.read_sql_query(query, connection, params=(date, bot_status))
+                return df
+            except Exception as e:
+                logging.error(f"Error fetching data from table {table}: {e}")
+                return None
+        else:
+            query = f'SELECT * FROM public."{table}" WHERE "Data" <= %s AND "Bot_Status" is null;'
+            try:
+                with engine.connect() as connection:
+                    df = pd.read_sql_query(query, connection, params=(date,))
+                return df
+            except Exception as e:
+                logging.error(f"Error fetching data from table {table}: {e}")
+                return None
 
     def update_data_in_table(self, data, table):
         connection_params = {
@@ -85,13 +96,10 @@ class SeleniumAutomation:
         logging.info("Starting Selenium")
         options = webdriver.ChromeOptions()
         options.add_argument("--window-size=1920,1080")
-        options.add_argument("disable-infobars")
-        options.add_argument("--disable-extensions")
         options.add_argument("--disable-gpu")
         options.add_argument('--headless')
         options.add_argument('--no-sandbox')
         options.add_argument('--disable-dev-shm-usage')
-        options.add_experimental_option("detach", True)
 
         executable_path = os.path.dirname(os.path.abspath(__file__))
         chrome_driver_path = os.path.join(executable_path, 'chromedriver')
@@ -181,7 +189,6 @@ class SeleniumAutomation:
             flag = 1
         if flag == 1:
             try:
-                self.click_element("//button[@ng-click='onFecharModalCriarAtendimentoNovoContato()']")
                 self.click_element("//div[@ng-click='onMostrarModalCriarAtendimentoNovoContato()']")
             except Exception as e:
                 self.Status = 'Erro abertura do Chat'
@@ -190,9 +197,9 @@ class SeleniumAutomation:
         try:
             self.select_dropdown_option("//select[@ng-model='novoAtendimentoNovoContato.canalChave']", "w")
             self.fill_text_field("//input[@id='novoAtendimentoNovoContatoTelefone']", str(number), Keys.TAB)
-            self.fill_text_field("//input[@ng-model='novoAtendimentoNovoContato.nome']", f"{name} - {str(date)[:10]} - {agenda}", Keys.CONTROL)
+            self.fill_text_field("//input[@ng-model='novoAtendimentoNovoContato.nome']", f"{name} - {str(date)[:10]}", Keys.CONTROL)
             self.select_dropdown_option("//select[@ng-model='departamentoSelecionado.departamentoId']", "e")
-            self.select_dropdown_option("//select[@ng-model='departamentoSelecionado.atendenteId']", "Oral X - SAC")
+            self.select_dropdown_option("//select[@ng-model='departamentoSelecionado.atendenteId']", "SAC - Oral X")
             self.click_element("//button[@ng-click='onModalCriarAtendimentoNovoContato()']")
         except Exception as e:
             self.Status = 'Erro abertura do Chat'
@@ -329,6 +336,7 @@ class SeleniumAutomation:
         def replace_placeholder(match):
             placeholder = match.group(1)
             value = row_data.get(placeholder, placeholder)
+
             if placeholder == 'Paciente':
                 value = value.split(" ")[0].title()
             elif placeholder == 'Data':
@@ -344,6 +352,13 @@ class SeleniumAutomation:
                     value = value.strftime('%d/%m/%Y')
                 else:
                     value = '/'.join(str(value).split('-')[::-1])
+            elif placeholder == 'Agenda':
+                if value.lower().startswith('p'):
+                    value = self.unidades[0]
+                elif value.lower().startswith('a'):
+                    value = self.unidades[1]
+                elif value.lower().startswith('9'):
+                    value = self.unidades[2]
             return str(value)
         return re.sub(r'\$\$(.*?)\$\$', replace_placeholder, message)
     
@@ -358,12 +373,12 @@ class SeleniumAutomation:
 if __name__ == "__main__":
     selenium_automation = SeleniumAutomation()
     try:
-        selenium_automation.start_selenium("https://painel.multi360.com.br")
-        selenium_automation.login()
-        selenium_automation.process_data()
-        if selenium_automation.errorFlag == 1:
+        while True:
             selenium_automation.start_selenium("https://painel.multi360.com.br")
             selenium_automation.login()
-            selenium_automation.process_data(flag=1)
+            selenium_automation.process_data()
+            if selenium_automation.errorFlag != 1:
+                break
     finally:
         selenium_automation.close_chrome_processes()
+        

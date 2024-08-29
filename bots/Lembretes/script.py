@@ -204,7 +204,7 @@ class SeleniumAutomation:
             self.fill_text_field("//input[@id='novoAtendimentoNovoContatoTelefone']", str(number), Keys.TAB)
             self.fill_text_field("//input[@ng-model='novoAtendimentoNovoContato.nome']", f"{name}", Keys.CONTROL)
             self.select_dropdown_option("//select[@ng-model='departamentoSelecionado.departamentoId']", "r")
-            self.select_dropdown_option("//select[@ng-model='departamentoSelecionado.atendenteId']", "Oral X - Lembretes")
+            self.select_dropdown_option("//select[@ng-model='departamentoSelecionado.atendenteId']", "Lembretes - Oral X")
             self.click_element("//button[@ng-click='onModalCriarAtendimentoNovoContato()']")
         except Exception as e:
             self.Status = 'Erro abertura do Chat'
