@@ -31,7 +31,7 @@ class SeleniumAutomation:
         self.date_str = datetime.today().strftime('%Y-%m-%d')
         #self.date_str = (datetime.today() - timedelta(days=2)).strftime('%Y-%m-%d')
         self.table = 'Repescagem'
-        self.errorFlag = 0
+        self.errorFlag = 1
 
     def connect_to_db(self):
         try:
@@ -105,19 +105,31 @@ class SeleniumAutomation:
         executable_path = os.path.dirname(os.path.abspath(__file__))
         chrome_driver_path = os.path.join(executable_path, 'chromedriver')
 
-        try:
-            if not os.access(chrome_driver_path, os.X_OK):
-                raise PermissionError(f"'{chrome_driver_path}' não tem permissões de execução.")
-            service = Service(chrome_driver_path)
-            self.driver = webdriver.Chrome(service=service, options=options)
-            self.driver.get(URL)
-        except (PermissionError, WebDriverException) as e:
-            logging.error(f"Erro ao iniciar o ChromeDriver: {e}")
-            raise
-        except Exception as e:
-            logging.error(f"Erro inesperado ao iniciar o ChromeDriver: {e}")
-            raise
-        time.sleep(2)
+        attempt = 0
+        max_retries = 5
+        while attempt < max_retries:
+            try:
+                if not os.access(chrome_driver_path, os.X_OK):
+                    raise PermissionError(f"'{chrome_driver_path}' não tem permissões de execução.")
+                service = Service(chrome_driver_path)
+                self.driver = webdriver.Chrome(service=service, options=options)
+                self.driver.get(URL)
+                logging.info("Selenium started successfully")
+                return  # Saia da função se tudo correr bem
+            except (PermissionError, WebDriverException) as e:
+                logging.error(f"Erro ao iniciar o ChromeDriver (tentativa {attempt + 1} de {max_retries}): {e}")
+            except Exception as e:
+                logging.error(f"Erro inesperado ao iniciar o ChromeDriver (tentativa {attempt + 1} de {max_retries}): {e}")
+            finally:
+                attempt += 1
+                if attempt < max_retries:
+                    logging.info("Tentando reiniciar o Selenium...")
+                    time.sleep(5)  # Aguardar antes de tentar novamente
+                else:
+                    logging.error("Número máximo de tentativas atingido. Encerrando.")
+                    self.close_chrome_processes()  # Fechar processos do Chrome, se necessário
+                    raise  # Re-levantar a exceção para que o programa possa lidar com isso de fora
+        raise RuntimeError("Falha ao iniciar o Selenium após várias tentativas.")
 
     def login(self):
         if self.is_element_present("//input[@id='email']", 6):
@@ -150,7 +162,8 @@ class SeleniumAutomation:
         self.fechar_novidades()
         time.sleep(1)
         self.trocar_status()
-        self.iterate_df(df)
+        if self.driver:
+            self.iterate_df(df)
         logging.info("Closing Selenium")
         if self.driver:
             self.driver.quit()
@@ -374,10 +387,16 @@ if __name__ == "__main__":
     selenium_automation = SeleniumAutomation()
     try:
         while True:
-            selenium_automation.start_selenium("https://painel.multi360.com.br")
-            selenium_automation.login()
-            selenium_automation.process_data()
-            if selenium_automation.errorFlag != 1:
-                break
+            try:
+                selenium_automation.start_selenium("https://painel.multi360.com.br")
+                selenium_automation.login()
+                selenium_automation.process_data()
+                if selenium_automation.errorFlag != 1:
+                    break
+            except Exception as e:
+                logging.error(f"Erro crítico: {e}")
+                time.sleep(5)
+                continue
     finally:
         selenium_automation.close_chrome_processes()
+        
