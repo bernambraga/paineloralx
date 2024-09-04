@@ -30,7 +30,7 @@ class SeleniumAutomation:
         self.password = 'Oralx2023'
         self.date_str = (datetime.today() - timedelta(days=1)).strftime('%Y-%m-%d')
         self.table = 'SAC'
-        self.errorFlag = 1
+        self.errorFlag = 0
 
     def connect_to_db(self):
         try:
@@ -102,33 +102,20 @@ class SeleniumAutomation:
         options.add_argument('--disable-dev-shm-usage')
 
         executable_path = os.path.dirname(os.path.abspath(__file__))
-        chrome_driver_path = os.path.join(executable_path, 'chromedriver.exe')
+        chrome_driver_path = os.path.join(executable_path, 'chromedriver')
 
-        attempt = 0
-        max_retries = 5
-        while attempt < max_retries:
-            try:
-                if not os.access(chrome_driver_path, os.X_OK):
-                    raise PermissionError(f"'{chrome_driver_path}' não tem permissões de execução.")
-                service = Service(chrome_driver_path)
-                self.driver = webdriver.Chrome(service=service, options=options)
-                self.driver.get(URL)
-                logging.info("Selenium started successfully")
-                return  # Saia da função se tudo correr bem
-            except (PermissionError, WebDriverException) as e:
-                logging.error(f"Erro ao iniciar o ChromeDriver (tentativa {attempt + 1} de {max_retries}): {e}")
-            except Exception as e:
-                logging.error(f"Erro inesperado ao iniciar o ChromeDriver (tentativa {attempt + 1} de {max_retries}): {e}")
-            finally:
-                attempt += 1
-                if attempt < max_retries:
-                    logging.info("Tentando reiniciar o Selenium...")
-                    time.sleep(5)  # Aguardar antes de tentar novamente
-                else:
-                    logging.error("Número máximo de tentativas atingido. Encerrando.")
-                    self.close_chrome_processes()  # Fechar processos do Chrome, se necessário
-                    raise  # Re-levantar a exceção para que o programa possa lidar com isso de fora
-        raise RuntimeError("Falha ao iniciar o Selenium após várias tentativas.")
+        try:
+            if not os.access(chrome_driver_path, os.X_OK):
+                raise PermissionError(f"'{chrome_driver_path}' não tem permissões de execução.")
+            service = Service(chrome_driver_path)
+            self.driver = webdriver.Chrome(service=service, options=options)
+            self.driver.get(URL)
+        except (PermissionError, WebDriverException) as e:
+            logging.error(f"Erro ao iniciar o ChromeDriver: {e}")
+            raise
+        except Exception as e:
+            logging.error(f"Erro inesperado ao iniciar o ChromeDriver: {e}")
+            raise
 
     def login(self):
         if self.is_element_present("//input[@id='email']", 6):
@@ -138,7 +125,8 @@ class SeleniumAutomation:
                 self.click_element("//button[@ng-click='onLogin()']")
             except Exception as e:
                 logging.error(f"Erro no login: {e}")
-                self.driver.quit()
+                if self.driver:
+                    self.driver.quit()
 
     def process_data(self):
         connection = self.connect_to_db()
@@ -162,8 +150,7 @@ class SeleniumAutomation:
         time.sleep(1)
         self.trocar_status()
         if self.driver:
-            #self.iterate_df(df)
-            logging.info("Teste")
+            self.iterate_df(df)
         logging.info("Closing Selenium")
         if self.driver:
             self.driver.quit()
@@ -301,7 +288,8 @@ class SeleniumAutomation:
         except Exception as e:
             logging.error('Erro Trocar Status')
             logging.error(e)
-            self.driver.quit()
+            if self.driver:
+                self.driver.quit()
         finally:
             time.sleep(1)
 
@@ -380,7 +368,7 @@ class SeleniumAutomation:
     def close_chrome_processes(self):
         try:
             # Comando para fechar processos do Chrome
-            #os.system('pkill -f chrome')
+            os.system('pkill -f chrome')
             logging.info('Todos os processos do Chrome foram fechados.')
         except Exception as e:
             logging.error(f'Erro ao fechar processos do Chrome: {str(e)}')

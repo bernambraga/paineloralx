@@ -120,7 +120,6 @@ class SeleniumAutomation:
         except Exception as e:
             logging.error(f"Erro inesperado ao iniciar o ChromeDriver: {e}")
             raise
-        time.sleep(2)
 
     def login(self):
         if self.is_element_present("//input[@id='email']", 6):

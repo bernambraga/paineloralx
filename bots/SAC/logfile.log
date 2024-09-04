@@ -16453,3 +16453,28 @@ Stacktrace:
 2024-09-04 02:44:24,916:INFO:Teste
 2024-09-04 02:44:24,916:INFO:Closing Selenium
 2024-09-04 02:44:27,004:INFO:Todos os processos do Chrome foram fechados.
+2024-09-04 03:10:41,883:INFO:Starting Selenium
+2024-09-04 03:10:45,157:INFO:Selenium started successfully
+2024-09-04 03:10:45,157:INFO:Tentando reiniciar o Selenium...
+2024-09-04 03:10:57,804:INFO:Teste
+2024-09-04 03:10:57,804:INFO:Closing Selenium
+2024-09-04 03:10:59,899:INFO:Todos os processos do Chrome foram fechados.
+2024-09-04 03:17:39,901:INFO:Starting Selenium
+2024-09-04 03:17:43,313:INFO:Selenium started successfully
+2024-09-04 03:17:51,038:INFO:Teste
+2024-09-04 03:17:51,038:INFO:Closing Selenium
+2024-09-04 03:17:53,132:INFO:Todos os processos do Chrome foram fechados.
+2024-09-04 03:25:07,111:INFO:Starting Selenium
+2024-09-04 03:25:10,431:INFO:Selenium started successfully
+2024-09-04 03:25:17,056:INFO:Teste
+2024-09-04 03:25:17,056:INFO:Closing Selenium
+2024-09-04 03:25:19,162:INFO:Todos os processos do Chrome foram fechados.
+2024-09-04 03:28:33,555:INFO:Starting Selenium
+2024-09-04 03:28:40,737:ERROR:Error fetching data from table SAC: (psycopg2.OperationalError) connection to server at "191.252.202.133", port 5432 failed: server closed the connection unexpectedly
+	This probably means the server terminated abnormally
+	before or while processing the request.
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2024-09-04 03:28:40,737:ERROR:No data to process
+2024-09-04 03:28:40,737:INFO:Closing Selenium
+2024-09-04 03:28:42,824:INFO:Todos os processos do Chrome foram fechados.
