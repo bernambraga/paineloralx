@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'api',
     'bots',
     'sac',
+    'comercial',
 ]
 
 MIDDLEWARE = [

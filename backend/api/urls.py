@@ -9,4 +9,5 @@ urlpatterns = [
     path('csrf/', get_csrf_token, name='csrf'),
     path('bots/', include('bots.urls')),
     path('sac/', include('sac.urls')),
+    path('comercial/', include('comercial.urls')),
 ]
