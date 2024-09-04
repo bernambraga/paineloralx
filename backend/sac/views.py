@@ -21,7 +21,7 @@ def listar_motivos_negativos(request):
 
 @require_http_methods(["POST"])
 def criar_motivo(request):
-    print("aqui")
+    # print("aqui")
     if request.method == 'POST':
         try:
             data = json.loads(request.body)

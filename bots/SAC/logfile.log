@@ -16398,3 +16398,58 @@ Stacktrace:
 2024-09-03 15:52:48,376:INFO:Starting Selenium
 2024-09-03 15:52:48,381:ERROR:Erro inesperado ao iniciar o ChromeDriver: [WinError 193] %1 is not a valid Win32 application
 2024-09-03 15:52:48,381:INFO:Todos os processos do Chrome foram fechados.
+2024-09-04 02:26:18,868:INFO:Starting Selenium
+2024-09-04 02:26:18,869:ERROR:Erro inesperado ao iniciar o ChromeDriver (tentativa 1 de 5): [WinError 193] %1 is not a valid Win32 application
+2024-09-04 02:26:18,869:INFO:Tentando reiniciar o Selenium...
+2024-09-04 02:26:23,876:ERROR:Erro inesperado ao iniciar o ChromeDriver (tentativa 2 de 5): [WinError 193] %1 is not a valid Win32 application
+2024-09-04 02:26:23,876:INFO:Tentando reiniciar o Selenium...
+2024-09-04 02:26:28,879:ERROR:Erro inesperado ao iniciar o ChromeDriver (tentativa 3 de 5): [WinError 193] %1 is not a valid Win32 application
+2024-09-04 02:26:28,880:INFO:Tentando reiniciar o Selenium...
+2024-09-04 02:26:33,885:ERROR:Erro inesperado ao iniciar o ChromeDriver (tentativa 4 de 5): [WinError 193] %1 is not a valid Win32 application
+2024-09-04 02:26:33,885:INFO:Tentando reiniciar o Selenium...
+2024-09-04 02:26:38,887:ERROR:Erro inesperado ao iniciar o ChromeDriver (tentativa 5 de 5): [WinError 193] %1 is not a valid Win32 application
+2024-09-04 02:26:38,887:ERROR:Número máximo de tentativas atingido. Encerrando.
+2024-09-04 02:26:38,887:INFO:Todos os processos do Chrome foram fechados.
+2024-09-04 02:26:38,887:ERROR:Erro crítico: No active exception to reraise
+2024-09-04 02:26:43,888:INFO:Starting Selenium
+2024-09-04 02:26:43,896:ERROR:Erro inesperado ao iniciar o ChromeDriver (tentativa 1 de 5): [WinError 193] %1 is not a valid Win32 application
+2024-09-04 02:26:43,896:INFO:Tentando reiniciar o Selenium...
+2024-09-04 02:26:48,901:ERROR:Erro inesperado ao iniciar o ChromeDriver (tentativa 2 de 5): [WinError 193] %1 is not a valid Win32 application
+2024-09-04 02:26:48,901:INFO:Tentando reiniciar o Selenium...
+2024-09-04 02:35:12,222:INFO:Starting Selenium
+2024-09-04 02:35:12,222:ERROR:Erro ao iniciar o ChromeDriver (tentativa 1 de 5): 'c:\Users\berna\Documents\Projects\paineloralx\bots\sac\chromedriver' não tem permissões de execução.
+2024-09-04 02:35:12,222:INFO:Tentando reiniciar o Selenium...
+2024-09-04 02:35:17,223:ERROR:Erro ao iniciar o ChromeDriver (tentativa 2 de 5): 'c:\Users\berna\Documents\Projects\paineloralx\bots\sac\chromedriver' não tem permissões de execução.
+2024-09-04 02:35:17,223:INFO:Tentando reiniciar o Selenium...
+2024-09-04 02:35:22,224:ERROR:Erro ao iniciar o ChromeDriver (tentativa 3 de 5): 'c:\Users\berna\Documents\Projects\paineloralx\bots\sac\chromedriver' não tem permissões de execução.
+2024-09-04 02:35:22,224:INFO:Tentando reiniciar o Selenium...
+2024-09-04 02:38:28,551:INFO:Starting Selenium
+2024-09-04 02:38:32,157:INFO:Selenium started successfully
+2024-09-04 02:38:32,158:INFO:Tentando reiniciar o Selenium...
+2024-09-04 02:38:51,079:INFO:Starting Selenium
+2024-09-04 02:38:54,465:INFO:Selenium started successfully
+2024-09-04 02:38:54,465:INFO:Tentando reiniciar o Selenium...
+2024-09-04 02:41:03,428:INFO:Starting Selenium
+2024-09-04 02:41:06,682:INFO:Selenium started successfully
+2024-09-04 02:41:06,682:INFO:Tentando reiniciar o Selenium...
+2024-09-04 02:41:18,306:INFO:Teste
+2024-09-04 02:41:18,306:INFO:Closing Selenium
+2024-09-04 02:41:20,412:INFO:Todos os processos do Chrome foram fechados.
+2024-09-04 02:41:47,417:INFO:Starting Selenium
+2024-09-04 02:41:50,604:INFO:Selenium started successfully
+2024-09-04 02:41:50,604:INFO:Tentando reiniciar o Selenium...
+2024-09-04 02:42:12,225:INFO:Teste
+2024-09-04 02:42:12,225:INFO:Closing Selenium
+2024-09-04 02:42:14,333:INFO:Todos os processos do Chrome foram fechados.
+2024-09-04 02:43:27,918:INFO:Starting Selenium
+2024-09-04 02:43:31,233:INFO:Selenium started successfully
+2024-09-04 02:43:31,233:INFO:Tentando reiniciar o Selenium...
+2024-09-04 02:43:51,879:INFO:Teste
+2024-09-04 02:43:51,879:INFO:Closing Selenium
+2024-09-04 02:43:53,994:INFO:Todos os processos do Chrome foram fechados.
+2024-09-04 02:44:10,222:INFO:Starting Selenium
+2024-09-04 02:44:13,268:INFO:Selenium started successfully
+2024-09-04 02:44:13,268:INFO:Tentando reiniciar o Selenium...
+2024-09-04 02:44:24,916:INFO:Teste
+2024-09-04 02:44:24,916:INFO:Closing Selenium
+2024-09-04 02:44:27,004:INFO:Todos os processos do Chrome foram fechados.

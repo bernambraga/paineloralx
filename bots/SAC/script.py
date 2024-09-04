@@ -29,7 +29,6 @@ class SeleniumAutomation:
         self.username = 'oralx.sac'
         self.password = 'Oralx2023'
         self.date_str = (datetime.today() - timedelta(days=1)).strftime('%Y-%m-%d')
-        #self.date_str = (datetime.today() - timedelta(days=1)).strftime('%Y-%m-%d')
         self.table = 'SAC'
         self.errorFlag = 1
 
@@ -103,7 +102,7 @@ class SeleniumAutomation:
         options.add_argument('--disable-dev-shm-usage')
 
         executable_path = os.path.dirname(os.path.abspath(__file__))
-        chrome_driver_path = os.path.join(executable_path, 'chromedriver')
+        chrome_driver_path = os.path.join(executable_path, 'chromedriver.exe')
 
         attempt = 0
         max_retries = 5
@@ -163,7 +162,8 @@ class SeleniumAutomation:
         time.sleep(1)
         self.trocar_status()
         if self.driver:
-            self.iterate_df(df)
+            #self.iterate_df(df)
+            logging.info("Teste")
         logging.info("Closing Selenium")
         if self.driver:
             self.driver.quit()
@@ -380,7 +380,7 @@ class SeleniumAutomation:
     def close_chrome_processes(self):
         try:
             # Comando para fechar processos do Chrome
-            os.system('pkill -f chrome')
+            #os.system('pkill -f chrome')
             logging.info('Todos os processos do Chrome foram fechados.')
         except Exception as e:
             logging.error(f'Erro ao fechar processos do Chrome: {str(e)}')

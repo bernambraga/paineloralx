@@ -31,7 +31,7 @@ class SeleniumAutomation:
         self.date_str = datetime.today().strftime('%Y-%m-%d')
         #self.date_str = (datetime.today() - timedelta(days=2)).strftime('%Y-%m-%d')
         self.table = 'Repescagem'
-        self.errorFlag = 1
+        self.errorFlag = 0
 
     def connect_to_db(self):
         try:
