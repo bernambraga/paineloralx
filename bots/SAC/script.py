@@ -29,8 +29,9 @@ class SeleniumAutomation:
         self.username = 'oralx.sac'
         self.password = 'Oralx2023'
         self.date_str = (datetime.today() - timedelta(days=1)).strftime('%Y-%m-%d')
+        self.date_str = '2024-08-29'
         self.table = 'SAC'
-        self.errorFlag = 0
+        self.errorFlag = 1
 
     def connect_to_db(self):
         try:
@@ -44,7 +45,7 @@ class SeleniumAutomation:
 
     def fetch_data_from_table(self, engine, table, date, bot_status):
         if bot_status != '':
-            query = f'SELECT * FROM public."{table}" WHERE "Data" <= %s AND "Bot_Status" = %s;'
+            query = f'SELECT * FROM public."{table}" WHERE "Data" = %s AND "Bot_Status" = %s;'
             try:
                 with engine.connect() as connection:
                     df = pd.read_sql_query(query, connection, params=(date, bot_status))
@@ -53,7 +54,7 @@ class SeleniumAutomation:
                 logging.error(f"Error fetching data from table {table}: {e}")
                 return None
         else:
-            query = f'SELECT * FROM public."{table}" WHERE "Data" <= %s AND "Bot_Status" is null;'
+            query = f'SELECT * FROM public."{table}" WHERE "Data" = %s AND "Bot_Status" is null;'
             try:
                 with engine.connect() as connection:
                     df = pd.read_sql_query(query, connection, params=(date,))
@@ -109,6 +110,7 @@ class SeleniumAutomation:
                 raise PermissionError(f"'{chrome_driver_path}' não tem permissões de execução.")
             service = Service(chrome_driver_path)
             self.driver = webdriver.Chrome(service=service, options=options)
+            self.driver.set_page_load_timeout(15)
             self.driver.get(URL)
         except (PermissionError, WebDriverException) as e:
             logging.error(f"Erro ao iniciar o ChromeDriver: {e}")
@@ -123,6 +125,7 @@ class SeleniumAutomation:
                 self.fill_text_field("//input[@id='email']", self.username, Keys.TAB)
                 self.fill_text_field("//input[@id='password']", self.password, Keys.TAB)
                 self.click_element("//button[@ng-click='onLogin()']")
+                logging.info("Login OK")
             except Exception as e:
                 logging.error(f"Erro no login: {e}")
                 if self.driver:
@@ -138,6 +141,7 @@ class SeleniumAutomation:
         
         bot_status = '' if self.errorFlag == 0 else 'Erro abertura do Chat'
         df = self.fetch_data_from_table(connection, self.table, self.date_str, bot_status)
+        logging.info("Process Data OK")
         self.errorFlag = 0
         if df is None or df.empty:
             logging.error("No data to process")
@@ -146,6 +150,7 @@ class SeleniumAutomation:
                 self.driver.quit()
             return
 
+        self.fechar_novidades()
         self.fechar_novidades()
         time.sleep(1)
         self.trocar_status()
@@ -161,12 +166,14 @@ class SeleniumAutomation:
         for index, row in df.iterrows():
             logging.info(f"Enviando mensagem {index + 1} de {total_rows}...")
             personalizedMessage = self.replace_placeholders(self.standardMessageA, row)
-            if len(str(row['Telefone'])) == 11:
+            if len(str(row['Telefone'])) == 11 and self.driver:
                 try:
+                    self.fechar_novidades()
                     retorno = self.criar_chat(row['Paciente'], row['Data'], row['Agenda'], row['Telefone'], personalizedMessage)
                     if retorno:
-                        df.at[index, 'Status'] = 'OK'
-                        logging.info(f"{row['Telefone']} OK!")
+                        self.Status = 'OK'
+                        df.at[index, 'Status'] = self.Status
+                        logging.info(f"{row['Telefone']} - {self.Status}!")
                     else:
                         df.at[index, 'Status'] = self.Status
                 except Exception as e:
@@ -239,18 +246,6 @@ class SeleniumAutomation:
             self.Status = 'Erro Enviar Mensagem'
             return False
 
-    def finalizarConversa(self):
-        try:
-            self.click_element("//span[@ng-click='onMostrarModalFinalizarAtendimento()']", 1)
-        except Exception as e:
-            try:
-                self.click_element("//a[@class='dropdown-toggle icone m-r-0']", 1)
-                self.click_element("//a[@ng-click='onMostrarModalFinalizarAtendimento()']", 1)
-            except Exception as e:
-                print('Erro finalizarConversa')
-        finally:
-            time.sleep(1)
-
     def fechar_novidades(self):
         if self.is_element_present("//button[@ng-click='close()']"):
             try:
@@ -264,6 +259,14 @@ class SeleniumAutomation:
             try:
                 self.click_element("//button[@ng-click='closeMegaZapNotification()']", 1)
             except Exception as e:
+                logging.error(e)
+            finally:
+                time.sleep(1)
+        if self.is_element_present("//button[@ng-click='onFecharModalCriarAtendimentoNovoContato()']"): 
+            try:   
+                self.scroll_to_element("//button[@ng-click='onFecharModalCriarAtendimentoNovoContato()']")
+                self.click_element("//button[@ng-click='onFecharModalCriarAtendimentoNovoContato()']", 1)
+            except:
                 logging.error(e)
             finally:
                 time.sleep(1)
@@ -287,6 +290,7 @@ class SeleniumAutomation:
                 self.click_element("//span[@class='mz-header-user-name ng-binding']")
         except Exception as e:
             logging.error('Erro Trocar Status')
+            self.errorFlag = 3
             logging.error(e)
             if self.driver:
                 self.driver.quit()
@@ -375,18 +379,14 @@ class SeleniumAutomation:
 
 if __name__ == "__main__":
     selenium_automation = SeleniumAutomation()
+    i=0
     try:
         while True:
-            try:
-                selenium_automation.start_selenium("https://painel.multi360.com.br")
-                selenium_automation.login()
-                selenium_automation.process_data()
-                if selenium_automation.errorFlag != 1:
-                    break
-            except Exception as e:
-                logging.error(f"Erro crítico: {e}")
-                time.sleep(5)
-                continue
+            i+=1
+            selenium_automation.start_selenium("https://painel.multi360.com.br")
+            selenium_automation.login()
+            selenium_automation.process_data()
+            if selenium_automation.errorFlag != 1 or i == 3:
+                break
     finally:
         selenium_automation.close_chrome_processes()
-        

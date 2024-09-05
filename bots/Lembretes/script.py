@@ -97,13 +97,10 @@ class SeleniumAutomation:
         logging.info("Starting Selenium")
         options = webdriver.ChromeOptions()
         options.add_argument("--window-size=1920,1080")
-        options.add_argument("disable-infobars")
-        options.add_argument("--disable-extensions")
         options.add_argument("--disable-gpu")
         options.add_argument('--headless')
         options.add_argument('--no-sandbox')
         options.add_argument('--disable-dev-shm-usage')
-        options.add_experimental_option("detach", True)
 
         executable_path = os.path.dirname(os.path.abspath(__file__))
         chrome_driver_path = os.path.join(executable_path, 'chromedriver')
@@ -150,9 +147,11 @@ class SeleniumAutomation:
             return
 
         self.fechar_novidades()
+        self.fechar_novidades()
         time.sleep(1)
         self.trocar_status()
-        self.iterate_df(df)
+        if self.driver:
+            self.iterate_df(df)
         logging.info("Closing Selenium")
         if self.driver:
             self.driver.quit()
@@ -165,11 +164,13 @@ class SeleniumAutomation:
             personalizedMessage = self.replace_placeholders(self.standardMessageA, row)
             if len(str(row['Telefone'])) == 11:
                 try:
+                    self.fechar_novidades()
                     retorno = self.criar_chat(row['Paciente'], row['Data'], row['Agenda'], row['Telefone'], personalizedMessage)
                     if retorno:
+                        self.Status = 'OK'
                         self.finalizarConversa()
-                        df.at[index, 'Status'] = 'OK'
-                        logging.info(f"{row['Telefone']} OK!")
+                        df.at[index, 'Status'] = self.Status
+                        logging.info(f"{row['Telefone']} - {self.Status}!")
                     else:
                         df.at[index, 'Status'] = self.Status
                 except Exception as e:
@@ -245,13 +246,14 @@ class SeleniumAutomation:
     def finalizarConversa(self):
         try:
             self.click_element("//span[@ng-click='onMostrarModalFinalizarAtendimento()']", 1)
-        except Exception as e:
+        except:
             try:
                 self.click_element("//a[@class='dropdown-toggle icone m-r-0']", 1)
                 self.click_element("//a[@ng-click='onMostrarModalFinalizarAtendimento()']", 1)
             except Exception as e:
                 logging.error('Erro finalizarConversa')
                 logging.error(e)
+                self.Status = 'Erro finalizarConversa'
         finally:
             time.sleep(1)
 
@@ -384,13 +386,16 @@ class SeleniumAutomation:
 
 if __name__ == "__main__":
     selenium_automation = SeleniumAutomation()
+    i=0
     try:
         while True:
+            i+=1
             selenium_automation.start_selenium("https://painel.multi360.com.br")
             selenium_automation.login()
             selenium_automation.process_data()
-            if selenium_automation.errorFlag != 1:
+            if selenium_automation.errorFlag != 1 or i == 3:
                 break
     finally:
         selenium_automation.close_chrome_processes()
+
 

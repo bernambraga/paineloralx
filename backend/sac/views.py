@@ -1,5 +1,16 @@
 #sac/views.py
 
+### Alterações ###
+# Motivos negativos todas as interações
+# Voucher
+# Diminuir barra de pesquisa e reorganizar botoes e layout
+# Botão limpar
+# Quando buscar uma nova data limpar barra de busca
+# Quando buscar uma nova data se não existirem dados para o dia avisar com um message temporário
+
+### Fim Alterações ###
+
+
 import pandas as pd
 from django.http import JsonResponse, HttpResponse
 from django.shortcuts import get_object_or_404

@@ -25,3 +25,9 @@ Traceback (most recent call last):
     raise WebDriverException(
 selenium.common.exceptions.WebDriverException: Message: 'chromedriver' executable may have wrong permissions. Please see https://chromedriver.chromium.org/home
 
+
+Script executado em: 2024-09-05 13:01:04.581553
+Título da página: Multi360
+
+Script executado em: 2024-09-05 13:01:43.567742
+Título da página: Multi360

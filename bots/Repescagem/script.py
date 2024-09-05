@@ -29,7 +29,6 @@ class SeleniumAutomation:
         self.username = 'oralx.repescagem'
         self.password = 'Mudar@360'
         self.date_str = datetime.today().strftime('%Y-%m-%d')
-        #self.date_str = (datetime.today() - timedelta(days=2)).strftime('%Y-%m-%d')
         self.table = 'Repescagem'
         self.errorFlag = 0
 
@@ -147,6 +146,7 @@ class SeleniumAutomation:
             return
 
         self.fechar_novidades()
+        self.fechar_novidades()
         time.sleep(1)
         self.trocar_status()
         if self.driver:
@@ -161,12 +161,15 @@ class SeleniumAutomation:
         for index, row in df.iterrows():
             logging.info(f"Enviando mensagem {index + 1} de {total_rows}...")
             personalizedMessage = self.replace_placeholders(self.standardMessageA, row)
-            if len(str(row['Telefone'])) == 11:
+            if len(str(row['Telefone'])) == 11 and self.driver:
                 try:
+                    self.fechar_novidades()
                     retorno = self.criar_chat(row['Paciente'], row['Data'], row['Agenda'], row['Telefone'], personalizedMessage)
                     if retorno:
-                        df.at[index, 'Status'] = 'OK'
-                        logging.info(f"{row['Telefone']} OK!")
+                        self.Status = 'OK'
+                        self.finalizarConversa()
+                        df.at[index, 'Status'] = self.Status
+                        logging.info(f"{row['Telefone']} - {self.Status}!")
                     else:
                         df.at[index, 'Status'] = self.Status
                 except Exception as e:
@@ -247,6 +250,7 @@ class SeleniumAutomation:
             except Exception as e:
                 logging.error('Erro finalizarConversa')
                 logging.error(e)
+                self.Status = 'Erro finalizarConversa'
         finally:
             time.sleep(1)
 
@@ -372,18 +376,15 @@ class SeleniumAutomation:
 
 if __name__ == "__main__":
     selenium_automation = SeleniumAutomation()
+    i=0
     try:
         while True:
-            try:
-                selenium_automation.start_selenium("https://painel.multi360.com.br")
-                selenium_automation.login()
-                selenium_automation.process_data()
-                if selenium_automation.errorFlag != 1:
-                    break
-            except Exception as e:
-                logging.error(f"Erro crítico: {e}")
-                time.sleep(5)
-                continue
+            i+=1
+            selenium_automation.start_selenium("https://painel.multi360.com.br")
+            selenium_automation.login()
+            selenium_automation.process_data()
+            if selenium_automation.errorFlag != 1 or i == 3:
+                break
     finally:
         selenium_automation.close_chrome_processes()
         
