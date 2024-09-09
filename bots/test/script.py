@@ -25,8 +25,8 @@ def main():
 
     try:
         # Acessando o Google
-        driver.set_page_load_timeout(15)
-        driver.get("https://painel.multi360.com.br")
+        driver.set_page_load_timeout(6)
+        driver.get("http://painel.multi360.com.br")
         
         # Obtendo o título da página
         page_title = driver.title

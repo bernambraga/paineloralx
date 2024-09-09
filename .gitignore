@@ -133,11 +133,14 @@ psd
 thumb
 sketch
 
-# logs e driver
-**/logfile.log
 
-**/chromedriver
-chromedriver.exe
-crontab.txt
 
 # End of https://www.toptal.com/developers/gitignore/api/react,python,django
+
+# logs e driver
+bots/Repescagem/logfile.log
+bots/SAC/logfile.log
+bots/test/logfile.log
+bots/Lembretes/logfile.log
+bots/Repescagem/chromedriver
+bots/SAC/chromedriver

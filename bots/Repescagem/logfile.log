@@ -441,3 +441,10 @@ Stacktrace:
 2024-08-26 18:14:11,033:INFO:21996405958 OK!
 2024-08-26 18:14:12,270:INFO:Closing Selenium
 2024-08-26 18:14:12,517:INFO:Todos os processos do Chrome foram fechados.
+2024-09-09 17:35:42,858:INFO:Starting Selenium
+2024-09-09 17:35:42,858:ERROR:Erro ao iniciar o ChromeDriver: '/home/berna/GITHUB/paineloralx/bots/Repescagem/chromedriver' não tem permissões de execução.
+2024-09-09 17:35:42,885:INFO:Todos os processos do Chrome foram fechados.
+2024-09-09 17:37:05,414:INFO:Starting Selenium
+2024-09-09 17:37:11,785:ERROR:No data to process
+2024-09-09 17:37:11,785:INFO:Closing Selenium
+2024-09-09 17:37:11,888:INFO:Todos os processos do Chrome foram fechados.

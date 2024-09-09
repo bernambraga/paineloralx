@@ -79,8 +79,8 @@ class SeleniumAutomation:
                 pedido = row['Pedido']
                 current_datetime = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
                 query = f'''
-                    UPDATE public."{table}" 
-                    SET "Bot_Status" = %s, "Bot_DateTime" = %s 
+                    UPDATE public."{table}"
+                    SET "Bot_Status" = %s, "Bot_DateTime" = %s
                     WHERE "Pedido" = %s;
                 '''
                 cursor.execute(query, (status, current_datetime, pedido))
@@ -97,10 +97,10 @@ class SeleniumAutomation:
         logging.info("Starting Selenium")
         options = webdriver.ChromeOptions()
         options.add_argument("--window-size=1920,1080")
-        options.add_argument("--disable-gpu")
-        options.add_argument('--headless')
-        options.add_argument('--no-sandbox')
-        options.add_argument('--disable-dev-shm-usage')
+        # options.add_argument("--disable-gpu")
+        # options.add_argument('--headless')
+        # options.add_argument('--no-sandbox')
+        # options.add_argument('--disable-dev-shm-usage')
 
         executable_path = os.path.dirname(os.path.abspath(__file__))
         chrome_driver_path = os.path.join(executable_path, 'chromedriver')
@@ -138,7 +138,7 @@ class SeleniumAutomation:
             if self.driver:
                 self.driver.quit()
             return
-        
+
         bot_status = '' if self.errorFlag == 0 else 'Erro abertura do Chat'
         df = self.fetch_data_from_table(connection, self.table, self.date_str, bot_status)
         logging.info("Process Data OK")
@@ -262,8 +262,8 @@ class SeleniumAutomation:
                 logging.error(e)
             finally:
                 time.sleep(1)
-        if self.is_element_present("//button[@ng-click='onFecharModalCriarAtendimentoNovoContato()']"): 
-            try:   
+        if self.is_element_present("//button[@ng-click='onFecharModalCriarAtendimentoNovoContato()']"):
+            try:
                 self.scroll_to_element("//button[@ng-click='onFecharModalCriarAtendimentoNovoContato()']")
                 self.click_element("//button[@ng-click='onFecharModalCriarAtendimentoNovoContato()']", 1)
             except:
@@ -368,7 +368,7 @@ class SeleniumAutomation:
                     value = self.unidades[2]
             return str(value)
         return re.sub(r'\$\$(.*?)\$\$', replace_placeholder, message)
-    
+
     def close_chrome_processes(self):
         try:
             # Comando para fechar processos do Chrome

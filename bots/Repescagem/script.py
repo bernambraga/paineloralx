@@ -97,9 +97,12 @@ class SeleniumAutomation:
         options = webdriver.ChromeOptions()
         options.add_argument("--window-size=1920,1080")
         options.add_argument("--disable-gpu")
+        options.add_argument("disable-infobars")
+        options.add_argument("--disable-extensions")
         options.add_argument('--headless')
         options.add_argument('--no-sandbox')
         options.add_argument('--disable-dev-shm-usage')
+        options.add_experimental_option("detach", True)
 
         executable_path = os.path.dirname(os.path.abspath(__file__))
         chrome_driver_path = os.path.join(executable_path, 'chromedriver')
@@ -109,6 +112,7 @@ class SeleniumAutomation:
                 raise PermissionError(f"'{chrome_driver_path}' não tem permissões de execução.")
             service = Service(chrome_driver_path)
             self.driver = webdriver.Chrome(service=service, options=options)
+            self.driver.set_page_load_timeout(6)
             self.driver.get(URL)
         except (PermissionError, WebDriverException) as e:
             logging.error(f"Erro ao iniciar o ChromeDriver: {e}")
