@@ -144,3 +144,4 @@ bots/test/logfile.log
 bots/Lembretes/logfile.log
 bots/Repescagem/chromedriver
 bots/SAC/chromedriver
+bots/Lembretes/chromedriver
