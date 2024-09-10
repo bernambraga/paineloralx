@@ -143,5 +143,8 @@ bots/SAC/logfile.log
 bots/test/logfile.log
 bots/Lembretes/logfile.log
 bots/Repescagem/chromedriver
+bots/Repescagem/chromedriver.exe
 bots/SAC/chromedriver
+bots/SAC/chromedriver.exe
 bots/Lembretes/chromedriver
+bots/Lembretes/chromedriver.exe
