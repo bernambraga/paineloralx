@@ -26,7 +26,7 @@ cat /var/log/syslog | grep -i cron
 # Build para produção
 sudo rm -rf /home/oralx/paineloralx/frontend_build/prod/*
 sudo npm run build:prod
-
+ 
 # Build para desenvolvimento
 sudo rm -rf /home/oralx/paineloralx/frontend_build/dev/*
 sudo npm run build:dev

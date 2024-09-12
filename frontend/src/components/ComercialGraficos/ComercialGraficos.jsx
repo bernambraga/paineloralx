@@ -130,10 +130,10 @@ const ComercialGraficos = () => {
             data: meses.map((_, index) => {
               if (index === 0) {
                 const valor  = valorAnoAtual?.find(item => getMonthIndex(item.mes) === 11);
-                return valor  ? valor .total_valor : 0;
+                return valor  ? valor.total_valor : 0;
               } else {
                 const valor  = valorAnoAtual?.find(item => (getMonthIndex(item.mes) + 1) === index);
-                return valor  ? valor .total_valor : 0;
+                return valor  ? valor.total_valor : 0;
               }
             }),
             borderColor: 'green',
@@ -143,10 +143,10 @@ const ComercialGraficos = () => {
             data: meses.map((_, index) => {
               if (index === 0) {
                 const valor  = valorAnoAnterior?.find(item => getMonthIndex(item.mes) === 11);
-                return valor  ? valor .total_valor : 0;
+                return valor  ? valor.total_valor : 0;
               } else {
                 const valor  = valorAnoAnterior?.find(item => (getMonthIndex(item.mes) + 1) === index);
-                return valor  ? valor .total_valor : 0;
+                return valor  ? valor.total_valor : 0;
               }
             }),
             borderColor: 'red',
