@@ -171,7 +171,7 @@ class SeleniumAutomation:
                     retorno = self.criar_chat(row['Paciente'], row['Data'], row['Agenda'], row['Telefone'], personalizedMessage)
                     if retorno:
                         self.Status = 'OK'
-                        self.finalizarConversa()
+                        #self.finalizarConversa()
                         df.at[index, 'Status'] = self.Status
                         logging.info(f"{row['Telefone']} - {self.Status}!")
                     else:

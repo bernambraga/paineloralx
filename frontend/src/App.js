@@ -5,7 +5,7 @@ import Login from './pages/Login'
 import Register from './pages/Register'
 import SAC from './pages/SAC'
 import Bots from './pages/Bots'
-import About from './pages/About'
+import Comercial from './pages/Comercial'
 import Header from './components/Header/Header'
 import { AuthProvider } from './context/AuthContext'
 import PrivateRoute from './PrivateRoute'
@@ -42,7 +42,7 @@ const AppContent = () => {
                 <Route path="/" element={<Login />} />
                 <Route element={<PrivateRoute />}>
                     <Route path="/home" element={<Home />} />
-                    <Route path="/about" element={<About />} />
+                    <Route path="/comercial" element={<Comercial />} />
                     <Route path="/bots" element={<Bots />} />
                     <Route path="/register" element={<Register />} />
                     <Route path="/sac" element={<SAC />} />

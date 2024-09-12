@@ -29,9 +29,9 @@ class SeleniumAutomation:
         self.username = 'oralx.sac'
         self.password = 'Oralx2023'
         self.date_str = (datetime.today() - timedelta(days=1)).strftime('%Y-%m-%d')
-        self.date_str = '2024-08-29'
+        self.date_str = '2024-08-31'
         self.table = 'SAC'
-        self.errorFlag = 1
+        self.errorFlag = 0
 
     def connect_to_db(self):
         try:
@@ -45,7 +45,7 @@ class SeleniumAutomation:
 
     def fetch_data_from_table(self, engine, table, date, bot_status):
         if bot_status != '':
-            query = f'SELECT * FROM public."{table}" WHERE "Data" = %s AND "Bot_Status" = %s;'
+            query = f'SELECT * FROM public."{table}" WHERE "Data" <= %s AND "Bot_Status" = %s;'
             try:
                 with engine.connect() as connection:
                     df = pd.read_sql_query(query, connection, params=(date, bot_status))
@@ -54,7 +54,7 @@ class SeleniumAutomation:
                 logging.error(f"Error fetching data from table {table}: {e}")
                 return None
         else:
-            query = f'SELECT * FROM public."{table}" WHERE "Data" = %s AND "Bot_Status" is null;'
+            query = f'SELECT * FROM public."{table}" WHERE "Data" <= %s AND "Bot_Status" is null;'
             try:
                 with engine.connect() as connection:
                     df = pd.read_sql_query(query, connection, params=(date,))
@@ -97,13 +97,16 @@ class SeleniumAutomation:
         logging.info("Starting Selenium")
         options = webdriver.ChromeOptions()
         options.add_argument("--window-size=1920,1080")
-        # options.add_argument("--disable-gpu")
-        # options.add_argument('--headless')
-        # options.add_argument('--no-sandbox')
-        # options.add_argument('--disable-dev-shm-usage')
+        options.add_argument("--disable-gpu")
+        options.add_argument("disable-infobars")
+        options.add_argument("--disable-extensions")
+        options.add_argument('--headless')
+        options.add_argument('--no-sandbox')
+        options.add_argument('--disable-dev-shm-usage')
+        options.add_experimental_option("detach", True)
 
         executable_path = os.path.dirname(os.path.abspath(__file__))
-        chrome_driver_path = os.path.join(executable_path, 'chromedriver')
+        chrome_driver_path = os.path.join(executable_path, 'chromedriver.exe')
 
         try:
             if not os.access(chrome_driver_path, os.X_OK):
@@ -145,6 +148,7 @@ class SeleniumAutomation:
         self.errorFlag = 0
         if df is None or df.empty:
             logging.error("No data to process")
+            self.errorFlag = 1
             logging.info("Closing Selenium")
             if self.driver:
                 self.driver.quit()
@@ -202,8 +206,19 @@ class SeleniumAutomation:
                 self.Status = 'Erro abertura do Chat'
                 logging.error(e)
                 return False
+        flag = 0
         try:
             self.select_dropdown_option("//select[@ng-model='novoAtendimentoNovoContato.canalChave']", "w")
+        except Exception as e:
+            flag = 1
+        if flag == 1:
+            try:
+                self.select_dropdown_option("//select[@ng-model='novoAtendimentoNovoContato.canalChave']", "w")
+            except Exception as e:
+                self.Status = 'Erro abertura do Chat'
+                logging.error(e)
+                return False
+        try:
             self.fill_text_field("//input[@id='novoAtendimentoNovoContatoTelefone']", str(number), Keys.TAB)
             self.fill_text_field("//input[@ng-model='novoAtendimentoNovoContato.nome']", f"{name} - {str(date)[:10]}", Keys.CONTROL)
             self.select_dropdown_option("//select[@ng-model='departamentoSelecionado.departamentoId']", "e")
@@ -318,7 +333,6 @@ class SeleniumAutomation:
         text_field.send_keys(command)
 
     def select_dropdown_option(self, xpath, text, wait=5):
-        self.scroll_to_element(xpath)
         dropdown = WebDriverWait(self.driver, wait).until(EC.presence_of_element_located((By.XPATH, xpath)))
         dropdown.click()
         dropdown.send_keys(text)
@@ -372,7 +386,7 @@ class SeleniumAutomation:
     def close_chrome_processes(self):
         try:
             # Comando para fechar processos do Chrome
-            os.system('pkill -f chrome')
+            #os.system('pkill -f chrome')
             logging.info('Todos os processos do Chrome foram fechados.')
         except Exception as e:
             logging.error(f'Erro ao fechar processos do Chrome: {str(e)}')
@@ -386,7 +400,7 @@ if __name__ == "__main__":
             selenium_automation.start_selenium("https://painel.multi360.com.br")
             selenium_automation.login()
             selenium_automation.process_data()
-            if selenium_automation.errorFlag != 1 or i == 3:
+            if selenium_automation.errorFlag != 1 or i == 10:
                 break
     finally:
         selenium_automation.close_chrome_processes()

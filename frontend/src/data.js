@@ -4,8 +4,8 @@ export const LINKS = [
         name: 'Home',
     },
     {
-        to: '/about',
-        name: 'About',
+        to: '/comercial',
+        name: 'Comercial',
     },
     {
         to: '/sac',

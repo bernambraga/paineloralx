@@ -15,33 +15,41 @@ from django.db import connection
 
 def get_grafico_geral(request):
     with connection.cursor() as cursor:
-        # Exames por quantidade
-        cursor.execute("SELECT * FROM vw_ct_mensal")
-        exames_mensal = cursor.fetchall()
-
-        # Exames por valor monetário
-        cursor.execute("SELECT * FROM vw_ct_mensal")
-        valor_mensal = cursor.fetchall()
+        # Exames
+        cursor.execute("SELECT * FROM vw_ct_mensal ORDER BY mes ASC, ano ASC")
+        exames = cursor.fetchall()
 
     data = {
         'exames_mensal': [
-            {'mes': row[0], 'ano': row[1], 'total_exames': row[2]} for row in exames_mensal
+            {'mes': row[0], 'ano': row[1], 'total_exames': row[2]} for row in exames
         ],
         'valor_mensal': [
-            {'mes': row[0], 'ano': row[1], 'total_valor': row[2]} for row in valor_mensal
+            {'mes': row[0], 'ano': row[1], 'total_valor': row[3]} for row in exames
         ]
     }
-
     return JsonResponse(data)
 
 def get_top_15_solicitantes(request):
     with connection.cursor() as cursor:
-        cursor.execute("SELECT * FROM vw_top_15_clientes_exames_ct")
+        cursor.execute("""WITH top_15_solicitantes AS (
+                            SELECT solicitante, 
+                                SUM(total_valor) AS total_ultimo_3_meses
+                            FROM public.vw_clientes_exames_ct
+                            WHERE mes >= (CURRENT_DATE - INTERVAL '4 months')
+                            GROUP BY solicitante
+                            ORDER BY total_ultimo_3_meses DESC
+                            LIMIT 16
+                        )
+                        SELECT vw.*
+                        FROM public.vw_clientes_exames_ct vw
+                        JOIN top_15_solicitantes top15
+                        ON vw.solicitante = top15.solicitante WHERE ano = '2024'
+                        ORDER BY top15.total_ultimo_3_meses DESC, vw.solicitante;""")
         top_solicitantes = cursor.fetchall()
 
     data = [
         {
-            'solicitante': row[0],
+            'solicitante': row[0].title(),
             'mes': row[1],
             'ano': row[2],
             'total_exames': row[3],
