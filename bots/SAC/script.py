@@ -29,7 +29,7 @@ class SeleniumAutomation:
         self.username = 'oralx.sac'
         self.password = 'Oralx2023'
         self.date_str = (datetime.today() - timedelta(days=1)).strftime('%Y-%m-%d')
-        self.date_str = '2024-08-31'
+        #self.date_str = '2024-08-31'
         self.table = 'SAC'
         self.errorFlag = 0
 
@@ -106,7 +106,7 @@ class SeleniumAutomation:
         options.add_experimental_option("detach", True)
 
         executable_path = os.path.dirname(os.path.abspath(__file__))
-        chrome_driver_path = os.path.join(executable_path, 'chromedriver.exe')
+        chrome_driver_path = os.path.join(executable_path, 'chromedriver')
 
         try:
             if not os.access(chrome_driver_path, os.X_OK):
@@ -165,9 +165,13 @@ class SeleniumAutomation:
             self.driver.quit()
 
     def iterate_df(self, df):
+        i=0
+        r=0
         df['Status'] = ''
         total_rows = len(df)
         for index, row in df.iterrows():
+            if r > 15:
+                break
             logging.info(f"Enviando mensagem {index + 1} de {total_rows}...")
             personalizedMessage = self.replace_placeholders(self.standardMessageA, row)
             if len(str(row['Telefone'])) == 11 and self.driver:
@@ -177,10 +181,15 @@ class SeleniumAutomation:
                     if retorno:
                         self.Status = 'OK'
                         df.at[index, 'Status'] = self.Status
+                        i+=1
+                        r=0
                         logging.info(f"{row['Telefone']} - {self.Status}!")
                     else:
+                        if self.Status == 'Erro abertura do Chat':
+                            r+=1
                         df.at[index, 'Status'] = self.Status
                 except Exception as e:
+                    r+=1
                     logging.error(e)
                     self.click_element("//button[@ng-click='onFecharModalCriarAtendimentoNovoContato()']")
                     continue
