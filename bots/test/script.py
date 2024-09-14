@@ -10,7 +10,7 @@ def main():
     log_file = os.path.join(script_dir, 'logfile.log')
 
     # Caminho para o chromedriver na mesma pasta do script
-    chromedriver_path = os.path.join(script_dir, 'chromedriver.exe')
+    chromedriver_path = os.path.join(script_dir, 'chromedriver')
 
     # Configurações do Selenium
     chrome_options = Options()

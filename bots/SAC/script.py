@@ -395,7 +395,7 @@ class SeleniumAutomation:
     def close_chrome_processes(self):
         try:
             # Comando para fechar processos do Chrome
-            #os.system('pkill -f chrome')
+            os.system('pkill -f chrome')
             logging.info('Todos os processos do Chrome foram fechados.')
         except Exception as e:
             logging.error(f'Erro ao fechar processos do Chrome: {str(e)}')
