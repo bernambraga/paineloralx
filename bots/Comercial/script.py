@@ -15,6 +15,28 @@ connection_params = {
     'port': '5432'
 }
 
+
+# fazer selenium para baixar o report
+
+
+
+
+# Ler o arquivo Excel
+executable_path = os.path.dirname(os.path.abspath(__file__))
+xls_files = glob.glob(os.path.join(executable_path, '*.xls'))
+
+dataframes = []  # Create an empty list to store DataFrames
+for file in xls_files:
+    workbook = xlrd.open_workbook(file, ignore_workbook_corruption=True)
+    dfaux = pd.read_excel(workbook)
+    dfaux = dfaux.drop(dfaux.index[-1])
+    dataframes.append(dfaux)
+df=pd.concat(dataframes,ignore_index=True)
+
+
+
+
+
 # Função para tratar e validar telefones
 def tratar_telefone(row):
     # Extrair os números de telefone
@@ -38,17 +60,7 @@ def tratar_telefone(row):
         return telefone_validado
     return validar_telefone(telefone1)
 
-# Ler o arquivo Excel
-executable_path = os.path.dirname(os.path.abspath(__file__))
-xls_files = glob.glob(os.path.join(executable_path, '*.xls'))
 
-dataframes = []  # Create an empty list to store DataFrames
-for file in xls_files:
-    workbook = xlrd.open_workbook(file, ignore_workbook_corruption=True)
-    dfaux = pd.read_excel(workbook)
-    dfaux = dfaux.drop(dfaux.index[-1])
-    dataframes.append(dfaux)
-df=pd.concat(dataframes,ignore_index=True)
 
 # Converter a coluna 'Data' para o formato yyyy-mm-dd
 df['Data'] = pd.to_datetime(df['Data'], format='%d/%m/%Y').dt.strftime('%Y-%m-%d')

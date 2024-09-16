@@ -29,9 +29,9 @@ class SeleniumAutomation:
         self.username = 'oralx.sac'
         self.password = 'Oralx2023'
         self.date_str = (datetime.today() - timedelta(days=1)).strftime('%Y-%m-%d')
-        #self.date_str = '2024-08-31'
         self.table = 'SAC'
         self.errorFlag = 0
+        self.firstRunFlag = 0
 
     def connect_to_db(self):
         try:
@@ -78,12 +78,13 @@ class SeleniumAutomation:
                 status = row['Status']
                 pedido = row['Pedido']
                 current_datetime = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-                query = f'''
-                    UPDATE public."{table}"
-                    SET "Bot_Status" = %s, "Bot_DateTime" = %s
-                    WHERE "Pedido" = %s;
-                '''
-                cursor.execute(query, (status, current_datetime, pedido))
+                if status != '':
+                    query = f'''
+                        UPDATE public."{table}"
+                        SET "Bot_Status" = %s, "Bot_DateTime" = %s
+                        WHERE "Pedido" = %s;
+                    '''
+                    cursor.execute(query, (status, current_datetime, pedido))
             connection.commit()
         except Exception as e:
             logging.error(f"Error updating data in table {table}: {e}")
@@ -147,8 +148,10 @@ class SeleniumAutomation:
         logging.info("Process Data OK")
         self.errorFlag = 0
         if df is None or df.empty:
+            if self.firstRunFlag == 0:
+                self.firstRunFlag = 1
+                self.errorFlag = 1
             logging.error("No data to process")
-            self.errorFlag = 1
             logging.info("Closing Selenium")
             if self.driver:
                 self.driver.quit()
@@ -165,12 +168,11 @@ class SeleniumAutomation:
             self.driver.quit()
 
     def iterate_df(self, df):
-        i=0
-        r=0
+        errors = 0
         df['Status'] = ''
         total_rows = len(df)
         for index, row in df.iterrows():
-            if r > 15:
+            if errors > 15:
                 break
             logging.info(f"Enviando mensagem {index + 1} de {total_rows}...")
             personalizedMessage = self.replace_placeholders(self.standardMessageA, row)
@@ -181,15 +183,14 @@ class SeleniumAutomation:
                     if retorno:
                         self.Status = 'OK'
                         df.at[index, 'Status'] = self.Status
-                        i+=1
-                        r=0
+                        errors = 0
                         logging.info(f"{row['Telefone']} - {self.Status}!")
                     else:
                         if self.Status == 'Erro abertura do Chat':
-                            r+=1
+                            errors += 1
                         df.at[index, 'Status'] = self.Status
                 except Exception as e:
-                    r+=1
+                    errors += 1
                     logging.error(e)
                     self.click_element("//button[@ng-click='onFecharModalCriarAtendimentoNovoContato()']")
                     continue
