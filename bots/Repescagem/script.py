@@ -77,14 +77,15 @@ class SeleniumAutomation:
             for index, row in data.iterrows():
                 status = row['Status']
                 pedido = row['Pedido']
-                if status != '':
-                    current_datetime = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-                    query = f'''
-                        UPDATE public."{table}" 
-                        SET "Bot_Status" = %s, "Bot_DateTime" = %s 
-                        WHERE "Pedido" = %s;
-                    '''
-                    cursor.execute(query, (status, current_datetime, pedido))
+                if status == '':
+                    status = 'Erro abertura do Chat'
+                current_datetime = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+                query = f'''
+                    UPDATE public."{table}" 
+                    SET "Bot_Status" = %s, "Bot_DateTime" = %s 
+                    WHERE "Pedido" = %s;
+                '''
+                cursor.execute(query, (status, current_datetime, pedido))
             connection.commit()
         except Exception as e:
             logging.error(f"Error updating data in table {table}: {e}")
