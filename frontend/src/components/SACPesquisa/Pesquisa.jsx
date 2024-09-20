@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './Pesquisa.css';
 import axios from 'axios';
 import DatePicker from '../DatePicker/DatePicker';
-import { format, parse } from 'date-fns';
+import { format, parse, isSunday } from 'date-fns';
 
 const SACPesquisa = () => {
     const getBaseUrl = () => {
@@ -31,26 +31,17 @@ const SACPesquisa = () => {
         return csrfToken;
     };
 
-    const listaTeste = [
-        { pedido: "234567", paciente: "Bernardo Mendonça Braga", agenda: "Pinheiros", bot_status: "OK", resposta: "Positiva", motivo: "", obs: "" },
-        { pedido: "123456", paciente: "Felipe Moreira de Souza Campos De mariaaa", agenda: "Angélica", bot_status: "OK", resposta: "Negativa", motivo: "a", obs: "" },
-        { pedido: "3", paciente: "Luiza", agenda: "9 de Julho", bot_status: "Telefone Inválido", resposta: "", motivo: "", obs: "" },
-        { pedido: "4", paciente: "João", agenda: "Pinheiros", bot_status: "OK", resposta: "Negativa", motivo: "Outro", obs: "Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem IpsumLorem IpsumLorem IpsumLorem Ipsum" },
-    ];
-
-    const handleDateChange = (date) => {
-        setSelectedDate(format(date, 'dd/MM/yyyy'));
-    };
-
     const [selectedDate, setSelectedDate] = useState(format(new Date().setDate(new Date().getDate() - 1), 'dd/MM/yyyy'));
-    const [relatorio, setRelatorio] = useState(listaTeste);
+    const [relatorio, setRelatorio] = useState([]);
     const [motivo, setMotivo] = useState('');
     const [comentario, setComentario] = useState('');
     const [showMotivoModal, setShowMotivoModal] = useState(false);
     const [selectedPedido, setSelectedPedido] = useState(null);
     const [motivos, setMotivos] = useState([]);
-    const [showModal, setShowModal] = useState(false);
+    const [showModalMotivos, setShowModalMotivos] = useState(false);
+    const [showModalElogios, setShowModalElogios] = useState(false);
     const [searchTerm, setSearchTerm] = useState('');
+    const [selectedMotivo1, setSelectedMotivo1] = useState('');
 
     useEffect(() => {
         fetchMotivosNegativos();
@@ -66,43 +57,78 @@ const SACPesquisa = () => {
         }
     };
 
-    const handleShowModal = () => setShowModal(true);
-    const handleCloseModal = () => setShowModal(false);
+    const handleShowModalMotivos = () => setShowModalMotivos(true);
+    const handleCloseModalMotivos = () => setShowModalMotivos(false);
+
+    const handleShowModalElogios = () => setShowModalElogios(true);
+    const handleCloseModalElogios = () => setShowModalElogios(false);
 
     const handleAddMotivo = async () => {
         const motivo = document.getElementById('newMotivo').value;
         try {
-            await axios.post(`${getBaseUrl()}/sac/criar_motivo`,
-                {
-                    motivo: motivo,
-                },
-                {
-                    headers: {
-                    'X-CSRFToken': getCSRFToken(),
-                    },
-                    withCredentials: true,
-                }
-            );
+            await axios.get(`${getBaseUrl()}/sac/criar_motivo?newMotivo=${motivo}`);
             fetchMotivosNegativos();
         } catch (error) {
             console.error('Erro ao criar novo motivo:', error);
         }
     };
 
-    const handleDeleteMotivo = (id) => {
-        // Lógica para deletar um motivo
+    const handleDeleteMotivo = async () => {
+        const motivoId = document.getElementById('deleteMotivo').value;
+        try {
+            await axios.get(`${getBaseUrl()}/sac/excluir_motivo?motivoId=${motivoId}`);
+            fetchMotivosNegativos();
+        } catch (error) {
+            console.error('Erro ao excluir motivo:', error);
+        }
     };
-    const [selectedMotivo1, setSelectedMotivo1] = useState('');
-    const handleTransferMotivo = (id, newMotivo) => {
-        // Lógica para transferir um motivo
-        setSelectedMotivo1('')
+
+    const handleSelectedMotivo1Change = async () => {
+        const motivo1 = document.getElementById('transferMotivo1').value;
+        setSelectedMotivo1(motivo1)
+    }
+
+    const handleTransferMotivo = async () => {
+        const motivo1 = document.getElementById('transferMotivo1').value;
+        const motivo2 = document.getElementById('transferMotivo2').value;
+        try {
+            await axios.get(`${getBaseUrl()}/sac/transferir_motivos?motivoa=${motivo1}&motivob=${motivo2}`);
+            handleCloseModalMotivos()
+            handleBuscar()
+        } catch (error) {
+            console.error('Erro ao transferir motivos:', error);
+        }
     };
+
+    const handleAddElogio = async () => {
+        const elogio = document.getElementById('newElogio').value;
+    }
+
+    const handleDateChange = (date) => {
+        const parsedDate = parse(format(date, 'dd/MM/yyyy'), 'dd/MM/yyyy', new Date());
+    
+        if (isSunday(parsedDate)) {
+            alert('Não realizamos exames aos domingos.');
+            return;
+        }
+
+        setSelectedDate(format(date, 'dd/MM/yyyy'));
+    };
+
+    // Executa handleBuscar toda vez que selectedDate for alterado
+    useEffect(() => {
+        handleBuscar();
+    }, [selectedDate]);
 
     const handleBuscar = async () => {
         try {
             const response = await axios.get(`${getBaseUrl()}/sac/relatorio?data=${selectedDate}`);
             const result = await response.data;
+            handleClearSearch()
             setRelatorio(result);
+            if (result.length === 0) {
+                alert('Nenhum resultado encontrado para a data selecionada.');
+            }
         } catch (error) {
             console.error('Erro ao buscar pesquisas:', error);
         }
@@ -164,14 +190,18 @@ const SACPesquisa = () => {
 
     const handleVoucher = async (pedidoId, pacienteNome) => {
         try {
-            const response = await axios.get(`${getBaseUrl()}/sac/voucher?pedidoId=${pedidoId}&data=${selectedDate}&pacienteNome=${pacienteNome}`);
-            const blob = await response.blob();
+            const response = await axios.get(`${getBaseUrl()}/sac/voucher?pedidoId=${pedidoId}`, {
+                responseType: 'blob' // Indica que esperamos um blob como resposta (imagem).
+            });
+            const blob = await response.data;
             const url = window.URL.createObjectURL(blob);
             const link = document.createElement('a');
             link.href = url;
             link.setAttribute('download', `voucher_${pacienteNome}.jpeg`);
             document.body.appendChild(link);
             link.click();
+            window.URL.revokeObjectURL(url);
+            document.body.removeChild(link);
         } catch (error) {
             console.error('Erro ao baixar voucher:', error);
         }
@@ -214,8 +244,9 @@ const SACPesquisa = () => {
                     onChange={handleDateChange}
                 />
                 <button className='button-sac' onClick={handleBuscar}>Buscar</button>
-                <button className='button-sac' onClick={handleDownload}>Download</button>
-                <button className='button-sac' onClick={handleShowModal}>Motivos</button>
+                {/*<button className='button-sac' onClick={handleDownload}>Download</button>*/} 
+                <button className='button-sac' onClick={handleShowModalMotivos}>Motivos</button>
+                <button className='button-sac' onClick={handleShowModalElogios}>Elogios</button>
             </div>
             <div className='searchContainer'>
                 <input
@@ -224,7 +255,7 @@ const SACPesquisa = () => {
                     value={searchTerm}
                     onChange={handleSearchChange}
                 />
-                <span className='button-clear' onClick={() => handleClearSearch}>Limpar</span>
+                <span className='button-clear' onClick={handleClearSearch}>Limpar</span>
             </div>
             <div className='table-container'>
                 <table>
@@ -317,32 +348,31 @@ const SACPesquisa = () => {
             {showMotivoModal && (
                 <div className="modal">
                     <h2>Qual foi o motivo da avaliação negativa?</h2>
-                    <select value={motivo} onChange={(e) => setMotivo(e.target.value)}>
-                        <option value="">Selecione</option>
-                        <option value="Problemas no atendimento">Problemas no atendimento</option>
-                        <option value="Não gostei da clínica">Não gostei da clínica</option>
-                        <option value="Lorem ipsum">Lorem ipsum</option>
-                        <option value="Outros">Outros</option>
+                    <select className='negativaSelect' value={motivo} onChange={(e) => setMotivo(e.target.value)}>
+                        <option value="" disabled>Selecione um motivo...</option>
+                        {motivos.map(motivo => (
+                            <option key={motivo.id} value={motivo.motivo}>{motivo.motivo}</option>
+                        ))}
                     </select>
                     <div>
                         <label>Comentário:</label>
-                        <textarea value={comentario} onChange={(e) => setComentario(e.target.value)} />
+                        <textarea className='comentarioTextarea' value={comentario} onChange={(e) => setComentario(e.target.value)} />
                     </div>
-                    <div>
+                    <div className=''>
                         <button className="modalButton" onClick={handleConfirmarNegativo}>Confirmar</button>
                         <button className="modalButton" onClick={handleCloseMotivoModal}>Cancelar</button>
                     </div>
                 </div>
             )}
 
-            {showModal && (
+            {showModalMotivos && (
                 <div className="modal">
                     <h2>Edição de Motivos</h2>
                     <div>
                         <div className='container-modal'>
                             <label htmlFor="newMotivo">Adicionar Motivo</label>
                             <input id="newMotivo" type="text" placeholder="Novo motivo" />
-                            <button onClick={handleAddMotivo}>
+                            <button className="modalButton" onClick={handleAddMotivo}>
                                 Adicionar
                             </button>
                         </div>
@@ -354,33 +384,64 @@ const SACPesquisa = () => {
                                     <option key={motivo.id} value={motivo.id}>{motivo.motivo}</option>
                                 ))}
                             </select>
-                            <button onClick={() => handleDeleteMotivo("selectedMotivoId")}>
+                            <button className="modalButton" onClick={() => handleDeleteMotivo("selectedMotivoId")}>
                                 Deletar
                             </button>
                         </div>
 
                         <div className='container-modal'>
-                            <label htmlFor="transferMotivo">Transferir Atendimentos</label>
+                            <label htmlFor="transferMotivo">Transferir Motivos</label>
+                            <span>De:</span>
                             <select id="transferMotivo1"
                                 value={selectedMotivo1}
-                                onChange={(e) => setSelectedMotivo1(e.target.value)}
+                                onChange={handleSelectedMotivo1Change}
                             >
-                                <option value="" disabled>Selecione um motivo</option>
+                                <option value="" disabled></option>
+                                {motivos.map(motivo => (
+                                    <option key={motivo.id} value={motivo.motivo}>{motivo.motivo}</option>
+                                ))}
+                            </select>
+                            <span>Para:</span>
+                            <select id="transferMotivo2">
+                                <option value="" disabled></option>
+                                {motivos.filter(motivo => motivo.id !== parseInt(selectedMotivo1)).map(motivo => (
+                                    <option key={motivo.id} value={motivo.motivo}>{motivo.motivo}</option>
+                                ))}
+                            </select>
+                            <button className="modalButton" onClick={() => handleTransferMotivo("selectedMotivoId", "newMotivoId")}>
+                                Transferir
+                            </button>
+                        </div>
+                        <button className="modalButton" onClick={handleCloseModalMotivos}>
+                            Fechar
+                        </button>
+                    </div>
+                </div>
+            )}
+            {showModalElogios && (
+                <div className="modal">
+                    <h2>Elogios</h2>
+                    <div>
+                        <div className='container-modal'>
+                            <label htmlFor="newMotivo">Adicionar Elogio</label>
+                            <input id="novoElogio1" type="text" placeholder="Para quem?" />
+                            <textarea className='comentarioTextarea' id="novoElogio2" type="text" placeholder="Elogio" />
+                            <button className="modalButton" onClick={handleAddElogio}>
+                                Adicionar
+                            </button>
+                        </div>
+
+                        <div className='container-modal'>
+                            <label htmlFor="deleteMotivo">Elogios</label>
+                            <select id="deleteMotivo">
                                 {motivos.map(motivo => (
                                     <option key={motivo.id} value={motivo.id}>{motivo.motivo}</option>
                                 ))}
                             </select>
-                            <select id="transferMotivo2">
-                                <option value="" disabled>Selecione um motivo</option>
-                                {motivos.filter(motivo => motivo.id !== selectedMotivo1).map(motivo => (
-                                    <option key={motivo.id} value={motivo.id}>{motivo.motivo}</option>
-                                ))}
-                            </select>
-                            <button onClick={() => handleTransferMotivo("selectedMotivoId", "newMotivoId")}>
-                                Transferir
-                            </button>
+                            Estamos em testes ainda
                         </div>
-                        <button onClick={handleCloseModal}>
+
+                        <button className="modalButton" onClick={handleCloseModalElogios}>
                             Fechar
                         </button>
                     </div>

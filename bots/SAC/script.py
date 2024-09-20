@@ -78,7 +78,7 @@ class SeleniumAutomation:
                 status = row['Status']
                 pedido = row['Pedido']
                 if status == '':
-                    status = 'Erro abertura do Chat'
+                    status = 'Erro'
                 current_datetime = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
                 query = f'''
                     UPDATE public."{table}" 
@@ -144,7 +144,7 @@ class SeleniumAutomation:
                 self.driver.quit()
             return
 
-        bot_status = '' if self.errorFlag == 0 else 'Erro abertura do Chat'
+        bot_status = '' if self.errorFlag == 0 else 'Erro'
         df = self.fetch_data_from_table(connection, self.table, self.date_str, bot_status)
         logging.info("Process Data OK")
         self.errorFlag = 0
@@ -187,7 +187,7 @@ class SeleniumAutomation:
                         errors = 0
                         logging.info(f"{row['Telefone']} - {self.Status}!")
                     else:
-                        if self.Status == 'Erro abertura do Chat':
+                        if self.Status == 'Erro':
                             errors += 1
                         df.at[index, 'Status'] = self.Status
                 except Exception as e:
@@ -196,8 +196,8 @@ class SeleniumAutomation:
                     self.click_element("//button[@ng-click='onFecharModalCriarAtendimentoNovoContato()']")
                     continue
             else:
-                df.at[index, 'Status'] = 'Número de Telefone Inválido'
-                logging.error(f"{row['Telefone']} Número de Telefone Inválido!")
+                df.at[index, 'Status'] = 'Telefone Inválido'
+                logging.error(f"{row['Telefone']} Telefone Inválido!")
                 continue
         connection = self.connect_to_db()
         if connection:
@@ -214,7 +214,7 @@ class SeleniumAutomation:
             try:
                 self.click_element("//div[@ng-click='onMostrarModalCriarAtendimentoNovoContato()']")
             except Exception as e:
-                self.Status = 'Erro abertura do Chat'
+                self.Status = 'Erro'
                 logging.error(e)
                 return False
         flag = 0
@@ -226,7 +226,7 @@ class SeleniumAutomation:
             try:
                 self.select_dropdown_option("//select[@ng-model='novoAtendimentoNovoContato.canalChave']", "w")
             except Exception as e:
-                self.Status = 'Erro abertura do Chat'
+                self.Status = 'Erro'
                 logging.error(e)
                 return False
         try:
@@ -236,7 +236,7 @@ class SeleniumAutomation:
             self.select_dropdown_option("//select[@ng-model='departamentoSelecionado.atendenteId']", "SAC - Oral X")
             self.click_element("//button[@ng-click='onModalCriarAtendimentoNovoContato()']")
         except Exception as e:
-            self.Status = 'Erro abertura do Chat'
+            self.Status = 'Erro'
             self.errorFlag = 1
             logging.error(e)
             return False

@@ -25,3 +25,4 @@ requests==2.32.3
 bs4==0.0.2
 selenium==4.23.0
 SQLAlchemy==2.0.31
+pillow

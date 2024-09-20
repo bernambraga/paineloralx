@@ -1,24 +1,24 @@
 #sac/views.py
 
 ### Alterações ###
-# Motivos negativos todas as interações
-# Voucher
-# Diminuir barra de pesquisa e reorganizar botoes e layout
-# Botão limpar
-# Quando buscar uma nova data limpar barra de busca
-# Quando buscar uma nova data se não existirem dados para o dia avisar com um message temporário
-
+# Quando abrir modal tornar o resto da pagina inacessivel
+# organizar CSS dos modais
+# Download do Excel da pesquisa
+# Graficos??
 ### Fim Alterações ###
 
-
 import pandas as pd
-from django.http import JsonResponse, HttpResponse
+from django.http import JsonResponse, HttpResponse,FileResponse
 from django.shortcuts import get_object_or_404
 from django.views.decorators.http import require_http_methods
+from django.conf import settings
 from .models import SAC, SACMotivosNegativos
 import logging
 import json
+import os
+from PIL import Image, ImageDraw, ImageFont
 from datetime import datetime
+from io import BytesIO
 
 logger = logging.getLogger('django')
 
@@ -30,38 +30,43 @@ def listar_motivos_negativos(request):
     data = [{'id': motivo.id, 'motivo': motivo.motivo} for motivo in motivos]
     return JsonResponse(data, safe=False)
 
-@require_http_methods(["POST"])
+@require_http_methods(["GET"])
 def criar_motivo(request):
-    # print("aqui")
-    if request.method == 'POST':
-        try:
-            data = json.loads(request.body)
-            motivo = data.get('motivo')
-            if motivo:
-                SACMotivosNegativos.objects.create(motivo=motivo)
-                return JsonResponse({'status': 'success'})
-            return JsonResponse({'status': 'error', 'message': 'Motivo não fornecido'})
-        except json.JSONDecodeError:
-            return JsonResponse({'status': 'error', 'message': 'Erro ao decodificar JSON'})
-        except Exception as e:
-            return JsonResponse({'status': 'error', 'message': str(e)})
-
-@require_http_methods(["POST"])
-def transferir_atendimentos(request):
-    motivo_a = request.POST.get('motivo_a')
-    motivo_b = request.POST.get('motivo_b')
-    if motivo_a and motivo_b:
-        SAC.objects.filter(Motivo=motivo_a).update(Motivo=motivo_b)
-        return JsonResponse({'status': 'success'})
-    return JsonResponse({'status': 'error', 'message': 'Motivos não fornecidos'}, status=400)
-
-@require_http_methods(["DELETE"])
-def excluir_motivo(request, motivo_id):
-    motivo = get_object_or_404(SACMotivosNegativos, id=motivo_id)
-    if not SAC.objects.filter(Motivo=motivo.motivo).exists():
+    motivo = request.GET.get('newMotivo')
+    try:
+        if motivo:
+            SACMotivosNegativos.objects.create(motivo=motivo)
+            return JsonResponse({'status': 'success'})
+        return JsonResponse({'status': 'error', 'message': 'Motivo não fornecido'})
+    except json.JSONDecodeError:
+        return JsonResponse({'status': 'error', 'message': 'Erro ao decodificar JSON'})
+    except Exception as e:
+        return JsonResponse({'status': 'error', 'message': str(e)})
+    
+@require_http_methods(["GET"])
+def excluir_motivo(request):
+    motivo_id = request.GET.get('motivoId')  # Renomeando para padrão snake_case
+    try:
+        motivo = SACMotivosNegativos.objects.get(id=motivo_id)  # Use get para obter um único objeto
+    except SACMotivosNegativos.DoesNotExist:
+        return JsonResponse({'status': 'error', 'message': 'Motivo não encontrado'}, status=404)
+    # Verifica se o motivo está em uso na tabela SAC
+    if not SAC.objects.filter(motivo=motivo.motivo).exists():
         motivo.delete()
         return JsonResponse({'status': 'success'})
     return JsonResponse({'status': 'error', 'message': 'Existem atendimentos relacionados a esse motivo'}, status=400)
+
+@require_http_methods(["GET"])
+def transferir_motivos(request):
+    motivo_a = request.GET.get('motivoa')
+    motivo_b = request.GET.get('motivob')
+    if motivo_a == motivo_b:
+        return JsonResponse({'status': 'error', 'message': 'Motivos são iguais'})
+    if motivo_a and motivo_b:
+        SAC.objects.filter(motivo=motivo_a).update(motivo=motivo_b)
+        return JsonResponse({'status': 'success'})
+    return JsonResponse({'status': 'error', 'message': 'Motivos não fornecidos'}, status=400)
+
 
 @require_http_methods(["GET"])
 def listar_atendimentos(request):
@@ -121,3 +126,49 @@ def editar_atendimento_neg(request):
         return JsonResponse({'status': 'error', 'message': 'Erro ao decodificar JSON'}, status=400)
     except Exception as e:
         return JsonResponse({'status': 'error', 'message': str(e)}, status=500)
+    
+@require_http_methods(["GET"])
+def voucher(request):
+    try:
+        pedidoid = request.GET.get('pedidoId')
+        atendimento = get_object_or_404(SAC, pedido=pedidoid)
+        # Caminho do arquivo dentro de static
+        root = settings.STATIC_ROOT
+        file_path = root + '/img/voucher.jpeg'
+        if os.path.exists(file_path):
+            with open(file_path, 'rb') as img_file:
+                buffer = gerar_voucher(atendimento, img_file)
+            atendimento.voucher = "Teste" + " - " + str(datetime.now().strftime("%d/%m/%Y"))
+            atendimento.save()
+            return FileResponse(buffer, as_attachment=True, content_type='image/jpeg', filename=f'voucher_{atendimento.paciente}.jpg')
+        else:
+            return JsonResponse({'status': 'error', 'message': 'Arquivo não encontrado'}, status=404)
+    except Exception as e:
+        return JsonResponse({'status': 'error', 'message': str(e)}, status=500)
+    
+def gerar_voucher(atendimento, voucher):
+    # Abrir a imagem crua
+    image = Image.open(voucher)
+
+    # Definir o nome do paciente e a data atual
+    paciente_nome = atendimento.paciente.title()
+    data_atual = datetime.now().strftime("%d/%m/%Y")
+
+    # Configurar o local e a fonte do texto (ajuste o caminho da fonte se necessário)
+    draw = ImageDraw.Draw(image)
+    font_path = os.path.join(settings.STATIC_ROOT, 'fonts', 'MYRIADPRO-REGULAR.OTF')
+    font = ImageFont.truetype(font_path, 24)
+
+    # Definir a posição do texto (ajuste conforme necessário)
+    text_position = (50, 395)  # Posição X, Y
+
+    # Escrever o nome do paciente e a data na imagem
+    draw.text(text_position, f"{paciente_nome}     -     {data_atual}", font=font, fill="black")
+
+    # Salvar a imagem em um buffer de memória em vez de salvar no disco
+    buffer = BytesIO()
+    image.save(buffer, format="JPEG")
+    buffer.seek(0)  # Retorna o ponteiro do buffer para o início
+
+    # Retornar o buffer contendo a imagem editada
+    return buffer

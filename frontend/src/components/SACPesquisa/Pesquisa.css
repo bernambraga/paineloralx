@@ -1,6 +1,6 @@
 /* Pesquisa.css */
 .container-pesquisa-sac {
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
     padding: 10px;
     font-family: Arial, sans-serif;
@@ -19,13 +19,17 @@ h2 {
 }
 
 .input-container-pesquisa-sac {
+    margin: 0 auto;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    max-width: 550px;
     }
 
 .input-container-pesquisa-sac label {
-    padding: 5px;
+    margin: 0 auto;
+    padding: 0;
     color: #555;
     font-weight: bold;
     align-self: center;
@@ -33,18 +37,21 @@ h2 {
     }
 
 .react-datepicker-wrapper input{
-    margin: auto;
+    margin: 0 auto;
     padding: 2px 5px 2px 2px;
     text-align: center;
+    font-size: 15px;
 }
 .react-datepicker__input-container{
+    max-width: 140px;
+    margin: 0 auto;
     width: 100%;
     cursor: pointer;
 }
 
 .button-sac {
     display: inline-block;
-    padding: 5px;
+    padding: 0 10px;
     border-radius: 5px;
     border: none;
     background-color: #4085c5;
@@ -52,8 +59,8 @@ h2 {
     cursor: pointer;
     font-size: 16px;
     height: 35px;
-    width: 180px;
-    margin: 0 10px;
+    max-width: 180px;
+    margin: 0 auto;
     text-align: center;
     box-sizing: border-box; /* add this to ensure padding is included in width and height */
     transition: background-color 0.2s ease-in-out; /* add a transition effect for hover */
@@ -63,22 +70,13 @@ h2 {
     background-color: #337ab7; /* add a hover effect */
     }
 
-.button-clear {
-    position: absolute;
-    right: 4%;
-    top: 60%;
-    transform: translateY(-50%);
-    color: #333;
-    border: none;
-    cursor: pointer;
 
-}
 
 .searchContainer {
     position: relative;
     width: 100%;
-    margin-top: 15px;
-    padding: 10px 10px 2px 10px;
+    margin: 0 auto;
+    padding: 20px 0 2px 0;
     align-items: center;
 }
 
@@ -87,9 +85,21 @@ h2 {
     margin: auto;
 }
 
+.button-clear {
+    position: absolute;
+    right: 2%;
+    top: 67%;
+    transform: translateY(-50%);
+    color: #33333394;
+    border: none;
+    cursor: pointer;
+}
+
 .table-container {
-    padding: 0 10px 10px 10px;
+    padding: 16px 0 0 0;
     z-index: 0;
+    max-width: 100%; /* Certifica-se de que o container não ultrapasse o tamanho da página */
+    overflow-x: auto; /* Adiciona a barra de rolagem horizontal */
 }
 
 .table-container table {
@@ -112,10 +122,11 @@ h2 {
 }
 
 .td-table {
-    max-width: 250px;
+    max-width: 150px;
     padding: 5px;
     border: 1px solid #ddd;
     white-space: nowrap;
+    text-overflow: ellipsis;
     }
 
 .td-paciente {
@@ -187,7 +198,7 @@ h2 {
     border-width: 0.5px;
     border-radius: 5px;
     margin-bottom: 10px;
-    width: 100%;
+    width: 80%;
     cursor: pointer;
 }
 .modal div {
@@ -266,4 +277,9 @@ h2 {
 .dateselector button{
     width: 10%;
     height: 30px;
+}
+
+.comentarioTextarea{
+    width: 80%;
+    height: 70px;
 }
