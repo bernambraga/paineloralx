@@ -19,6 +19,7 @@ import os
 from PIL import Image, ImageDraw, ImageFont
 from datetime import datetime
 from io import BytesIO
+from dateutil.relativedelta import relativedelta
 
 logger = logging.getLogger('django')
 
@@ -152,7 +153,7 @@ def gerar_voucher(atendimento, voucher):
 
     # Definir o nome do paciente e a data atual
     paciente_nome = atendimento.paciente.title()
-    data_atual = datetime.now().strftime("%d/%m/%Y")
+    data_validade = (datetime.now() + relativedelta(months=6)).strftime("%d/%m/%Y")
 
     # Configurar o local e a fonte do texto (ajuste o caminho da fonte se necessário)
     draw = ImageDraw.Draw(image)
@@ -163,7 +164,7 @@ def gerar_voucher(atendimento, voucher):
     text_position = (50, 395)  # Posição X, Y
 
     # Escrever o nome do paciente e a data na imagem
-    draw.text(text_position, f"{paciente_nome}     -     {data_atual}", font=font, fill="black")
+    draw.text(text_position, f"{paciente_nome}     -     Valido até {data_validade}", font=font, fill="black")
 
     # Salvar a imagem em um buffer de memória em vez de salvar no disco
     buffer = BytesIO()

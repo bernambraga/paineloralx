@@ -65,8 +65,8 @@ class SeleniumAutomation:
 
     def update_data_in_table(self, data, table):
         connection_params = {
-            'dbname': 'dev_paineloralx',
-            'user': 'oralx_dev',
+            'dbname': 'paineloralx',
+            'user': 'oralx',
             'password': 'Tomografia',
             'host': '191.252.202.133',
             'port': '5432'
@@ -170,6 +170,7 @@ class SeleniumAutomation:
         df['Status'] = ''
         total_rows = len(df)
         for index, row in df.iterrows():
+            self.Status = ''
             if errors > 5:
                 break
             logging.info(f"Enviando mensagem {index + 1} de {total_rows}...")

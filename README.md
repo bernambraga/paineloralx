@@ -10,6 +10,16 @@ Token GIT : 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
 python3 -m venv venv
 pip install -r requirements.txt
 
+# Build para desenvolvimento
+sudo rm -rf /home/oralx/paineloralx/frontend_build/dev/*
+cd frontend
+sudo npm run build:dev
+
+# Build para produção
+sudo rm -rf /home/oralx/paineloralx/frontend_build/prod/*
+cd frontend
+sudo npm run build:prod
+
 # 3 - Restart Gunicorn e Nginx
 sudo chown -R oralx:oralx /home/oralx/paineloralx
 sudo systemctl daemon-reload
@@ -22,12 +32,3 @@ sudo tail -f /var/log/nginx/error.log
 sudo tail -f /var/log/nginx/access.log
 sudo tail -f /var/log/supervisor/paineloralx-stdout---supervisor-3w6zn8y0.log
 cat /var/log/syslog | grep -i cron
-
-# Build para produção
-sudo rm -rf /home/oralx/paineloralx/frontend_build/prod/*
-sudo npm run build:prod
- 
-# Build para desenvolvimento
-sudo rm -rf /home/oralx/paineloralx/frontend_build/dev/*
-sudo npm run build:dev
- 

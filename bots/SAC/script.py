@@ -65,8 +65,8 @@ class SeleniumAutomation:
 
     def update_data_in_table(self, data, table):
         connection_params = {
-            'dbname': 'dev_paineloralx',
-            'user': 'oralx_dev',
+            'dbname': 'paineloralx',
+            'user': 'oralx',
             'password': 'Tomografia',
             'host': '191.252.202.133',
             'port': '5432'

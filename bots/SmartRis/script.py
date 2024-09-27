@@ -86,8 +86,8 @@ def remove_duplicate_patients(df):
 def connect_to_db():
     try:
         conn = psycopg2.connect(
-            dbname="dev_paineloralx",
-            user="oralx_dev",
+            dbname="paineloralx",
+            user="oralx",
             password="Tomografia",
             host="191.252.202.133",
             port="5432"
@@ -183,6 +183,7 @@ def fetch_and_insert_tomorrow_appointments(conn):
 def main():
     logging.info("Buscando dados SmartRis")
     date_str = datetime.today().strftime('%Y-%m-%d')
+    date_str = '2024-09-01'
     df = fetch_dataframe(date_str)
 
     # Remover pacientes duplicados antes de dividir os DataFrames
