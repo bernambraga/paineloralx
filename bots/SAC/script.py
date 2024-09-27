@@ -40,7 +40,7 @@ class SeleniumAutomation:
             )
             return engine
         except Exception as e:
-            logging.error(f"Error connecting to database: {e}")
+            logging.error(f"Error connecting to database: {e}", exc_info=False)
             return None
 
     def fetch_data_from_table(self, engine, table, date, bot_status):
@@ -51,7 +51,7 @@ class SeleniumAutomation:
                     df = pd.read_sql_query(query, connection, params=(date, bot_status))
                 return df
             except Exception as e:
-                logging.error(f"Error fetching data from table {table}: {e}")
+                logging.error(f"Error fetching data from table {table}: {e}", exc_info=False)
                 return None
         else:
             query = f'SELECT * FROM public."{table}" WHERE "Data" <= %s AND "Bot_Status" is null;'
@@ -60,13 +60,13 @@ class SeleniumAutomation:
                     df = pd.read_sql_query(query, connection, params=(date,))
                 return df
             except Exception as e:
-                logging.error(f"Error fetching data from table {table}: {e}")
+                logging.error(f"Error fetching data from table {table}: {e}", exc_info=False)
                 return None
 
     def update_data_in_table(self, data, table):
         connection_params = {
-            'dbname': 'paineloralx',
-            'user': 'oralx',
+            'dbname': 'dev_paineloralx',
+            'user': 'oralx_dev',
             'password': 'Tomografia',
             'host': '191.252.202.133',
             'port': '5432'
@@ -88,7 +88,7 @@ class SeleniumAutomation:
                 cursor.execute(query, (status, current_datetime, pedido))
             connection.commit()
         except Exception as e:
-            logging.error(f"Error updating data in table {table}: {e}")
+            logging.error(f"Error updating data in table {table}: {e}", exc_info=False)
         finally:
             if cursor:
                 cursor.close()
@@ -118,10 +118,10 @@ class SeleniumAutomation:
             self.driver.set_page_load_timeout(15)
             self.driver.get(URL)
         except (PermissionError, WebDriverException) as e:
-            logging.error(f"Erro ao iniciar o ChromeDriver: {e}")
+            logging.error(f"Erro ao iniciar o ChromeDriver: {e}", exc_info=False)
             raise
         except Exception as e:
-            logging.error(f"Erro inesperado ao iniciar o ChromeDriver: {e}")
+            logging.error(f"Erro inesperado ao iniciar o ChromeDriver: {e}", exc_info=False)
             raise
 
     def login(self):
@@ -132,7 +132,7 @@ class SeleniumAutomation:
                 self.click_element("//button[@ng-click='onLogin()']")
                 logging.info("Login OK")
             except Exception as e:
-                logging.error(f"Erro no login: {e}")
+                logging.error(f"Erro no login: {e}", exc_info=False)
                 if self.driver:
                     self.driver.quit()
 
@@ -159,14 +159,20 @@ class SeleniumAutomation:
             return
 
         self.fechar_novidades()
-        self.fechar_novidades()
-        time.sleep(1)
         self.trocar_status()
         if self.driver:
             self.iterate_df(df)
         logging.info("Closing Selenium")
         if self.driver:
             self.driver.quit()
+
+    def trocar_status(self):
+        if self.is_element_present("//span[@class='status-icon ng-scope offline']"):
+            try:
+                self.right_click_element("//span[@ng-if='!profile.image']")
+            except Exception as e:
+                logging.error(e, exc_info=False)
+                self.driver.quit()
 
     def iterate_df(self, df):
         errors = 0
@@ -192,7 +198,7 @@ class SeleniumAutomation:
                         df.at[index, 'Status'] = self.Status
                 except Exception as e:
                     errors += 1
-                    logging.error(e)
+                    logging.error(e, exc_info=False)
                     self.click_element("//button[@ng-click='onFecharModalCriarAtendimentoNovoContato()']")
                     continue
             else:
@@ -215,7 +221,7 @@ class SeleniumAutomation:
                 self.click_element("//div[@ng-click='onMostrarModalCriarAtendimentoNovoContato()']")
             except Exception as e:
                 self.Status = 'Erro'
-                logging.error(e)
+                logging.error(e, exc_info=False)
                 return False
         flag = 0
         try:
@@ -227,7 +233,7 @@ class SeleniumAutomation:
                 self.select_dropdown_option("//select[@ng-model='novoAtendimentoNovoContato.canalChave']", "w")
             except Exception as e:
                 self.Status = 'Erro'
-                logging.error(e)
+                logging.error(e, exc_info=False)
                 return False
         try:
             self.fill_text_field("//input[@id='novoAtendimentoNovoContatoTelefone']", str(number), Keys.TAB)
@@ -238,7 +244,7 @@ class SeleniumAutomation:
         except Exception as e:
             self.Status = 'Erro'
             self.errorFlag = 1
-            logging.error(e)
+            logging.error(e, exc_info=False)
             return False
         ops = self.fechar_Ops()
         if ops:
@@ -268,7 +274,7 @@ class SeleniumAutomation:
             actions.perform()
             return True
         except Exception as e:
-            logging.error(e)
+            logging.error(e, exc_info=False)
             self.Status = 'Erro Enviar Mensagem'
             return False
 
@@ -278,14 +284,14 @@ class SeleniumAutomation:
                 self.scroll_to_element("//button[@ng-click='close()']")
                 self.click_element("//button[@ng-click='close()']", 1)
             except Exception as e:
-                logging.error(e)
+                logging.error(e, exc_info=False)
             finally:
                 time.sleep(1)
         if self.is_element_present("//button[@ng-click='closeMegaZapNotification()']"):
             try:
                 self.click_element("//button[@ng-click='closeMegaZapNotification()']", 1)
             except Exception as e:
-                logging.error(e)
+                logging.error(e, exc_info=False)
             finally:
                 time.sleep(1)
         if self.is_element_present("//button[@ng-click='onFecharModalCriarAtendimentoNovoContato()']"):
@@ -293,7 +299,7 @@ class SeleniumAutomation:
                 self.scroll_to_element("//button[@ng-click='onFecharModalCriarAtendimentoNovoContato()']")
                 self.click_element("//button[@ng-click='onFecharModalCriarAtendimentoNovoContato()']", 1)
             except:
-                logging.error(e)
+                logging.error(e, exc_info=False)
             finally:
                 time.sleep(1)
 
@@ -307,25 +313,14 @@ class SeleniumAutomation:
         finally:
             time.sleep(1)
 
-    def trocar_status(self):
-        try:
-            self.click_element("//span[@class='mz-header-user-name ng-binding']")
-            if self.driver.find_elements(By.XPATH, '//span[@class = "ng-binding"]')[0].text == "Ficar Online":
-                self.click_element("//a[@ng-click='trocarStatusAtendente()']")
-            else:
-                self.click_element("//span[@class='mz-header-user-name ng-binding']")
-        except Exception as e:
-            logging.error('Erro Trocar Status')
-            self.errorFlag = 3
-            logging.error(e)
-            if self.driver:
-                self.driver.quit()
-        finally:
-            time.sleep(1)
-
     def click_element(self, xpath, wait=5):
         element = WebDriverWait(self.driver, wait).until(EC.element_to_be_clickable((By.XPATH, xpath)))
         element.click()
+
+    def right_click_element(self, xpath, wait=5):
+        element = WebDriverWait(self.driver, wait).until(EC.element_to_be_clickable((By.XPATH, xpath)))
+        actions = ActionChains(self.driver)
+        actions.context_click(element).perform()
 
     def fill_text_field(self, xpath, text, command=Keys.TAB, wait=5):
         self.scroll_to_element(xpath)
@@ -339,7 +334,7 @@ class SeleniumAutomation:
             actions.send_keys(Keys.DELETE)
             actions.perform()
         except Exception as e:
-            logging.error(e)
+            logging.error(e, exc_info=False)
         text_field.send_keys(text)
         text_field.send_keys(command)
 

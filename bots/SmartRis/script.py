@@ -183,7 +183,6 @@ def fetch_and_insert_tomorrow_appointments(conn):
 def main():
     logging.info("Buscando dados SmartRis")
     date_str = datetime.today().strftime('%Y-%m-%d')
-    date_str = '2024-09-01'
     df = fetch_dataframe(date_str)
 
     # Remover pacientes duplicados antes de dividir os DataFrames
