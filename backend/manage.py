@@ -3,10 +3,6 @@ import os
 import sys
 
 def main():
-    #
-    #os.environ['DJANGO_ENV'] = 'development'
-    os.environ['DJANGO_ENV'] = 'production'
-    #
     env = os.getenv('DJANGO_ENV', 'production')
     settings_module = f"backend.settings.{env}"
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', settings_module)

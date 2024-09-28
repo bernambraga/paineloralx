@@ -28,3 +28,4 @@ SQLAlchemy==2.0.31
 pillow
 xlrd
 openpyxl
+pymupdf

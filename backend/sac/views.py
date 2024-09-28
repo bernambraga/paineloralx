@@ -16,10 +16,11 @@ from .models import SAC, SACMotivosNegativos
 import logging
 import json
 import os
-from PIL import Image, ImageDraw, ImageFont
 from datetime import datetime
 from io import BytesIO
 from dateutil.relativedelta import relativedelta
+import fitz
+from PIL import Image
 
 logger = logging.getLogger('django')
 
@@ -135,7 +136,7 @@ def voucher(request):
         atendimento = get_object_or_404(SAC, pedido=pedidoid)
         # Caminho do arquivo dentro de static
         root = settings.STATIC_ROOT
-        file_path = root + '/img/voucher.jpeg'
+        file_path = root + '/img/voucher.pdf'
         if os.path.exists(file_path):
             with open(file_path, 'rb') as img_file:
                 buffer = gerar_voucher(atendimento, img_file)
@@ -148,28 +149,32 @@ def voucher(request):
         return JsonResponse({'status': 'error', 'message': str(e)}, status=500)
     
 def gerar_voucher(atendimento, voucher):
-    # Abrir a imagem crua
-    image = Image.open(voucher)
+    # Abrir o PDF
+    doc = fitz.open(voucher)
+    page = doc.load_page(0)  # Carregar a primeira página do PDF
 
     # Definir o nome do paciente e a data atual
     paciente_nome = atendimento.paciente.title()
     data_validade = (datetime.now() + relativedelta(months=6)).strftime("%d/%m/%Y")
 
-    # Configurar o local e a fonte do texto (ajuste o caminho da fonte se necessário)
-    draw = ImageDraw.Draw(image)
-    font_path = os.path.join(settings.STATIC_ROOT, 'fonts', 'MYRIADPRO-REGULAR.OTF')
-    font = ImageFont.truetype(font_path, 24)
+    # Definir a posição do texto no PDF (ajuste conforme necessário)
+    text_position = (29, 235)  # Posição X, Y
 
-    # Definir a posição do texto (ajuste conforme necessário)
-    text_position = (50, 395)  # Posição X, Y
+    # Adicionar o texto na página
+    page.insert_text(text_position, f"{paciente_nome}     -     Valido até {data_validade}",
+                     fontname="helv", fontsize=13, color=(0, 0, 0))
 
-    # Escrever o nome do paciente e a data na imagem
-    draw.text(text_position, f"{paciente_nome}     -     Valido até {data_validade}", font=font, fill="black")
+    # Renderizar a página como imagem
+    zoom = 5  # 2x significa 144 DPI (o padrão é 72 DPI)
+    mat = fitz.Matrix(zoom, zoom)
+    pix = page.get_pixmap(matrix=mat)
+    img = Image.open(BytesIO(pix.tobytes("png")))
 
-    # Salvar a imagem em um buffer de memória em vez de salvar no disco
+    # Converter a imagem para o formato JPEG
     buffer = BytesIO()
-    image.save(buffer, format="JPEG")
+    img = img.convert("RGB")  # Converte para RGB se for necessário
+    img.save(buffer, format="JPEG", quality=95)
     buffer.seek(0)  # Retorna o ponteiro do buffer para o início
 
-    # Retornar o buffer contendo a imagem editada
+    # Retornar o buffer contendo a imagem
     return buffer
