@@ -40,7 +40,7 @@ class SeleniumAutomation:
             )
             return engine
         except Exception as e:
-            logging.error(f"Error connecting to database: {e}", exc_info=False, exc_info=False)
+            logging.error(f"Error connecting to database: {e}", exc_info=False)
             return None
 
     def fetch_data_from_table(self, engine, table, date, bot_status):
@@ -229,6 +229,7 @@ class SeleniumAutomation:
             try:
                 self.select_dropdown_option("//select[@ng-model='novoAtendimentoNovoContato.canalChave']", "w")
             except Exception as e:
+                self.errorFlag = 1
                 self.Status = 'Erro'
                 logging.error(e, exc_info=False)
                 return False

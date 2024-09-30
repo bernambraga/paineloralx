@@ -228,6 +228,7 @@ class SeleniumAutomation:
             try:
                 self.select_dropdown_option("//select[@ng-model='novoAtendimentoNovoContato.canalChave']", "w")
             except Exception as e:
+                self.errorFlag = 1
                 self.Status = 'Erro'
                 logging.error(e, exc_info=False)
                 return False
