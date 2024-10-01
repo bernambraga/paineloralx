@@ -246,7 +246,7 @@ const SACPesquisa = () => {
                 <button className='button-sac' onClick={handleBuscar}>Buscar</button>
                 {/*<button className='button-sac' onClick={handleDownload}>Download</button>*/} 
                 <button className='button-sac' onClick={handleShowModalMotivos}>Motivos</button>
-                <button className='button-sac' onClick={handleShowModalElogios}>Elogios</button>
+                {/*<button className='button-sac' onClick={handleShowModalElogios}>Elogios</button>*/} 
             </div>
             <div className='searchContainer'>
                 <input

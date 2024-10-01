@@ -4,6 +4,7 @@ import sys
 
 def main():
     env = os.getenv('DJANGO_ENV', 'production')
+    env = os.getenv('DJANGO_ENV', 'development')
     settings_module = f"backend.settings.{env}"
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', settings_module)
     try:

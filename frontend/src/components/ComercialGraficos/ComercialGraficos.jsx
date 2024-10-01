@@ -94,10 +94,10 @@ const ComercialGraficos = () => {
           if (index === 0) {
             // Forçar a correspondência de Janeiro (index 0)
             const exame = examesAnoAtual?.find(item => getMonthIndex(item.mes) === 11); // Mapeia Janeiro corretamente
-            return exame ? exame.total_exames : 0;
+            return exame ? exame.total_exames : null;
           } else {
             const exame = examesAnoAtual?.find(item => (getMonthIndex(item.mes) + 1) === index);
-            return exame ? exame.total_exames : 0;
+            return exame ? exame.total_exames : null;
           }
         }),
         borderColor: 'blue',
@@ -107,10 +107,10 @@ const ComercialGraficos = () => {
         data: meses.map((_, index) => {
           if (index === 0) {
             const exame = examesAnoAnterior?.find(item => getMonthIndex(item.mes) === 11);
-            return exame ? exame.total_exames : 0;
+            return exame ? exame.total_exames : null;
           } else {
             const exame = examesAnoAnterior?.find(item => (getMonthIndex(item.mes) + 1) === index);
-            return exame ? exame.total_exames : 0;
+            return exame ? exame.total_exames : null;
           }
         }),
         borderColor: 'orange',
@@ -130,10 +130,10 @@ const ComercialGraficos = () => {
             data: meses.map((_, index) => {
               if (index === 0) {
                 const valor  = valorAnoAtual?.find(item => getMonthIndex(item.mes) === 11);
-                return valor  ? valor.total_valor : 0;
+                return valor  ? valor.total_valor : null;
               } else {
                 const valor  = valorAnoAtual?.find(item => (getMonthIndex(item.mes) + 1) === index);
-                return valor  ? valor.total_valor : 0;
+                return valor  ? valor.total_valor : null;
               }
             }),
             borderColor: 'green',
@@ -143,10 +143,10 @@ const ComercialGraficos = () => {
             data: meses.map((_, index) => {
               if (index === 0) {
                 const valor  = valorAnoAnterior?.find(item => getMonthIndex(item.mes) === 11);
-                return valor  ? valor.total_valor : 0;
+                return valor  ? valor.total_valor : null;
               } else {
                 const valor  = valorAnoAnterior?.find(item => (getMonthIndex(item.mes) + 1) === index);
-                return valor  ? valor.total_valor : 0;
+                return valor  ? valor.total_valor : null;
               }
             }),
             borderColor: 'red',
@@ -179,13 +179,13 @@ const ComercialGraficos = () => {
                 const solicitanteDados = topSolicitantes
                   .filter(s => s.solicitante === solicitante)
                   .find(s => getMonthIndex(s.mes) === 11); // Mapeia o mês de janeiro para o índice 11 (dezembro)
-                return solicitanteDados ? solicitanteDados.total_exames : 0;
+                return solicitanteDados ? solicitanteDados.total_exames : null;
               } else {
                 // Para os outros meses, aplicar a correção
                 const solicitanteDados = topSolicitantes
                   .filter(s => s.solicitante === solicitante)
                   .find(s => (getMonthIndex(s.mes) + 1) === idx); // +1 para corrigir o deslocamento
-                return solicitanteDados ? solicitanteDados.total_exames : 0;
+                return solicitanteDados ? solicitanteDados.total_exames : null;
               }
             }),
             borderColor: `hsl(${index * 360 / solicitantesSelecionados.length}, 100%, 50%)`, // Cores dinâmicas
