@@ -215,6 +215,11 @@ class SeleniumAutomation:
             flag = 1
         if flag == 1:
             try:
+                self.fecharOpsLogin()
+                self.trocar_status()
+            except:
+                pass
+            try:
                 self.click_element("//div[@ng-click='onMostrarModalCriarAtendimentoNovoContato()']")
             except Exception as e:
                 self.Status = 'Erro'
@@ -322,6 +327,12 @@ class SeleniumAutomation:
         finally:
             time.sleep(1)
 
+    def fecharOpsLogin(self):
+        try:
+            self.click_element("//button[@class='confirm btn btn-lg btn-error']", 1)
+        except:
+            pass
+        
     def click_element(self, xpath, wait=5):
         element = WebDriverWait(self.driver, wait).until(EC.element_to_be_clickable((By.XPATH, xpath)))
         element.click()

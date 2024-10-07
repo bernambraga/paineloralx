@@ -1,0 +1,11 @@
+2024-10-03 17:45:59,842:INFO:Login realizado com sucesso.
+2024-10-07 16:54:25,447:INFO:Login realizado com sucesso.
+2024-10-07 16:57:39,913:INFO:Download do arquivo Relatorio_2022-01.xls finalizado.
+2024-10-07 17:00:32,853:INFO:Login realizado com sucesso.
+2024-10-07 17:00:41,124:INFO:Download do arquivo Relatorio_2024-01.xls finalizado.
+2024-10-07 17:01:32,860:INFO:Download do arquivo Relatorio_2024-02.xls finalizado.
+2024-10-07 17:01:34,240:INFO:Dados inseridos no banco de dados com sucesso.
+2024-10-07 17:01:34,242:INFO:Arquivo deletado: /home/berna/Downloads/Relatorio_2024-01.xls
+2024-10-07 17:01:36,697:INFO:Dados inseridos no banco de dados com sucesso.
+2024-10-07 17:01:36,698:INFO:Arquivo deletado: /home/berna/Downloads/Relatorio_2024-02.xls
+2024-10-07 17:01:36,698:INFO:Processo concluído com sucesso!

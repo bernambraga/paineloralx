@@ -130,7 +130,6 @@ class SeleniumAutomation:
                 self.fill_text_field("//input[@id='email']", self.username, Keys.TAB)
                 self.fill_text_field("//input[@id='password']", self.password, Keys.TAB)
                 self.click_element("//button[@ng-click='onLogin()']")
-                logging.info("Login OK")
             except Exception as e:
                 logging.error(f"Erro no login: {e}", exc_info=False)
                 if self.driver:
@@ -146,7 +145,6 @@ class SeleniumAutomation:
 
         bot_status = '' if self.errorFlag == 0 else 'Erro'
         df = self.fetch_data_from_table(connection, self.table, self.date_str, bot_status)
-        logging.info("Process Data OK")
         self.errorFlag = 0
         if df is None or df.empty:
             if self.firstRunFlag == 0:
@@ -157,6 +155,7 @@ class SeleniumAutomation:
             if self.driver:
                 self.driver.quit()
             return
+        logging.info("Process Data OK")
 
         self.fechar_novidades()
         self.trocar_status()
@@ -217,6 +216,11 @@ class SeleniumAutomation:
         except Exception as e:
             flag = 1
         if flag == 1:
+            try:
+                self.fecharOpsLogin()
+                self.trocar_status()
+            except:
+                pass
             try:
                 self.click_element("//div[@ng-click='onMostrarModalCriarAtendimentoNovoContato()']")
             except Exception as e:
@@ -313,6 +317,12 @@ class SeleniumAutomation:
             return True
         finally:
             time.sleep(1)
+
+    def fecharOpsLogin(self):
+        try:
+            self.click_element("//button[@class='confirm btn btn-lg btn-error']", 1)
+        except:
+            pass
 
     def click_element(self, xpath, wait=5):
         element = WebDriverWait(self.driver, wait).until(EC.element_to_be_clickable((By.XPATH, xpath)))
