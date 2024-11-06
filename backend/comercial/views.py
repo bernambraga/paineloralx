@@ -16,15 +16,12 @@ from django.db import connection
 def get_grafico_geral(request):
     with connection.cursor() as cursor:
         # Exames
-        cursor.execute("SELECT * FROM vw_ct_mensal ORDER BY mes ASC, ano ASC")
+        cursor.execute("SELECT * FROM vw_pacientes_exames_por_modalidade ORDER BY mes ASC, ano ASC")
         exames = cursor.fetchall()
 
     data = {
         'exames_mensal': [
-            {'mes': row[0], 'ano': row[1], 'total_exames': row[2]} for row in exames
-        ],
-        'valor_mensal': [
-            {'mes': row[0], 'ano': row[1], 'total_valor': row[3]} for row in exames
+            {'mes': row[0], 'ano': row[1], 'modalidade': row[2], 'total_pacientes': row[3], 'total_exames': row[4], 'total_valor': row[5]} for row in exames
         ]
     }
     return JsonResponse(data)

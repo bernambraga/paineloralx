@@ -3,17 +3,17 @@ vermelho claro botão #e53d3a
 vermelho logo escuro #db3a37
 Cinza Texto #747070
 */
-header a{
+header a {
     text-decoration: none;
     color: #000000;
     font-size: 18px;
     transition: all 0.2s ease;
 }
 
-header a:hover{
+header a:hover {
     color: var(--primary-color);
     cursor: pointer;
-    }
+}
 
 header {
     position: relative;
@@ -22,7 +22,7 @@ header {
     backdrop-filter: blur(10px);
 }
 
-.navbar{
+.navbar {
     width: 100%;
     height: 60px;
     max-width: 1200px;
@@ -30,35 +30,103 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    }
+}
 
-.logo a{
+.logo a {
     font-size: 1.9rem;
     color: var(--logo-color);
     font-weight: bold;
 }
 
-.links{
+.links {
     display: flex;
     gap: 2rem;
 }
 
-.links a{
+.links a {
     border-bottom: 2px solid transparent;
 }
 
-.activeLink{
+.activeLink {
     border-bottom: 2px solid var(--primary-color) !important;
 }
 
-.auth{
+.menuItem {
+    position: relative;
+    /* Define a referência para o submenu */
+}
+
+.sublinksContainer {
+    margin-top: 3px;
+    position: absolute;
+    top: 100%;
+    min-width: 100%;
+    /* Posiciona o submenu logo abaixo do link principal */
+    left: 0;
+    background-color: #e0e0e0;
+    /* Fundo do submenu */
+    border: 1px solid #ddddddb0;
+    /* Borda para destacar o submenu */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    /* Sombra para efeito de dropdown */
+    z-index: 1000;
+    /* Garante que o submenu fique sobre outros elementos */
+    display: none;
+    /* Esconde o submenu por padrão */
+    display: flex;
+    flex-direction: column;
+    /* Disposição em coluna */
+    /* Define uma largura mínima para o dropdown */
+}
+
+.sublink {
+    padding: 8px 10px;
+    /* Espaçamento interno dos sublinks */
+    text-align: left;
+    width: 100%;
+    /* Cada sublink ocupa 100% da largura do dropdown */
+    text-decoration: none;
+    /* Remove sublinhado */
+    color: #333;
+    /* Cor do texto */
+    font-size: 14px;
+}
+
+.link {
+    padding: 10px 16px 10px 10px;
+}
+
+.sublink:hover {
+    background-color: #f0f0f0;
+    /* Fundo diferente ao passar o mouse */
+}
+
+.triangle {
+    position: absolute;
+    margin-top: 8px;
+    margin-left: 4px;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #333;
+    transition: transform 0.3s ease;
+}
+
+.open {
+    transform: rotate(180deg);
+    /* Rotaciona o triângulo quando o menu está aberto */
+}
+
+
+.auth {
     display: flex;
     gap: 5px;
     align-items: center;
     color: #000000;
 }
 
-.login{
+.login {
     padding: .5rem 1rem;
     background-color: var(--logo-color);
     color: #ffffff;
@@ -75,11 +143,11 @@ header {
     color: #fff
 }
 
-.login:active{
+.login:active {
     scale: 1;
 }
 
-.menuBtn{
+.menuBtn {
     color: var(--logo-color);
     cursor: pointer;
     display: none;
@@ -87,16 +155,18 @@ header {
 
 /* Responsive Design ''''''992px''''''*/
 
-@media(max-width: 900px){
-    header{
+@media(max-width: 900px) {
+    header {
         background-color: transparent;
         backdrop-filter: none;
     }
 
-    .links, .auth{
+    .links,
+    .auth {
         display: none;
     }
-    .menuBtn{
+
+    .menuBtn {
         display: block;
-        }
+    }
 }

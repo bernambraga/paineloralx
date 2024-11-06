@@ -6,6 +6,10 @@ export const LINKS = [
     {
         to: '/comercial',
         name: 'Comercial',
+        sublinks:[
+            {to:'/comercial/geral',name:'Geral'},
+            {to:'/comercial/top15',name:'Top 15'},
+        ],
     },
     {
         to: '/sac',

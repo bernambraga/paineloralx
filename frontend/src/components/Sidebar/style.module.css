@@ -4,7 +4,7 @@ vermelho logo escuro #db3a37
 Cinza Texto #747070
 */
 
-.sidebar{
+.sidebar {
     display: none;
     position: fixed;
     left: 0;
@@ -20,11 +20,11 @@ Cinza Texto #747070
     z-index: 100;
 }
 
-.sidebar.open{
+.sidebar.open {
     transform: translateX(0);
 }
 
-.closeIcon{
+.closeIcon {
     position: absolute;
     top: 15px;
     left: 35px;
@@ -32,30 +32,40 @@ Cinza Texto #747070
     cursor: pointer;
 }
 
-.closeIcon:hover{
+.closeIcon:hover {
     opacity: 0.9;
     scale: 1.1;
 }
 
-.sidebar a{
+.sidebar a {
     padding: 0.7rem;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.activeLink{
+.activeLink {
     background-color: #e53d3a !important;
     color: #fff !important;
 }
 
-.authContext{
+.activeSubLink {
+    background-color: #e53d3a !important;
+    color: #fff !important;
+}
+
+.activeMenu {
+    background-color: #d6d6d6 !important;
+    color: #e53d3a !important;
+}
+
+.authContext {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.login{
+.login {
     padding: .5rem 1.5rem;
     background-color: var(--logo-color);
     color: #ffffff;
@@ -72,14 +82,48 @@ Cinza Texto #747070
     color: #fff
 }
 
-.login:active{
+.login:active {
     scale: 1;
+}
+
+.sublink {
+    font-size: 15px;
+    padding: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.linkWithMenu {
+    padding: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: #333;
+    border-radius: 1px;
+}
+
+.triangle {
+    margin-left: 0px;
+    /* Ajuste conforme necessário */
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #333;
+    /* Cor do triângulo */
+    transition: transform 0.3s ease;
+}
+
+.open {
+    transform: rotate(180deg);
+    /* Rotaciona para baixo quando o menu está aberto */
 }
 
 /* Responsive Design ''''''992px''''''*/
 
-@media(max-width: 900px){
-    .sidebar{
+@media(max-width: 900px) {
+    .sidebar {
         display: flex;
         flex-direction: column;
         justify-content: space-between;

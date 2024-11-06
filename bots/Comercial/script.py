@@ -43,9 +43,6 @@ class WebScraper:
         driver = webdriver.Chrome(service=cService, options=options)
         return driver
 
-    def exit(self):
-        self.driver.quit()
-
     def login(self):
         try:
             self.driver.get(self.website_url)
@@ -83,27 +80,27 @@ class WebScraper:
 
             download_button = self.driver.find_element(By.XPATH, '//a[contains(text(), "Gerar arquivo")]')
             download_button.click()
-            logging.info(f"Download do arquivo {new_filename} iniciado.")
-
 
             WebDriverWait(self.driver, 15).until(EC.presence_of_element_located((By.ID, 'excel-opt')))
             excel_button = self.driver.find_element(By.ID, 'excel-opt')
             self.driver.execute_script("arguments[0].click();", excel_button)
-            
+
             self.wait_for_download(new_filename)
         except Exception as e:
             logging.error(f"Erro ao baixar o relatório: {e}", exc_info=False)
+        finally:
+            self.driver.quit()
 
-    def wait_for_download(self, new_filename, timeout=700):
+    def wait_for_download(self, new_filename, timeout=360):
         try:
-            tempo = 0
+            seconds = 0
             dl_wait = True
-            while dl_wait and tempo < timeout:
-                time.sleep(10)
+            while dl_wait and seconds < timeout:
+                time.sleep(1)
                 for fname in os.listdir(self.download_path):
-                    if fname.endswith('report.xls'):
+                    if fname.endswith('.xls'):
                         dl_wait = False
-                tempo += 1
+                seconds += 1
             for fname in os.listdir(self.download_path):
                 if fname.endswith('.xls'):
                     target_folder = self.download_path
@@ -198,12 +195,15 @@ class DatabaseManager:
             logging.error(f"Erro ao inserir dados no banco: {e}", exc_info=False)
 
 
-def get_user_date_range():
-    year = int(input("Digite o ano para a consulta: "))
-    return year
+def get_last_month_date_range():
+    today = datetime.today()
+    first_day_of_current_month = today.replace(day=1)
+    last_day_of_last_month = first_day_of_current_month - timedelta(days=1)
+    first_day_of_last_month = last_day_of_last_month.replace(day=1)
+    return first_day_of_last_month, last_day_of_last_month
+
 
 if __name__ == '__main__':
-    logging.info("Processo iniciado")
     try:
         # Parâmetros de conexão
         connection_params = {
@@ -224,26 +224,16 @@ if __name__ == '__main__':
         password = '1234'
 
         # Parâmetros do relatório
-        year = get_user_date_range()
+        start_date, end_date = get_last_month_date_range()
+        start_date_str = start_date.strftime('%d/%m/%Y')
+        end_date_str = end_date.strftime('%d/%m/%Y')
+        new_filename = f'Relatorio_{start_date.strftime("%d-%m-%Y")}.xls'
         report_dropdown_option = 'Dentistas Solicitantes (pr'
 
         # Processo de scraping
         scraper = WebScraper(website_url, report_page_url, download_path, chrome_driver_path, username, password)
         scraper.login()
-
-        for month in range(1, 13):
-            # Data de início do mês
-            start_date = datetime(year, month, 1)
-            # Calcula o último dia do mês
-            last_day = calendar.monthrange(year, month)[1]
-            end_date = datetime(year, month, last_day)
-            
-            start_date_str = start_date.strftime('%d/%m/%Y')
-            end_date_str = end_date.strftime('%d/%m/%Y')
-            new_filename = f'Relatorio_{year}-{month:02d}.xls'
-            # Baixa o relatório do mês
-            scraper.download_report(start_date_str, end_date_str, report_dropdown_option, new_filename)
-        scraper.exit()
+        scraper.download_report(start_date_str, end_date_str, report_dropdown_option, new_filename)
 
         # Processamento do Excel
         processor = ExcelProcessor(download_path)

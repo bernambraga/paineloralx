@@ -79,7 +79,7 @@ ASGI_APPLICATION = 'backend.asgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-DJANGO_ENV = os.getenv('DJANGO_ENV', 'production')
+DJANGO_ENV = os.getenv('DJANGO_ENV', 'development')
 
 if DJANGO_ENV == 'development':
     # Configurações de desenvolvimento

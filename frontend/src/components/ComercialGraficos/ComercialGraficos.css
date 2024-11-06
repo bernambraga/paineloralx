@@ -6,6 +6,19 @@
   align-items: center;
 }
 
+.modalidades_div{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Centraliza os checkboxes */
+  gap: 10px; /* Ajuste o espaçamento entre os checkboxes conforme necessário */
+}
+
+.modalidades_cb{
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
 .grafico-container {
   width: 100%;
   margin: 20px;
