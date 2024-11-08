@@ -23,7 +23,11 @@ const Header = ({ show }) => {
   const [openMenu, setOpenMenu] = useState(null)
 
   const toggleSubMenu = (linkName) => {
-      setOpenMenu(openMenu === linkName ? null : linkName)
+    setOpenMenu(openMenu === linkName ? null : linkName)
+  }
+
+  const closeSubMenu = () => {
+    setOpenMenu(null)
   }
 
   const [isOpen, setIsOpen] = useState(false)
@@ -57,21 +61,21 @@ const Header = ({ show }) => {
             <div key={link.name} className={classes.menuItem}>
               {/* Link Principal - Exibido como botão se contiver sublinks */}
               {link.sublinks ? (
-              <NavLink
-                className={`${classes.link} ${openMenu === link.name ? classes.activeMenu : ''}`}
-                onClick={() => toggleSubMenu(link.name)}
-              >
-                {link.name}
-                {/* Triângulo indicando submenu */}
-                <span className={`${classes.triangle} ${openMenu === link.name ? classes.open : ''}`}></span>
-              </NavLink>
+                <NavLink
+                  className={`${classes.link} ${openMenu === link.name ? classes.activeMenu : ''}`}
+                  onClick={() => toggleSubMenu(link.name)}
+                >
+                  {link.name}
+                  {/* Triângulo indicando submenu */}
+                  <span className={`${classes.triangle} ${openMenu === link.name ? classes.open : ''}`}></span>
+                </NavLink>
               ) : (
-              <NavLink
-                to={link.to}
-                className={({ isActive }) => (isActive ? classes.activeLink : '')}
-              >
-                {link.name}
-              </NavLink>
+                <NavLink
+                  to={link.to}
+                  className={({ isActive }) => (isActive ? classes.activeLink : '')}
+                >
+                  {link.name}
+                </NavLink>
               )}
               {/* Sublinks (se houver e estiver aberto) */}
               {link.sublinks && openMenu === link.name && (
@@ -83,6 +87,7 @@ const Header = ({ show }) => {
                       className={({ isActive }) =>
                         `${classes.sublink} ${isActive ? classes.activeSubLink : ''}`
                       }
+                      onClick={closeSubMenu}
                     >
                       {sublink.name}
                     </NavLink>
