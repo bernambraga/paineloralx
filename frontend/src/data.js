@@ -19,4 +19,8 @@ export const LINKS = [
         to: '/bots',
         name: 'Bots',
     },
+    {
+        to: '/senhas',
+        name: 'Senhas',
+    },
 ]

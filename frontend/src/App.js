@@ -5,6 +5,7 @@ import Login from './pages/Login'
 import Register from './pages/Register'
 import SAC from './pages/SAC'
 import Bots from './pages/Bots'
+import Senhas from './pages/Senhas'
 import Comercial from './pages/Comercial'
 import Top15 from './pages/Top15'
 import Header from './components/Header/Header'
@@ -48,6 +49,7 @@ const AppContent = () => {
                     <Route path="/bots" element={<Bots />} />
                     <Route path="/register" element={<Register />} />
                     <Route path="/sac" element={<SAC />} />
+                    <Route path="/senhas" element={<Senhas />} />
                 </Route>
             </Routes>
         </>

@@ -10,4 +10,5 @@ urlpatterns = [
     path('bots/', include('bots.urls')),
     path('sac/', include('sac.urls')),
     path('comercial/', include('comercial.urls')),
+    path('senhas/', include('senhas.urls')),
 ]

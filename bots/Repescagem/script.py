@@ -159,6 +159,7 @@ class SeleniumAutomation:
         self.trocar_status()
         if self.driver:
             self.iterate_df(df)
+            self.trocar_status()
         logging.info("Closing Selenium")
         if self.driver:
             self.driver.quit()
