@@ -22,6 +22,7 @@ const Painel = () => {
   const [nomeExibidoUnidade, setNomeExibidoUnidade] = useState(""); // Nome amigável
   const [senhas, setSenhas] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [statusMessage, setStatusMessage] = useState("");
 
   // Busca as senhas da unidade selecionada
   const carregarSenhas = async (unidade) => {
@@ -36,13 +37,14 @@ const Painel = () => {
       console.error("Erro ao carregar senhas:", error);
     } finally {
       setLoading(false);
+      setStatusMessage("");
     }
   };
 
   // Gera uma nova senha para a unidade selecionada
   const gerarSenha = async () => {
     if (!unidadeSelecionada) {
-      alert("Selecione uma unidade primeiro!");
+      setStatusMessage("Selecione uma unidade primeiro!");
       return;
     }
     const tipo = "prioritario";
@@ -54,7 +56,7 @@ const Painel = () => {
       carregarSenhas(unidadeSelecionada); // Recarrega as senhas após gerar uma nova
     } catch (error) {
       console.error("Erro ao gerar senha:", error);
-      alert("Erro ao gerar senha.");
+      setStatusMessage("Erro ao gerar senha.");
     } finally {
       setLoading(false);
     }
@@ -83,7 +85,8 @@ const Painel = () => {
       {/* Tabela com as senhas */}
       {unidadeSelecionada && (
         <div style={styles.tabelaContainer}>
-          <h3 style={styles.h3}>Senhas - {nomeExibidoUnidade}</h3> {/* Nome amigável exibido */}
+          <h3 style={styles.h3}>Senhas - {nomeExibidoUnidade}</h3>{" "}
+          {/* Nome amigável exibido */}
           {loading ? (
             <p>Carregando...</p>
           ) : (
@@ -116,9 +119,12 @@ const Painel = () => {
               </tbody>
             </table>
           )}
-          <button style={styles.gerarSenhaButton} onClick={gerarSenha}>
-            Gerar Nova Senha
-          </button>
+          <div>
+            <button style={styles.gerarSenhaButton} onClick={gerarSenha}>
+              Gerar Nova Senha
+            </button>
+            <label>{statusMessage}</label>
+          </div>
         </div>
       )}
     </div>
@@ -180,7 +186,7 @@ const styles = {
   h3: {
     marginBottom: "10px",
     textAlign: "center",
-  }
+  },
 };
 
 export default Painel;

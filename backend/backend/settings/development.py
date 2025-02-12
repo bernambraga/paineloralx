@@ -31,3 +31,5 @@ CSRF_TRUSTED_ORIGINS = [
     'https://dev.paineloralx.com.br',
     ]
 
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_CREDENTIALS = True
