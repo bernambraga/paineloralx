@@ -1,285 +1,297 @@
 /* Pesquisa.css */
 .container-pesquisa-sac {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 10px;
-    font-family: Arial, sans-serif;
-    }
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 10px;
+  font-family: Arial, sans-serif;
+}
 
 .h1SAC {
-    text-align: center;
-    color: #333;
-    margin-bottom: 20px;
-    }
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
 
 h2 {
-    text-align: center;
-    color: #333;
-    margin-bottom: 15px;
+  text-align: center;
+  color: #333;
+  margin-bottom: 15px;
 }
 
 .input-container-pesquisa-sac {
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    max-width: 550px;
-    }
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  max-width: 550px;
+}
 
 .input-container-pesquisa-sac label {
-    margin: 0 auto;
-    padding: 0;
-    color: #555;
-    font-weight: bold;
-    align-self: center;
-    margin: auto;
-    }
-
-.react-datepicker-wrapper input{
-    margin: 0 auto;
-    padding: 2px 5px 2px 2px;
-    text-align: center;
-    font-size: 15px;
+  margin: 0 auto;
+  padding: 0;
+  color: #555;
+  font-weight: bold;
+  align-self: center;
+  margin: auto;
 }
-.react-datepicker__input-container{
-    max-width: 140px;
-    margin: 0 auto;
-    width: 100%;
-    cursor: pointer;
+
+.react-datepicker-wrapper input {
+  margin: 0 auto;
+  padding: 5px;
+  text-align: center;
+  font-size: 15px;
+  width: 100%;
+}
+
+.react-datepicker__input-container {
+  max-width: 140px;
+  margin: 0 auto;
+  width: 100%;
+  cursor: pointer;
+}
+
+.react-datepicker__input-container input {
+  margin-bottom: 5px;
+  margin-top: 5px;
 }
 
 .button-sac {
-    display: inline-block;
-    padding: 0 10px;
-    border-radius: 5px;
-    border: none;
-    background-color: #4085c5;
-    color: #fff;
-    cursor: pointer;
-    font-size: 16px;
-    height: 35px;
-    max-width: 180px;
-    margin: 0 auto;
-    text-align: center;
-    box-sizing: border-box; /* add this to ensure padding is included in width and height */
-    transition: background-color 0.2s ease-in-out; /* add a transition effect for hover */
-    }
-    
+  display: inline-block;
+  padding: 0 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: #4085c5;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  height: 35px;
+  max-width: 180px;
+  margin: 0 auto;
+  text-align: center;
+  box-sizing: border-box; /* add this to ensure padding is included in width and height */
+  transition: background-color 0.2s ease-in-out; /* add a transition effect for hover */
+  max-width: 140px;
+  width: 100%;
+}
+
 .button-sac:hover {
-    background-color: #337ab7; /* add a hover effect */
-    }
-
-
+  background-color: #337ab7; /* add a hover effect */
+}
 
 .searchContainer {
-    position: relative;
-    width: 100%;
-    margin: 0 auto;
-    padding: 20px 0 2px 0;
-    align-items: center;
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  padding: 15px 0 15px 0;
+  align-items: center;
 }
 
 .searchContainer input {
-    padding: auto;
-    margin: auto;
+  padding: 10px 100px 10px 20px;
+  margin: 0 auto;
+  width: 100%;
+  border-radius: 5px;
+  font-size: medium;
 }
 
 .button-clear {
-    position: absolute;
-    right: 2%;
-    top: 67%;
-    transform: translateY(-50%);
-    color: #33333394;
-    border: none;
-    cursor: pointer;
+  position: absolute;
+  right: 2%;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #33333394;
+  border: none;
+  cursor: pointer;
 }
 
 .table-container {
-    padding: 16px 0 0 0;
-    z-index: 0;
-    max-width: 100%; /* Certifica-se de que o container não ultrapasse o tamanho da página */
-    overflow-x: auto; /* Adiciona a barra de rolagem horizontal */
+  padding: 0 0 0 0;
+  z-index: 0;
+  max-width: 100%; /* Certifica-se de que o container não ultrapasse o tamanho da página */
+  overflow-x: auto; /* Adiciona a barra de rolagem horizontal */
 }
 
 .table-container table {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: #f4f4f4;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 10px;
-    font-family: monospace;
-    max-height: 500px;
-    overflow-y: auto;
-    }
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #f4f4f4;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  font-family: monospace;
+  max-height: 500px;
+  overflow-y: auto;
+}
 
 .table-container th {
-    padding: 5px;
-    border: 1px solid #ddd;
-    text-align: left;
-    align-items: center;
+  padding: 5px;
+  border: 1px solid #ddd;
+  text-align: left;
+  align-items: center;
 }
 
 .td-table {
-    max-width: 150px;
-    padding: 5px;
-    border: 1px solid #ddd;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    }
+  max-width: 150px;
+  padding: 5px;
+  border: 1px solid #ddd;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
 
 .td-paciente {
-    max-width: 250px;
-    padding: 5px;
-    border: 1px solid #ddd;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  max-width: 250px;
+  padding: 5px;
+  border: 1px solid #ddd;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .positivo {
-    color: white;
-    background-color: green;
-    margin: 5px;
-    border: none;
-    padding: 4px 13px;
-    border-radius: 3px;
-    cursor: pointer;
-    }
-
-.negativo {
-    color: white;
-    margin: 5px;
-    background-color: rgb(207, 0, 0);
-    border: none;
-    padding: 4px 10px;
-    border-radius: 3px;
-    cursor: pointer;
-    }
-
-.voucher{
-    color: white;
-    margin: 5px;
-    background-color: rgb(0, 55, 207);
-    border: none;
-    padding: 4px 10px;
-    border-radius: 3px;
-    cursor: pointer;
+  color: white;
+  background-color: green;
+  margin: 5px;
+  border: none;
+  padding: 4px 13px;
+  border-radius: 3px;
+  cursor: pointer;
 }
 
-.invisible{
-    color: transparent;
-    background-color: transparent;
-    border: none;
-    padding: 4px 10px;
-    margin: 5px;
+.negativo {
+  color: white;
+  margin: 5px;
+  background-color: rgb(207, 0, 0);
+  border: none;
+  padding: 4px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.voucher {
+  color: white;
+  margin: 5px;
+  background-color: rgb(0, 55, 207);
+  border: none;
+  padding: 4px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.invisible {
+  color: transparent;
+  background-color: transparent;
+  border: none;
+  padding: 4px 10px;
+  margin: 5px;
 }
 
 .modal {
-    position: fixed;
-    top: 40%; /* Ajuste a posição vertical para estar um pouco acima */
-    left: 50%;
-    transform: translate(-50%, -40%); /* Ajuste a tradução para corresponder à nova posição */
-    background: white;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
-    z-index: 100;
-    border-radius: 10px; /* Adiciona bordas arredondadas */
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
+  position: fixed;
+  top: 40%; /* Ajuste a posição vertical para estar um pouco acima */
+  left: 50%;
+  transform: translate(
+    -50%,
+    -40%
+  ); /* Ajuste a tradução para corresponder à nova posição */
+  background: white;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+  z-index: 100;
+  border-radius: 10px; /* Adiciona bordas arredondadas */
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .modal select {
-    padding: 10px;
-    border: solid;
-    border-width: 0.5px;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    width: 80%;
-    cursor: pointer;
+  padding: 10px;
+  border: solid;
+  border-width: 0.5px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  width: 80%;
+  cursor: pointer;
 }
 .modal div {
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 5px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5px;
 }
 
-.modalButton{
-    padding: 10px;
-    margin: 10px;
-    border: solid;
-    border-width: 0.5px;
-    border-radius: 5px;
-    width: 40%;
-    cursor: pointer;
+.modalButton {
+  padding: 10px;
+  margin: 10px;
+  border: solid;
+  border-width: 0.5px;
+  border-radius: 5px;
+  width: 40%;
+  cursor: pointer;
 }
 
-    
 .tooltip-container {
-    position: relative;
-    display: inline-block;
-    z-index: 10;
+  position: relative;
+  display: inline-block;
+  z-index: 10;
 }
 
 .tooltip {
-    visibility: hidden;
-    width: 200px;
-    background-color: #f9f9f9;
-    color: #000;
-    text-align: left;
-    border-radius: 5px;
-    padding: 5px;
-    position: absolute;
-    bottom: 125%; /* Posiciona o tooltip acima do texto */
-    left: 50%;
-    margin-left: -100px; /* Usa a metade da largura do tooltip para centralizá-lo */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  visibility: hidden;
+  width: 200px;
+  background-color: #f9f9f9;
+  color: #000;
+  text-align: left;
+  border-radius: 5px;
+  padding: 5px;
+  position: absolute;
+  bottom: 125%; /* Posiciona o tooltip acima do texto */
+  left: 50%;
+  margin-left: -100px; /* Usa a metade da largura do tooltip para centralizá-lo */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
 }
 
 .tooltip-span {
-    display: block; /* Faz com que o span se comporte como um bloco */
-    white-space: normal; /* Permite que o texto quebre para a próxima linha */
-    word-wrap: break-word; /* Garante que palavras longas sejam quebradas */
-    word-break: break-word; /* Garante que palavras longas sejam quebradas */
-    overflow-wrap: break-word; /* Garante que palavras longas sejam quebradas */
+  display: block; /* Faz com que o span se comporte como um bloco */
+  white-space: normal; /* Permite que o texto quebre para a próxima linha */
+  word-wrap: break-word; /* Garante que palavras longas sejam quebradas */
+  word-break: break-word; /* Garante que palavras longas sejam quebradas */
+  overflow-wrap: break-word; /* Garante que palavras longas sejam quebradas */
 }
 
 .tooltip-container .tooltip::after {
-    content: "";
-    position: absolute;
-    top: 100%; /* A ponta do tooltip deve estar no fundo */
-    left: 50%;
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: #f9f9f9 transparent transparent transparent;
+  content: "";
+  position: absolute;
+  top: 100%; /* A ponta do tooltip deve estar no fundo */
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #f9f9f9 transparent transparent transparent;
 }
 
 .tooltip-container:hover .tooltip {
-    visibility: visible;
+  visibility: visible;
 }
 
 .resposta-negativa {
-    text-decoration: underline;
-    cursor: pointer;
-}
-    
-.dateselector{
-    width: 100px;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
-.dateselector button{
-    width: 10%;
-    height: 30px;
+.dateselector {
+  width: 100px;
 }
 
-.comentarioTextarea{
-    width: 80%;
-    height: 70px;
+.dateselector button {
+  width: 10%;
+  height: 30px;
+}
+
+.comentarioTextarea {
+  width: 80%;
+  height: 70px;
 }

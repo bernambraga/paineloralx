@@ -1,59 +1,71 @@
-import React from 'react'
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
-import Home from './pages/Home'
-import Login from './pages/Login'
-import Register from './pages/Register'
-import SAC from './pages/SAC'
-import Bots from './pages/Bots'
-import Senhas from './pages/Senhas'
-import Comercial from './pages/Comercial'
-import Top15 from './pages/Top15'
-import Header from './components/Header/Header'
-import { AuthProvider } from './context/AuthContext'
-import PrivateRoute from './PrivateRoute'
+import React, { Suspense, useContext } from "react";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+
+import Header from "./components/Header/Header";
+import { AuthProvider, AuthContext } from "./context/AuthContext";
+import PrivateRoute from "./PrivateRoute";
+import LoadingSpinner from "./components/LoadingSpinner/LoadingSpinner";
+
+const Home = React.lazy(() => import("./pages/Home"));
+const Login = React.lazy(() => import("./pages/Login"));
+const Register = React.lazy(() => import("./pages/Register"));
+const SAC = React.lazy(() => import("./pages/SAC"));
+const Bots = React.lazy(() => import("./pages/Bots"));
+const Senhas = React.lazy(() => import("./pages/Senhas"));
+const Dentistas = React.lazy(() => import("./pages/comercialDentistas"));
+const Geral = React.lazy(() => import("./pages/comercialGeral"));
+const Top15 = React.lazy(() => import("./pages/comercialTop15"));
+const Admin = React.lazy(() => import("./pages/admin"));
 
 const App = () => {
-    return (
-        <div className="App">
-            <AuthProvider>
-                <BrowserRouter>
-                    <AppContent />
-                </BrowserRouter>
-            </AuthProvider>
-        </div>
-    )
-}
+  return (
+    <div className="App">
+      <AuthProvider>
+        <BrowserRouter>
+          <AppContent />
+        </BrowserRouter>
+      </AuthProvider>
+    </div>
+  );
+};
 
 const AppContent = () => {
-    const [showNavBar, setShowNavBar] = React.useState(false)
-    const location = useLocation()
+  const [showNavBar, setShowNavBar] = React.useState(false);
+  const location = useLocation();
+  const { loading } = useContext(AuthContext);
 
-    React.useEffect(() => {
-        // Oculta a navbar e sidebar se estiver na rota de login
-        if (location.pathname === '/') {
-            setShowNavBar(false)
-        } else {
-            setShowNavBar(true)
-        }
-    }, [location])
+  React.useEffect(() => {
+    // Oculta a navbar e sidebar se estiver na rota de login
+    if (location.pathname === "/") {
+      setShowNavBar(false);
+    } else {
+      setShowNavBar(true);
+    }
+  }, [location]);
 
-    return (
-        <>
-            <Header show={showNavBar} />
-            <Routes>
-                <Route path="/" element={<Login />} />
-                <Route element={<PrivateRoute />}>
-                    <Route path="/home" element={<Home />} />
-                    <Route path="/comercial/geral" element={<Comercial />} />
-                    <Route path="/comercial/top15" element={<Top15 />} />
-                    <Route path="/bots" element={<Bots />} />
-                    <Route path="/register" element={<Register />} />
-                    <Route path="/sac" element={<SAC />} />
-                    <Route path="/senhas" element={<Senhas />} />
-                </Route>
-            </Routes>
-        </>
-    )
-}
+  if (loading) return <LoadingSpinner />;
 
-export default App
+  return (
+    <>
+      <Header show={showNavBar} />
+      <Suspense fallback={<LoadingSpinner />}>
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route element={<PrivateRoute />}>
+            <Route path="/home" element={<Home />} />
+            <Route path="/comercial/geral" element={<Geral />} />
+            <Route path="/comercial/top15" element={<Top15 />} />
+            <Route path="/comercial/dentistas" element={<Dentistas />} />
+            <Route path="/bots" element={<Bots />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/sac" element={<SAC />} />
+            <Route path="/senhas" element={<Senhas />} />
+            <Route path="/admin" element={<Admin />} />
+          </Route>
+        </Routes>
+      </Suspense>
+    </>
+  );
+};
+
+export default App;

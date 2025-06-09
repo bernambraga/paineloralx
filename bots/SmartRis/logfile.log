@@ -1,2 +1,18 @@
 2024-09-25 16:45:50,066:INFO:Buscando dados SmartRis
 2024-09-25 16:45:52,114:INFO:Dados inseridos com sucesso no banco
+2025-04-25 16:59:08,601:INFO:Buscando dados SmartRis
+2025-04-25 16:59:09,095:ERROR:Erro de chave no DataFrame: "['Procedimento'] not found in axis"
+2025-04-25 17:03:15,329:INFO:Buscando dados SmartRis
+2025-04-25 17:03:15,928:ERROR:Erro ao inserir DataFrame no banco de dados: column "Exame" of relation "Repescagem" does not exist
+LINE 1: ...genda", "Pedido", "Hora", "Paciente", "Telefone", "Exame", "...
+                                                             ^
+
+2025-04-25 17:03:15,936:INFO:Dados inseridos com sucesso no banco
+2025-04-25 17:03:56,220:INFO:Buscando dados SmartRis
+2025-04-25 17:03:59,872:INFO:Dados inseridos com sucesso no banco
+2025-04-25 17:41:05,066:INFO:Buscando dados SmartRis
+2025-04-25 17:41:07,905:INFO:Dados inseridos com sucesso no banco
+2025-04-25 17:41:46,674:INFO:Buscando dados SmartRis
+2025-04-25 17:41:48,927:INFO:Dados inseridos com sucesso no banco
+2025-04-25 17:41:58,582:INFO:Buscando dados SmartRis
+2025-04-25 17:42:01,683:INFO:Dados inseridos com sucesso no banco

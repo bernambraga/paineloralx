@@ -1,0 +1,117 @@
+.container {
+  width: 80%;
+  margin: 20px auto;
+  text-align: center;
+  align-items: center;
+}
+
+p {
+  word-wrap: break-word;     /* Quebra palavras longas */
+  overflow-wrap: break-word; /* Para compatibilidade moderna */
+  white-space: normal;       /* Garante que o texto possa quebrar */
+}
+
+.search-bar {
+  margin-bottom: 20px;
+  width: 35%;
+  text-align: center;
+  align-items: center;
+  margin: auto;
+}
+
+.inputDentistas {
+  padding: 8px;
+  width: 300px;
+  margin-right: 10px;
+}
+
+.buttonDentistas {
+  padding: 8px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.card {
+  width: 80%;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  text-align: center;
+  align-items: center;
+  margin: 20px auto;
+}
+
+.infobox {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  text-align: left;
+}
+
+.infocol {
+  width: 35%;
+  margin:auto;
+  padding: auto;
+}
+
+.ranking {
+  width: 80%;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+}
+
+.graficos {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  margin: 20px auto;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  padding: 20px;
+}
+
+.grafico {
+  width: 100%;
+}
+
+.tabela{
+  width: 80%;
+  justify-content: center;
+  margin: 20px auto;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  padding: 20px;
+}
+
+.table {
+  margin: 20px auto; /* Centraliza horizontalmente */
+  border-collapse: collapse;
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+.table thead {
+  background-color: #0153aa;
+  color: white;
+}
+
+.table th,
+.table td {
+  padding: 8px 10px;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+  font-size: 14px;
+}
+
+.table tbody tr:hover {
+  background-color: #f1f1f1;
+  transition: background 0.2s ease-in-out;
+}

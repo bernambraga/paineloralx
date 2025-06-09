@@ -25,9 +25,9 @@ class SeleniumAutomation:
         self.driver = None
         self.Status = ''
         self.standardMessageA = "Olá $$Paciente$$, tudo bem?\n\nNotamos a sua ausência no dia $$Data$$ aqui na Oral X $$Agenda$$.\n"
-        self.unidades = ["Pinheiros", "Angélica", "9 de Julho"]
+        self.unidades = ["Pinheiros", "Angélica", "9 de Julho", "Tatuapé"]
         self.username = 'oralx.repescagem'
-        self.password = 'Mudar@360'
+        self.password = 'Repescagem2025@'
         self.date_str = datetime.today().strftime('%Y-%m-%d')
         self.table = 'Repescagem'
         self.errorFlag = 0
@@ -408,6 +408,8 @@ class SeleniumAutomation:
                     value = self.unidades[1]
                 elif value.lower().startswith('9'):
                     value = self.unidades[2]
+                elif value.lower().startswith('t'):
+                    value = self.unidades[3]
             return str(value)
         return re.sub(r'\$\$(.*?)\$\$', replace_placeholder, message)
     

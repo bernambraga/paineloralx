@@ -1,148 +1,123 @@
-import React, { createContext, useState, useEffect } from 'react';
-import axios from 'axios';
-import { jwtDecode } from 'jwt-decode';
+// AuthContext.js - Versão reconstruída simplificada e funcional
+
+import React, { createContext, useState, useEffect } from "react";
+import { jwtDecode } from "jwt-decode";
+import axios from "axios";
+import axiosInstance from "../services/axiosInstance";
 
 const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
-    const [user, setUser] = useState(null);
-    const [loading, setLoading] = useState(true);
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-    const getBaseUrl = () => {
-        const hostname = window.location.hostname;
-      
-        if (hostname === 'localhost') {
-          return 'http://localhost:8000';
-        } else if (hostname === 'dev.paineloralx.com.br') {
-          return 'https://dev.paineloralx.com.br';
-        } else {
-          return 'https://paineloralx.com.br';
-        }
+  const BASE_URL = (() => {
+    const host = window.location.hostname;
+    if (host.includes("localhost")) return "http://localhost:8000/api";
+    if (host.includes("dev.")) return "https://dev.paineloralx.com.br/api";
+    return "https://paineloralx.com.br/api";
+  })();
+
+  const login = async (username, password) => {
+    try {
+      const response = await axios.post(`${BASE_URL}/login/`, {
+        username,
+        password,
+      });
+      console.info(response);
+      const { access, refresh } = response.data;
+      localStorage.setItem("access_token", access);
+      localStorage.setItem("refresh_token", refresh);
+      setUser(jwtDecode(access));
+
+      await fetchUserInfo();
+
+      return { success: true };
+    } catch (error) {
+      console.error("Login error:", error);
+      return {
+        success: false,
+        error: error.response?.data || "Erro inesperado",
       };
+    }
+  };
 
-    const getCSRFToken = () => {
-        let csrfToken = null;
-        if (document.cookie && document.cookie !== '') {
-            const cookies = document.cookie.split(';');
-            for (let i = 0; i < cookies.length; i++) {
-                const cookie = cookies[i].trim();
-                if (cookie.substring(0, 10) === 'csrftoken=') {
-                    csrfToken = decodeURIComponent(cookie.substring(10));
-                    break;
-                }
-            }
-        }
-        return csrfToken;
-    };
+  const logout = async () => {
+    try {
+      const refresh_token = localStorage.getItem("refresh_token");
+      if (refresh_token) {
+        await axiosInstance.post(`${BASE_URL}/logout/`, { refresh_token });
+      }
+      localStorage.removeItem("access_token");
+      localStorage.removeItem("refresh_token");
+      setUser(null);
+      return true;
+    } catch (error) {
+      console.warn(
+        "Falha ao invalidar refresh_token (pode já estar expirado):",
+        error
+      );
+    } finally {
+      localStorage.removeItem("access_token");
+      localStorage.removeItem("refresh_token");
+      setUser(null);
+      return true;
+    }
+  };
 
-    useEffect(() => {
-        const getCSRFTokenFromServer = async () => {
-            const baseUrl = getBaseUrl();
-            await axios.get(`${baseUrl}/api/csrf/`);
-        };
+  const refreshAccessToken = async () => {
+    try {
+      const refresh = localStorage.getItem("refresh_token");
+      const response = await axios.post(`${BASE_URL}/token/refresh/`, {
+        refresh,
+      });
+      const access = response.data.access;
 
-        getCSRFTokenFromServer();
-    }, []);
+      localStorage.setItem("access_token", access);
+      axiosInstance.defaults.headers.common[
+        "Authorization"
+      ] = `Bearer ${access}`;
+      setUser(jwtDecode(access));
+    } catch (error) {
+      console.error("Refresh error:", error);
+      logout();
+    }
+  };
 
-    const login = async (username, password) => {
+  const fetchUserInfo = async () => {
+    try {
+      const response = await axiosInstance.get(`${BASE_URL}/current-user/`);
+      setUser(response.data);
+    } catch (error) {
+      console.error("Erro ao buscar dados do usuário:", error);
+    }
+  };
+
+  useEffect(() => {
+    const token = localStorage.getItem("access_token");
+
+    const initializeUser = async () => {
+      if (token) {
         try {
-            const baseUrl = getBaseUrl();
-            const csrfToken = getCSRFToken();
-
-            const response = await axios.post(
-                `${baseUrl}/api/login/`,
-                { username, password },
-                {
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-CSRFToken': csrfToken,
-                    },
-                    withCredentials: true,
-                }
-            );
-
-            // Verifica se a resposta tem um status de sucesso
-            if (response.status === 200) {
-                const { access, refresh } = response.data;
-                localStorage.setItem('access_token', access);
-                localStorage.setItem('refresh_token', refresh);
-                setUser(jwtDecode(access));
-                return response.data;
-            } else {
-                // Retorna os dados do erro para códigos de status diferentes de 200
-                return response.data;
-            }
-        } catch (error) {
-            console.error('Login failed', error.response || error);
-            return error.response.data;
+          jwtDecode(token); // Só valida se é decodificável
+          await fetchUserInfo(); // Aqui puxa dados completos do backend
+        } catch (e) {
+          await refreshAccessToken(); // Token inválido? tenta refresh
         }
+      } else {
+        await refreshAccessToken();
+      }
+      setLoading(false);
     };
 
-    const logout = async () => {
-        try {
-            const refresh_token = localStorage.getItem('refresh_token');
-            if (refresh_token) {
-                const csrfToken = getCSRFToken();
-                await axios.post(
-                    `${getBaseUrl()}/api/logout/`,
-                    { refresh_token },
-                    {
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'X-CSRFToken': csrfToken,
-                        },
-                        withCredentials: true,
-                    }
-                );
-            }
-            localStorage.removeItem('access_token');
-            localStorage.removeItem('refresh_token');
-            setUser(null);
-            return true;
-        } catch (error) {
-            console.error('Logout failed', error);
-            return false;
-        }
-    };
+    initializeUser();
+  }, []);
 
-    const refreshAccessToken = async () => {
-        try {
-            const refresh_token = localStorage.getItem('refresh_token');
-            const response = await axios.post(
-                `${getBaseUrl()}/api/token/refresh/`,
-                { refresh: refresh_token },
-                { headers: { 'Content-Type': 'application/json' } }
-            );
-            localStorage.setItem('access_token', response.data.access);
-            setUser(jwtDecode(response.data.access));
-        } catch (error) {
-            console.error('Token refresh failed', error);
-            logout();
-        }
-    };
-
-    useEffect(() => {
-        const checkAuth = async () => {
-            const token = localStorage.getItem('access_token');
-            if (token) {
-                setUser(jwtDecode(token));
-            } else {
-                const refresh_token = localStorage.getItem('refresh_token');
-                if (refresh_token) {
-                    await refreshAccessToken();
-                }
-            }
-            setLoading(false);
-        };
-
-        checkAuth();
-    }, []);
-
-    return (
-        <AuthContext.Provider value={{ user, login, logout, loading }}>
-            {children}
-        </AuthContext.Provider>
-    );
+  return (
+    <AuthContext.Provider value={{ user, login, logout, loading }}>
+      {children}
+    </AuthContext.Provider>
+  );
 };
 
-export { AuthProvider, AuthContext };
+export { AuthContext, AuthProvider };

@@ -1,0 +1,88 @@
+.comercial-geral-container{
+  max-width: 900px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.comercial-geral-filtro{
+  display: flex;
+  flex-direction: column;
+  margin-top: 5px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.comercial-geral-filtro-label {
+  font-size: larger;
+  font-weight: bold;
+  margin: 0 auto;
+  margin-bottom: 5px;
+}
+
+.comercial-geral-filtro-modalidades{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.comercial-geral-filtro-modalidades-cb{
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.grafico-container {
+  width: 100%;
+  margin: 20px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.grafico-container h2{
+  font-size: 22px;
+}
+
+.solicitantes-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.solicitante-btn {
+  background-color: #f1f1f1;
+  border: 1px solid #ddd;
+  border-radius: 13px;
+  padding: 5px;
+  margin: 4px;
+  cursor: pointer;
+  color: #333;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.solicitante-btn.selected {
+  background-color: #4caf50 !important; /* Força o estilo de botão selecionado */
+  color: white !important; /* Força a cor branca para o texto */
+}
+
+.solicitante-btn:hover {
+  background-color: #ddd;
+}
+
+.grafico-container h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.grafico-container canvas {
+  margin-top: 20px;
+}

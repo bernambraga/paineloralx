@@ -1,0 +1,158 @@
+2025-05-25 20:47:03,103:ERROR:Erro no processo principal: Message: Unable to obtain driver for chrome; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+
+2025-05-25 20:52:29,187:ERROR:Erro no processo principal: WebScraper.__init__() missing 1 required positional argument: 'password'
+2025-05-25 20:52:37,852:ERROR:Erro no processo principal: WebScraper.__init__() missing 1 required positional argument: 'password'
+2025-05-25 20:54:06,623:ERROR:Erro no processo principal: WebScraper.__init__() missing 1 required positional argument: 'password'
+2025-05-25 20:54:37,086:ERROR:Erro no processo principal: WebScraper.__init__() missing 1 required positional argument: 'password'
+2025-05-25 20:56:44,999:INFO:Login realizado com sucesso.
+2025-05-25 20:56:45,000:INFO:Processo concluído com sucesso!
+2025-05-25 20:58:59,418:INFO:Login realizado com sucesso.
+2025-05-25 20:58:59,420:INFO:Processo concluído com sucesso!
+2025-05-25 20:59:50,141:INFO:Login realizado com sucesso.
+2025-05-25 21:00:05,460:ERROR:Erro ao buscar relatório: Message: 
+Stacktrace:
+	GetHandleVerifier [0x00007FF74955CF45+75717]
+	GetHandleVerifier [0x00007FF74955CFA0+75808]
+	(No symbol) [0x00007FF749328F9A]
+	(No symbol) [0x00007FF74937F4C6]
+	(No symbol) [0x00007FF74937F77C]
+	(No symbol) [0x00007FF7493D2577]
+	(No symbol) [0x00007FF7493A73BF]
+	(No symbol) [0x00007FF7493CF39C]
+	(No symbol) [0x00007FF7493A7153]
+	(No symbol) [0x00007FF749370421]
+	(No symbol) [0x00007FF7493711B3]
+	GetHandleVerifier [0x00007FF74985D71D+3223453]
+	GetHandleVerifier [0x00007FF749857CC2+3200322]
+	GetHandleVerifier [0x00007FF749875AF3+3322739]
+	GetHandleVerifier [0x00007FF749576A1A+180890]
+	GetHandleVerifier [0x00007FF74957E11F+211359]
+	GetHandleVerifier [0x00007FF749565294+109332]
+	GetHandleVerifier [0x00007FF749565442+109762]
+	GetHandleVerifier [0x00007FF74954BA59+4825]
+	BaseThreadInitThunk [0x00007FF83175E8D7+23]
+	RtlUserThreadStart [0x00007FF832E1C5DC+44]
+
+2025-05-25 21:00:05,460:INFO:Processo concluído com sucesso!
+2025-05-25 21:01:11,358:INFO:Login realizado com sucesso.
+2025-05-25 21:01:12,905:ERROR:Erro ao buscar relatório: 'WebScraper' object has no attribute 'report_option'
+2025-05-25 21:01:12,905:INFO:Processo concluído com sucesso!
+2025-05-25 21:02:28,951:INFO:Login realizado com sucesso.
+2025-05-25 21:02:30,693:INFO:Processo concluído com sucesso!
+2025-06-08 19:04:23,743:INFO:Dados inseridos no banco de dados com sucesso.
+2025-06-08 21:24:11,509:ERROR:Erro ao inserir dados no banco: INSERT has more target columns than expressions
+LINE 3: ...e, paciente, solicitante, data, prazo, agenda, exame, status
+                                                                 ^
+
+2025-06-08 21:26:04,623:ERROR:Erro ao inserir dados no banco: INSERT has more target columns than expressions
+LINE 3: ...e, paciente, solicitante, data, prazo, agenda, exame, status
+                                                                 ^
+
+2025-06-08 21:28:41,132:ERROR:Erro ao inserir dados no banco: tuple index out of range
+2025-06-08 21:45:05,735:INFO:Busca de dados iniciada.
+2025-06-08 21:45:17,889:INFO:Tentativa 1/5: Nenhuma linha encontrada, aguardando...
+2025-06-08 21:45:21,424:WARNING: Tentativa 3 falhou: 'NoneType' object is not callable
+2025-06-08 21:46:23,460:WARNING:Erro ao selecionar modelo. Tentativa 3 falhou: Page.click: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("a.chzn-single:has-text(\"Escolha um modelo\")")
+
+2025-06-08 21:48:47,434:INFO:Busca de dados iniciada.
+2025-06-08 21:48:55,111:INFO:Tentativa 1/5: Nenhuma linha encontrada, aguardando...
+2025-06-08 21:48:56,161:INFO:Linha 1 de 9
+2025-06-08 21:50:32,497:INFO:Busca de dados iniciada.
+2025-06-08 21:50:38,541:INFO:Tentativa 1/5: Nenhuma linha encontrada, aguardando...
+2025-06-08 21:50:39,567:INFO:Linha 1 de 9
+2025-06-08 21:50:40,457:INFO:Linha 2 de 9
+2025-06-08 21:50:41,165:INFO:Linha 3 de 9
+2025-06-08 21:50:41,905:INFO:Linha 4 de 9
+2025-06-08 21:50:42,597:INFO:Linha 5 de 9
+2025-06-08 21:50:43,193:INFO:Linha 6 de 9
+2025-06-08 21:50:44,048:INFO:Linha 7 de 9
+2025-06-08 21:50:44,644:INFO:Linha 8 de 9
+2025-06-08 21:50:45,446:INFO:Linha 9 de 9
+2025-06-08 21:51:47,664:INFO:Busca de dados iniciada.
+2025-06-08 21:51:53,200:INFO:Tentativa 1/5: Nenhuma linha encontrada, aguardando...
+2025-06-08 21:51:54,245:INFO:Linha 1 de 9
+2025-06-08 21:51:55,270:INFO:Linha 2 de 9
+2025-06-08 21:51:55,988:INFO:Linha 3 de 9
+2025-06-08 21:51:57,436:INFO:Linha 4 de 9
+2025-06-08 21:52:37,400:INFO:Busca de dados iniciada.
+2025-06-08 21:52:42,575:INFO:Tentativa 1/5: Nenhuma linha encontrada, aguardando...
+2025-06-08 21:52:43,606:INFO:Linha 1 de 9
+2025-06-08 21:52:46,462:WARNING: Tentativa 3 falhou: 'NoneType' object is not callable
+2025-06-08 21:54:20,119:INFO:Busca de dados iniciada.
+2025-06-08 21:54:25,343:INFO:Tentativa 1/5: Nenhuma linha encontrada, aguardando...
+2025-06-08 21:54:26,371:INFO:Linha 1 de 9
+2025-06-08 21:54:29,195:WARNING: Tentativa 3 falhou: 'NoneType' object is not callable
+2025-06-08 21:55:29,064:INFO:Busca de dados iniciada.
+2025-06-08 21:55:34,140:INFO:Tentativa 1/5: Nenhuma linha encontrada, aguardando...
+2025-06-08 21:55:35,163:INFO:Linha 1 de 9
+2025-06-08 21:57:15,588:INFO:Busca de dados iniciada.
+2025-06-08 21:57:20,708:INFO:Tentativa 1/5: Nenhuma linha encontrada, aguardando...
+2025-06-08 21:57:21,741:INFO:Linha 1 de 9
+2025-06-08 21:57:24,643:WARNING: Tentativa 3 falhou: 'NoneType' object is not callable
+2025-06-08 21:57:51,547:INFO:Busca de dados iniciada.
+2025-06-08 21:57:56,750:INFO:Tentativa 1/5: Nenhuma linha encontrada, aguardando...
+2025-06-08 21:57:57,780:INFO:Linha 1 de 9
+2025-06-08 21:59:30,478:INFO:Busca de dados iniciada.
+2025-06-08 21:59:35,808:INFO:Tentativa 1/5: Nenhuma linha encontrada, aguardando...
+2025-06-08 21:59:36,842:INFO:Linha 1 de 9
+2025-06-08 21:59:38,240:INFO:Linha 2 de 9
+2025-06-08 21:59:39,675:INFO:Linha 3 de 9
+2025-06-08 21:59:41,041:INFO:Linha 4 de 9
+2025-06-08 21:59:42,421:INFO:Linha 5 de 9
+2025-06-08 21:59:43,825:INFO:Linha 6 de 9
+2025-06-08 21:59:45,252:INFO:Linha 7 de 9
+2025-06-08 21:59:46,707:INFO:Linha 8 de 9
+2025-06-08 21:59:48,171:INFO:Linha 9 de 9
+2025-06-08 22:00:52,098:INFO:Busca de dados iniciada.
+2025-06-08 22:00:57,559:INFO:Tentativa 1/5: Nenhuma linha encontrada, aguardando...
+2025-06-08 22:00:58,594:INFO:Linha 1 de 9
+2025-06-08 22:00:59,988:INFO:Linha 2 de 9
+2025-06-08 22:01:01,463:INFO:Linha 3 de 9
+2025-06-08 22:01:02,890:INFO:Linha 4 de 9
+2025-06-08 22:01:04,258:INFO:Linha 5 de 9
+2025-06-08 22:01:05,598:INFO:Linha 6 de 9
+2025-06-08 22:01:07,007:INFO:Linha 7 de 9
+2025-06-08 22:01:08,398:INFO:Linha 8 de 9
+2025-06-08 22:01:09,794:INFO:Linha 9 de 9
+2025-06-08 22:02:00,508:INFO:Busca de dados iniciada.
+2025-06-08 22:02:05,847:INFO:Tentativa 1/5: Nenhuma linha encontrada, aguardando...
+2025-06-08 22:02:06,886:INFO:Linha 1 de 9
+2025-06-08 22:02:08,301:INFO:Linha 2 de 9
+2025-06-08 22:02:09,689:INFO:Linha 3 de 9
+2025-06-08 22:02:11,096:INFO:Linha 4 de 9
+2025-06-08 22:02:12,454:INFO:Linha 5 de 9
+2025-06-08 22:02:13,805:INFO:Linha 6 de 9
+2025-06-08 22:02:15,192:INFO:Linha 7 de 9
+2025-06-08 22:02:16,590:INFO:Linha 8 de 9
+2025-06-08 22:02:17,980:INFO:Linha 9 de 9
+2025-06-08 22:02:19,844:INFO:Busca de dados finalizada.
+2025-06-08 22:02:19,992:INFO:Dados inseridos no banco de dados com sucesso.
+2025-06-08 22:04:26,084:INFO:Busca de dados iniciada.
+2025-06-08 22:04:31,620:INFO:Tentativa 1/5: Nenhuma linha encontrada, aguardando...
+2025-06-08 22:04:32,649:INFO:Linha 1 de 9
+2025-06-08 22:04:35,009:INFO:Linha 2 de 9
+2025-06-08 22:04:37,435:INFO:Linha 3 de 9
+2025-06-08 22:04:39,752:INFO:Linha 4 de 9
+2025-06-08 22:04:42,077:INFO:Linha 5 de 9
+2025-06-08 22:04:44,383:INFO:Linha 6 de 9
+2025-06-08 22:04:46,722:INFO:Linha 7 de 9
+2025-06-08 22:04:49,151:INFO:Linha 8 de 9
+2025-06-08 22:04:51,515:INFO:Linha 9 de 9
+2025-06-08 22:04:54,363:INFO:Busca de dados finalizada.
+2025-06-08 22:04:55,505:INFO:Dados inseridos no banco de dados com sucesso.
+2025-06-08 22:05:55,988:INFO:Busca de dados iniciada.
+2025-06-08 22:06:16,885:INFO:Busca de dados iniciada.
+2025-06-08 22:06:21,205:INFO:Tentativa 1/5: Nenhuma linha encontrada, aguardando...
+2025-06-08 22:06:22,236:INFO:Linha 1 de 9
+2025-06-08 22:06:24,600:INFO:Linha 2 de 9
+2025-06-08 22:06:26,977:INFO:Linha 3 de 9
+2025-06-08 22:06:29,278:INFO:Linha 4 de 9
+2025-06-08 22:06:31,610:INFO:Linha 5 de 9
+2025-06-08 22:06:33,928:INFO:Linha 6 de 9
+2025-06-08 22:06:36,285:INFO:Linha 7 de 9
+2025-06-08 22:06:38,630:INFO:Linha 8 de 9
+2025-06-08 22:06:41,002:INFO:Linha 9 de 9
+2025-06-08 22:06:43,472:INFO:Busca de dados finalizada.
+2025-06-08 22:06:44,590:INFO:Dados inseridos no banco de dados com sucesso.

@@ -35,10 +35,10 @@ class WebScraper:
     def init_driver(self, chrome_driver_path):
         options = webdriver.ChromeOptions()
         options.add_argument("--window-size=1920,1080")
-        options.add_argument("--disable-gpu")
-        options.add_argument('--headless')
-        options.add_argument('--no-sandbox')
-        options.add_argument('--disable-dev-shm-usage')
+        # options.add_argument("--disable-gpu")
+        # options.add_argument('--headless')
+        # options.add_argument('--no-sandbox')
+        # options.add_argument('--disable-dev-shm-usage')
         cService = ChromeService(executable_path=chrome_driver_path)
         driver = webdriver.Chrome(service=cService, options=options)
         return driver
@@ -218,8 +218,10 @@ if __name__ == '__main__':
         website_url = 'https://oralx.smartris.com.br'
         report_page_url = 'https://oralx.smartris.com.br/ris/admin_reports'
         download_path = '/home/oralx/Downloads'
+        download_path = 'C:/USERS/User/Downloads'
         executable_path = os.path.dirname(os.path.abspath(__file__))
         chrome_driver_path = os.path.join(executable_path, 'chromedriver')
+        chrome_driver_path = os.path.join(executable_path, 'chromedriver.exe')
         username = 'bernardo.braga'
         password = '1234'
 

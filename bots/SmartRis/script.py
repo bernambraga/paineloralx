@@ -55,7 +55,7 @@ def clean_dataframe(df,flag=0):
         # Remover linhas com telefones duplicados, valores 0 ou vazios
         df.loc[:, 'Telefone'] = df['Telefone'].apply(lambda x: re.sub(r'\D', '', x))
         df = df.drop_duplicates(subset=['Telefone'])
-        df = df.drop(columns = ["Encaixe", "Carteirinha", "Convênio", "Procedimento"])
+        df = df.drop(columns = ["Encaixe", "Carteirinha", "Convênio", "Exame"])
         if flag==1:
             df = df.drop(columns = ["Hora"])
         df = df[df['Telefone'].apply(lambda x: bool(re.match(r'^\d{10,11}$', x)) and '0000000' not in x)]
@@ -86,8 +86,8 @@ def remove_duplicate_patients(df):
 def connect_to_db():
     try:
         conn = psycopg2.connect(
-            dbname="paineloralx",
-            user="oralx",
+            dbname="dev_paineloralx",
+            user="oralx_dev",
             password="Tomografia",
             host="191.252.202.133",
             port="5432"

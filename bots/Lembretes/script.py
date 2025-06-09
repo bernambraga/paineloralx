@@ -25,8 +25,8 @@ class SeleniumAutomation:
         self.driver = None
         self.Status = ''
         self.standardMessageA = "Olá $$Paciente$$, tudo bem?\n\n*Seu exame está agendado para amanhã*, dia $$Data$$, ás $$Hora$$ na Oral X $$Agenda$$ - $$endereco$$.\n"
-        self.unidades = ["Pinheiros", "Angélica", "9 de Julho"]
-        self.enderecos = ["Rua Teodoro Sampaio, 744 - Sala 76", "Avenida Angélica, 321 - Sala 122", "Avenida 9 de Julho 5483 - Sala 13"]
+        self.unidades = ["Pinheiros", "Angélica", "9 de Julho", "Tatuapé"]
+        self.enderecos = ["Rua Teodoro Sampaio, 744 - Sala 76", "Avenida Angélica, 321 - Sala 122", "Avenida 9 de Julho, 5483 - Sala 13", "Rua Apucarana, 272 - Sala 106"]
         self.username = 'oralx.lembretes'
         self.password = 'Mudar@360'
         self.date_str = (datetime.today() + timedelta(days=1)).strftime('%Y-%m-%d')
@@ -411,6 +411,8 @@ class SeleniumAutomation:
                     value = self.unidades[1]
                 elif value.lower().startswith('9'):
                     value = self.unidades[2]
+                elif value.lower().startswith('t'):
+                    value = self.unidades[3]
             elif placeholder == 'endereco':
                 if row_data.get('Agenda', '').lower().startswith('p'):
                     value = self.enderecos[0]
@@ -418,6 +420,8 @@ class SeleniumAutomation:
                     value = self.enderecos[1]
                 elif row_data.get('Agenda', '').lower().startswith('9'):
                     value = self.enderecos[2]
+                elif row_data.get('Agenda', '').lower().startswith('t'):
+                    value = self.enderecos[3]
             return str(value)
         return re.sub(r'\$\$(.*?)\$\$', replace_placeholder, message)
     

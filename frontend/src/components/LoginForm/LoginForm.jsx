@@ -63,9 +63,8 @@ const LoginForm = () => {
       <div className="content">
         <form onSubmit={handleSubmit}>
           <label>Usuário</label>
-          <input 
+          <input  className="passInput"
             id='username'
-            type="text"
             name='username'
             autoComplete='username'
             value={username} 
@@ -74,7 +73,7 @@ const LoginForm = () => {
           />
           <label>Senha</label>
           <div className="input-wrapper">
-            <input 
+            <input className="passInput"
               id="password"
               name="password"
               type={type}
@@ -90,7 +89,7 @@ const LoginForm = () => {
           {error && (
             <div className={`error ${errorType}`}>{error}</div> // Exibir a mensagem temporária
           )}
-          <button type="submit">Continuar</button>
+          <button className="loginButton">Continuar</button>
         </form>
       </div>
       <div className="footer">

@@ -24,8 +24,8 @@ class SeleniumAutomation:
     def __init__(self):
         self.driver = None
         self.Status = ''
-        self.standardMessageA = "Olá $$Paciente$$, tudo bem com você?\n\nGostaríamos de saber como foi a sua experiência no dia $$Data$$ aqui na OralX $$Agenda$$"
-        self.unidades = ["Pinheiros", "Angélica", "9 de Julho"]
+        self.standardMessageA = "Olá $$Paciente$$, tudo bem com você?\n\nGostaríamos de saber como foi a sua experiência no dia $$Data$$ aqui na Oral X $$Agenda$$"
+        self.unidades = ["Pinheiros", "Angélica", "9 de Julho", "Tatuapé"]
         self.username = 'oralx.sac'
         self.password = 'Oralx2023'
         self.date_str = (datetime.today() - timedelta(days=1)).strftime('%Y-%m-%d')
@@ -253,6 +253,8 @@ class SeleniumAutomation:
             return False
         ops = self.fechar_Ops()
         if ops:
+            #return True
+            #Fazer isso com o dia 22/04/2025
             return self.enviar_mensagem(message)
         else:
             self.Status = 'Chat Já Ativo'
@@ -397,6 +399,8 @@ class SeleniumAutomation:
                     value = self.unidades[1]
                 elif value.lower().startswith('9'):
                     value = self.unidades[2]
+                elif value.lower().startswith('t'):
+                    value = self.unidades[3]
             return str(value)
         return re.sub(r'\$\$(.*?)\$\$', replace_placeholder, message)
 

@@ -29,3 +29,5 @@ pillow
 xlrd
 openpyxl
 pymupdf
+playwright
+setuptools
