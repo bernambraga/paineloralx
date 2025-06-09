@@ -27,31 +27,3 @@ body{
   padding-top: 45vh;
   text-align: center;
 }
-
-.page h1{
-  font-size: 2.5rem;
-  color: var(--text-color);
-}
-
-.container {
-  text-align: center;
-  padding: 20px;
-  background: #ffffff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-}
-
-.container h2{
-  font-size: 1.5rem;
-  color: var(--text-color);
-}
-
-.construction-container {
-  max-width: 400px;
-  margin: auto;
-}
-
-.construction-icon {
-  font-size: 4em;
-  margin-bottom: 20px;
-}
