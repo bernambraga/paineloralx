@@ -1,10 +1,20 @@
 from .base import *
 
-DEBUG = True
+DEBUG = False
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'paineloralx',
+        'USER': 'oralx',
+        'PASSWORD': 'Tomografia',
+        'HOST': '191.252.202.133',
+        'PORT': '5432',
+    }
+}
 
 ALLOWED_HOSTS = [
-	'localhost',
-	'127.0.0.1',
+    'localhost',
+    '127.0.0.1',
     '0.0.0.0',
     'localhost:8000',
     'localhost:3000',
@@ -23,11 +33,11 @@ CORS_ALLOWED_ORIGINS = [
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    'http://localhost', 
-    'http://127.0.0.1', 
+    'http://localhost',
+    'http://127.0.0.1',
     'http://0.0.0.0',
     'https://paineloralx.com.br',
-    ]
+]
 
 
 CORS_ORIGIN_ALLOW_ALL = True

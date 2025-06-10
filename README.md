@@ -8,7 +8,12 @@ Token GIT : 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
 
 # 2 - Criar o ambiente virtual e instalar dependências
 python3 -m venv venv
+source venv/bin/activate
+## instalar os requirements com:
 pip install -r requirements.txt
+## fazer os migrations e migrate
+python manage.py makemigrations
+python manage.py migrate
 
 # Build para desenvolvimento
 sudo rm -rf /home/oralx/paineloralx/frontend_build/dev/*

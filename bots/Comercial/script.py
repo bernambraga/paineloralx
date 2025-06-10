@@ -35,10 +35,10 @@ class WebScraper:
     def init_driver(self, chrome_driver_path):
         options = webdriver.ChromeOptions()
         options.add_argument("--window-size=1920,1080")
-        # options.add_argument("--disable-gpu")
-        # options.add_argument('--headless')
-        # options.add_argument('--no-sandbox')
-        # options.add_argument('--disable-dev-shm-usage')
+        options.add_argument("--disable-gpu")
+        options.add_argument('--headless')
+        options.add_argument('--no-sandbox')
+        options.add_argument('--disable-dev-shm-usage')
         cService = ChromeService(executable_path=chrome_driver_path)
         driver = webdriver.Chrome(service=cService, options=options)
         return driver
@@ -209,6 +209,13 @@ if __name__ == '__main__':
         connection_params = {
             'dbname': 'dev_paineloralx',
             'user': 'oralx_dev',
+            'password': 'Tomografia',
+            'host': '191.252.202.133',
+            'port': '5432'
+        }
+        connection_params = {
+            'dbname': 'paineloralx',
+            'user': 'oralx',
             'password': 'Tomografia',
             'host': '191.252.202.133',
             'port': '5432'

@@ -81,34 +81,6 @@ ASGI_APPLICATION = 'backend.asgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-DJANGO_ENV = os.getenv('DJANGO_ENV', 'development')
-
-if DJANGO_ENV == 'development':
-    # Configurações de desenvolvimento
-    DEBUG = True
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': 'dev_paineloralx',
-            'USER': 'oralx_dev',
-            'PASSWORD': 'Tomografia',
-            'HOST': '191.252.202.133',
-            'PORT': '5432',
-        }
-    }
-else:
-    # Configurações de produção
-    DEBUG = False
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': 'paineloralx',
-            'USER': 'oralx',
-            'PASSWORD': 'Tomografia',
-            'HOST': '191.252.202.133',
-            'PORT': '5432',
-        }
-    }
 
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
 

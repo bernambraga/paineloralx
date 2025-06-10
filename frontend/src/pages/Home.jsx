@@ -4,8 +4,8 @@ import { AuthContext } from '../context/AuthContext';
 const Home = () => {
     const { user } = useContext(AuthContext);
     return (
-        <div className="container">
-            <div className="construction-container">
+        <div className="home-container1">
+            <div className="home-container2">
                 <h2>Bem-vindo ao Painel Oral X</h2>
             </div>
 

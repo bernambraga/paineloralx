@@ -35,4 +35,9 @@ export const LINKS = [
         to: '/senhas',
         name: 'Senhas',
     },
+    {
+        allowedGroups: ['SuperAdmin', 'Admin'],
+        to: '/modelos',
+        name: 'Modelos',
+    },
 ]

@@ -1,0 +1,93 @@
+/* Container principal da página */
+.modelos3d-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+/* Filtros */
+.modelos3d-filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 20px;
+  background-color: #f6f6f6;
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+}
+
+.modelos3d-filtros label {
+  font-weight: bold;
+  margin-right: 4px;
+}
+
+.modelos3d-filtros input,
+.modelos3d-filtros select,
+.modelos3d-filtros button {
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.modelos3d-filtros button {
+  background-color: #0077cc;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.modelos3d-filtros button:hover {
+  background-color: #005fa3;
+}
+
+/* Tabela */
+.modelos3d-tabela {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+}
+
+.modelos3d-tabela thead {
+  background-color: #eaeaea;
+}
+
+.modelos3d-tabela th,
+.modelos3d-tabela td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.modelos3d-tabela th {
+  cursor: pointer;
+  user-select: none;
+}
+
+.modelos3d-tabela tr:hover {
+  background-color: #f9f9f9;
+}
+
+/* Dropdown de status */
+.modelos3d-dropdown {
+  padding: 4px 6px;
+  font-size: 14px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+}
+
+.prazo-vermelho {
+  background-color: #ffd6d6;
+  font-weight: bold;
+  color: #b00000;
+}
+
+.prazo-amarelo {
+  background-color: #fff5cc;
+  font-weight: bold;
+  color: #665c00;
+}

@@ -17,5 +17,5 @@ urlpatterns = [
     path('sac/', include('sac.urls')),
     path('comercial/', include('comercial.urls')),
     path('senhas/', include('senhas.urls')),
-    path('3d/', include('modelos.urls')),
+    path('modelos/', include('modelos.urls')),
 ]

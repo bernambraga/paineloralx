@@ -1,3 +1,5 @@
+configurações nginx
+
 server {
     server_name paineloralx.com.br www.paineloralx.com.br;
 

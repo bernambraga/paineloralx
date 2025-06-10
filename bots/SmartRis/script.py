@@ -85,9 +85,16 @@ def remove_duplicate_patients(df):
 # Função para conectar ao banco de dados PostgreSQL
 def connect_to_db():
     try:
+        # conn = psycopg2.connect(
+        #     dbname="dev_paineloralx",
+        #     user="oralx_dev",
+        #     password="Tomografia",
+        #     host="191.252.202.133",
+        #     port="5432"
+        # )
         conn = psycopg2.connect(
-            dbname="dev_paineloralx",
-            user="oralx_dev",
+            dbname="paineloralx",
+            user="oralx",
             password="Tomografia",
             host="191.252.202.133",
             port="5432"

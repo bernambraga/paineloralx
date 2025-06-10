@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Caminho para o ambiente virtual
-VENV_PATH="/home/oralx/paineloralx/dev_venv"
+VENV_PATH="/home/oralx/paineloralx/venv"
 
 # Caminho para o script Python baseado no local do script.sh
 SCRIPT_PATH="$(dirname "$BASH_SOURCE")/script.py"

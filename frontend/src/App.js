@@ -16,6 +16,7 @@ const Dentistas = React.lazy(() => import("./pages/comercialDentistas"));
 const Geral = React.lazy(() => import("./pages/comercialGeral"));
 const Top15 = React.lazy(() => import("./pages/comercialTop15"));
 const Admin = React.lazy(() => import("./pages/admin"));
+const Modelos = React.lazy(() => import("./pages/Modelos"));
 
 const App = () => {
   return (
@@ -61,6 +62,7 @@ const AppContent = () => {
             <Route path="/sac" element={<SAC />} />
             <Route path="/senhas" element={<Senhas />} />
             <Route path="/admin" element={<Admin />} />
+            <Route path="/modelos" element={<Modelos />} />
           </Route>
         </Routes>
       </Suspense>

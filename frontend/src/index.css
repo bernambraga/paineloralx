@@ -27,3 +27,29 @@ body{
   padding-top: 45vh;
   text-align: center;
 }
+
+.page h1{
+  font-size: 2.5rem;
+  color: var(--text-color);
+}
+
+.home-container1 {
+  text-align: center;
+  padding: 20px;
+  background: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  width: 70%;
+  margin: 20px auto;
+}
+
+.home-container1 h2{
+  font-size: 1.5rem;
+  color: var(--text-color);
+}
+
+.home-container2 {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 10px;
+}

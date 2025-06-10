@@ -198,6 +198,13 @@ if __name__ == '__main__':
         'host': '191.252.202.133',
         'port': '5432'
     }
+    connection_params = {
+        'dbname': 'paineloralx',
+        'user': 'oralx',
+        'password': 'Tomografia',
+        'host': '191.252.202.133',
+        'port': '5432'
+    }
 
     usuario = 'bernardo.braga'
     senha = '1234'
