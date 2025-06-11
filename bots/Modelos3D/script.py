@@ -1,5 +1,3 @@
-# Reescrevendo `script.py` com Playwright e inserção direta no banco
-
 import os
 import time
 import pandas as pd
@@ -56,6 +54,22 @@ class DatabaseManager:
         except Exception as e:
             logging.error(
                 f"Erro ao inserir dados no banco: {e}", exc_info=False)
+            
+    def buscar_pedidos_recentes(self):
+        try:
+            conn = psycopg2.connect(**self.connection_params)
+            cursor = conn.cursor()
+            cursor.execute("""
+                SELECT pedido FROM public."Modelos3D"
+                WHERE TO_DATE(data, 'DD/MM/YYYY') >= current_date - interval '30 days'
+            """)
+            pedidos = [row[0] for row in cursor.fetchall()]
+            cursor.close()
+            conn.close()
+            return set(pedidos)
+        except Exception as e:
+            logging.error(f"Erro ao buscar pedidos recentes: {e}")
+            return set()
 
 
 def esperar_linhas(page, tentativas=5, intervalo_ms=1000):
@@ -83,7 +97,7 @@ def tentar_ate_sucesso(func, tentativas=3, intervalo=1000, erro_msg=""):
 
 
 def extrair_dados(playwright, usuario, senha):
-    browser = playwright.chromium.launch(headless=True)
+    browser = playwright.chromium.launch(headless=False)
     page = browser.new_page()
     df = pd.DataFrame()
 
@@ -91,9 +105,13 @@ def extrair_dados(playwright, usuario, senha):
     tentar_ate_sucesso(lambda: page.fill('input[name="username"]', usuario))
     page.fill('input[name="password"]', senha)
     page.click('#submit-button')
-    page.wait_for_timeout(3000)
+    page.wait_for_timeout(5000)
 
-    page.goto('https://oralx.smartris.com.br/ris/reports_list')
+    current_url = page.url
+    target_url = 'https://oralx.smartris.com.br/ris/reports_list'
+    if current_url != target_url:
+        page.goto(target_url)
+        page.wait_for_timeout(5000)
     page.wait_for_selector('#data_mes')
     page.click('#data_mes')
 
@@ -104,6 +122,7 @@ def extrair_dados(playwright, usuario, senha):
     page.keyboard.press('Enter')
 
     page.click('#full_search')
+    page.wait_for_timeout(5000)
 
     linhas = esperar_linhas(page)
     if not linhas:
@@ -144,48 +163,71 @@ def extrair_dados(playwright, usuario, senha):
         except:
             solicitante = ''
 
-        icone = page.query_selector(
-            f'i[onclick*="print_guide"][onclick*="{pedido}"]')
-        icone.click()
-        page.wait_for_timeout(1000)
-        
-        def abrir_modelo():
-            page.click('a.chzn-single:has-text("Escolha um modelo")')
+        # Se já existir, pula a extração detalhada
+        if pedido in pedidos_existentes:
+            solicitante = ''
+            nome = ''
+            exame = ''
+            data = ''
+            prazo = ''
+            pedido = ''
+            continue
+        else:
+            logging.info(f"Pedido novo nº {pedido}, extração detalhada.")
+            try:
+                icone = page.query_selector(
+                    f'i[onclick*="print_guide"][onclick*="{pedido}"]')
+                icone.click()
+                page.wait_for_timeout(1000)
+            except Exception as e:
+                logging.error(f"Erro ao clicar no icone do pedido {pedido}: {e}")
+                continue
+            
+            def abrir_modelo():
+                page.click('a.chzn-single:has-text("Escolha um modelo")')
 
-        tentar_ate_sucesso(abrir_modelo, tentativas=3,
-                           intervalo=1000, erro_msg="Erro ao selecionar modelo.")
-        page.click('li:has-text("ORDEM DE SERVIÇO")')
-        page.wait_for_timeout(1000)
-        def get_conteudo_do_iframe():
-            frame_locator = page.frame_locator('#text_models_ifr')
-            return frame_locator.locator('body').inner_text()
-        conteudo = ''
-        conteudo = tentar_ate_sucesso(get_conteudo_do_iframe, tentativas=3, intervalo=1500,
-                                      erro_msg=f"Falha ao extrair texto do iframe para pedido {pedido}")
+            tentar_ate_sucesso(abrir_modelo, tentativas=3,
+                            intervalo=1000, erro_msg="Erro ao selecionar modelo.")
+            page.click('li:has-text("ORDEM DE SERVIÇO")')
+            page.wait_for_timeout(1000)
+            def get_conteudo_do_iframe():
+                frame_locator = page.frame_locator('#text_models_ifr')
+                return frame_locator.locator('body').inner_text()
+            conteudo = ''
+            conteudo = tentar_ate_sucesso(get_conteudo_do_iframe, tentativas=3, intervalo=1500,
+                                        erro_msg=f"Falha ao extrair texto do iframe para pedido {pedido}")
 
-        match_paciente = re.search(r'Paciente N°:\s*(\d+)', conteudo)
-        numero_paciente = match_paciente.group(1) if match_paciente else None
+            match_paciente = re.search(r'Paciente N°:\s*(\d+)', conteudo)
+            numero_paciente = match_paciente.group(1) if match_paciente else None
 
-        match_agenda = re.search(
-            r'Data:\s+(.*?)\s*Informa', conteudo, re.DOTALL)
-        agenda_completa = match_agenda.group(
-            1).strip() if match_agenda else None
-        agenda = agenda_completa.split(
-            '-')[0].strip() if agenda_completa else None
-        
-        page.click('a[title="Fechar"].simplemodal-close')
+            match_agenda = re.search(
+                r'Data:\s+(.*?)\s*Informa', conteudo, re.DOTALL)
+            agenda_completa = match_agenda.group(
+                1).strip() if match_agenda else None
+            agenda = agenda_completa.split(
+                '-')[0].strip() if agenda_completa else None
+            
+            page.click('a[title="Fechar"].simplemodal-close')
 
-        dados.append({
-            'Data': data,
-            'Prazo': prazo,
-            'Pedido': pedido,
-            'Exame': exame,
-            'Nome': nome,
-            'Numero_Paciente': numero_paciente,
-            'Agenda': agenda,
-            'Solicitante': solicitante
-        })
-
+            dados.append({
+                'Data': data,
+                'Prazo': prazo,
+                'Pedido': pedido,
+                'Exame': exame,
+                'Nome': nome,
+                'Numero_Paciente': numero_paciente,
+                'Agenda': agenda,
+                'Solicitante': solicitante
+            })
+            data = ''
+            prazo = ''
+            pedido = ''
+            exame = ''
+            nome = ''
+            numero_paciente = None
+            agenda = None
+            solicitante = ''
+            
     browser.close()
     return pd.DataFrame(dados)
 
@@ -211,10 +253,14 @@ if __name__ == '__main__':
 
     with sync_playwright() as playwright:
         logging.info("Busca de dados iniciada.")
+        db = DatabaseManager(connection_params)
+        pedidos_existentes = db.buscar_pedidos_recentes()
         df = extrair_dados(playwright, usuario, senha)
+        
         if not isinstance(df, pd.DataFrame):
             logging.error("Falha ao extrair dados.")
+        elif df.empty:
+            logging.info("Nenhum dado novo foi encontrado.")
         else:
-            logging.info("Busca de dados finalizada.")
-            db = DatabaseManager(connection_params)
+            logging.info("Busca de dados finalizada. Inserindo dados novos no banco.")
             db.insert_data(df)

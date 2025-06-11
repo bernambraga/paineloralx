@@ -1,13 +1,10 @@
-2025-06-10 03:42:07,530:INFO:Busca de dados iniciada.
-2025-06-10 03:42:19,412:INFO:Tentativa 1/5: Nenhuma linha encontrada, aguardando...
-2025-06-10 03:42:20,450:INFO:Linha 1 de 9
-2025-06-10 03:42:22,821:INFO:Linha 2 de 9
-2025-06-10 03:42:25,149:INFO:Linha 3 de 9
-2025-06-10 03:42:27,467:INFO:Linha 4 de 9
-2025-06-10 03:42:29,782:INFO:Linha 5 de 9
-2025-06-10 03:42:32,099:INFO:Linha 6 de 9
-2025-06-10 03:42:34,451:INFO:Linha 7 de 9
-2025-06-10 03:42:36,783:INFO:Linha 8 de 9
-2025-06-10 03:42:39,148:INFO:Linha 9 de 9
-2025-06-10 03:42:41,650:INFO:Busca de dados finalizada.
-2025-06-10 03:42:41,768:INFO:Dados inseridos no banco de dados com sucesso.
+2025-06-10 19:52:06,886:INFO:Linha 1 de 9
+2025-06-10 19:52:06,994:INFO:Linha 2 de 9
+2025-06-10 19:52:07,090:INFO:Linha 3 de 9
+2025-06-10 19:52:07,188:INFO:Linha 4 de 9
+2025-06-10 19:52:07,284:INFO:Linha 5 de 9
+2025-06-10 19:52:07,381:INFO:Linha 6 de 9
+2025-06-10 19:52:07,481:INFO:Linha 7 de 9
+2025-06-10 19:52:07,576:INFO:Linha 8 de 9
+2025-06-10 19:52:07,669:INFO:Linha 9 de 9
+2025-06-10 19:52:08,110:INFO:Nenhum dado novo foi encontrado.
