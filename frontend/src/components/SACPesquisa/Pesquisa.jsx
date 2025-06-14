@@ -1,36 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "./Pesquisa.css";
-import axios from "axios";
+import axiosInstance from "../../services/axiosInstance";
 import DatePicker from "../DatePicker/DatePicker";
 import { format, parse, isSunday } from "date-fns";
 
 const SACPesquisa = () => {
-  const getBaseUrl = () => {
-    const hostname = window.location.hostname;
-    if (hostname === "localhost") {
-      return "http://localhost:8000/api";
-    } else if (hostname === "dev.paineloralx.com.br") {
-      return "https://dev.paineloralx.com.br/api";
-    } else {
-      return "https://paineloralx.com.br/api";
-    }
-  };
-
-  const getCSRFToken = () => {
-    let csrfToken = null;
-    if (document.cookie && document.cookie !== "") {
-      const cookies = document.cookie.split(";");
-      for (let i = 0; i < cookies.length; i++) {
-        const cookie = cookies[i].trim();
-        if (cookie.substring(0, 10) === "csrftoken=") {
-          csrfToken = decodeURIComponent(cookie.substring(10));
-          break;
-        }
-      }
-    }
-    return csrfToken;
-  };
-
   const [selectedDate, setSelectedDate] = useState(
     format(new Date().setDate(new Date().getDate() - 1), "dd/MM/yyyy")
   );
@@ -51,27 +25,17 @@ const SACPesquisa = () => {
 
   const fetchMotivosNegativos = async () => {
     try {
-      const response = await fetch(`${getBaseUrl()}/sac/motivos/`);
-      const data = await response.json();
-      setMotivos(data);
+      const response = await axiosInstance.get(`/sac/motivos/`);
+      setMotivos(response.data);
     } catch (error) {
-      console.error(
-        "There was an error fetching the motivos negativos!",
-        error
-      );
+      console.error("Erro ao buscar motivos negativos:", error);
     }
   };
-
-  const handleShowModalMotivos = () => setShowModalMotivos(true);
-  const handleCloseModalMotivos = () => setShowModalMotivos(false);
-
-  const handleShowModalElogios = () => setShowModalElogios(true);
-  const handleCloseModalElogios = () => setShowModalElogios(false);
 
   const handleAddMotivo = async () => {
     const motivo = document.getElementById("newMotivo").value;
     try {
-      await axios.get(`${getBaseUrl()}/sac/criar_motivo?newMotivo=${motivo}`);
+      await axiosInstance.get(`/sac/criar_motivo?newMotivo=${motivo}`);
       fetchMotivosNegativos();
     } catch (error) {
       console.error("Erro ao criar novo motivo:", error);
@@ -81,9 +45,7 @@ const SACPesquisa = () => {
   const handleDeleteMotivo = async () => {
     const motivoId = document.getElementById("deleteMotivo").value;
     try {
-      await axios.get(
-        `${getBaseUrl()}/sac/excluir_motivo?motivoId=${motivoId}`
-      );
+      await axiosInstance.get(`/sac/excluir_motivo?motivoId=${motivoId}`);
       fetchMotivosNegativos();
     } catch (error) {
       console.error("Erro ao excluir motivo:", error);
@@ -99,18 +61,14 @@ const SACPesquisa = () => {
     const motivo1 = document.getElementById("transferMotivo1").value;
     const motivo2 = document.getElementById("transferMotivo2").value;
     try {
-      await axios.get(
-        `${getBaseUrl()}/sac/transferir_motivos?motivoa=${motivo1}&motivob=${motivo2}`
+      await axiosInstance.get(
+        `/sac/transferir_motivos?motivoa=${motivo1}&motivob=${motivo2}`
       );
       handleCloseModalMotivos();
       handleBuscar();
     } catch (error) {
       console.error("Erro ao transferir motivos:", error);
     }
-  };
-
-  const handleAddElogio = async () => {
-    const elogio = document.getElementById("newElogio").value;
   };
 
   const handleDateChange = (date) => {
@@ -128,20 +86,18 @@ const SACPesquisa = () => {
     setSelectedDate(format(date, "dd/MM/yyyy"));
   };
 
-  // Executa handleBuscar toda vez que selectedDate for alterado
   useEffect(() => {
     handleBuscar();
   }, [selectedDate]);
 
   const handleBuscar = async () => {
     try {
-      const response = await axios.get(
-        `${getBaseUrl()}/sac/relatorio?data=${selectedDate}`
+      const response = await axiosInstance.get(
+        `/sac/relatorio?data=${selectedDate}`
       );
-      const result = await response.data;
       handleClearSearch();
-      setRelatorio(result);
-      if (result.length === 0) {
+      setRelatorio(response.data);
+      if (response.data.length === 0) {
         alert("Nenhum resultado encontrado para a data selecionada.");
       }
     } catch (error) {
@@ -151,10 +107,11 @@ const SACPesquisa = () => {
 
   const handleDownload = async () => {
     try {
-      const response = await fetch(
-        `${getBaseUrl()}/sac/download?data=${selectedDate}`
+      const response = await axiosInstance.get(
+        `/sac/download?data=${selectedDate}`,
+        { responseType: "blob" }
       );
-      const blob = await response.blob();
+      const blob = response.data;
       if (blob) {
         const url = window.URL.createObjectURL(blob);
         const link = document.createElement("a");
@@ -170,19 +127,13 @@ const SACPesquisa = () => {
 
   const handlePositivo = async (pedidoId) => {
     try {
-      const response = await axios.get(
-        `${getBaseUrl()}/sac/editar_atendimento_pos?pedido=${pedidoId}`
+      const response = await axiosInstance.get(
+        `/sac/editar_atendimento_pos?pedido=${pedidoId}`
       );
-
       if (response.status === 200) {
-        // Verifica se a resposta foi bem-sucedida
-        handleBuscar(); // Atualiza a tabela após a marcação
+        handleBuscar();
       } else {
-        console.error(
-          "Erro ao marcar como positiva:",
-          response.status,
-          response.statusText
-        );
+        console.error("Erro ao marcar como positiva:", response);
       }
     } catch (error) {
       console.error("Erro ao marcar como positiva:", error);
@@ -195,23 +146,17 @@ const SACPesquisa = () => {
   };
 
   const handleConfirmarNegativo = async () => {
-    if (selectedPedido !== "" && motivo !== "") {
+    if (selectedPedido && motivo) {
       try {
-        const response = await axios.get(
-          `${getBaseUrl()}/sac/editar_atendimento_neg?pedido=${selectedPedido}&motivo=${motivo}&comentario=${comentario}`
+        const response = await axiosInstance.get(
+          `/sac/editar_atendimento_neg?pedido=${selectedPedido}&motivo=${motivo}&comentario=${comentario}`
         );
-
         if (response.status === 200) {
-          // Verifica se a resposta foi bem-sucedida
           setShowMotivoModal(false);
-          clearMotivoModalValues(); // Limpa seleções do Modal após marcação no db
-          handleBuscar(); // Atualiza a tabela após a marcação
+          clearMotivoModalValues();
+          handleBuscar();
         } else {
-          console.error(
-            "Erro ao marcar como negativa:",
-            response.status,
-            response.statusText
-          );
+          console.error("Erro ao marcar como negativa:", response);
         }
       } catch (error) {
         console.error("Erro ao marcar como negativa:", error);
@@ -221,13 +166,11 @@ const SACPesquisa = () => {
 
   const handleVoucher = async (pedidoId, pacienteNome) => {
     try {
-      const response = await axios.get(
-        `${getBaseUrl()}/sac/voucher?pedidoId=${pedidoId}`,
-        {
-          responseType: "blob", // Indica que esperamos um blob como resposta (imagem).
-        }
+      const response = await axiosInstance.get(
+        `/sac/voucher?pedidoId=${pedidoId}`,
+        { responseType: "blob" }
       );
-      const blob = await response.data;
+      const blob = response.data;
       const url = window.URL.createObjectURL(blob);
       const link = document.createElement("a");
       link.href = url;
@@ -251,6 +194,11 @@ const SACPesquisa = () => {
     setShowMotivoModal(false);
     clearMotivoModalValues();
   };
+
+  const handleShowModalMotivos = () => setShowModalMotivos(true);
+  const handleCloseModalMotivos = () => setShowModalMotivos(false);
+  const handleShowModalElogios = () => setShowModalElogios(true);
+  const handleCloseModalElogios = () => setShowModalElogios(false);
 
   const filteredRelatorio = relatorio.filter((pedido) =>
     pedido.paciente.toLowerCase().includes(searchTerm.toLowerCase())

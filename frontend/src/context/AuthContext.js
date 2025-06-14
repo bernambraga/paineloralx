@@ -1,8 +1,5 @@
-// AuthContext.js - Versão reconstruída simplificada e funcional
-
 import React, { createContext, useState, useEffect } from "react";
 import { jwtDecode } from "jwt-decode";
-import axios from "axios";
 import axiosInstance from "../services/axiosInstance";
 
 const AuthContext = createContext();
@@ -11,21 +8,14 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  const BASE_URL = (() => {
-    const host = window.location.hostname;
-    if (host.includes("localhost")) return "http://localhost:8000/api";
-    if (host.includes("dev.")) return "https://dev.paineloralx.com.br/api";
-    return "https://paineloralx.com.br/api";
-  })();
-
   const login = async (username, password) => {
     try {
-      const response = await axios.post(`${BASE_URL}/login/`, {
+      const response = await axiosInstance.post("/login/", {
         username,
         password,
       });
-      console.info(response);
       const { access, refresh } = response.data;
+
       localStorage.setItem("access_token", access);
       localStorage.setItem("refresh_token", refresh);
       setUser(jwtDecode(access));
@@ -46,33 +36,25 @@ const AuthProvider = ({ children }) => {
     try {
       const refresh_token = localStorage.getItem("refresh_token");
       if (refresh_token) {
-        await axiosInstance.post(`${BASE_URL}/logout/`, { refresh_token });
+        await axiosInstance.post("/logout/", { refresh_token });
       }
-      localStorage.removeItem("access_token");
-      localStorage.removeItem("refresh_token");
-      setUser(null);
-      return true;
     } catch (error) {
-      console.warn(
-        "Falha ao invalidar refresh_token (pode já estar expirado):",
-        error
-      );
+      console.warn("Erro ao fazer logout:", error);
     } finally {
       localStorage.removeItem("access_token");
       localStorage.removeItem("refresh_token");
       setUser(null);
-      return true;
     }
   };
 
   const refreshAccessToken = async () => {
     try {
       const refresh = localStorage.getItem("refresh_token");
-      const response = await axios.post(`${BASE_URL}/token/refresh/`, {
+      const response = await axiosInstance.post("/token/refresh/", {
         refresh,
       });
-      const access = response.data.access;
 
+      const access = response.data.access;
       localStorage.setItem("access_token", access);
       axiosInstance.defaults.headers.common[
         "Authorization"
@@ -80,13 +62,13 @@ const AuthProvider = ({ children }) => {
       setUser(jwtDecode(access));
     } catch (error) {
       console.error("Refresh error:", error);
-      logout();
+      await logout();
     }
   };
 
   const fetchUserInfo = async () => {
     try {
-      const response = await axiosInstance.get(`${BASE_URL}/current-user/`);
+      const response = await axiosInstance.get("/current-user/");
       setUser(response.data);
     } catch (error) {
       console.error("Erro ao buscar dados do usuário:", error);
@@ -99,10 +81,10 @@ const AuthProvider = ({ children }) => {
     const initializeUser = async () => {
       if (token) {
         try {
-          jwtDecode(token); // Só valida se é decodificável
-          await fetchUserInfo(); // Aqui puxa dados completos do backend
+          jwtDecode(token);
+          await fetchUserInfo();
         } catch (e) {
-          await refreshAccessToken(); // Token inválido? tenta refresh
+          await refreshAccessToken();
         }
       } else {
         await refreshAccessToken();

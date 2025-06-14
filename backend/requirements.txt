@@ -1,33 +1,51 @@
-asgiref==3.4.1
-async-timeout==4.0.3
-autopep8==1.6.0
+# Core Django Stack
 Django==4.0.1
-django-cors-headers==3.11.0
 djangorestframework==3.13.1
 djangorestframework-simplejwt==5.0.0
+django-cors-headers==3.11.0
 gunicorn==22.0.0
-msgpack==1.0.8
-packaging==24.1
 psycopg2-binary==2.9.9
-pycodestyle==2.8.0
-PyJWT==2.3.0
-python-crontab==3.2.0
-python-dateutil==2.9.0.post0
-pytz==2021.3
-redis==5.0.7
-six==1.16.0
-sqlparse==0.4.2
-toml==0.10.2
-typing_extensions==4.9.0
-tzdata
+sqlparse
+pytz
+
+# APIs e JSON Web Token
+PyJWT>=2.3.0
+python-dateutil
+requests>=2.32.0
+
+# Cache e Background
+redis>=5.0.0
+python-crontab
+
+# Dev tools (não precisam ser fixos)
+autopep8
+pycodestyle
+toml
+
+# Data/Excel/Images
 pandas
-requests==2.32.3
-bs4==0.0.2
-selenium==4.23.0
-SQLAlchemy==2.0.31
-pillow
-xlrd
 openpyxl
-pymupdf
+xlrd
+pillow
+
+# Web scraping / automação
+bs4
+selenium>=4.0.0
 playwright
-setuptools
+
+# Outros utilitários
+asgiref
+typing_extensions
+msgpack
+packaging
+six
+tzdata
+
+# ORM externo (caso use)
+SQLAlchemy>=2.0.0
+
+# PDF manipulação
+pymupdf
+
+# Instalação moderna
+setuptools>=65.0.0

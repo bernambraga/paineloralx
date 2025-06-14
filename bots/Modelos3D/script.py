@@ -97,7 +97,7 @@ def tentar_ate_sucesso(func, tentativas=3, intervalo=1000, erro_msg=""):
 
 
 def extrair_dados(playwright, usuario, senha):
-    browser = playwright.chromium.launch(headless=False)
+    browser = playwright.chromium.launch(headless=True)
     page = browser.new_page()
     df = pd.DataFrame()
 

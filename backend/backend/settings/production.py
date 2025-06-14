@@ -4,10 +4,10 @@ DEBUG = False
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'paineloralx',
-        'USER': 'oralx',
-        'PASSWORD': 'Tomografia',
-        'HOST': '191.252.202.133',
+        'NAME': os.getenv('POSTGRES_DB', 'painel'),
+        'USER': os.getenv('POSTGRES_USER', 'painel_user'),
+        'PASSWORD': os.getenv('POSTGRES_PASSWORD', 'senha_forte'),
+        'HOST': os.getenv('DB_HOST', 'localhost'),
         'PORT': '5432',
     }
 }

@@ -1,0 +1,8 @@
+SHELL=/bin/bash
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+TZ=America/Sao_Paulo
+
+30 18 * * 1-5 /bin/bash /app/SmartRis/run_script.sh >> /app/SmartRis/logfile.log 2>&1
+30 12 * * 6,7 /bin/bash /app/SmartRis/run_script.sh >> /app/SmartRis/logfile.log 2>&1
+30 18 * * 1-5 /bin/bash /app/Modelos3D/run_script.sh >> /app/Modelos3D/logfile.log 2>&1
+30 12 * * 6   /bin/bash /app/Modelos3D/run_script.sh >> /app/Modelos3D/logfile.log 2>&1

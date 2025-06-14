@@ -1,38 +1,27 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useState } from "react";
+import axiosInstance from "../../services/axiosInstance";
 
 const Painel = () => {
-  const getBaseUrl = () => {
-    const hostname = window.location.hostname;
-    if (hostname === "localhost") {
-      return "http://localhost:8000/api";
-    } else if (hostname === "dev.paineloralx.com.br") {
-      return "https://dev.paineloralx.com.br/api";
-    } else {
-      return "https://paineloralx.com.br/api";
-    }
-  };
-
   const unidades = {
     Pinheiros: "pinheiros",
     Angélica: "angelica",
-    "9 de Julho": "9julho",
+    NovedeJulho: "9julho",
+    Tatuape: "tatuape",
   };
+
   const [unidadeSelecionada, setUnidadeSelecionada] = useState(null);
-  const [nomeExibidoUnidade, setNomeExibidoUnidade] = useState(""); // Nome amigável
+  const [nomeExibidoUnidade, setNomeExibidoUnidade] = useState("");
   const [senhas, setSenhas] = useState([]);
   const [loading, setLoading] = useState(false);
   const [statusMessage, setStatusMessage] = useState("");
 
-  // Busca as senhas da unidade selecionada
   const carregarSenhas = async (unidade) => {
     setLoading(true);
     try {
-      const response = await axios.get(
-        `${getBaseUrl()}/senhas/listar_senhas?unidade=${unidade}`
+      const response = await axiosInstance.get(
+        `/senhas/listar_senhas?unidade=${unidade}`
       );
       setSenhas(response.data);
-      console.info(response.data);
     } catch (error) {
       console.error("Erro ao carregar senhas:", error);
     } finally {
@@ -41,7 +30,6 @@ const Painel = () => {
     }
   };
 
-  // Gera uma nova senha para a unidade selecionada
   const gerarSenha = async () => {
     if (!unidadeSelecionada) {
       setStatusMessage("Selecione uma unidade primeiro!");
@@ -50,10 +38,10 @@ const Painel = () => {
     const tipo = "prioritario";
     setLoading(true);
     try {
-      const response = await axios.get(
-        `${getBaseUrl()}/senhas/gerar_senha/?unidade=${unidadeSelecionada}&tipo=${tipo}`
+      await axiosInstance.get(
+        `/senhas/gerar_senha/?unidade=${unidadeSelecionada}&tipo=${tipo}`
       );
-      carregarSenhas(unidadeSelecionada); // Recarrega as senhas após gerar uma nova
+      carregarSenhas(unidadeSelecionada);
     } catch (error) {
       console.error("Erro ao gerar senha:", error);
       setStatusMessage("Erro ao gerar senha.");
@@ -64,7 +52,6 @@ const Painel = () => {
 
   return (
     <div style={styles.container}>
-      {/* Botões das unidades */}
       <div style={styles.unidadesContainer}>
         {Object.keys(unidades).map((unidadeExibida) => (
           <button
@@ -72,9 +59,9 @@ const Painel = () => {
             style={styles.unidadeButton}
             onClick={() => {
               const unidadeApi = unidades[unidadeExibida];
-              setUnidadeSelecionada(unidadeApi); // Define o valor enviado para a API
-              setNomeExibidoUnidade(unidadeExibida); // Define o nome amigável exibido
-              carregarSenhas(unidadeApi); // Carrega as senhas da unidade selecionada
+              setUnidadeSelecionada(unidadeApi);
+              setNomeExibidoUnidade(unidadeExibida);
+              carregarSenhas(unidadeApi);
             }}
           >
             {unidadeExibida}
@@ -82,11 +69,9 @@ const Painel = () => {
         ))}
       </div>
 
-      {/* Tabela com as senhas */}
       {unidadeSelecionada && (
         <div style={styles.tabelaContainer}>
-          <h3 style={styles.h3}>Senhas - {nomeExibidoUnidade}</h3>{" "}
-          {/* Nome amigável exibido */}
+          <h3 style={styles.h3}>Senhas - {nomeExibidoUnidade}</h3>
           {loading ? (
             <p>Carregando...</p>
           ) : (
@@ -140,8 +125,8 @@ const styles = {
     display: "flex",
     flexDirection: "row",
     justifycontent: "center",
-    alignItems: "center", // Centraliza verticalmente (se necessário)
-    flexWrap: "wrap", // Permite que os botões quebrem linha se necessário
+    alignItems: "center",
+    flexWrap: "wrap",
     gap: "10px",
     marginBottom: "20px",
   },
@@ -160,7 +145,7 @@ const styles = {
   table: {
     width: "100%",
     borderCollapse: "collapse",
-    textAlign: "center", // Centraliza o texto em todas as células
+    textAlign: "center",
   },
   th: {
     border: "1px solid #ddd",
@@ -171,7 +156,7 @@ const styles = {
   td: {
     border: "1px solid #ddd",
     padding: "10px",
-    verticalAlign: "middle", // Alinha verticalmente ao centro
+    verticalAlign: "middle",
   },
   gerarSenhaButton: {
     marginTop: "10px",
