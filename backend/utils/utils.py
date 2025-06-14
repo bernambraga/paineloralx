@@ -1,29 +1,20 @@
 # utils/utils.py
-
+import sys
 import logging
-import psycopg2
-from django.conf import settings
 
 class DatabaseLogHandler(logging.Handler):
     def emit(self, record):
         try:
-            conn = psycopg2.connect(
-                dbname=settings.DATABASES['default']['NAME'],
-                user=settings.DATABASES['default']['USER'],
-                password=settings.DATABASES['default']['PASSWORD'],
-                host=settings.DATABASES['default']['HOST'],
-                port=settings.DATABASES['default']['PORT']
-            )
-            cursor = conn.cursor()
-            cursor.execute("""
-                INSERT INTO logs (timestamp, level, message, user_id, endpoint)
-                VALUES (CURRENT_TIMESTAMP, %s, %s, %s, %s)
-            """, (record.levelname, record.getMessage(), getattr(record, 'user_id', None), getattr(record, 'endpoint', None)))
-            conn.commit()
-            cursor.close()
-            conn.close()
-        except Exception as e:
-            print(f"Failed to log message to database: {e}")
+            # Ignora durante as migrações
+            if 'makemigrations' in sys.argv or 'migrate' in sys.argv:
+                return
 
-# Adicionar o manipulador ao logger do Django
-logging.getLogger('django').addHandler(DatabaseLogHandler())
+            from api.models import Log
+            Log.objects.create(
+                level=record.levelname,
+                message=record.getMessage(),
+                user_id=getattr(record, 'user_id', None),
+                endpoint=getattr(record, 'endpoint', None)
+            )
+        except Exception as e:
+            print(f"Erro ao salvar log no banco: {e}")

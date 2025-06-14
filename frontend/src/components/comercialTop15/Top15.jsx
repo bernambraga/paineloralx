@@ -100,7 +100,7 @@ const Top15 = () => {
   const ult12meses = getUltimos12Meses();
 
   return (
-    <div className="container-log">
+    <div className="container_comercial_main">
       <div className="grafico-container">
         <h2>Top 15 Solicitantes - CT</h2>
         <Line
