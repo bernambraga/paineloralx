@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import Modelos3DDropdown from "./Modelos3DDropdown";
 import "./modelos3d.css";
 
+//Adicionar linha grossa na tabela entre cada 4 pacientes simulando uma bandeja na impressora
+
 const Modelos3DTabela = ({ modelos, onAtualizar }) => {
   const [ordenarPor, setOrdenarPor] = useState("prazo");
   const [ordemAsc, setOrdemAsc] = useState(true);
@@ -42,15 +44,17 @@ const Modelos3DTabela = ({ modelos, onAtualizar }) => {
     }
   };
 
-  const getClassePrazo = (prazoStr) => {
+  const getClassePrazo = (prazoStr, status) => {
     try {
+      if (status.toLowerCase() === "finalizado") return "prazo-verde";
+
       const hoje = new Date();
       const [dia, mes, ano] = prazoStr.split("/");
       const prazoData = new Date(`${ano}-${mes}-${dia}`);
       const diffDias = Math.ceil((prazoData - hoje) / (1000 * 60 * 60 * 24));
 
-      if (diffDias < 0) return "prazo-vermelho";
-      if (diffDias <= 2) return "prazo-amarelo";
+      if (diffDias <= 1) return "prazo-vermelho";
+      if (diffDias <= 3) return "prazo-amarelo";
       return "";
     } catch (e) {
       return "";
@@ -74,23 +78,31 @@ const Modelos3DTabela = ({ modelos, onAtualizar }) => {
         </tr>
       </thead>
       <tbody>
-        {modelosOrdenados.map((modelo) => (
-          <tr key={modelo.pedido}>
-            <td>{modelo.paciente}</td>
-            <td>{modelo.codigo_paciente}</td>
-            <td>{modelo.solicitante}</td>
-            <td>{modelo.data}</td>
-            <td className={getClassePrazo(modelo.prazo)}>{modelo.prazo}</td>
-            <td>{modelo.exame}</td>
-            <td>{modelo.agenda}</td>
-            <td>
-              <Modelos3DDropdown
-                pedido={modelo.pedido}
-                statusAtual={modelo.status}
-                onAtualizar={onAtualizar}
-              />
-            </td>
-          </tr>
+        {modelosOrdenados.map((modelo, index) => (
+          <React.Fragment key={modelo.pedido}>
+            <tr
+              className={
+                index % 4 === 0 && index !== 0 ? "linha-com-divisoria" : ""
+              }
+            >
+              <td>{modelo.paciente}</td>
+              <td>{modelo.codigo_paciente}</td>
+              <td>{modelo.solicitante}</td>
+              <td>{modelo.data}</td>
+              <td className={getClassePrazo(modelo.prazo, modelo.status)}>
+                {modelo.prazo}
+              </td>
+              <td>{modelo.exame}</td>
+              <td>{modelo.agenda}</td>
+              <td>
+                <Modelos3DDropdown
+                  pedido={modelo.pedido}
+                  statusAtual={modelo.status}
+                  onAtualizar={onAtualizar}
+                />
+              </td>
+            </tr>
+          </React.Fragment>
         ))}
       </tbody>
     </table>

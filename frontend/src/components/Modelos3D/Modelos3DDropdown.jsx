@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axiosInstance from "../../services/axiosInstance";
 import "./modelos3d.css";
 
-const statusOpcoes = ["Pendente", "MEDIT", "em impressão", "finalizado"];
+const statusOpcoes = ["Pendente", "MEDIT", "Em impressão", "Finalizado", "Erro Impressão", "Sem STL"];
 
 const Modelos3DDropdown = ({ pedido, statusAtual, onAtualizar }) => {
   const [status, setStatus] = useState(statusAtual);

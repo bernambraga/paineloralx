@@ -1,0 +1,1344 @@
+<body onload="setPage();" data-baseurl="https://oralx.smartris.com.br/ris/" data-rispath="ris/" id="vApp">
+
+
+
+    <div id="bg-loading">
+        <p style="text-align: center;">Processando áudio</p>
+        <br>
+        <p id="container"></p>
+        <!--<div id="container" style="padding:1em 2em;"></div>-->
+    </div>
+
+    <div id="wrapper">
+
+        
+            <div class="header shadow-dp1" id="header" data-user-logged="Bernardo Braga">
+                <a href="https://oralx.smartris.com.br/ris/login">
+                    <div class="logo-topo">
+                        <div class="logo-font">
+                                                        <span class="black-logo">Bernardo</span>Braga                            
+
+                        </div>
+                    </div>
+                </a>
+                                                                            	<a href="/exigencias" target="_blank" class="extra-link"> <i style="color:gray; font-size:2em; margin-left: 12px; margin-top:10px;" class="fa fa-question-circle"></i>
+            </a>
+            
+
+
+            
+                                 <div class="segment-topo"> 
+                        <div class="logo-font">
+                        
+                        </div>
+                     </div> 
+            
+            <div class="menu">
+
+                <ul class="sf-menu">
+                                        <li>
+                        <a href="https://oralx.smartris.com.br/ris/admin_panel">Painel</a>
+                    </li>
+                                                            <li>
+                        <a href="https://oralx.smartris.com.br/ris/calendar">Agenda</a>
+                    </li>
+                                                            <li>
+                        <a href="https://oralx.smartris.com.br/ris/financial">Faturamento</a>
+                    </li>
+                                                                                <li>
+                        <a href="https://oralx.smartris.com.br/ris/erp">Financeiro</a>
+                    </li>
+                                                            <li>
+                <a href="https://oralx.smartris.com.br/ris/reports_list">Laudos</a>
+			</li>
+                                                <!--
+                        <li>
+                            <a href="https://oralx.smartris.com.br/ris/statistics">Estat&iacute;sticas</a>
+                        </li>
+                    -->
+                                        <li>
+                        <a href="https://oralx.smartris.com.br/ris/patients">Pacientes</a>
+                    </li>
+                                                            <li>
+                        <a href="https://oralx.smartris.com.br/ris/admin_reports">Relatórios</a>
+                    </li>
+                    
+                                        <li>
+                        <a href="https://oralx.smartris.com.br/ris/delivery">Entrega</a>
+                    </li>
+                                                            <li>
+                        <a href="https://oralx.smartris.com.br/ris/chat" target="_blank" class="fa fa-comment"></a>
+			             <i id="req-notification" class="icon-grey badge" style="display: none;"></i>
+                    </li>
+                    
+                    <li>
+                        <i class="fa fa-cogs" aria-hidden="true"></i>
+                        <!-- <a style=" padding-top: 4px; padding-right: 15px; padding-left: 5px; padding-bottom: 22px;"><img src="https://oralx.smartris.com.br/ris/public/img/preferencia.png" /></a> -->
+                        <ul>
+                                                            <li>
+                                    <a href="https://oralx.smartris.com.br/ris/calendar_settings">Agenda</a>
+                                </li>
+                                                                                        <li>
+                                    <a href="https://oralx.smartris.com.br/ris/financial_settings">Faturamento</a>
+                                </li>
+                                                                                        <li style="height:44px">
+                                    <a style="margin-top:-5px" href="https://oralx.smartris.com.br/ris/mass_input/index">Convênios e Tabelas</a>
+                                </li>
+                                                        
+                                                                                                <li>
+                                        <a href="https://oralx.smartris.com.br/ris/erp_settings">Financeiro</a>
+                                    </li>
+                                                                                                                        <li>
+                                    <a href="https://oralx.smartris.com.br/ris/company_settings">Empresa</a>
+                            </li>
+                                                                                        <li>
+                                    <a href="https://oralx.smartris.com.br/ris/ehr_settings">Prontuário</a>
+                            </li>
+                                                                                                                                <li>
+                                        <a href="https://oralx.smartris.com.br/ris/odonto_settings">Laudo</a>
+                                    </li>
+
+                                                                                <li>
+                                    <a href="https://oralx.smartris.com.br/ris/label">Etiquetas</a>
+                            </li>
+                                                            <!-- <li>
+                                        <a href="https://oralx.smartris.com.br/ris/sync">Sincronização</a>
+                                </li> -->
+                                                                                                                    <li>
+                                        <a href="https://oralx.smartris.com.br/ris/admin_tools"> Administração </a>
+                                </li>
+                                                                                        <li>
+                                        <a href="https://oralx.smartris.com.br/ris/ai_workforce"> AI Workforce </a>
+                                </li>
+                                            		<!--                                <li>
+                                    <a href="https://oralx.smartris.com.br/ris/import"><i class="fa fa-magic"></i> Assistente</a>
+                                </li>
+                            -->
+						                            <li>
+								<a href="https://oralx.smartris.com.br/ris/mobile_app">
+									Aplicativo								</a>
+                            </li>
+                        						                            <li>
+                                    <a href="https://oralx.smartris.com.br/ris/about">Sobre</a>
+                            </li>
+                                        </ul>
+            </li>
+            <li>
+                <i class="fa fa-user" aria-hidden="true"></i>
+                <!-- <a style="padding-top: 6px; padding-right: 5px; padding-left: 5px; padding-bottom: 20px;"><img src="https://oralx.smartris.com.br/ris/public/img/account_settings.png" /></a> -->
+                <ul>
+                        <li>
+                            <a href="https://oralx.smartris.com.br/ris/account">Minha conta</a>
+                        </li>
+					    							<li>
+								<a href="https://oralx.smartris.com.br/ris/reports_list/index/scientific_archive">Arquivos Cientificos</a>
+							</li>
+						
+
+                <!--<li>
+                                        <a href="javascript:void(0)" onclick="return openModal('https://oralx.smartris.com.br/ris/support/modal');" >Suporte</a>
+                                    </li>-->
+                                <li>
+                                    <a href="https://oralx.smartris.com.br/ris/login/logout">Sair</a>
+                                </li>
+                         </ul>
+                </li>
+                 <!--   </ul> -->
+                </ul></div>
+            </div>
+
+
+            <script>
+                function myOpenPopup() {
+                    window.open("https://oralx.smartris.com.br/ris/support", null, "height=650, width=650, status=yes, toolbar=no, menubar=no, location=no");
+                }
+
+                function openModal(url, data) {
+                // load the contact form using ajax
+                jQuery.ajax({
+                    url: url,
+                    type: 'post',
+                    dataType: 'html',
+                    data: {
+                        'id': data
+                    },
+                    success: function(response) {
+                        jQuery(response).modal();
+                    },
+                    error: function(response){
+
+                    }
+                });
+                return true;
+            }
+
+            function get_notifications() {
+                jQuery.ajax({
+                    url: jQuery('body').data('baseurl') + 'chat/get_unread',
+                    type: 'post',
+                    dataType: 'json',
+                    data: {},
+                    success: function(response) {
+                        if(response.status == 'OK') {
+                            //jQuery('.badge').attr('data-content', "!");
+			    jQuery('.badge').show()
+                        } else {
+                            //jQuery('.badge').attr('data-content', "0");
+			    jQuery('.badge').hide()
+                        }
+                    }
+                });
+            }
+
+	    get_notifications();
+        </script>
+
+        <div id="content" class="main_content">
+            <link rel="stylesheet" href="https://oralx.smartris.com.br/ris/public/css/prd-framework.css">
+
+<style>
+	.grid-editor {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top:0;
+		left:0;
+		display:none;
+		background-color: transparent;
+		background-size: 5mm 5mm;
+		background-image:
+				linear-gradient(#8a8a8a 1px, transparent 1px),
+				linear-gradient(to right, #8a8a8a 1px, transparent 1px);
+	}
+	.grid-opacity{
+			opacity: 0.7;
+	}
+ 
+	.custom-color {
+		background: #fff;
+    	color: #000;
+		width: 282px;
+	}
+
+ 			
+		/* workflow classes dynamically generated */
+	.wf_9 {
+		color: #FFFFFF;
+		background-color: #e81717;
+	}
+		/* workflow classes dynamically generated */
+	.wf_10 {
+		color: #FFFFFF;
+		background-color: #39f014;
+	}
+		/* workflow classes dynamically generated */
+	.wf_4 {
+		color: #000000;
+		background-color: #ff9e00;
+	}
+		/* workflow classes dynamically generated */
+	.wf_8 {
+		color: #FFFFFF;
+		background-color: #3842cc;
+	}
+		/* workflow classes dynamically generated */
+	.wf_7 {
+		color: #FFFFFF;
+		background-color: #17141a;
+	}
+		/* workflow classes dynamically generated */
+	.wf_3 {
+		color: #000000;
+		background-color: #89ffc3;
+	}
+		/* workflow classes dynamically generated */
+	.wf_2 {
+		color: #000000;
+		background-color: #ffeb90;
+	}
+		/* workflow classes dynamically generated */
+	.wf_11 {
+		color: #000000;
+		background-color: #b030df;
+	}
+		/* workflow classes dynamically generated */
+	.wf_12 {
+		color: #FFFFFF;
+		background-color: #5f5858;
+	}
+		
+
+	.wf_{
+		background-color: #cecece;
+		width: 20px;
+		height: 20px;
+	}
+
+	.workflow-chip{
+		cursor:pointer;
+	}	
+
+    div.analysis-results thead tr {
+        background:rgba(3,219,255,.6);
+    }
+
+    .cbp-mc-column {
+        padding: 0px !important;
+    }
+
+    .extra-space {
+        width: 36% !important;
+    }
+
+    .truncate {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+  }
+
+  #report-header li{
+    cursor: pointer;
+
+  }
+  .fa-paperclip{
+    font-size:17px;
+  }
+  .qtip-content{
+    padding-bottom: 3px !important;
+  }
+    .ui-icon-close{
+        color: #000;
+    }
+  a.dl-attach{
+    height: 25px;
+  }
+  .remove-attachment{
+    cursor:pointer;
+  }
+
+  .main_content, html, body, #wrapper, .prd-framework {
+      width:100%;
+      height:100%;
+      min-height:100%;
+  }
+
+  #wrapper {
+      overflow: hidden;
+  }
+
+  .prd-framework {
+      height: calc(100% - 36px);
+      min-height:unset;
+  }
+
+  @media print {
+	*, *:after, *:before, .prd-framework *, .prd-framework *:before, .prd-framework *:after {
+		-webkit-box-sizing: unset;
+		box-sizing: unset;
+	}
+
+	.main_content, html, body, #wrapper, .prd-framework {
+		width:auto;
+		min-height:auto;
+		height:auto;
+	}
+
+	#wrapper {
+		overflow:unset;
+	}
+	.grid-editor{ 
+		display:none !important;
+    }
+	.content-area img{
+		opacity: 1 !important;
+    }
+
+  }
+
+  #toggle-editor-mode.active {
+	  color:#fff;
+	  background:#0A2644;
+  }
+</style>
+
+<style type="text/css" media="print" id="print-style"></style>
+
+<script type="application/javascript" src="https://oralx.smartris.com.br/ris/public/js/pan.js"></script>
+<script type="application/javascript" src="https://oralx.smartris.com.br/ris/public/js/sweetalert.min.js"></script>
+<script src="https://oralx.smartris.com.br/ris/public/plugins/ckeditor/ckeditor.js"></script>
+<script type="text/javascript" src="https://oralx.smartris.com.br/ris/public/plugins/imageEditor/imageEditor.js"></script>
+
+<input type="hidden" id="doc-id" value="nYd-_pp_pp_-4Fmzi3I8fytgZ0Cm9C7Q3y8zsGI3Z1pp1g-_pp_pp_-c3O4w98nxiZpskzUgU9Xh9E7nDGBu-_pp_pp_-c8W4JrQocZ0ahXtjA_-TA_TA-_">
+
+<div class="prd-framework">
+	<div id="report-header" class="d-flex flex-row shadow-dp1">
+		<input type="hidden" name="patient_age" value="8">
+		<input type="hidden" name="patient_sex" value="M">
+		<div class="d-flex flex flex-column"><div>Paciente</div>PEDRO CRISTIANO PEREIRA DA SILVA FERREIRA</div>
+        <div class="d-flex flex-column"><div>Idade</div>8</div>
+        <div class="d-flex flex-column"><div>Sexo</div>M</div>
+        <div class="d-flex flex flex-column"><div>Telefone</div>(11)96528-3426 / (11)96528-3426</div>
+		<div class="d-flex flex flex-column"><div>Atendimento</div>185629</div>
+		<div class="d-flex flex flex-column"><div>Convênio</div>SMS</div>
+        <div class="d-flex flex flex-column truncate"><div class="tip2" title="NILZE VILELA LINS ">Dentistas Solicitantes</div>NILZE VILELA LINS </div>
+        <div class="d-flex flex flex-column truncate"><div class="tip2" title=" ">Observação do Solicitante</div> </div>
+        <div class="d-flex flex flex-column "><div class="tip2" title="darwinbraga@gmail.com">E-mail do Solicitante</div><span class="truncate"> darwinbraga@gmail.com </span></div>
+	</div>
+
+    <div id="report-content" class="report-doc"><nav id="content-nav"><ul><li draggable="true" class="doc-special-content" id="5">TERMICA PACIENTE</li><li draggable="true" class="doc-special-content" id="4">SOLICITANTE NOV</li><li draggable="true" class="doc-special-content" id="3">Qr code</li><li draggable="true" class="doc-special-content" id="2">TESTE</li><li draggable="true" class="doc-special-content" id="1">SOLICITANTE</li><li draggable="true" class="doc-special-content" id="0">PACIENTE</li><div class="procedures-open"><li id="study-847370" data-hash="Xi7t6c8i3muOd0czxR1BOkQRFWHTQV-_ll_ll_-qcnk7Ut2M8qUJf5HcyW6O13nbHhYqyKhL-_ll_ll_-0-_ll_ll_-J1j5zQbfD8T14it44Yw_-TA_TA-_" data-component="1.2.640.0.31017449.3.2.101.9.359260.528696" class="doc-procedure shadow-dp1 shadow-hover prd-card open-study-847370"><input type="hidden" name="study_id" value="Xi7t6c8i3muOd0czxR1BOkQRFWHTQV-_ll_ll_-qcnk7Ut2M8qUJf5HcyW6O13nbHhYqyKhL-_ll_ll_-0-_ll_ll_-J1j5zQbfD8T14it44Yw_-TA_TA-_" data-type="report" data-desc="DOC COMPLETA" data-id="Xi7t6c8i3muOd0czxR1BOkQRFWHTQV-_ll_ll_-qcnk7Ut2M8qUJf5HcyW6O13nbHhYqyKhL-_ll_ll_-0-_ll_ll_-J1j5zQbfD8T14it44Yw_-TA_TA-_"> <div class="info study-847370"><div class="d-flex flex-row flex-align-items-center flex-align-content-center"><div class="desc">DOC COMPLETA</div> <span class="flex"></span> <div class=" workflow-status printer-hide "><span data-prd-tooltip="" aria-label="Fluxo" class="workflow-chip prd-chip wf_10"> 
+											FINAL										</span> <span class="workflow-select-container" style="display: none;"><select class="workflow-select select2-hidden-accessible" data-select2-id="1" tabindex="-1" aria-hidden="true"><option data-select2-id="3"></option> <option data-alias="PRO" data-name="Em Processo" value="9">
+														(PRO) Em Processo													</option> <option data-alias="FINAL" data-name="Finalizado" value="10">
+														(FINAL) Finalizado													</option> <option data-alias="AL" data-name="Dra. Aline" value="4">
+														(AL) Dra. Aline													</option> <option data-alias="BR" data-name="Dra. Bruna" value="8">
+														(BR) Dra. Bruna													</option> <option data-alias="DA" data-name="Dr. Darwin" value="7">
+														(DA) Dr. Darwin													</option> <option data-alias="FA" data-name="Dra. Fabrina" value="3">
+														(FA) Dra. Fabrina													</option> <option data-alias="GI" data-name="Dr. Giuliano" value="2">
+														(GI) Dr. Giuliano													</option> <option data-alias="jho" data-name="Jhonata" value="11">
+														(jho) Jhonata													</option> <option data-alias="BER" data-name="Bernardo" value="12">
+														(BER) Bernardo													</option></select><span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="2" style="width: 161px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-k32d-container"><span class="select2-selection__rendered" id="select2-k32d-container" role="textbox" aria-readonly="true" title="" data-hasqtip="true"></span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span> <span></span></span></div></div> <div class="control d-flex flex-row flex-align-items-center flex-align-content-center printer-hide"><button title="Upload" class="prd-btn prd-btn-icon upload-image upload fa fa-upload dz-clickable"></button> <a data-prd-tooltip="" aria-label="Laudo" href="https://oralx.smartris.com.br/ris/report/produce/Xi7t6c8i3muOd0czxR1BOkQRFWHTQV-_ll_ll_-qcnk7Ut2M8qUJf5HcyW6O13nbHhYqyKhL-_ll_ll_-0-_ll_ll_-J1j5zQbfD8T14it44Yw_-TA_TA-_" target="_blank" class="prd-btn prd-btn-icon report"><i class="fa fa-file-text-o"></i></a> <a data-prd-tooltip="" aria-label="Visualizador" class="prd-btn prd-btn-icon viewer disabled"><i class="fa fa-eye-slash"></i></a> <a data-prd-tooltip="" aria-label="Informações do pedido" data-study="847370" class="prd-btn prd-btn-icon attendance-info"><i class="fa fa-search"></i></a> <span class="flex"></span> <a data-files="0" class="prd-btn prd-btn-icon attach dz-clickable" oldtitle="Nenhum arquivo" title="" data-hasqtip="true"><i class="fa fa-paperclip"></i></a></div></div> <div class="data"><div class="series-content-area-control d-flex flex-row flex-align-items-center flex-align-content-center active"><div>Séries (0)</div> <span class="flex"></span> <button><i class="fa fa-chevron-down"></i></button></div> <div data-series-count="0" class="series series-content-area active"></div> <div class="images-content-area-control d-flex flex-row flex-align-items-center flex-align-content-center active"><div>Imagens (0)</div> <span class="flex"></span> <button><i class="fa fa-chevron-down"></i></button></div> <div data-images-count="0" class="images images-content-area active"></div> <div class="report-data printer-hide"><ul></ul></div></div></li> <li id="study-847371" data-hash="Cu7qk8zu1kOF7Wx-_ll_ll_-7FpAGMe41O2qJzZ6v-_ll_ll_-t2OsYwYKhXOyHluigYQ01KnUswO-_pp_pp_-H4UZ-_ll_ll_-XCrHghGP1VnWRtpGa3g_-TA_TA-_" data-component="1.2.640.0.31017449.3.2.101.9.359260.528697" class="doc-procedure shadow-dp1 shadow-hover prd-card open-study-847371"><input type="hidden" name="study_id" value="Cu7qk8zu1kOF7Wx-_ll_ll_-7FpAGMe41O2qJzZ6v-_ll_ll_-t2OsYwYKhXOyHluigYQ01KnUswO-_pp_pp_-H4UZ-_ll_ll_-XCrHghGP1VnWRtpGa3g_-TA_TA-_" data-type="report" data-desc="FOTOGRAFIA" data-id="Cu7qk8zu1kOF7Wx-_ll_ll_-7FpAGMe41O2qJzZ6v-_ll_ll_-t2OsYwYKhXOyHluigYQ01KnUswO-_pp_pp_-H4UZ-_ll_ll_-XCrHghGP1VnWRtpGa3g_-TA_TA-_"> <div class="info study-847371"><div class="d-flex flex-row flex-align-items-center flex-align-content-center"><div class="desc">FOTOGRAFIA</div> <span class="flex"></span> <div class=" workflow-status printer-hide "><span data-prd-tooltip="" aria-label="Fluxo" class="workflow-chip prd-chip wf_10"> 
+											FINAL										</span> <span class="workflow-select-container" style="display: none;"><select class="workflow-select select2-hidden-accessible" data-select2-id="4" tabindex="-1" aria-hidden="true"><option data-select2-id="6"></option> <option data-alias="PRO" data-name="Em Processo" value="9">
+														(PRO) Em Processo													</option> <option data-alias="FINAL" data-name="Finalizado" value="10">
+														(FINAL) Finalizado													</option> <option data-alias="AL" data-name="Dra. Aline" value="4">
+														(AL) Dra. Aline													</option> <option data-alias="BR" data-name="Dra. Bruna" value="8">
+														(BR) Dra. Bruna													</option> <option data-alias="DA" data-name="Dr. Darwin" value="7">
+														(DA) Dr. Darwin													</option> <option data-alias="FA" data-name="Dra. Fabrina" value="3">
+														(FA) Dra. Fabrina													</option> <option data-alias="GI" data-name="Dr. Giuliano" value="2">
+														(GI) Dr. Giuliano													</option> <option data-alias="jho" data-name="Jhonata" value="11">
+														(jho) Jhonata													</option> <option data-alias="BER" data-name="Bernardo" value="12">
+														(BER) Bernardo													</option></select><span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="5" style="width: 161px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-is9u-container"><span class="select2-selection__rendered" id="select2-is9u-container" role="textbox" aria-readonly="true" title="" data-hasqtip="true"></span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span> <span></span></span></div> <span class="prd-chip sent-to-central color-1" oldtitle="Enviado para central de exames" title="" data-hasqtip="true"><span class="fa-stack fa-lg"><i class="fa fa-cloud fa-stack-2x"></i> <i class="fa fa-check fa-inverse fa-stack-1x"></i></span></span></div> <div class="control d-flex flex-row flex-align-items-center flex-align-content-center printer-hide"><button title="Upload" class="prd-btn prd-btn-icon upload-image upload fa fa-upload dz-clickable"></button> <a data-prd-tooltip="" aria-label="Laudo" href="https://oralx.smartris.com.br/ris/report/produce/Cu7qk8zu1kOF7Wx-_ll_ll_-7FpAGMe41O2qJzZ6v-_ll_ll_-t2OsYwYKhXOyHluigYQ01KnUswO-_pp_pp_-H4UZ-_ll_ll_-XCrHghGP1VnWRtpGa3g_-TA_TA-_" target="_blank" class="prd-btn prd-btn-icon report"><i class="fa fa-file-text-o"></i></a> <a data-prd-tooltip="" aria-label="Visualizador" href="https://oralx.smartris.com.br/ris/viewer/proradis/?studyUID=1.2.640.0.31017449.3.2.101.9.359260.528697" target="viewer" class="prd-btn prd-btn-icon viewer"><i class="fa fa-eye"></i></a> <a data-prd-tooltip="" aria-label="Informações do pedido" data-study="847371" class="prd-btn prd-btn-icon attendance-info"><i class="fa fa-search"></i></a> <span class="flex"></span> <a data-files="0" class="prd-btn prd-btn-icon attach dz-clickable" oldtitle="Nenhum arquivo" title="" data-hasqtip="true"><i class="fa fa-paperclip"></i></a></div></div> <div class="data"><div class="series-content-area-control d-flex flex-row flex-align-items-center flex-align-content-center active"><div>Séries (6)</div> <span class="flex"></span> <button><i class="fa fa-chevron-down"></i></button></div> <div data-series-count="0" class="series series-content-area active"><div class="img-wrapper content series-item" draggable="true" data-iuid="2.25.251708151862127693550689521988350971976">                 <div>                     <div class="series-desc">                         <strong>*</strong>                         <span>1 imagens</span>                     </div> 					<span class="img" style="background-image:url(https://oralx.smartris.com.br/ris/storage/get_image/1.2.640.0.31017449.3.2.101.9.359260.528697/2.25.251708151862127693550689521988350971976/2.25.89258963045359176147056899751052322896/128)"> 						<span class="tip-icn icn-edit fa fa-edit"></span> 					</span>                 </div>             </div><div class="img-wrapper content series-item" draggable="true" data-iuid="2.25.175895437448649073456934670169053639900">                 <div>                     <div class="series-desc">                         <strong>*</strong>                         <span>1 imagens</span>                     </div> 					<span class="img" style="background-image:url(https://oralx.smartris.com.br/ris/storage/get_image/1.2.640.0.31017449.3.2.101.9.359260.528697/2.25.175895437448649073456934670169053639900/2.25.40932125458508299436905115819400533810/128)"> 						<span class="tip-icn icn-edit fa fa-edit"></span> 					</span>                 </div>             </div><div class="img-wrapper content series-item" draggable="true" data-iuid="2.25.303074690812168798081164666647375344649">                 <div>                     <div class="series-desc">                         <strong>*</strong>                         <span>1 imagens</span>                     </div> 					<span class="img" style="background-image:url(https://oralx.smartris.com.br/ris/storage/get_image/1.2.640.0.31017449.3.2.101.9.359260.528697/2.25.303074690812168798081164666647375344649/2.25.132364803437721173110449728135108057679/128)"> 						<span class="tip-icn icn-edit fa fa-edit"></span> 					</span>                 </div>             </div><div class="img-wrapper content series-item" draggable="true" data-iuid="2.25.62262007244933662876558958649456537572">                 <div>                     <div class="series-desc">                         <strong>*</strong>                         <span>1 imagens</span>                     </div> 					<span class="img" style="background-image:url(https://oralx.smartris.com.br/ris/storage/get_image/1.2.640.0.31017449.3.2.101.9.359260.528697/2.25.62262007244933662876558958649456537572/2.25.7075583416254326755671288594765963763/128)"> 						<span class="tip-icn icn-edit fa fa-edit"></span> 					</span>                 </div>             </div><div class="img-wrapper content series-item" draggable="true" data-iuid="2.25.278780421774823966068045908972821457491">                 <div>                     <div class="series-desc">                         <strong>*</strong>                         <span>1 imagens</span>                     </div> 					<span class="img" style="background-image:url(https://oralx.smartris.com.br/ris/storage/get_image/1.2.640.0.31017449.3.2.101.9.359260.528697/2.25.278780421774823966068045908972821457491/2.25.180455687236188884240599084193814587852/128)"> 						<span class="tip-icn icn-edit fa fa-edit"></span> 					</span>                 </div>             </div><div class="img-wrapper content series-item" draggable="true" data-iuid="2.25.162346355869527141931512629769340991208">                 <div>                     <div class="series-desc">                         <strong>*</strong>                         <span>1 imagens</span>                     </div> 					<span class="img" style="background-image:url(https://oralx.smartris.com.br/ris/storage/get_image/1.2.640.0.31017449.3.2.101.9.359260.528697/2.25.162346355869527141931512629769340991208/2.25.332711717036711075400718846114337344430/128)"> 						<span class="tip-icn icn-edit fa fa-edit"></span> 					</span>                 </div>             </div></div> <div class="images-content-area-control d-flex flex-row flex-align-items-center flex-align-content-center active"><div>Imagens (6)</div> <span class="flex"></span> <button><i class="fa fa-chevron-down"></i></button></div> <div data-images-count="0" class="images images-content-area active"><div class="img-wrapper content" style=" background-image:url(https://oralx.smartris.com.br/ris/storage/get_image/1.2.640.0.31017449.3.2.101.9.359260.528697/2.25.251708151862127693550689521988350971976/2.25.89258963045359176147056899751052322896/256)" draggable="true" data-id="2.25.89258963045359176147056899751052322896"><a class="fa fa-remove remove-image text-danger" oldtitle="Remover" title="" data-hasqtip="true"></a><a class="fa fa-edit edit-image text-default" oldtitle="Editar" title="" data-hasqtip="true"></a><a class="fa fa-globe online-image active" oldtitle="Disponível Online" title="" data-hasqtip="true"></a><a class="fa fa-download download-image" href="storage/download_image/1.2.640.0.31017449.3.2.101.9.359260.528697/2.25.251708151862127693550689521988350971976/2.25.89258963045359176147056899751052322896" target="_blank" title="Download"></a><a class="fa fa-print print-image" data-url="storage/get_image/1.2.640.0.31017449.3.2.101.9.359260.528697/2.25.251708151862127693550689521988350971976/2.25.89258963045359176147056899751052322896" title="Fila de Impressao"></a></div><div class="img-wrapper content" style=" background-image:url(https://oralx.smartris.com.br/ris/storage/get_image/1.2.640.0.31017449.3.2.101.9.359260.528697/2.25.175895437448649073456934670169053639900/2.25.40932125458508299436905115819400533810/256)" draggable="true" data-id="2.25.40932125458508299436905115819400533810"><a class="fa fa-remove remove-image text-danger" oldtitle="Remover" title="" data-hasqtip="true"></a><a class="fa fa-edit edit-image text-default" oldtitle="Editar" title="" data-hasqtip="true"></a><a class="fa fa-globe online-image active" oldtitle="Disponível Online" title="" data-hasqtip="true"></a><a class="fa fa-download download-image" href="storage/download_image/1.2.640.0.31017449.3.2.101.9.359260.528697/2.25.175895437448649073456934670169053639900/2.25.40932125458508299436905115819400533810" target="_blank" title="Download"></a><a class="fa fa-print print-image" data-url="storage/get_image/1.2.640.0.31017449.3.2.101.9.359260.528697/2.25.175895437448649073456934670169053639900/2.25.40932125458508299436905115819400533810" title="Fila de Impressao"></a></div><div class="img-wrapper content" style=" background-image:url(https://oralx.smartris.com.br/ris/storage/get_image/1.2.640.0.31017449.3.2.101.9.359260.528697/2.25.303074690812168798081164666647375344649/2.25.132364803437721173110449728135108057679/256)" draggable="true" data-id="2.25.132364803437721173110449728135108057679"><a class="fa fa-remove remove-image text-danger" oldtitle="Remover" title="" data-hasqtip="true"></a><a class="fa fa-edit edit-image text-default" oldtitle="Editar" title="" data-hasqtip="true"></a><a class="fa fa-globe online-image active" oldtitle="Disponível Online" title="" data-hasqtip="true"></a><a class="fa fa-download download-image" href="storage/download_image/1.2.640.0.31017449.3.2.101.9.359260.528697/2.25.303074690812168798081164666647375344649/2.25.132364803437721173110449728135108057679" target="_blank" title="Download"></a><a class="fa fa-print print-image" data-url="storage/get_image/1.2.640.0.31017449.3.2.101.9.359260.528697/2.25.303074690812168798081164666647375344649/2.25.132364803437721173110449728135108057679" title="Fila de Impressao"></a></div><div class="img-wrapper content" style=" background-image:url(https://oralx.smartris.com.br/ris/storage/get_image/1.2.640.0.31017449.3.2.101.9.359260.528697/2.25.62262007244933662876558958649456537572/2.25.7075583416254326755671288594765963763/256)" draggable="true" data-id="2.25.7075583416254326755671288594765963763"><a class="fa fa-remove remove-image text-danger" oldtitle="Remover" title="" data-hasqtip="true"></a><a class="fa fa-edit edit-image text-default" oldtitle="Editar" title="" data-hasqtip="true"></a><a class="fa fa-globe online-image active" oldtitle="Disponível Online" title="" data-hasqtip="true"></a><a class="fa fa-download download-image" href="storage/download_image/1.2.640.0.31017449.3.2.101.9.359260.528697/2.25.62262007244933662876558958649456537572/2.25.7075583416254326755671288594765963763" target="_blank" title="Download"></a><a class="fa fa-print print-image" data-url="storage/get_image/1.2.640.0.31017449.3.2.101.9.359260.528697/2.25.62262007244933662876558958649456537572/2.25.7075583416254326755671288594765963763" title="Fila de Impressao"></a></div><div class="img-wrapper content" style=" background-image:url(https://oralx.smartris.com.br/ris/storage/get_image/1.2.640.0.31017449.3.2.101.9.359260.528697/2.25.278780421774823966068045908972821457491/2.25.180455687236188884240599084193814587852/256)" draggable="true" data-id="2.25.180455687236188884240599084193814587852"><a class="fa fa-remove remove-image text-danger" oldtitle="Remover" title="" data-hasqtip="true"></a><a class="fa fa-edit edit-image text-default" oldtitle="Editar" title="" data-hasqtip="true"></a><a class="fa fa-globe online-image active" oldtitle="Disponível Online" title="" data-hasqtip="true"></a><a class="fa fa-download download-image" href="storage/download_image/1.2.640.0.31017449.3.2.101.9.359260.528697/2.25.278780421774823966068045908972821457491/2.25.180455687236188884240599084193814587852" target="_blank" title="Download"></a><a class="fa fa-print print-image" data-url="storage/get_image/1.2.640.0.31017449.3.2.101.9.359260.528697/2.25.278780421774823966068045908972821457491/2.25.180455687236188884240599084193814587852" title="Fila de Impressao"></a></div><div class="img-wrapper content" style=" background-image:url(https://oralx.smartris.com.br/ris/storage/get_image/1.2.640.0.31017449.3.2.101.9.359260.528697/2.25.162346355869527141931512629769340991208/2.25.332711717036711075400718846114337344430/256)" draggable="true" data-id="2.25.332711717036711075400718846114337344430"><a class="fa fa-remove remove-image text-danger" oldtitle="Remover" title="" data-hasqtip="true"></a><a class="fa fa-edit edit-image text-default" oldtitle="Editar" title="" data-hasqtip="true"></a><a class="fa fa-globe online-image active" oldtitle="Disponível Online" title="" data-hasqtip="true"></a><a class="fa fa-download download-image" href="storage/download_image/1.2.640.0.31017449.3.2.101.9.359260.528697/2.25.162346355869527141931512629769340991208/2.25.332711717036711075400718846114337344430" target="_blank" title="Download"></a><a class="fa fa-print print-image" data-url="storage/get_image/1.2.640.0.31017449.3.2.101.9.359260.528697/2.25.162346355869527141931512629769340991208/2.25.332711717036711075400718846114337344430" title="Fila de Impressao"></a></div></div> <div class="report-data printer-hide"><ul></ul></div></div></li> <li id="study-847372" data-hash="KP3gSC8lj-_ll_ll_-6-_pp_pp_-2S3f4qZ6w-_pp_pp_-q2gDQlLL5p7JyO2BjGxBKPBvs458uRBfOuSggRK3SYwTc-_ll_ll_-4RlO5De1mtJgb-_pp_pp_-FrTQ_-TA_TA-_" data-component="1.2.640.0.31017449.3.2.101.9.359260.528698" class="doc-procedure shadow-dp1 shadow-hover prd-card open-study-847372"><input type="hidden" name="study_id" value="KP3gSC8lj-_ll_ll_-6-_pp_pp_-2S3f4qZ6w-_pp_pp_-q2gDQlLL5p7JyO2BjGxBKPBvs458uRBfOuSggRK3SYwTc-_ll_ll_-4RlO5De1mtJgb-_pp_pp_-FrTQ_-TA_TA-_" data-type="report_ceph" data-desc="MODELO DE ESTUDO" data-id="KP3gSC8lj-_ll_ll_-6-_pp_pp_-2S3f4qZ6w-_pp_pp_-q2gDQlLL5p7JyO2BjGxBKPBvs458uRBfOuSggRK3SYwTc-_ll_ll_-4RlO5De1mtJgb-_pp_pp_-FrTQ_-TA_TA-_"> <div class="info study-847372"><div class="d-flex flex-row flex-align-items-center flex-align-content-center"><div class="desc">MODELO DE ESTUDO</div> <span class="flex"></span> <div class=" workflow-status printer-hide "><span data-prd-tooltip="" aria-label="Fluxo" class="workflow-chip prd-chip wf_12"> 
+											BER										</span> <span class="workflow-select-container" style="display: none;"><select class="workflow-select select2-hidden-accessible" data-select2-id="7" tabindex="-1" aria-hidden="true"><option data-select2-id="9"></option> <option data-alias="PRO" data-name="Em Processo" value="9">
+														(PRO) Em Processo													</option> <option data-alias="FINAL" data-name="Finalizado" value="10">
+														(FINAL) Finalizado													</option> <option data-alias="AL" data-name="Dra. Aline" value="4">
+														(AL) Dra. Aline													</option> <option data-alias="BR" data-name="Dra. Bruna" value="8">
+														(BR) Dra. Bruna													</option> <option data-alias="DA" data-name="Dr. Darwin" value="7">
+														(DA) Dr. Darwin													</option> <option data-alias="FA" data-name="Dra. Fabrina" value="3">
+														(FA) Dra. Fabrina													</option> <option data-alias="GI" data-name="Dr. Giuliano" value="2">
+														(GI) Dr. Giuliano													</option> <option data-alias="jho" data-name="Jhonata" value="11">
+														(jho) Jhonata													</option> <option data-alias="BER" data-name="Bernardo" value="12">
+														(BER) Bernardo													</option></select><span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="8" style="width: 161px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-k4iv-container"><span class="select2-selection__rendered" id="select2-k4iv-container" role="textbox" aria-readonly="true" title="" data-hasqtip="true"></span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span> <span></span></span></div></div> <div class="control d-flex flex-row flex-align-items-center flex-align-content-center printer-hide"><button title="Upload" class="prd-btn prd-btn-icon upload-image upload fa fa-upload dz-clickable"></button> <a data-prd-tooltip="" aria-label="Laudo" href="https://oralx.smartris.com.br/ris/report_ceph/produce/KP3gSC8lj-_ll_ll_-6-_pp_pp_-2S3f4qZ6w-_pp_pp_-q2gDQlLL5p7JyO2BjGxBKPBvs458uRBfOuSggRK3SYwTc-_ll_ll_-4RlO5De1mtJgb-_pp_pp_-FrTQ_-TA_TA-_" target="_blank" class="prd-btn prd-btn-icon report"><i class="fa fa-file-text-o"></i></a> <a data-prd-tooltip="" aria-label="Visualizador" href="https://oralx.smartris.com.br/ris/viewer/proradis/?studyUID=1.2.640.0.31017449.3.2.101.9.359260.528698" target="viewer" class="prd-btn prd-btn-icon viewer"><i class="fa fa-eye"></i></a> <a data-prd-tooltip="" aria-label="Informações do pedido" data-study="847372" class="prd-btn prd-btn-icon attendance-info"><i class="fa fa-search"></i></a> <span class="flex"></span> <a data-files="1" class="prd-btn prd-btn-icon attach dz-clickable" oldtitle=" &lt;span class='att-line'&gt; &lt;a class='fa fa-file-o dl-attach' data-id='quwdb-_ll_ll_-9TwBiI05DvoxzJI2u5pggFVegCmcGglhA3aWzdmkmRuSpKJCDbbFYfPiJfLztKcSVi-_ll_ll_-crtfFLlukoSxg_-TA_TA-_'&gt; AS-PEDRO CRISTIANO PEREIRA DA SILVA FERREIRA.stl&lt;/a&gt;  &amp;nbsp;    &lt;i class='fa fa-close remove-attachment' onclick='doc.remove_attachment(this)' data-attach_id='quwdb-_ll_ll_-9TwBiI05DvoxzJI2u5pggFVegCmcGglhA3aWzdmkmRuSpKJCDbbFYfPiJfLztKcSVi-_ll_ll_-crtfFLlukoSxg_-TA_TA-_'&gt;&lt;/i&gt;  &lt;br&gt; &lt;/span&gt; " title="" data-hasqtip="true"><i class="fa fa-paperclip"></i></a></div></div> <div class="data"><div class="series-content-area-control d-flex flex-row flex-align-items-center flex-align-content-center active"><div>Séries (0)</div> <span class="flex"></span> <button><i class="fa fa-chevron-down"></i></button></div> <div data-series-count="0" class="series series-content-area active"></div> <div class="images-content-area-control d-flex flex-row flex-align-items-center flex-align-content-center active"><div>Imagens (7)</div> <span class="flex"></span> <button><i class="fa fa-chevron-down"></i></button></div> <div data-images-count="0" class="images images-content-area active"><div class="img-wrapper content" style=" background-image:url(https://oralx.smartris.com.br/ris/storage/get_image/1.2.640.0.31017449.3.2.101.9.359260.528698/2.25.290603726918248128260694798027280325310/2.25.292183680432288258057895098705605228734/256)" draggable="true" data-id="2.25.292183680432288258057895098705605228734"><a class="fa fa-remove remove-image text-danger" oldtitle="Remover" title="" data-hasqtip="true"></a><a class="fa fa-edit edit-image text-default" oldtitle="Editar" title="" data-hasqtip="true"></a><a class="fa fa-globe online-image active" oldtitle="Disponível Online" title="" data-hasqtip="true"></a><a class="fa fa-download download-image" href="storage/download_image/1.2.640.0.31017449.3.2.101.9.359260.528698/2.25.290603726918248128260694798027280325310/2.25.292183680432288258057895098705605228734" target="_blank" title="Download"></a><a class="fa fa-print print-image" data-url="storage/get_image/1.2.640.0.31017449.3.2.101.9.359260.528698/2.25.290603726918248128260694798027280325310/2.25.292183680432288258057895098705605228734" title="Fila de Impressao"></a></div><div class="img-wrapper content" style=" background-image:url(https://oralx.smartris.com.br/ris/storage/get_image/1.2.640.0.31017449.3.2.101.9.359260.528698/2.25.268431979356854110088406482854779598563/2.25.196199840434067584742006182573522188237/256)" draggable="true" data-id="2.25.196199840434067584742006182573522188237"><a class="fa fa-remove remove-image text-danger" oldtitle="Remover" title="" data-hasqtip="true"></a><a class="fa fa-edit edit-image text-default" oldtitle="Editar" title="" data-hasqtip="true"></a><a class="fa fa-globe online-image active" oldtitle="Disponível Online" title="" data-hasqtip="true"></a><a class="fa fa-download download-image" href="storage/download_image/1.2.640.0.31017449.3.2.101.9.359260.528698/2.25.268431979356854110088406482854779598563/2.25.196199840434067584742006182573522188237" target="_blank" title="Download"></a><a class="fa fa-print print-image" data-url="storage/get_image/1.2.640.0.31017449.3.2.101.9.359260.528698/2.25.268431979356854110088406482854779598563/2.25.196199840434067584742006182573522188237" title="Fila de Impressao"></a></div><div class="img-wrapper content" style=" background-image:url(https://oralx.smartris.com.br/ris/storage/get_image/1.2.640.0.31017449.3.2.101.9.359260.528698/2.25.277896039809749629123860991600334179751/2.25.34761980891757119738550989203832516761/256)" draggable="true" data-id="2.25.34761980891757119738550989203832516761"><a class="fa fa-remove remove-image text-danger" oldtitle="Remover" title="" data-hasqtip="true"></a><a class="fa fa-edit edit-image text-default" oldtitle="Editar" title="" data-hasqtip="true"></a><a class="fa fa-globe online-image active" oldtitle="Disponível Online" title="" data-hasqtip="true"></a><a class="fa fa-download download-image" href="storage/download_image/1.2.640.0.31017449.3.2.101.9.359260.528698/2.25.277896039809749629123860991600334179751/2.25.34761980891757119738550989203832516761" target="_blank" title="Download"></a><a class="fa fa-print print-image" data-url="storage/get_image/1.2.640.0.31017449.3.2.101.9.359260.528698/2.25.277896039809749629123860991600334179751/2.25.34761980891757119738550989203832516761" title="Fila de Impressao"></a></div><div class="img-wrapper content" style=" background-image:url(https://oralx.smartris.com.br/ris/storage/get_image/1.2.640.0.31017449.3.2.101.9.359260.528698/2.25.13040909408586712582446464146763950074/2.25.59990041402857627695576623120690896814/256)" draggable="true" data-id="2.25.59990041402857627695576623120690896814"><a class="fa fa-remove remove-image text-danger" oldtitle="Remover" title="" data-hasqtip="true"></a><a class="fa fa-edit edit-image text-default" oldtitle="Editar" title="" data-hasqtip="true"></a><a class="fa fa-globe online-image active" oldtitle="Disponível Online" title="" data-hasqtip="true"></a><a class="fa fa-download download-image" href="storage/download_image/1.2.640.0.31017449.3.2.101.9.359260.528698/2.25.13040909408586712582446464146763950074/2.25.59990041402857627695576623120690896814" target="_blank" title="Download"></a><a class="fa fa-print print-image" data-url="storage/get_image/1.2.640.0.31017449.3.2.101.9.359260.528698/2.25.13040909408586712582446464146763950074/2.25.59990041402857627695576623120690896814" title="Fila de Impressao"></a></div><div class="img-wrapper content" style=" background-image:url(https://oralx.smartris.com.br/ris/storage/get_image/1.2.640.0.31017449.3.2.101.9.359260.528698/2.25.280298408916169656592503373428120038195/2.25.17657711635038964411035955911477949797/256)" draggable="true" data-id="2.25.17657711635038964411035955911477949797"><a class="fa fa-remove remove-image text-danger" oldtitle="Remover" title="" data-hasqtip="true"></a><a class="fa fa-edit edit-image text-default" oldtitle="Editar" title="" data-hasqtip="true"></a><a class="fa fa-globe online-image active" oldtitle="Disponível Online" title="" data-hasqtip="true"></a><a class="fa fa-download download-image" href="storage/download_image/1.2.640.0.31017449.3.2.101.9.359260.528698/2.25.280298408916169656592503373428120038195/2.25.17657711635038964411035955911477949797" target="_blank" title="Download"></a><a class="fa fa-print print-image" data-url="storage/get_image/1.2.640.0.31017449.3.2.101.9.359260.528698/2.25.280298408916169656592503373428120038195/2.25.17657711635038964411035955911477949797" title="Fila de Impressao"></a></div><div class="img-wrapper content" style=" background-image:url(https://oralx.smartris.com.br/ris/storage/get_image/1.2.640.0.31017449.3.2.101.9.359260.528698/2.25.189691634557331205990697915476381635745/2.25.270586298255199605011508794875345698168/256)" draggable="true" data-id="2.25.270586298255199605011508794875345698168"><a class="fa fa-remove remove-image text-danger" oldtitle="Remover" title="" data-hasqtip="true"></a><a class="fa fa-edit edit-image text-default" oldtitle="Editar" title="" data-hasqtip="true"></a><a class="fa fa-globe online-image active" oldtitle="Disponível Online" title="" data-hasqtip="true"></a><a class="fa fa-download download-image" href="storage/download_image/1.2.640.0.31017449.3.2.101.9.359260.528698/2.25.189691634557331205990697915476381635745/2.25.270586298255199605011508794875345698168" target="_blank" title="Download"></a><a class="fa fa-print print-image" data-url="storage/get_image/1.2.640.0.31017449.3.2.101.9.359260.528698/2.25.189691634557331205990697915476381635745/2.25.270586298255199605011508794875345698168" title="Fila de Impressao"></a></div><div class="img-wrapper content" style=" background-image:url(https://oralx.smartris.com.br/ris/storage/get_image/1.2.640.0.31017449.3.2.101.9.359260.528698/2.25.21751371983601514926945183371752562330/2.25.97394215741949222476399009586607661670/256)" draggable="true" data-id="2.25.97394215741949222476399009586607661670"><a class="fa fa-remove remove-image text-danger" oldtitle="Remover" title="" data-hasqtip="true"></a><a class="fa fa-edit edit-image text-default" oldtitle="Editar" title="" data-hasqtip="true"></a><a class="fa fa-globe online-image active" oldtitle="Disponível Online" title="" data-hasqtip="true"></a><a class="fa fa-download download-image" href="storage/download_image/1.2.640.0.31017449.3.2.101.9.359260.528698/2.25.21751371983601514926945183371752562330/2.25.97394215741949222476399009586607661670" target="_blank" title="Download"></a><a class="fa fa-print print-image" data-url="storage/get_image/1.2.640.0.31017449.3.2.101.9.359260.528698/2.25.21751371983601514926945183371752562330/2.25.97394215741949222476399009586607661670" title="Fila de Impressao"></a></div></div> <div class="report-data printer-hide"><ul></ul></div></div></li> <li id="study-847373" data-hash="DHvt7w0zA-_ll_ll_--_pp_pp_-Z6kbl79dcYGbWlKOiQFzJpQ49CLGxyU6miqgSJS8WXowcr60pG73aZngaFD9cK48Rt2KHe-_pp_pp_-tuBQ_-TA_TA-_" data-component="1.2.640.0.31017449.3.2.101.9.359260.528699" class="doc-procedure shadow-dp1 shadow-hover prd-card open-study-847373"><input type="hidden" name="study_id" value="DHvt7w0zA-_ll_ll_--_pp_pp_-Z6kbl79dcYGbWlKOiQFzJpQ49CLGxyU6miqgSJS8WXowcr60pG73aZngaFD9cK48Rt2KHe-_pp_pp_-tuBQ_-TA_TA-_" data-type="report_ceph" data-desc="RX TELERRADIOGRAFIA LATERAL CO" data-id="DHvt7w0zA-_ll_ll_--_pp_pp_-Z6kbl79dcYGbWlKOiQFzJpQ49CLGxyU6miqgSJS8WXowcr60pG73aZngaFD9cK48Rt2KHe-_pp_pp_-tuBQ_-TA_TA-_"> <div class="info study-847373"><div class="d-flex flex-row flex-align-items-center flex-align-content-center"><div class="desc">RX TELERRADIOGRAFIA LATERAL CO</div> <span class="flex"></span> <div class=" workflow-status printer-hide "><span data-prd-tooltip="" aria-label="Fluxo" class="workflow-chip prd-chip wf_10"> 
+											FINAL										</span> <span class="workflow-select-container" style="display: none;"><select class="workflow-select select2-hidden-accessible" data-select2-id="10" tabindex="-1" aria-hidden="true"><option data-select2-id="12"></option> <option data-alias="PRO" data-name="Em Processo" value="9">
+														(PRO) Em Processo													</option> <option data-alias="FINAL" data-name="Finalizado" value="10">
+														(FINAL) Finalizado													</option> <option data-alias="AL" data-name="Dra. Aline" value="4">
+														(AL) Dra. Aline													</option> <option data-alias="BR" data-name="Dra. Bruna" value="8">
+														(BR) Dra. Bruna													</option> <option data-alias="DA" data-name="Dr. Darwin" value="7">
+														(DA) Dr. Darwin													</option> <option data-alias="FA" data-name="Dra. Fabrina" value="3">
+														(FA) Dra. Fabrina													</option> <option data-alias="GI" data-name="Dr. Giuliano" value="2">
+														(GI) Dr. Giuliano													</option> <option data-alias="jho" data-name="Jhonata" value="11">
+														(jho) Jhonata													</option> <option data-alias="BER" data-name="Bernardo" value="12">
+														(BER) Bernardo													</option></select><span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="11" style="width: 161px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-pwfo-container"><span class="select2-selection__rendered" id="select2-pwfo-container" role="textbox" aria-readonly="true" title="" data-hasqtip="true"></span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span> <span></span></span></div> <span class="prd-chip sent-to-central color-1" oldtitle="Enviado para central de exames" title="" data-hasqtip="true"><span class="fa-stack fa-lg"><i class="fa fa-cloud fa-stack-2x"></i> <i class="fa fa-check fa-inverse fa-stack-1x"></i></span></span> <span class="prd-chip sent-to-central done"><span class="fa-stack fa-lg"><i class="fa fa-check fa-stack-2x"></i></span></span></div> <div class="control d-flex flex-row flex-align-items-center flex-align-content-center printer-hide"><button title="Upload" class="prd-btn prd-btn-icon upload-image upload fa fa-upload dz-clickable"></button> <a data-prd-tooltip="" aria-label="Laudo" href="https://oralx.smartris.com.br/ris/report_ceph/produce/DHvt7w0zA-_ll_ll_--_pp_pp_-Z6kbl79dcYGbWlKOiQFzJpQ49CLGxyU6miqgSJS8WXowcr60pG73aZngaFD9cK48Rt2KHe-_pp_pp_-tuBQ_-TA_TA-_" target="_blank" class="prd-btn prd-btn-icon report"><i class="fa fa-file-text-o"></i></a> <a data-prd-tooltip="" aria-label="Visualizador" href="https://oralx.smartris.com.br/ris/viewer/proradis/?studyUID=1.2.640.0.31017449.3.2.101.9.359260.528699" target="viewer" class="prd-btn prd-btn-icon viewer"><i class="fa fa-eye"></i></a> <a data-prd-tooltip="" aria-label="Informações do pedido" data-study="847373" class="prd-btn prd-btn-icon attendance-info"><i class="fa fa-search"></i></a> <span class="flex"></span> <a data-files="0" class="prd-btn prd-btn-icon attach dz-clickable" oldtitle="Nenhum arquivo" title="" data-hasqtip="true"><i class="fa fa-paperclip"></i></a></div></div> <div class="data"><div class="series-content-area-control d-flex flex-row flex-align-items-center flex-align-content-center active"><div>Séries (0)</div> <span class="flex"></span> <button><i class="fa fa-chevron-down"></i></button></div> <div data-series-count="0" class="series series-content-area active"></div> <div class="images-content-area-control d-flex flex-row flex-align-items-center flex-align-content-center active"><div>Imagens (2)</div> <span class="flex"></span> <button><i class="fa fa-chevron-down"></i></button></div> <div data-images-count="0" class="images images-content-area active"><div class="img-wrapper content" style=" background-image:url(https://oralx.smartris.com.br/ris/storage/get_image/1.2.640.0.31017449.3.2.101.9.359260.528699/1.2.250.1.90.3.1847349130.20250617151513.1676.23/1.2.250.1.90.2.1847349130.20250617151513.1676.31/256)" draggable="true"><a class="fa fa-remove remove-image text-danger" oldtitle="Remover" title="" data-hasqtip="true"></a><a class="fa fa-edit edit-image text-default" oldtitle="Editar" title="" data-hasqtip="true"></a><a class="fa fa-globe online-image active" oldtitle="Disponível Online" title="" data-hasqtip="true"></a><a class="fa fa-download download-image" href="storage/download_image/1.2.640.0.31017449.3.2.101.9.359260.528699/1.2.250.1.90.3.1847349130.20250617151513.1676.23/1.2.250.1.90.2.1847349130.20250617151513.1676.31" target="_blank" title="Download"></a><a class="fa fa-print print-image" data-url="storage/get_image/1.2.640.0.31017449.3.2.101.9.359260.528699/1.2.250.1.90.3.1847349130.20250617151513.1676.23/1.2.250.1.90.2.1847349130.20250617151513.1676.31" title="Fila de Impressao"></a></div><div class="img-wrapper content" style=" background-image:url(https://oralx.smartris.com.br/ris/storage/get_image/1.2.640.0.31017449.3.2.101.9.359260.528699/2.25.286691192550052286483058297573377071210/2.25.16043033512817710464671336962314850675/256)" draggable="true" data-id="2.25.16043033512817710464671336962314850675"><a class="fa fa-remove remove-image text-danger" oldtitle="Remover" title="" data-hasqtip="true"></a><a class="fa fa-edit edit-image text-default" oldtitle="Editar" title="" data-hasqtip="true"></a><a class="fa fa-globe online-image active" oldtitle="Disponível Online" title="" data-hasqtip="true"></a><a class="fa fa-download download-image" href="storage/download_image/1.2.640.0.31017449.3.2.101.9.359260.528699/2.25.286691192550052286483058297573377071210/2.25.16043033512817710464671336962314850675" target="_blank" title="Download"></a><a class="fa fa-print print-image" data-url="storage/get_image/1.2.640.0.31017449.3.2.101.9.359260.528699/2.25.286691192550052286483058297573377071210/2.25.16043033512817710464671336962314850675" title="Fila de Impressao"></a></div></div> <div class="report-data printer-hide"><ul><li class="content" draggable="true">Análise Sintética</li><li class="content" draggable="true">[Traçado] Análise USP</li><li class="content" draggable="true">Cefalograma</li><li class="content" draggable="true">[Análise] Análise USP</li></ul></div></div></li> <li id="study-847374" data-hash="sMo8Y-_ll_ll_-nzp2xKrG6xoelyGyowuysASvaOEr2NrlSz0X-_pp_pp_-A2nRZIKG2b-_ll_ll_-RbPdL-_ll_ll_-0Vs8oC3NeJTtVTEWIU-_ll_ll_-yDoJwoQ_-TA_TA-_" data-component="1.2.640.0.31017449.3.2.101.9.359260.528700" class="doc-procedure shadow-dp1 shadow-hover prd-card open-study-847374"><input type="hidden" name="study_id" value="sMo8Y-_ll_ll_-nzp2xKrG6xoelyGyowuysASvaOEr2NrlSz0X-_pp_pp_-A2nRZIKG2b-_ll_ll_-RbPdL-_ll_ll_-0Vs8oC3NeJTtVTEWIU-_ll_ll_-yDoJwoQ_-TA_TA-_" data-type="report_pan" data-desc="RX PANORAMICO" data-id="sMo8Y-_ll_ll_-nzp2xKrG6xoelyGyowuysASvaOEr2NrlSz0X-_pp_pp_-A2nRZIKG2b-_ll_ll_-RbPdL-_ll_ll_-0Vs8oC3NeJTtVTEWIU-_ll_ll_-yDoJwoQ_-TA_TA-_"> <div class="info study-847374"><div class="d-flex flex-row flex-align-items-center flex-align-content-center"><div class="desc">RX PANORAMICO</div> <span class="flex"></span> <div class=" workflow-status printer-hide "><span data-prd-tooltip="" aria-label="Fluxo" class="workflow-chip prd-chip wf_10"> 
+											FINAL										</span> <span class="workflow-select-container" style="display: none;"><select class="workflow-select select2-hidden-accessible" data-select2-id="13" tabindex="-1" aria-hidden="true"><option data-select2-id="15"></option> <option data-alias="PRO" data-name="Em Processo" value="9">
+														(PRO) Em Processo													</option> <option data-alias="FINAL" data-name="Finalizado" value="10">
+														(FINAL) Finalizado													</option> <option data-alias="AL" data-name="Dra. Aline" value="4">
+														(AL) Dra. Aline													</option> <option data-alias="BR" data-name="Dra. Bruna" value="8">
+														(BR) Dra. Bruna													</option> <option data-alias="DA" data-name="Dr. Darwin" value="7">
+														(DA) Dr. Darwin													</option> <option data-alias="FA" data-name="Dra. Fabrina" value="3">
+														(FA) Dra. Fabrina													</option> <option data-alias="GI" data-name="Dr. Giuliano" value="2">
+														(GI) Dr. Giuliano													</option> <option data-alias="jho" data-name="Jhonata" value="11">
+														(jho) Jhonata													</option> <option data-alias="BER" data-name="Bernardo" value="12">
+														(BER) Bernardo													</option></select><span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="14" style="width: 161px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-9pf0-container"><span class="select2-selection__rendered" id="select2-9pf0-container" role="textbox" aria-readonly="true" title="" data-hasqtip="true"></span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span> <span></span></span></div> <span class="prd-chip sent-to-central color-1" oldtitle="Enviado para central de exames" title="" data-hasqtip="true"><span class="fa-stack fa-lg"><i class="fa fa-cloud fa-stack-2x"></i> <i class="fa fa-check fa-inverse fa-stack-1x"></i></span></span> <span class="prd-chip sent-to-central done"><span class="fa-stack fa-lg"><i class="fa fa-check fa-stack-2x"></i></span></span></div> <div class="control d-flex flex-row flex-align-items-center flex-align-content-center printer-hide"><button title="Upload" class="prd-btn prd-btn-icon upload-image upload fa fa-upload dz-clickable"></button> <a data-prd-tooltip="" aria-label="Laudo" href="https://oralx.smartris.com.br/ris/report_pan/produce/sMo8Y-_ll_ll_-nzp2xKrG6xoelyGyowuysASvaOEr2NrlSz0X-_pp_pp_-A2nRZIKG2b-_ll_ll_-RbPdL-_ll_ll_-0Vs8oC3NeJTtVTEWIU-_ll_ll_-yDoJwoQ_-TA_TA-_" target="_blank" class="prd-btn prd-btn-icon report"><i class="fa fa-file-text-o"></i></a> <a data-prd-tooltip="" aria-label="Visualizador" href="https://oralx.smartris.com.br/ris/viewer/proradis/?studyUID=1.2.640.0.31017449.3.2.101.9.359260.528700" target="viewer" class="prd-btn prd-btn-icon viewer"><i class="fa fa-eye"></i></a> <a data-prd-tooltip="" aria-label="Informações do pedido" data-study="847374" class="prd-btn prd-btn-icon attendance-info"><i class="fa fa-search"></i></a> <span class="flex"></span> <a data-files="0" class="prd-btn prd-btn-icon attach dz-clickable" oldtitle="Nenhum arquivo" title="" data-hasqtip="true"><i class="fa fa-paperclip"></i></a></div></div> <div class="data"><div class="series-content-area-control d-flex flex-row flex-align-items-center flex-align-content-center active"><div>Séries (0)</div> <span class="flex"></span> <button><i class="fa fa-chevron-down"></i></button></div> <div data-series-count="0" class="series series-content-area active"></div> <div class="images-content-area-control d-flex flex-row flex-align-items-center flex-align-content-center active"><div>Imagens (2)</div> <span class="flex"></span> <button><i class="fa fa-chevron-down"></i></button></div> <div data-images-count="0" class="images images-content-area active"><div class="img-wrapper content" style=" background-image:url(https://oralx.smartris.com.br/ris/storage/get_image/1.2.640.0.31017449.3.2.101.9.359260.528700/2.25.117410907186087162694398454266456516698/2.25.280391126754164307166424101391301871195/256)" draggable="true" data-id="2.25.280391126754164307166424101391301871195"><a class="fa fa-remove remove-image text-danger" oldtitle="Remover" title="" data-hasqtip="true"></a><a class="fa fa-edit edit-image text-default" oldtitle="Editar" title="" data-hasqtip="true"></a><a class="fa fa-globe online-image active" oldtitle="Disponível Online" title="" data-hasqtip="true"></a><a class="fa fa-download download-image" href="storage/download_image/1.2.640.0.31017449.3.2.101.9.359260.528700/2.25.117410907186087162694398454266456516698/2.25.280391126754164307166424101391301871195" target="_blank" title="Download"></a><a class="fa fa-print print-image" data-url="storage/get_image/1.2.640.0.31017449.3.2.101.9.359260.528700/2.25.117410907186087162694398454266456516698/2.25.280391126754164307166424101391301871195" title="Fila de Impressao"></a></div><div class="img-wrapper content" style=" background-image:url(https://oralx.smartris.com.br/ris/storage/get_image/1.2.640.0.31017449.3.2.101.9.359260.528700/2.25.140670400803020340961163096500872490857/2.25.396959401502236856312777402708272663/256)" draggable="true"><a class="fa fa-remove remove-image text-danger" oldtitle="Remover" title="" data-hasqtip="true"></a><a class="fa fa-edit edit-image text-default" oldtitle="Editar" title="" data-hasqtip="true"></a><a class="fa fa-globe online-image active" oldtitle="Disponível Online" title="" data-hasqtip="true"></a><a class="fa fa-download download-image" href="storage/download_image/1.2.640.0.31017449.3.2.101.9.359260.528700/2.25.140670400803020340961163096500872490857/2.25.396959401502236856312777402708272663" target="_blank" title="Download"></a><a class="fa fa-print print-image" data-url="storage/get_image/1.2.640.0.31017449.3.2.101.9.359260.528700/2.25.140670400803020340961163096500872490857/2.25.396959401502236856312777402708272663" title="Fila de Impressao"></a></div></div> <div class="report-data printer-hide"><ul><li class="content" draggable="true">Laudo</li><li class="content" draggable="true">Anotação</li><li class="content" draggable="true">Odontograma</li></ul></div></div></li> <li draggable="true" class="ghost doc-special-content"></li></div> <div style="margin-top: 30px;"><p>Outros procedimentos</p></div> <li id="study-847370-others" data-hash="xE34INhiFtbNXDXHn-_pp_pp_-5gTn8N2MUYDWkddySDTk-_ll_ll_-6IdRTyuXNS0YpMyqW71Q-_ll_ll_-1qgGLKhCBGI-_ll_ll_-AHrkJV3Sggwl-_ll_ll_-Q_-TA_TA-_" data-component="1.2.640.0.31017449.3.2.101.9.359260.528696" class="data-li-close doc-procedure shadow-dp1 shadow-hover prd-card"><input type="hidden" name="study_id" value="xE34INhiFtbNXDXHn-_pp_pp_-5gTn8N2MUYDWkddySDTk-_ll_ll_-6IdRTyuXNS0YpMyqW71Q-_ll_ll_-1qgGLKhCBGI-_ll_ll_-AHrkJV3Sggwl-_ll_ll_-Q_-TA_TA-_" data-type="report" data-desc="DOC COMPLETA" data-id="xE34INhiFtbNXDXHn-_pp_pp_-5gTn8N2MUYDWkddySDTk-_ll_ll_-6IdRTyuXNS0YpMyqW71Q-_ll_ll_-1qgGLKhCBGI-_ll_ll_-AHrkJV3Sggwl-_ll_ll_-Q_-TA_TA-_"> <div id="div_open_study_847370" onclick="open_procedure({&quot;study_pk&quot;:&quot;847370&quot;,&quot;sent_to_central&quot;:&quot;0&quot;,&quot;attendance_id&quot;:&quot;185629&quot;,&quot;component_to_link&quot;:&quot;1.2.640.0.31017449.3.2.101.9.359260.528696&quot;,&quot;workflow_id&quot;:&quot;10&quot;,&quot;workflow_name&quot;:&quot;Finalizado&quot;,&quot;workflow_alias&quot;:&quot;FINAL&quot;,&quot;workflow_color&quot;:&quot;#39f014&quot;,&quot;realized_date&quot;:&quot;2025-06-17&quot;,&quot;start_date&quot;:&quot;2025-06-20&quot;,&quot;schedule_id&quot;:&quot;359260&quot;,&quot;eid&quot;:&quot;485326&quot;,&quot;type&quot;:&quot;default&quot;,&quot;study_desc&quot;:&quot;DOC COMPLETA&quot;,&quot;validated_by&quot;:null,&quot;hashed_study_pk&quot;:&quot;xE34INhiFtbNXDXHn-_pp_pp_-5gTn8N2MUYDWkddySDTk-_ll_ll_-6IdRTyuXNS0YpMyqW71Q-_ll_ll_-1qgGLKhCBGI-_ll_ll_-AHrkJV3Sggwl-_ll_ll_-Q_-TA_TA-_&quot;,&quot;controller&quot;:&quot;report&quot;,&quot;attachments&quot;:[],&quot;viewer&quot;:null}, [{&quot;id&quot;:&quot;9&quot;,&quot;seq&quot;:&quot;1&quot;,&quot;name&quot;:&quot;Em Processo&quot;,&quot;alias&quot;:&quot;PRO&quot;,&quot;obs&quot;:null,&quot;color&quot;:&quot;#e81717&quot;,&quot;enabled&quot;:&quot;1&quot;,&quot;created_time&quot;:&quot;2024-11-14 07:43:36&quot;,&quot;report_status&quot;:&quot;0&quot;,&quot;text_color&quot;:&quot;#FFFFFF&quot;},{&quot;id&quot;:&quot;10&quot;,&quot;seq&quot;:&quot;2&quot;,&quot;name&quot;:&quot;Finalizado&quot;,&quot;alias&quot;:&quot;FINAL&quot;,&quot;obs&quot;:null,&quot;color&quot;:&quot;#39f014&quot;,&quot;enabled&quot;:&quot;1&quot;,&quot;created_time&quot;:&quot;2024-11-14 07:44:34&quot;,&quot;report_status&quot;:&quot;0&quot;,&quot;text_color&quot;:&quot;#FFFFFF&quot;},{&quot;id&quot;:&quot;4&quot;,&quot;seq&quot;:&quot;3&quot;,&quot;name&quot;:&quot;Dra. Aline&quot;,&quot;alias&quot;:&quot;AL&quot;,&quot;obs&quot;:null,&quot;color&quot;:&quot;#ff9e00&quot;,&quot;enabled&quot;:&quot;1&quot;,&quot;created_time&quot;:&quot;2019-04-03 10:05:38&quot;,&quot;report_status&quot;:&quot;0&quot;,&quot;text_color&quot;:&quot;#000000&quot;},{&quot;id&quot;:&quot;8&quot;,&quot;seq&quot;:&quot;4&quot;,&quot;name&quot;:&quot;Dra. Bruna&quot;,&quot;alias&quot;:&quot;BR&quot;,&quot;obs&quot;:null,&quot;color&quot;:&quot;#3842cc&quot;,&quot;enabled&quot;:&quot;1&quot;,&quot;created_time&quot;:&quot;2024-06-12 12:59:45&quot;,&quot;report_status&quot;:&quot;0&quot;,&quot;text_color&quot;:&quot;#FFFFFF&quot;},{&quot;id&quot;:&quot;7&quot;,&quot;seq&quot;:&quot;5&quot;,&quot;name&quot;:&quot;Dr. Darwin&quot;,&quot;alias&quot;:&quot;DA&quot;,&quot;obs&quot;:null,&quot;color&quot;:&quot;#17141a&quot;,&quot;enabled&quot;:&quot;1&quot;,&quot;created_time&quot;:&quot;2024-06-01 07:53:53&quot;,&quot;report_status&quot;:&quot;0&quot;,&quot;text_color&quot;:&quot;#FFFFFF&quot;},{&quot;id&quot;:&quot;3&quot;,&quot;seq&quot;:&quot;6&quot;,&quot;name&quot;:&quot;Dra. Fabrina&quot;,&quot;alias&quot;:&quot;FA&quot;,&quot;obs&quot;:null,&quot;color&quot;:&quot;#89ffc3&quot;,&quot;enabled&quot;:&quot;1&quot;,&quot;created_time&quot;:&quot;2019-04-03 10:05:38&quot;,&quot;report_status&quot;:&quot;0&quot;,&quot;text_color&quot;:&quot;#000000&quot;},{&quot;id&quot;:&quot;2&quot;,&quot;seq&quot;:&quot;7&quot;,&quot;name&quot;:&quot;Dr. Giuliano&quot;,&quot;alias&quot;:&quot;GI&quot;,&quot;obs&quot;:null,&quot;color&quot;:&quot;#ffeb90&quot;,&quot;enabled&quot;:&quot;1&quot;,&quot;created_time&quot;:&quot;2019-04-03 10:05:38&quot;,&quot;report_status&quot;:&quot;0&quot;,&quot;text_color&quot;:&quot;#000000&quot;},{&quot;id&quot;:&quot;11&quot;,&quot;seq&quot;:&quot;8&quot;,&quot;name&quot;:&quot;Jhonata&quot;,&quot;alias&quot;:&quot;jho&quot;,&quot;obs&quot;:null,&quot;color&quot;:&quot;#b030df&quot;,&quot;enabled&quot;:&quot;1&quot;,&quot;created_time&quot;:&quot;2025-04-22 06:57:27&quot;,&quot;report_status&quot;:&quot;0&quot;,&quot;text_color&quot;:&quot;#000000&quot;},{&quot;id&quot;:&quot;12&quot;,&quot;seq&quot;:&quot;9&quot;,&quot;name&quot;:&quot;Bernardo&quot;,&quot;alias&quot;:&quot;BER&quot;,&quot;obs&quot;:null,&quot;color&quot;:&quot;#5f5858&quot;,&quot;enabled&quot;:&quot;1&quot;,&quot;created_time&quot;:&quot;2025-05-20 07:47:59&quot;,&quot;report_status&quot;:&quot;0&quot;,&quot;text_color&quot;:&quot;#FFFFFF&quot;}])" class="info open-info study-class-847370"><div class="info-others other-study-847370"><div class="d-flex flex-row flex-align-items-center flex-align-content-center"><div class="desc" style="white-space: normal;">DOC COMPLETA</div> <span class="flex"></span> <div class="info-data_847370"><span style="font-size: 12px;"> 17/06/2025 </span> <br> <span style="font-size: 12px;"> 359260 </span></div> <div class="workflow-status printer-hide icon-data_847370" style="display: none;"><span data-prd-tooltip="" aria-label="Fluxo" class="workflow-chip prd-chip wf_10"> 
+										FINAL									</span> <span class="workflow-select-container" style="display: none;"><select class="workflow-select select2-teste-victor select2-hidden-accessible" data-select2-id="16" tabindex="-1" aria-hidden="true"><option data-select2-id="18"></option> <option data-alias="PRO" data-name="Em Processo" value="9">
+													(PRO) Em Processo												</option> <option data-alias="FINAL" data-name="Finalizado" value="10">
+													(FINAL) Finalizado												</option> <option data-alias="AL" data-name="Dra. Aline" value="4">
+													(AL) Dra. Aline												</option> <option data-alias="BR" data-name="Dra. Bruna" value="8">
+													(BR) Dra. Bruna												</option> <option data-alias="DA" data-name="Dr. Darwin" value="7">
+													(DA) Dr. Darwin												</option> <option data-alias="FA" data-name="Dra. Fabrina" value="3">
+													(FA) Dra. Fabrina												</option> <option data-alias="GI" data-name="Dr. Giuliano" value="2">
+													(GI) Dr. Giuliano												</option> <option data-alias="jho" data-name="Jhonata" value="11">
+													(jho) Jhonata												</option> <option data-alias="BER" data-name="Bernardo" value="12">
+													(BER) Bernardo												</option></select><span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="17" style="width: 13.6px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-chlc-container"><span class="select2-selection__rendered" id="select2-chlc-container" role="textbox" aria-readonly="true" title="" data-hasqtip="true"></span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span> <span></span></span></div></div> <div class="control d-flex flex-row flex-align-items-center flex-align-content-center printer-hide icon-data_847370" style="display: none;"><button title="Upload" class="prd-btn prd-btn-icon upload-image upload fa fa-upload dz-clickable"></button> <a data-prd-tooltip="" aria-label="Laudo" href="https://oralx.smartris.com.br/ris/report/produce/xE34INhiFtbNXDXHn-_pp_pp_-5gTn8N2MUYDWkddySDTk-_ll_ll_-6IdRTyuXNS0YpMyqW71Q-_ll_ll_-1qgGLKhCBGI-_ll_ll_-AHrkJV3Sggwl-_ll_ll_-Q_-TA_TA-_" target="_blank" class="prd-btn prd-btn-icon report"><i class="fa fa-file-text-o"></i></a> <a data-prd-tooltip="" aria-label="Visualizador" class="prd-btn prd-btn-icon viewer disabled"><i class="fa fa-eye-slash"></i></a> <a data-prd-tooltip="" aria-label="Informações do pedido" data-study="847370" class="prd-btn prd-btn-icon attendance-info"><i class="fa fa-search"></i></a> <span class="flex"></span> <a data-files="0" class="prd-btn prd-btn-icon attach dz-clickable" oldtitle="Nenhum arquivo" title="" data-hasqtip="true"><i class="fa fa-paperclip"></i></a></div></div></div> <div class="data icon-data_847370" style="display: none;"><div class="series-content-area-control d-flex flex-row flex-align-items-center flex-align-content-center active"><div>Séries (0)</div> <span class="flex"></span> <button><i class="fa fa-chevron-down"></i></button></div> <div data-series-count="0" class="series series-content-area active"></div> <div class="images-content-area-control d-flex flex-row flex-align-items-center flex-align-content-center active"><div>Imagens (0)</div> <span class="flex"></span> <button><i class="fa fa-chevron-down"></i></button></div> <div data-images-count="0" class="images images-content-area active"></div> <div class="report-data printer-hide"><ul></ul></div></div></li> <li id="study-847371-others" data-hash="xmJoFdlPTxncJglr5hI9gKXkG7icdD4HxTj6DfwJ6-_pp_pp_-LhBkcFkFZQJgbWKseBujpgzLUOo41uAnWgsLdTQX-_ll_ll_-aaw_-TA_TA-_" data-component="1.2.640.0.31017449.3.2.101.9.359260.528697" class="data-li-close doc-procedure shadow-dp1 shadow-hover prd-card"><input type="hidden" name="study_id" value="xmJoFdlPTxncJglr5hI9gKXkG7icdD4HxTj6DfwJ6-_pp_pp_-LhBkcFkFZQJgbWKseBujpgzLUOo41uAnWgsLdTQX-_ll_ll_-aaw_-TA_TA-_" data-type="report" data-desc="FOTOGRAFIA" data-id="xmJoFdlPTxncJglr5hI9gKXkG7icdD4HxTj6DfwJ6-_pp_pp_-LhBkcFkFZQJgbWKseBujpgzLUOo41uAnWgsLdTQX-_ll_ll_-aaw_-TA_TA-_"> <div id="div_open_study_847371" onclick="open_procedure({&quot;study_pk&quot;:&quot;847371&quot;,&quot;sent_to_central&quot;:&quot;1&quot;,&quot;attendance_id&quot;:&quot;185629&quot;,&quot;component_to_link&quot;:&quot;1.2.640.0.31017449.3.2.101.9.359260.528697&quot;,&quot;workflow_id&quot;:&quot;10&quot;,&quot;workflow_name&quot;:&quot;Finalizado&quot;,&quot;workflow_alias&quot;:&quot;FINAL&quot;,&quot;workflow_color&quot;:&quot;#39f014&quot;,&quot;realized_date&quot;:&quot;2025-06-17&quot;,&quot;start_date&quot;:&quot;2025-06-20&quot;,&quot;schedule_id&quot;:&quot;359260&quot;,&quot;eid&quot;:&quot;485327&quot;,&quot;type&quot;:&quot;default&quot;,&quot;study_desc&quot;:&quot;FOTOGRAFIA&quot;,&quot;validated_by&quot;:null,&quot;hashed_study_pk&quot;:&quot;xmJoFdlPTxncJglr5hI9gKXkG7icdD4HxTj6DfwJ6-_pp_pp_-LhBkcFkFZQJgbWKseBujpgzLUOo41uAnWgsLdTQX-_ll_ll_-aaw_-TA_TA-_&quot;,&quot;controller&quot;:&quot;report&quot;,&quot;attachments&quot;:[],&quot;viewer&quot;:&quot;https:\/\/oralx.smartris.com.br\/ris\/viewer\/proradis\/?studyUID=1.2.640.0.31017449.3.2.101.9.359260.528697&quot;}, [{&quot;id&quot;:&quot;9&quot;,&quot;seq&quot;:&quot;1&quot;,&quot;name&quot;:&quot;Em Processo&quot;,&quot;alias&quot;:&quot;PRO&quot;,&quot;obs&quot;:null,&quot;color&quot;:&quot;#e81717&quot;,&quot;enabled&quot;:&quot;1&quot;,&quot;created_time&quot;:&quot;2024-11-14 07:43:36&quot;,&quot;report_status&quot;:&quot;0&quot;,&quot;text_color&quot;:&quot;#FFFFFF&quot;},{&quot;id&quot;:&quot;10&quot;,&quot;seq&quot;:&quot;2&quot;,&quot;name&quot;:&quot;Finalizado&quot;,&quot;alias&quot;:&quot;FINAL&quot;,&quot;obs&quot;:null,&quot;color&quot;:&quot;#39f014&quot;,&quot;enabled&quot;:&quot;1&quot;,&quot;created_time&quot;:&quot;2024-11-14 07:44:34&quot;,&quot;report_status&quot;:&quot;0&quot;,&quot;text_color&quot;:&quot;#FFFFFF&quot;},{&quot;id&quot;:&quot;4&quot;,&quot;seq&quot;:&quot;3&quot;,&quot;name&quot;:&quot;Dra. Aline&quot;,&quot;alias&quot;:&quot;AL&quot;,&quot;obs&quot;:null,&quot;color&quot;:&quot;#ff9e00&quot;,&quot;enabled&quot;:&quot;1&quot;,&quot;created_time&quot;:&quot;2019-04-03 10:05:38&quot;,&quot;report_status&quot;:&quot;0&quot;,&quot;text_color&quot;:&quot;#000000&quot;},{&quot;id&quot;:&quot;8&quot;,&quot;seq&quot;:&quot;4&quot;,&quot;name&quot;:&quot;Dra. Bruna&quot;,&quot;alias&quot;:&quot;BR&quot;,&quot;obs&quot;:null,&quot;color&quot;:&quot;#3842cc&quot;,&quot;enabled&quot;:&quot;1&quot;,&quot;created_time&quot;:&quot;2024-06-12 12:59:45&quot;,&quot;report_status&quot;:&quot;0&quot;,&quot;text_color&quot;:&quot;#FFFFFF&quot;},{&quot;id&quot;:&quot;7&quot;,&quot;seq&quot;:&quot;5&quot;,&quot;name&quot;:&quot;Dr. Darwin&quot;,&quot;alias&quot;:&quot;DA&quot;,&quot;obs&quot;:null,&quot;color&quot;:&quot;#17141a&quot;,&quot;enabled&quot;:&quot;1&quot;,&quot;created_time&quot;:&quot;2024-06-01 07:53:53&quot;,&quot;report_status&quot;:&quot;0&quot;,&quot;text_color&quot;:&quot;#FFFFFF&quot;},{&quot;id&quot;:&quot;3&quot;,&quot;seq&quot;:&quot;6&quot;,&quot;name&quot;:&quot;Dra. Fabrina&quot;,&quot;alias&quot;:&quot;FA&quot;,&quot;obs&quot;:null,&quot;color&quot;:&quot;#89ffc3&quot;,&quot;enabled&quot;:&quot;1&quot;,&quot;created_time&quot;:&quot;2019-04-03 10:05:38&quot;,&quot;report_status&quot;:&quot;0&quot;,&quot;text_color&quot;:&quot;#000000&quot;},{&quot;id&quot;:&quot;2&quot;,&quot;seq&quot;:&quot;7&quot;,&quot;name&quot;:&quot;Dr. Giuliano&quot;,&quot;alias&quot;:&quot;GI&quot;,&quot;obs&quot;:null,&quot;color&quot;:&quot;#ffeb90&quot;,&quot;enabled&quot;:&quot;1&quot;,&quot;created_time&quot;:&quot;2019-04-03 10:05:38&quot;,&quot;report_status&quot;:&quot;0&quot;,&quot;text_color&quot;:&quot;#000000&quot;},{&quot;id&quot;:&quot;11&quot;,&quot;seq&quot;:&quot;8&quot;,&quot;name&quot;:&quot;Jhonata&quot;,&quot;alias&quot;:&quot;jho&quot;,&quot;obs&quot;:null,&quot;color&quot;:&quot;#b030df&quot;,&quot;enabled&quot;:&quot;1&quot;,&quot;created_time&quot;:&quot;2025-04-22 06:57:27&quot;,&quot;report_status&quot;:&quot;0&quot;,&quot;text_color&quot;:&quot;#000000&quot;},{&quot;id&quot;:&quot;12&quot;,&quot;seq&quot;:&quot;9&quot;,&quot;name&quot;:&quot;Bernardo&quot;,&quot;alias&quot;:&quot;BER&quot;,&quot;obs&quot;:null,&quot;color&quot;:&quot;#5f5858&quot;,&quot;enabled&quot;:&quot;1&quot;,&quot;created_time&quot;:&quot;2025-05-20 07:47:59&quot;,&quot;report_status&quot;:&quot;0&quot;,&quot;text_color&quot;:&quot;#FFFFFF&quot;}])" class="info open-info study-class-847371"><div class="info-others other-study-847371"><div class="d-flex flex-row flex-align-items-center flex-align-content-center"><div class="desc" style="white-space: normal;">FOTOGRAFIA</div> <span class="flex"></span> <div class="info-data_847371"><span style="font-size: 12px;"> 17/06/2025 </span> <br> <span style="font-size: 12px;"> 359260 </span></div> <div class="workflow-status printer-hide icon-data_847371" style="display: none;"><span data-prd-tooltip="" aria-label="Fluxo" class="workflow-chip prd-chip wf_10"> 
+										FINAL									</span> <span class="workflow-select-container" style="display: none;"><select class="workflow-select select2-teste-victor select2-hidden-accessible" data-select2-id="19" tabindex="-1" aria-hidden="true"><option data-select2-id="21"></option> <option data-alias="PRO" data-name="Em Processo" value="9">
+													(PRO) Em Processo												</option> <option data-alias="FINAL" data-name="Finalizado" value="10">
+													(FINAL) Finalizado												</option> <option data-alias="AL" data-name="Dra. Aline" value="4">
+													(AL) Dra. Aline												</option> <option data-alias="BR" data-name="Dra. Bruna" value="8">
+													(BR) Dra. Bruna												</option> <option data-alias="DA" data-name="Dr. Darwin" value="7">
+													(DA) Dr. Darwin												</option> <option data-alias="FA" data-name="Dra. Fabrina" value="3">
+													(FA) Dra. Fabrina												</option> <option data-alias="GI" data-name="Dr. Giuliano" value="2">
+													(GI) Dr. Giuliano												</option> <option data-alias="jho" data-name="Jhonata" value="11">
+													(jho) Jhonata												</option> <option data-alias="BER" data-name="Bernardo" value="12">
+													(BER) Bernardo												</option></select><span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="20" style="width: 13.6px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-2t0l-container"><span class="select2-selection__rendered" id="select2-2t0l-container" role="textbox" aria-readonly="true" title="" data-hasqtip="true"></span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span> <span></span></span></div> <div class="icon-data_847371" style="display: none;"><span class="prd-chip sent-to-central color-1" oldtitle="Enviado para central de exames" title="" data-hasqtip="true"><span class="fa-stack fa-lg"><i class="fa fa-cloud fa-stack-2x"></i> <i class="fa fa-check fa-inverse fa-stack-1x"></i></span></span></div></div> <div class="control d-flex flex-row flex-align-items-center flex-align-content-center printer-hide icon-data_847371" style="display: none;"><button title="Upload" class="prd-btn prd-btn-icon upload-image upload fa fa-upload dz-clickable"></button> <a data-prd-tooltip="" aria-label="Laudo" href="https://oralx.smartris.com.br/ris/report/produce/xmJoFdlPTxncJglr5hI9gKXkG7icdD4HxTj6DfwJ6-_pp_pp_-LhBkcFkFZQJgbWKseBujpgzLUOo41uAnWgsLdTQX-_ll_ll_-aaw_-TA_TA-_" target="_blank" class="prd-btn prd-btn-icon report"><i class="fa fa-file-text-o"></i></a> <a data-prd-tooltip="" aria-label="Visualizador" href="https://oralx.smartris.com.br/ris/viewer/proradis/?studyUID=1.2.640.0.31017449.3.2.101.9.359260.528697" target="viewer" class="prd-btn prd-btn-icon viewer"><i class="fa fa-eye"></i></a> <a data-prd-tooltip="" aria-label="Informações do pedido" data-study="847371" class="prd-btn prd-btn-icon attendance-info"><i class="fa fa-search"></i></a> <span class="flex"></span> <a data-files="0" class="prd-btn prd-btn-icon attach dz-clickable" oldtitle="Nenhum arquivo" title="" data-hasqtip="true"><i class="fa fa-paperclip"></i></a></div></div></div> <div class="data icon-data_847371" style="display: none;"><div class="series-content-area-control d-flex flex-row flex-align-items-center flex-align-content-center active"><div>Séries (6)</div> <span class="flex"></span> <button><i class="fa fa-chevron-down"></i></button></div> <div data-series-count="0" class="series series-content-area active"><div class="img-wrapper content series-item" draggable="true" data-iuid="2.25.251708151862127693550689521988350971976">                 <div>                     <div class="series-desc">                         <strong>*</strong>                         <span>1 imagens</span>                     </div> 					<span class="img" style="background-image:url(https://oralx.smartris.com.br/ris/storage/get_image/1.2.640.0.31017449.3.2.101.9.359260.528697/2.25.251708151862127693550689521988350971976/2.25.89258963045359176147056899751052322896/128)"> 						<span class="tip-icn icn-edit fa fa-edit"></span> 					</span>                 </div>             </div><div class="img-wrapper content series-item" draggable="true" data-iuid="2.25.175895437448649073456934670169053639900">                 <div>                     <div class="series-desc">                         <strong>*</strong>                         <span>1 imagens</span>                     </div> 					<span class="img" style="background-image:url(https://oralx.smartris.com.br/ris/storage/get_image/1.2.640.0.31017449.3.2.101.9.359260.528697/2.25.175895437448649073456934670169053639900/2.25.40932125458508299436905115819400533810/128)"> 						<span class="tip-icn icn-edit fa fa-edit"></span> 					</span>                 </div>             </div><div class="img-wrapper content series-item" draggable="true" data-iuid="2.25.303074690812168798081164666647375344649">                 <div>                     <div class="series-desc">                         <strong>*</strong>                         <span>1 imagens</span>                     </div> 					<span class="img" style="background-image:url(https://oralx.smartris.com.br/ris/storage/get_image/1.2.640.0.31017449.3.2.101.9.359260.528697/2.25.303074690812168798081164666647375344649/2.25.132364803437721173110449728135108057679/128)"> 						<span class="tip-icn icn-edit fa fa-edit"></span> 					</span>                 </div>             </div><div class="img-wrapper content series-item" draggable="true" data-iuid="2.25.62262007244933662876558958649456537572">                 <div>                     <div class="series-desc">                         <strong>*</strong>                         <span>1 imagens</span>                     </div> 					<span class="img" style="background-image:url(https://oralx.smartris.com.br/ris/storage/get_image/1.2.640.0.31017449.3.2.101.9.359260.528697/2.25.62262007244933662876558958649456537572/2.25.7075583416254326755671288594765963763/128)"> 						<span class="tip-icn icn-edit fa fa-edit"></span> 					</span>                 </div>             </div><div class="img-wrapper content series-item" draggable="true" data-iuid="2.25.278780421774823966068045908972821457491">                 <div>                     <div class="series-desc">                         <strong>*</strong>                         <span>1 imagens</span>                     </div> 					<span class="img" style="background-image:url(https://oralx.smartris.com.br/ris/storage/get_image/1.2.640.0.31017449.3.2.101.9.359260.528697/2.25.278780421774823966068045908972821457491/2.25.180455687236188884240599084193814587852/128)"> 						<span class="tip-icn icn-edit fa fa-edit"></span> 					</span>                 </div>             </div><div class="img-wrapper content series-item" draggable="true" data-iuid="2.25.162346355869527141931512629769340991208">                 <div>                     <div class="series-desc">                         <strong>*</strong>                         <span>1 imagens</span>                     </div> 					<span class="img" style="background-image:url(https://oralx.smartris.com.br/ris/storage/get_image/1.2.640.0.31017449.3.2.101.9.359260.528697/2.25.162346355869527141931512629769340991208/2.25.332711717036711075400718846114337344430/128)"> 						<span class="tip-icn icn-edit fa fa-edit"></span> 					</span>                 </div>             </div></div> <div class="images-content-area-control d-flex flex-row flex-align-items-center flex-align-content-center active"><div>Imagens (6)</div> <span class="flex"></span> <button><i class="fa fa-chevron-down"></i></button></div> <div data-images-count="0" class="images images-content-area active"><div class="img-wrapper content" style=" background-image:url(https://oralx.smartris.com.br/ris/storage/get_image/1.2.640.0.31017449.3.2.101.9.359260.528697/2.25.251708151862127693550689521988350971976/2.25.89258963045359176147056899751052322896/256)" draggable="true" data-id="2.25.89258963045359176147056899751052322896"><a class="fa fa-remove remove-image text-danger" oldtitle="Remover" title="" data-hasqtip="true"></a><a class="fa fa-edit edit-image text-default" oldtitle="Editar" title="" data-hasqtip="true"></a><a class="fa fa-globe online-image active" oldtitle="Disponível Online" title="" data-hasqtip="true"></a><a class="fa fa-download download-image" href="storage/download_image/1.2.640.0.31017449.3.2.101.9.359260.528697/2.25.251708151862127693550689521988350971976/2.25.89258963045359176147056899751052322896" target="_blank" title="Download"></a><a class="fa fa-print print-image" data-url="storage/get_image/1.2.640.0.31017449.3.2.101.9.359260.528697/2.25.251708151862127693550689521988350971976/2.25.89258963045359176147056899751052322896" title="Fila de Impressao"></a></div><div class="img-wrapper content" style=" background-image:url(https://oralx.smartris.com.br/ris/storage/get_image/1.2.640.0.31017449.3.2.101.9.359260.528697/2.25.175895437448649073456934670169053639900/2.25.40932125458508299436905115819400533810/256)" draggable="true" data-id="2.25.40932125458508299436905115819400533810"><a class="fa fa-remove remove-image text-danger" oldtitle="Remover" title="" data-hasqtip="true"></a><a class="fa fa-edit edit-image text-default" oldtitle="Editar" title="" data-hasqtip="true"></a><a class="fa fa-globe online-image active" oldtitle="Disponível Online" title="" data-hasqtip="true"></a><a class="fa fa-download download-image" href="storage/download_image/1.2.640.0.31017449.3.2.101.9.359260.528697/2.25.175895437448649073456934670169053639900/2.25.40932125458508299436905115819400533810" target="_blank" title="Download"></a><a class="fa fa-print print-image" data-url="storage/get_image/1.2.640.0.31017449.3.2.101.9.359260.528697/2.25.175895437448649073456934670169053639900/2.25.40932125458508299436905115819400533810" title="Fila de Impressao"></a></div><div class="img-wrapper content" style=" background-image:url(https://oralx.smartris.com.br/ris/storage/get_image/1.2.640.0.31017449.3.2.101.9.359260.528697/2.25.303074690812168798081164666647375344649/2.25.132364803437721173110449728135108057679/256)" draggable="true" data-id="2.25.132364803437721173110449728135108057679"><a class="fa fa-remove remove-image text-danger" oldtitle="Remover" title="" data-hasqtip="true"></a><a class="fa fa-edit edit-image text-default" oldtitle="Editar" title="" data-hasqtip="true"></a><a class="fa fa-globe online-image active" oldtitle="Disponível Online" title="" data-hasqtip="true"></a><a class="fa fa-download download-image" href="storage/download_image/1.2.640.0.31017449.3.2.101.9.359260.528697/2.25.303074690812168798081164666647375344649/2.25.132364803437721173110449728135108057679" target="_blank" title="Download"></a><a class="fa fa-print print-image" data-url="storage/get_image/1.2.640.0.31017449.3.2.101.9.359260.528697/2.25.303074690812168798081164666647375344649/2.25.132364803437721173110449728135108057679" title="Fila de Impressao"></a></div><div class="img-wrapper content" style=" background-image:url(https://oralx.smartris.com.br/ris/storage/get_image/1.2.640.0.31017449.3.2.101.9.359260.528697/2.25.62262007244933662876558958649456537572/2.25.7075583416254326755671288594765963763/256)" draggable="true" data-id="2.25.7075583416254326755671288594765963763"><a class="fa fa-remove remove-image text-danger" oldtitle="Remover" title="" data-hasqtip="true"></a><a class="fa fa-edit edit-image text-default" oldtitle="Editar" title="" data-hasqtip="true"></a><a class="fa fa-globe online-image active" oldtitle="Disponível Online" title="" data-hasqtip="true"></a><a class="fa fa-download download-image" href="storage/download_image/1.2.640.0.31017449.3.2.101.9.359260.528697/2.25.62262007244933662876558958649456537572/2.25.7075583416254326755671288594765963763" target="_blank" title="Download"></a><a class="fa fa-print print-image" data-url="storage/get_image/1.2.640.0.31017449.3.2.101.9.359260.528697/2.25.62262007244933662876558958649456537572/2.25.7075583416254326755671288594765963763" title="Fila de Impressao"></a></div><div class="img-wrapper content" style=" background-image:url(https://oralx.smartris.com.br/ris/storage/get_image/1.2.640.0.31017449.3.2.101.9.359260.528697/2.25.278780421774823966068045908972821457491/2.25.180455687236188884240599084193814587852/256)" draggable="true" data-id="2.25.180455687236188884240599084193814587852"><a class="fa fa-remove remove-image text-danger" oldtitle="Remover" title="" data-hasqtip="true"></a><a class="fa fa-edit edit-image text-default" oldtitle="Editar" title="" data-hasqtip="true"></a><a class="fa fa-globe online-image active" oldtitle="Disponível Online" title="" data-hasqtip="true"></a><a class="fa fa-download download-image" href="storage/download_image/1.2.640.0.31017449.3.2.101.9.359260.528697/2.25.278780421774823966068045908972821457491/2.25.180455687236188884240599084193814587852" target="_blank" title="Download"></a><a class="fa fa-print print-image" data-url="storage/get_image/1.2.640.0.31017449.3.2.101.9.359260.528697/2.25.278780421774823966068045908972821457491/2.25.180455687236188884240599084193814587852" title="Fila de Impressao"></a></div><div class="img-wrapper content" style=" background-image:url(https://oralx.smartris.com.br/ris/storage/get_image/1.2.640.0.31017449.3.2.101.9.359260.528697/2.25.162346355869527141931512629769340991208/2.25.332711717036711075400718846114337344430/256)" draggable="true" data-id="2.25.332711717036711075400718846114337344430"><a class="fa fa-remove remove-image text-danger" oldtitle="Remover" title="" data-hasqtip="true"></a><a class="fa fa-edit edit-image text-default" oldtitle="Editar" title="" data-hasqtip="true"></a><a class="fa fa-globe online-image active" oldtitle="Disponível Online" title="" data-hasqtip="true"></a><a class="fa fa-download download-image" href="storage/download_image/1.2.640.0.31017449.3.2.101.9.359260.528697/2.25.162346355869527141931512629769340991208/2.25.332711717036711075400718846114337344430" target="_blank" title="Download"></a><a class="fa fa-print print-image" data-url="storage/get_image/1.2.640.0.31017449.3.2.101.9.359260.528697/2.25.162346355869527141931512629769340991208/2.25.332711717036711075400718846114337344430" title="Fila de Impressao"></a></div></div> <div class="report-data printer-hide"><ul></ul></div></div></li> <li id="study-847372-others" data-hash="zcZq4jw7q4jHlT8SRn4QO8iV-_pp_pp_-6omfO2fS4C8qfa5DxuD0lBMFsCo-_ll_ll_-AGDjW2thkHZfEf4vZ-_ll_ll_-EjkLebqB9NpOf4Q_-TA_TA-_" data-component="1.2.640.0.31017449.3.2.101.9.359260.528698" class="data-li-close doc-procedure shadow-dp1 shadow-hover prd-card"><input type="hidden" name="study_id" value="zcZq4jw7q4jHlT8SRn4QO8iV-_pp_pp_-6omfO2fS4C8qfa5DxuD0lBMFsCo-_ll_ll_-AGDjW2thkHZfEf4vZ-_ll_ll_-EjkLebqB9NpOf4Q_-TA_TA-_" data-type="report_ceph" data-desc="MODELO DE ESTUDO" data-id="zcZq4jw7q4jHlT8SRn4QO8iV-_pp_pp_-6omfO2fS4C8qfa5DxuD0lBMFsCo-_ll_ll_-AGDjW2thkHZfEf4vZ-_ll_ll_-EjkLebqB9NpOf4Q_-TA_TA-_"> <div id="div_open_study_847372" onclick="open_procedure({&quot;study_pk&quot;:&quot;847372&quot;,&quot;sent_to_central&quot;:&quot;0&quot;,&quot;attendance_id&quot;:&quot;185629&quot;,&quot;component_to_link&quot;:&quot;1.2.640.0.31017449.3.2.101.9.359260.528698&quot;,&quot;workflow_id&quot;:&quot;12&quot;,&quot;workflow_name&quot;:&quot;Bernardo&quot;,&quot;workflow_alias&quot;:&quot;BER&quot;,&quot;workflow_color&quot;:&quot;#5f5858&quot;,&quot;realized_date&quot;:&quot;2025-06-17&quot;,&quot;start_date&quot;:&quot;2025-06-20&quot;,&quot;schedule_id&quot;:&quot;359260&quot;,&quot;eid&quot;:&quot;485328&quot;,&quot;type&quot;:&quot;ceph&quot;,&quot;study_desc&quot;:&quot;MODELO DE ESTUDO&quot;,&quot;validated_by&quot;:null,&quot;hashed_study_pk&quot;:&quot;zcZq4jw7q4jHlT8SRn4QO8iV-_pp_pp_-6omfO2fS4C8qfa5DxuD0lBMFsCo-_ll_ll_-AGDjW2thkHZfEf4vZ-_ll_ll_-EjkLebqB9NpOf4Q_-TA_TA-_&quot;,&quot;controller&quot;:&quot;report_ceph&quot;,&quot;attachments&quot;:[{&quot;id&quot;:&quot;769N3x26p5zjpffBbMeJubGhpdcPdTqWucUEgLe5JEEPtn9ENZf6e-_ll_ll_-j42U75EG3tpfCqGU5BIQy7rq0rqktdsA_-TA_TA-_&quot;,&quot;name&quot;:&quot;AS-PEDRO CRISTIANO PEREIRA DA SILVA FERREIRA.stl&quot;,&quot;directory&quot;:&quot;00\/00\/48\/53\/28\/&quot;,&quot;url&quot;:null,&quot;eid&quot;:&quot;485328&quot;,&quot;enabled&quot;:&quot;1&quot;,&quot;created_time&quot;:&quot;2025-06-17 15:36:41&quot;}],&quot;viewer&quot;:&quot;https:\/\/oralx.smartris.com.br\/ris\/viewer\/proradis\/?studyUID=1.2.640.0.31017449.3.2.101.9.359260.528698&quot;}, [{&quot;id&quot;:&quot;9&quot;,&quot;seq&quot;:&quot;1&quot;,&quot;name&quot;:&quot;Em Processo&quot;,&quot;alias&quot;:&quot;PRO&quot;,&quot;obs&quot;:null,&quot;color&quot;:&quot;#e81717&quot;,&quot;enabled&quot;:&quot;1&quot;,&quot;created_time&quot;:&quot;2024-11-14 07:43:36&quot;,&quot;report_status&quot;:&quot;0&quot;,&quot;text_color&quot;:&quot;#FFFFFF&quot;},{&quot;id&quot;:&quot;10&quot;,&quot;seq&quot;:&quot;2&quot;,&quot;name&quot;:&quot;Finalizado&quot;,&quot;alias&quot;:&quot;FINAL&quot;,&quot;obs&quot;:null,&quot;color&quot;:&quot;#39f014&quot;,&quot;enabled&quot;:&quot;1&quot;,&quot;created_time&quot;:&quot;2024-11-14 07:44:34&quot;,&quot;report_status&quot;:&quot;0&quot;,&quot;text_color&quot;:&quot;#FFFFFF&quot;},{&quot;id&quot;:&quot;4&quot;,&quot;seq&quot;:&quot;3&quot;,&quot;name&quot;:&quot;Dra. Aline&quot;,&quot;alias&quot;:&quot;AL&quot;,&quot;obs&quot;:null,&quot;color&quot;:&quot;#ff9e00&quot;,&quot;enabled&quot;:&quot;1&quot;,&quot;created_time&quot;:&quot;2019-04-03 10:05:38&quot;,&quot;report_status&quot;:&quot;0&quot;,&quot;text_color&quot;:&quot;#000000&quot;},{&quot;id&quot;:&quot;8&quot;,&quot;seq&quot;:&quot;4&quot;,&quot;name&quot;:&quot;Dra. Bruna&quot;,&quot;alias&quot;:&quot;BR&quot;,&quot;obs&quot;:null,&quot;color&quot;:&quot;#3842cc&quot;,&quot;enabled&quot;:&quot;1&quot;,&quot;created_time&quot;:&quot;2024-06-12 12:59:45&quot;,&quot;report_status&quot;:&quot;0&quot;,&quot;text_color&quot;:&quot;#FFFFFF&quot;},{&quot;id&quot;:&quot;7&quot;,&quot;seq&quot;:&quot;5&quot;,&quot;name&quot;:&quot;Dr. Darwin&quot;,&quot;alias&quot;:&quot;DA&quot;,&quot;obs&quot;:null,&quot;color&quot;:&quot;#17141a&quot;,&quot;enabled&quot;:&quot;1&quot;,&quot;created_time&quot;:&quot;2024-06-01 07:53:53&quot;,&quot;report_status&quot;:&quot;0&quot;,&quot;text_color&quot;:&quot;#FFFFFF&quot;},{&quot;id&quot;:&quot;3&quot;,&quot;seq&quot;:&quot;6&quot;,&quot;name&quot;:&quot;Dra. Fabrina&quot;,&quot;alias&quot;:&quot;FA&quot;,&quot;obs&quot;:null,&quot;color&quot;:&quot;#89ffc3&quot;,&quot;enabled&quot;:&quot;1&quot;,&quot;created_time&quot;:&quot;2019-04-03 10:05:38&quot;,&quot;report_status&quot;:&quot;0&quot;,&quot;text_color&quot;:&quot;#000000&quot;},{&quot;id&quot;:&quot;2&quot;,&quot;seq&quot;:&quot;7&quot;,&quot;name&quot;:&quot;Dr. Giuliano&quot;,&quot;alias&quot;:&quot;GI&quot;,&quot;obs&quot;:null,&quot;color&quot;:&quot;#ffeb90&quot;,&quot;enabled&quot;:&quot;1&quot;,&quot;created_time&quot;:&quot;2019-04-03 10:05:38&quot;,&quot;report_status&quot;:&quot;0&quot;,&quot;text_color&quot;:&quot;#000000&quot;},{&quot;id&quot;:&quot;11&quot;,&quot;seq&quot;:&quot;8&quot;,&quot;name&quot;:&quot;Jhonata&quot;,&quot;alias&quot;:&quot;jho&quot;,&quot;obs&quot;:null,&quot;color&quot;:&quot;#b030df&quot;,&quot;enabled&quot;:&quot;1&quot;,&quot;created_time&quot;:&quot;2025-04-22 06:57:27&quot;,&quot;report_status&quot;:&quot;0&quot;,&quot;text_color&quot;:&quot;#000000&quot;},{&quot;id&quot;:&quot;12&quot;,&quot;seq&quot;:&quot;9&quot;,&quot;name&quot;:&quot;Bernardo&quot;,&quot;alias&quot;:&quot;BER&quot;,&quot;obs&quot;:null,&quot;color&quot;:&quot;#5f5858&quot;,&quot;enabled&quot;:&quot;1&quot;,&quot;created_time&quot;:&quot;2025-05-20 07:47:59&quot;,&quot;report_status&quot;:&quot;0&quot;,&quot;text_color&quot;:&quot;#FFFFFF&quot;}])" class="info open-info study-class-847372"><div class="info-others other-study-847372"><div class="d-flex flex-row flex-align-items-center flex-align-content-center"><div class="desc" style="white-space: normal;">MODELO DE ESTUDO</div> <span class="flex"></span> <div class="info-data_847372"><span style="font-size: 12px;"> 17/06/2025 </span> <br> <span style="font-size: 12px;"> 359260 </span></div> <div class="workflow-status printer-hide icon-data_847372" style="display: none;"><span data-prd-tooltip="" aria-label="Fluxo" class="workflow-chip prd-chip wf_12"> 
+										BER									</span> <span class="workflow-select-container" style="display: none;"><select class="workflow-select select2-teste-victor select2-hidden-accessible" data-select2-id="22" tabindex="-1" aria-hidden="true"><option data-select2-id="24"></option> <option data-alias="PRO" data-name="Em Processo" value="9">
+													(PRO) Em Processo												</option> <option data-alias="FINAL" data-name="Finalizado" value="10">
+													(FINAL) Finalizado												</option> <option data-alias="AL" data-name="Dra. Aline" value="4">
+													(AL) Dra. Aline												</option> <option data-alias="BR" data-name="Dra. Bruna" value="8">
+													(BR) Dra. Bruna												</option> <option data-alias="DA" data-name="Dr. Darwin" value="7">
+													(DA) Dr. Darwin												</option> <option data-alias="FA" data-name="Dra. Fabrina" value="3">
+													(FA) Dra. Fabrina												</option> <option data-alias="GI" data-name="Dr. Giuliano" value="2">
+													(GI) Dr. Giuliano												</option> <option data-alias="jho" data-name="Jhonata" value="11">
+													(jho) Jhonata												</option> <option data-alias="BER" data-name="Bernardo" value="12">
+													(BER) Bernardo												</option></select><span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="23" style="width: 13.6px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-6gpf-container"><span class="select2-selection__rendered" id="select2-6gpf-container" role="textbox" aria-readonly="true" title="" data-hasqtip="true"></span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span> <span></span></span></div></div> <div class="control d-flex flex-row flex-align-items-center flex-align-content-center printer-hide icon-data_847372" style="display: none;"><button title="Upload" class="prd-btn prd-btn-icon upload-image upload fa fa-upload dz-clickable"></button> <a data-prd-tooltip="" aria-label="Laudo" href="https://oralx.smartris.com.br/ris/report_ceph/produce/zcZq4jw7q4jHlT8SRn4QO8iV-_pp_pp_-6omfO2fS4C8qfa5DxuD0lBMFsCo-_ll_ll_-AGDjW2thkHZfEf4vZ-_ll_ll_-EjkLebqB9NpOf4Q_-TA_TA-_" target="_blank" class="prd-btn prd-btn-icon report"><i class="fa fa-file-text-o"></i></a> <a data-prd-tooltip="" aria-label="Visualizador" href="https://oralx.smartris.com.br/ris/viewer/proradis/?studyUID=1.2.640.0.31017449.3.2.101.9.359260.528698" target="viewer" class="prd-btn prd-btn-icon viewer"><i class="fa fa-eye"></i></a> <a data-prd-tooltip="" aria-label="Informações do pedido" data-study="847372" class="prd-btn prd-btn-icon attendance-info"><i class="fa fa-search"></i></a> <span class="flex"></span> <a data-files="1" class="prd-btn prd-btn-icon attach dz-clickable" oldtitle=" &lt;span class='att-line'&gt; &lt;a class='fa fa-file-o dl-attach' data-id='769N3x26p5zjpffBbMeJubGhpdcPdTqWucUEgLe5JEEPtn9ENZf6e-_ll_ll_-j42U75EG3tpfCqGU5BIQy7rq0rqktdsA_-TA_TA-_'&gt; AS-PEDRO CRISTIANO PEREIRA DA SILVA FERREIRA.stl&lt;/a&gt;  &amp;nbsp;    &lt;i class='fa fa-close remove-attachment' onclick='doc.remove_attachment(this)' data-attach_id='769N3x26p5zjpffBbMeJubGhpdcPdTqWucUEgLe5JEEPtn9ENZf6e-_ll_ll_-j42U75EG3tpfCqGU5BIQy7rq0rqktdsA_-TA_TA-_'&gt;&lt;/i&gt;  &lt;br&gt; &lt;/span&gt; " title="" data-hasqtip="true"><i class="fa fa-paperclip"></i></a></div></div></div> <div class="data icon-data_847372" style="display: none;"><div class="series-content-area-control d-flex flex-row flex-align-items-center flex-align-content-center active"><div>Séries (0)</div> <span class="flex"></span> <button><i class="fa fa-chevron-down"></i></button></div> <div data-series-count="0" class="series series-content-area active"></div> <div class="images-content-area-control d-flex flex-row flex-align-items-center flex-align-content-center active"><div>Imagens (7)</div> <span class="flex"></span> <button><i class="fa fa-chevron-down"></i></button></div> <div data-images-count="0" class="images images-content-area active"><div class="img-wrapper content" style=" background-image:url(https://oralx.smartris.com.br/ris/storage/get_image/1.2.640.0.31017449.3.2.101.9.359260.528698/2.25.290603726918248128260694798027280325310/2.25.292183680432288258057895098705605228734/256)" draggable="true" data-id="2.25.292183680432288258057895098705605228734"><a class="fa fa-remove remove-image text-danger" oldtitle="Remover" title="" data-hasqtip="true"></a><a class="fa fa-edit edit-image text-default" oldtitle="Editar" title="" data-hasqtip="true"></a><a class="fa fa-globe online-image active" oldtitle="Disponível Online" title="" data-hasqtip="true"></a><a class="fa fa-download download-image" href="storage/download_image/1.2.640.0.31017449.3.2.101.9.359260.528698/2.25.290603726918248128260694798027280325310/2.25.292183680432288258057895098705605228734" target="_blank" title="Download"></a><a class="fa fa-print print-image" data-url="storage/get_image/1.2.640.0.31017449.3.2.101.9.359260.528698/2.25.290603726918248128260694798027280325310/2.25.292183680432288258057895098705605228734" title="Fila de Impressao"></a></div><div class="img-wrapper content" style=" background-image:url(https://oralx.smartris.com.br/ris/storage/get_image/1.2.640.0.31017449.3.2.101.9.359260.528698/2.25.268431979356854110088406482854779598563/2.25.196199840434067584742006182573522188237/256)" draggable="true" data-id="2.25.196199840434067584742006182573522188237"><a class="fa fa-remove remove-image text-danger" oldtitle="Remover" title="" data-hasqtip="true"></a><a class="fa fa-edit edit-image text-default" oldtitle="Editar" title="" data-hasqtip="true"></a><a class="fa fa-globe online-image active" oldtitle="Disponível Online" title="" data-hasqtip="true"></a><a class="fa fa-download download-image" href="storage/download_image/1.2.640.0.31017449.3.2.101.9.359260.528698/2.25.268431979356854110088406482854779598563/2.25.196199840434067584742006182573522188237" target="_blank" title="Download"></a><a class="fa fa-print print-image" data-url="storage/get_image/1.2.640.0.31017449.3.2.101.9.359260.528698/2.25.268431979356854110088406482854779598563/2.25.196199840434067584742006182573522188237" title="Fila de Impressao"></a></div><div class="img-wrapper content" style=" background-image:url(https://oralx.smartris.com.br/ris/storage/get_image/1.2.640.0.31017449.3.2.101.9.359260.528698/2.25.277896039809749629123860991600334179751/2.25.34761980891757119738550989203832516761/256)" draggable="true" data-id="2.25.34761980891757119738550989203832516761"><a class="fa fa-remove remove-image text-danger" oldtitle="Remover" title="" data-hasqtip="true"></a><a class="fa fa-edit edit-image text-default" oldtitle="Editar" title="" data-hasqtip="true"></a><a class="fa fa-globe online-image active" oldtitle="Disponível Online" title="" data-hasqtip="true"></a><a class="fa fa-download download-image" href="storage/download_image/1.2.640.0.31017449.3.2.101.9.359260.528698/2.25.277896039809749629123860991600334179751/2.25.34761980891757119738550989203832516761" target="_blank" title="Download"></a><a class="fa fa-print print-image" data-url="storage/get_image/1.2.640.0.31017449.3.2.101.9.359260.528698/2.25.277896039809749629123860991600334179751/2.25.34761980891757119738550989203832516761" title="Fila de Impressao"></a></div><div class="img-wrapper content" style=" background-image:url(https://oralx.smartris.com.br/ris/storage/get_image/1.2.640.0.31017449.3.2.101.9.359260.528698/2.25.13040909408586712582446464146763950074/2.25.59990041402857627695576623120690896814/256)" draggable="true" data-id="2.25.59990041402857627695576623120690896814"><a class="fa fa-remove remove-image text-danger" oldtitle="Remover" title="" data-hasqtip="true"></a><a class="fa fa-edit edit-image text-default" oldtitle="Editar" title="" data-hasqtip="true"></a><a class="fa fa-globe online-image active" oldtitle="Disponível Online" title="" data-hasqtip="true"></a><a class="fa fa-download download-image" href="storage/download_image/1.2.640.0.31017449.3.2.101.9.359260.528698/2.25.13040909408586712582446464146763950074/2.25.59990041402857627695576623120690896814" target="_blank" title="Download"></a><a class="fa fa-print print-image" data-url="storage/get_image/1.2.640.0.31017449.3.2.101.9.359260.528698/2.25.13040909408586712582446464146763950074/2.25.59990041402857627695576623120690896814" title="Fila de Impressao"></a></div><div class="img-wrapper content" style=" background-image:url(https://oralx.smartris.com.br/ris/storage/get_image/1.2.640.0.31017449.3.2.101.9.359260.528698/2.25.280298408916169656592503373428120038195/2.25.17657711635038964411035955911477949797/256)" draggable="true" data-id="2.25.17657711635038964411035955911477949797"><a class="fa fa-remove remove-image text-danger" oldtitle="Remover" title="" data-hasqtip="true"></a><a class="fa fa-edit edit-image text-default" oldtitle="Editar" title="" data-hasqtip="true"></a><a class="fa fa-globe online-image active" oldtitle="Disponível Online" title="" data-hasqtip="true"></a><a class="fa fa-download download-image" href="storage/download_image/1.2.640.0.31017449.3.2.101.9.359260.528698/2.25.280298408916169656592503373428120038195/2.25.17657711635038964411035955911477949797" target="_blank" title="Download"></a><a class="fa fa-print print-image" data-url="storage/get_image/1.2.640.0.31017449.3.2.101.9.359260.528698/2.25.280298408916169656592503373428120038195/2.25.17657711635038964411035955911477949797" title="Fila de Impressao"></a></div><div class="img-wrapper content" style=" background-image:url(https://oralx.smartris.com.br/ris/storage/get_image/1.2.640.0.31017449.3.2.101.9.359260.528698/2.25.189691634557331205990697915476381635745/2.25.270586298255199605011508794875345698168/256)" draggable="true" data-id="2.25.270586298255199605011508794875345698168"><a class="fa fa-remove remove-image text-danger" oldtitle="Remover" title="" data-hasqtip="true"></a><a class="fa fa-edit edit-image text-default" oldtitle="Editar" title="" data-hasqtip="true"></a><a class="fa fa-globe online-image active" oldtitle="Disponível Online" title="" data-hasqtip="true"></a><a class="fa fa-download download-image" href="storage/download_image/1.2.640.0.31017449.3.2.101.9.359260.528698/2.25.189691634557331205990697915476381635745/2.25.270586298255199605011508794875345698168" target="_blank" title="Download"></a><a class="fa fa-print print-image" data-url="storage/get_image/1.2.640.0.31017449.3.2.101.9.359260.528698/2.25.189691634557331205990697915476381635745/2.25.270586298255199605011508794875345698168" title="Fila de Impressao"></a></div><div class="img-wrapper content" style=" background-image:url(https://oralx.smartris.com.br/ris/storage/get_image/1.2.640.0.31017449.3.2.101.9.359260.528698/2.25.21751371983601514926945183371752562330/2.25.97394215741949222476399009586607661670/256)" draggable="true" data-id="2.25.97394215741949222476399009586607661670"><a class="fa fa-remove remove-image text-danger" oldtitle="Remover" title="" data-hasqtip="true"></a><a class="fa fa-edit edit-image text-default" oldtitle="Editar" title="" data-hasqtip="true"></a><a class="fa fa-globe online-image active" oldtitle="Disponível Online" title="" data-hasqtip="true"></a><a class="fa fa-download download-image" href="storage/download_image/1.2.640.0.31017449.3.2.101.9.359260.528698/2.25.21751371983601514926945183371752562330/2.25.97394215741949222476399009586607661670" target="_blank" title="Download"></a><a class="fa fa-print print-image" data-url="storage/get_image/1.2.640.0.31017449.3.2.101.9.359260.528698/2.25.21751371983601514926945183371752562330/2.25.97394215741949222476399009586607661670" title="Fila de Impressao"></a></div></div> <div class="report-data printer-hide"><ul></ul></div></div></li> <li id="study-847373-others" data-hash="qVy5oak-_pp_pp_-hSqFBIpOrklfTQ8twbezhXIM4AItsIacDDo3agksgHvWKMb07uM4VCnxFz4PuThxNM1JFJvMRwx-_ll_ll_-gw_-TA_TA-_" data-component="1.2.640.0.31017449.3.2.101.9.359260.528699" class="data-li-close doc-procedure shadow-dp1 shadow-hover prd-card"><input type="hidden" name="study_id" value="qVy5oak-_pp_pp_-hSqFBIpOrklfTQ8twbezhXIM4AItsIacDDo3agksgHvWKMb07uM4VCnxFz4PuThxNM1JFJvMRwx-_ll_ll_-gw_-TA_TA-_" data-type="report_ceph" data-desc="RX TELERRADIOGRAFIA LATERAL CO" data-id="qVy5oak-_pp_pp_-hSqFBIpOrklfTQ8twbezhXIM4AItsIacDDo3agksgHvWKMb07uM4VCnxFz4PuThxNM1JFJvMRwx-_ll_ll_-gw_-TA_TA-_"> <div id="div_open_study_847373" onclick="open_procedure({&quot;study_pk&quot;:&quot;847373&quot;,&quot;sent_to_central&quot;:&quot;1&quot;,&quot;attendance_id&quot;:&quot;185629&quot;,&quot;component_to_link&quot;:&quot;1.2.640.0.31017449.3.2.101.9.359260.528699&quot;,&quot;workflow_id&quot;:&quot;10&quot;,&quot;workflow_name&quot;:&quot;Finalizado&quot;,&quot;workflow_alias&quot;:&quot;FINAL&quot;,&quot;workflow_color&quot;:&quot;#39f014&quot;,&quot;realized_date&quot;:&quot;2025-06-17&quot;,&quot;start_date&quot;:&quot;2025-06-20&quot;,&quot;schedule_id&quot;:&quot;359260&quot;,&quot;eid&quot;:&quot;485329&quot;,&quot;type&quot;:&quot;ceph&quot;,&quot;study_desc&quot;:&quot;RX TELERRADIOGRAFIA LATERAL CO&quot;,&quot;validated_by&quot;:&quot;10749&quot;,&quot;hashed_study_pk&quot;:&quot;qVy5oak-_pp_pp_-hSqFBIpOrklfTQ8twbezhXIM4AItsIacDDo3agksgHvWKMb07uM4VCnxFz4PuThxNM1JFJvMRwx-_ll_ll_-gw_-TA_TA-_&quot;,&quot;controller&quot;:&quot;report_ceph&quot;,&quot;attachments&quot;:[],&quot;viewer&quot;:&quot;https:\/\/oralx.smartris.com.br\/ris\/viewer\/proradis\/?studyUID=1.2.640.0.31017449.3.2.101.9.359260.528699&quot;}, [{&quot;id&quot;:&quot;9&quot;,&quot;seq&quot;:&quot;1&quot;,&quot;name&quot;:&quot;Em Processo&quot;,&quot;alias&quot;:&quot;PRO&quot;,&quot;obs&quot;:null,&quot;color&quot;:&quot;#e81717&quot;,&quot;enabled&quot;:&quot;1&quot;,&quot;created_time&quot;:&quot;2024-11-14 07:43:36&quot;,&quot;report_status&quot;:&quot;0&quot;,&quot;text_color&quot;:&quot;#FFFFFF&quot;},{&quot;id&quot;:&quot;10&quot;,&quot;seq&quot;:&quot;2&quot;,&quot;name&quot;:&quot;Finalizado&quot;,&quot;alias&quot;:&quot;FINAL&quot;,&quot;obs&quot;:null,&quot;color&quot;:&quot;#39f014&quot;,&quot;enabled&quot;:&quot;1&quot;,&quot;created_time&quot;:&quot;2024-11-14 07:44:34&quot;,&quot;report_status&quot;:&quot;0&quot;,&quot;text_color&quot;:&quot;#FFFFFF&quot;},{&quot;id&quot;:&quot;4&quot;,&quot;seq&quot;:&quot;3&quot;,&quot;name&quot;:&quot;Dra. Aline&quot;,&quot;alias&quot;:&quot;AL&quot;,&quot;obs&quot;:null,&quot;color&quot;:&quot;#ff9e00&quot;,&quot;enabled&quot;:&quot;1&quot;,&quot;created_time&quot;:&quot;2019-04-03 10:05:38&quot;,&quot;report_status&quot;:&quot;0&quot;,&quot;text_color&quot;:&quot;#000000&quot;},{&quot;id&quot;:&quot;8&quot;,&quot;seq&quot;:&quot;4&quot;,&quot;name&quot;:&quot;Dra. Bruna&quot;,&quot;alias&quot;:&quot;BR&quot;,&quot;obs&quot;:null,&quot;color&quot;:&quot;#3842cc&quot;,&quot;enabled&quot;:&quot;1&quot;,&quot;created_time&quot;:&quot;2024-06-12 12:59:45&quot;,&quot;report_status&quot;:&quot;0&quot;,&quot;text_color&quot;:&quot;#FFFFFF&quot;},{&quot;id&quot;:&quot;7&quot;,&quot;seq&quot;:&quot;5&quot;,&quot;name&quot;:&quot;Dr. Darwin&quot;,&quot;alias&quot;:&quot;DA&quot;,&quot;obs&quot;:null,&quot;color&quot;:&quot;#17141a&quot;,&quot;enabled&quot;:&quot;1&quot;,&quot;created_time&quot;:&quot;2024-06-01 07:53:53&quot;,&quot;report_status&quot;:&quot;0&quot;,&quot;text_color&quot;:&quot;#FFFFFF&quot;},{&quot;id&quot;:&quot;3&quot;,&quot;seq&quot;:&quot;6&quot;,&quot;name&quot;:&quot;Dra. Fabrina&quot;,&quot;alias&quot;:&quot;FA&quot;,&quot;obs&quot;:null,&quot;color&quot;:&quot;#89ffc3&quot;,&quot;enabled&quot;:&quot;1&quot;,&quot;created_time&quot;:&quot;2019-04-03 10:05:38&quot;,&quot;report_status&quot;:&quot;0&quot;,&quot;text_color&quot;:&quot;#000000&quot;},{&quot;id&quot;:&quot;2&quot;,&quot;seq&quot;:&quot;7&quot;,&quot;name&quot;:&quot;Dr. Giuliano&quot;,&quot;alias&quot;:&quot;GI&quot;,&quot;obs&quot;:null,&quot;color&quot;:&quot;#ffeb90&quot;,&quot;enabled&quot;:&quot;1&quot;,&quot;created_time&quot;:&quot;2019-04-03 10:05:38&quot;,&quot;report_status&quot;:&quot;0&quot;,&quot;text_color&quot;:&quot;#000000&quot;},{&quot;id&quot;:&quot;11&quot;,&quot;seq&quot;:&quot;8&quot;,&quot;name&quot;:&quot;Jhonata&quot;,&quot;alias&quot;:&quot;jho&quot;,&quot;obs&quot;:null,&quot;color&quot;:&quot;#b030df&quot;,&quot;enabled&quot;:&quot;1&quot;,&quot;created_time&quot;:&quot;2025-04-22 06:57:27&quot;,&quot;report_status&quot;:&quot;0&quot;,&quot;text_color&quot;:&quot;#000000&quot;},{&quot;id&quot;:&quot;12&quot;,&quot;seq&quot;:&quot;9&quot;,&quot;name&quot;:&quot;Bernardo&quot;,&quot;alias&quot;:&quot;BER&quot;,&quot;obs&quot;:null,&quot;color&quot;:&quot;#5f5858&quot;,&quot;enabled&quot;:&quot;1&quot;,&quot;created_time&quot;:&quot;2025-05-20 07:47:59&quot;,&quot;report_status&quot;:&quot;0&quot;,&quot;text_color&quot;:&quot;#FFFFFF&quot;}])" class="info open-info study-class-847373"><div class="info-others other-study-847373"><div class="d-flex flex-row flex-align-items-center flex-align-content-center"><div class="desc" style="white-space: normal;">RX TELERRADIOGRAFIA LATERAL CO</div> <span class="flex"></span> <div class="info-data_847373"><span style="font-size: 12px;"> 17/06/2025 </span> <br> <span style="font-size: 12px;"> 359260 </span></div> <div class="workflow-status printer-hide icon-data_847373" style="display: none;"><span data-prd-tooltip="" aria-label="Fluxo" class="workflow-chip prd-chip wf_10"> 
+										FINAL									</span> <span class="workflow-select-container" style="display: none;"><select class="workflow-select select2-teste-victor select2-hidden-accessible" data-select2-id="25" tabindex="-1" aria-hidden="true"><option data-select2-id="27"></option> <option data-alias="PRO" data-name="Em Processo" value="9">
+													(PRO) Em Processo												</option> <option data-alias="FINAL" data-name="Finalizado" value="10">
+													(FINAL) Finalizado												</option> <option data-alias="AL" data-name="Dra. Aline" value="4">
+													(AL) Dra. Aline												</option> <option data-alias="BR" data-name="Dra. Bruna" value="8">
+													(BR) Dra. Bruna												</option> <option data-alias="DA" data-name="Dr. Darwin" value="7">
+													(DA) Dr. Darwin												</option> <option data-alias="FA" data-name="Dra. Fabrina" value="3">
+													(FA) Dra. Fabrina												</option> <option data-alias="GI" data-name="Dr. Giuliano" value="2">
+													(GI) Dr. Giuliano												</option> <option data-alias="jho" data-name="Jhonata" value="11">
+													(jho) Jhonata												</option> <option data-alias="BER" data-name="Bernardo" value="12">
+													(BER) Bernardo												</option></select><span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="26" style="width: 13.6px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-2mun-container"><span class="select2-selection__rendered" id="select2-2mun-container" role="textbox" aria-readonly="true" title="" data-hasqtip="true"></span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span> <span></span></span></div> <div class="icon-data_847373" style="display: none;"><span class="prd-chip sent-to-central color-1" oldtitle="Enviado para central de exames" title="" data-hasqtip="true"><span class="fa-stack fa-lg"><i class="fa fa-cloud fa-stack-2x"></i> <i class="fa fa-check fa-inverse fa-stack-1x"></i></span></span></div> <div class="icon-data_847373" style="display: none;"><span class="prd-chip sent-to-central done"><span class="fa-stack fa-lg"><i class="fa fa-check fa-stack-2x"></i></span></span></div></div> <div class="control d-flex flex-row flex-align-items-center flex-align-content-center printer-hide icon-data_847373" style="display: none;"><button title="Upload" class="prd-btn prd-btn-icon upload-image upload fa fa-upload dz-clickable"></button> <a data-prd-tooltip="" aria-label="Laudo" href="https://oralx.smartris.com.br/ris/report_ceph/produce/qVy5oak-_pp_pp_-hSqFBIpOrklfTQ8twbezhXIM4AItsIacDDo3agksgHvWKMb07uM4VCnxFz4PuThxNM1JFJvMRwx-_ll_ll_-gw_-TA_TA-_" target="_blank" class="prd-btn prd-btn-icon report"><i class="fa fa-file-text-o"></i></a> <a data-prd-tooltip="" aria-label="Visualizador" href="https://oralx.smartris.com.br/ris/viewer/proradis/?studyUID=1.2.640.0.31017449.3.2.101.9.359260.528699" target="viewer" class="prd-btn prd-btn-icon viewer"><i class="fa fa-eye"></i></a> <a data-prd-tooltip="" aria-label="Informações do pedido" data-study="847373" class="prd-btn prd-btn-icon attendance-info"><i class="fa fa-search"></i></a> <span class="flex"></span> <a data-files="0" class="prd-btn prd-btn-icon attach dz-clickable" oldtitle="Nenhum arquivo" title="" data-hasqtip="true"><i class="fa fa-paperclip"></i></a></div></div></div> <div class="data icon-data_847373" style="display: none;"><div class="series-content-area-control d-flex flex-row flex-align-items-center flex-align-content-center active"><div>Séries (0)</div> <span class="flex"></span> <button><i class="fa fa-chevron-down"></i></button></div> <div data-series-count="0" class="series series-content-area active"></div> <div class="images-content-area-control d-flex flex-row flex-align-items-center flex-align-content-center active"><div>Imagens (2)</div> <span class="flex"></span> <button><i class="fa fa-chevron-down"></i></button></div> <div data-images-count="0" class="images images-content-area active"><div class="img-wrapper content" style=" background-image:url(https://oralx.smartris.com.br/ris/storage/get_image/1.2.640.0.31017449.3.2.101.9.359260.528699/1.2.250.1.90.3.1847349130.20250617151513.1676.23/1.2.250.1.90.2.1847349130.20250617151513.1676.31/256)" draggable="true"><a class="fa fa-remove remove-image text-danger" oldtitle="Remover" title="" data-hasqtip="true"></a><a class="fa fa-edit edit-image text-default" oldtitle="Editar" title="" data-hasqtip="true"></a><a class="fa fa-globe online-image active" oldtitle="Disponível Online" title="" data-hasqtip="true"></a><a class="fa fa-download download-image" href="storage/download_image/1.2.640.0.31017449.3.2.101.9.359260.528699/1.2.250.1.90.3.1847349130.20250617151513.1676.23/1.2.250.1.90.2.1847349130.20250617151513.1676.31" target="_blank" title="Download"></a><a class="fa fa-print print-image" data-url="storage/get_image/1.2.640.0.31017449.3.2.101.9.359260.528699/1.2.250.1.90.3.1847349130.20250617151513.1676.23/1.2.250.1.90.2.1847349130.20250617151513.1676.31" title="Fila de Impressao"></a></div><div class="img-wrapper content" style=" background-image:url(https://oralx.smartris.com.br/ris/storage/get_image/1.2.640.0.31017449.3.2.101.9.359260.528699/2.25.286691192550052286483058297573377071210/2.25.16043033512817710464671336962314850675/256)" draggable="true" data-id="2.25.16043033512817710464671336962314850675"><a class="fa fa-remove remove-image text-danger" oldtitle="Remover" title="" data-hasqtip="true"></a><a class="fa fa-edit edit-image text-default" oldtitle="Editar" title="" data-hasqtip="true"></a><a class="fa fa-globe online-image active" oldtitle="Disponível Online" title="" data-hasqtip="true"></a><a class="fa fa-download download-image" href="storage/download_image/1.2.640.0.31017449.3.2.101.9.359260.528699/2.25.286691192550052286483058297573377071210/2.25.16043033512817710464671336962314850675" target="_blank" title="Download"></a><a class="fa fa-print print-image" data-url="storage/get_image/1.2.640.0.31017449.3.2.101.9.359260.528699/2.25.286691192550052286483058297573377071210/2.25.16043033512817710464671336962314850675" title="Fila de Impressao"></a></div></div> <div class="report-data printer-hide"><ul><li class="content" draggable="true">Análise Sintética</li><li class="content" draggable="true">[Traçado] Análise USP</li><li class="content" draggable="true">Cefalograma</li><li class="content" draggable="true">[Análise] Análise USP</li></ul></div></div></li> <li id="study-847374-others" data-hash="VMTS9leqbxZmapigcvkdhHxqIY-_pp_pp_-RWS0JEK70agolnY43OdCQezXqD-_ll_ll_-iD688rbjYxLN3hofMjAbO8m9AWjo6qeg_-TA_TA-_" data-component="1.2.640.0.31017449.3.2.101.9.359260.528700" class="data-li-close doc-procedure shadow-dp1 shadow-hover prd-card"><input type="hidden" name="study_id" value="VMTS9leqbxZmapigcvkdhHxqIY-_pp_pp_-RWS0JEK70agolnY43OdCQezXqD-_ll_ll_-iD688rbjYxLN3hofMjAbO8m9AWjo6qeg_-TA_TA-_" data-type="report_pan" data-desc="RX PANORAMICO" data-id="VMTS9leqbxZmapigcvkdhHxqIY-_pp_pp_-RWS0JEK70agolnY43OdCQezXqD-_ll_ll_-iD688rbjYxLN3hofMjAbO8m9AWjo6qeg_-TA_TA-_"> <div id="div_open_study_847374" onclick="open_procedure({&quot;study_pk&quot;:&quot;847374&quot;,&quot;sent_to_central&quot;:&quot;1&quot;,&quot;attendance_id&quot;:&quot;185629&quot;,&quot;component_to_link&quot;:&quot;1.2.640.0.31017449.3.2.101.9.359260.528700&quot;,&quot;workflow_id&quot;:&quot;10&quot;,&quot;workflow_name&quot;:&quot;Finalizado&quot;,&quot;workflow_alias&quot;:&quot;FINAL&quot;,&quot;workflow_color&quot;:&quot;#39f014&quot;,&quot;realized_date&quot;:&quot;2025-06-17&quot;,&quot;start_date&quot;:&quot;2025-06-20&quot;,&quot;schedule_id&quot;:&quot;359260&quot;,&quot;eid&quot;:&quot;485330&quot;,&quot;type&quot;:&quot;pan&quot;,&quot;study_desc&quot;:&quot;RX PANORAMICO&quot;,&quot;validated_by&quot;:&quot;75687&quot;,&quot;hashed_study_pk&quot;:&quot;VMTS9leqbxZmapigcvkdhHxqIY-_pp_pp_-RWS0JEK70agolnY43OdCQezXqD-_ll_ll_-iD688rbjYxLN3hofMjAbO8m9AWjo6qeg_-TA_TA-_&quot;,&quot;controller&quot;:&quot;report_pan&quot;,&quot;attachments&quot;:[],&quot;viewer&quot;:&quot;https:\/\/oralx.smartris.com.br\/ris\/viewer\/proradis\/?studyUID=1.2.640.0.31017449.3.2.101.9.359260.528700&quot;}, [{&quot;id&quot;:&quot;9&quot;,&quot;seq&quot;:&quot;1&quot;,&quot;name&quot;:&quot;Em Processo&quot;,&quot;alias&quot;:&quot;PRO&quot;,&quot;obs&quot;:null,&quot;color&quot;:&quot;#e81717&quot;,&quot;enabled&quot;:&quot;1&quot;,&quot;created_time&quot;:&quot;2024-11-14 07:43:36&quot;,&quot;report_status&quot;:&quot;0&quot;,&quot;text_color&quot;:&quot;#FFFFFF&quot;},{&quot;id&quot;:&quot;10&quot;,&quot;seq&quot;:&quot;2&quot;,&quot;name&quot;:&quot;Finalizado&quot;,&quot;alias&quot;:&quot;FINAL&quot;,&quot;obs&quot;:null,&quot;color&quot;:&quot;#39f014&quot;,&quot;enabled&quot;:&quot;1&quot;,&quot;created_time&quot;:&quot;2024-11-14 07:44:34&quot;,&quot;report_status&quot;:&quot;0&quot;,&quot;text_color&quot;:&quot;#FFFFFF&quot;},{&quot;id&quot;:&quot;4&quot;,&quot;seq&quot;:&quot;3&quot;,&quot;name&quot;:&quot;Dra. Aline&quot;,&quot;alias&quot;:&quot;AL&quot;,&quot;obs&quot;:null,&quot;color&quot;:&quot;#ff9e00&quot;,&quot;enabled&quot;:&quot;1&quot;,&quot;created_time&quot;:&quot;2019-04-03 10:05:38&quot;,&quot;report_status&quot;:&quot;0&quot;,&quot;text_color&quot;:&quot;#000000&quot;},{&quot;id&quot;:&quot;8&quot;,&quot;seq&quot;:&quot;4&quot;,&quot;name&quot;:&quot;Dra. Bruna&quot;,&quot;alias&quot;:&quot;BR&quot;,&quot;obs&quot;:null,&quot;color&quot;:&quot;#3842cc&quot;,&quot;enabled&quot;:&quot;1&quot;,&quot;created_time&quot;:&quot;2024-06-12 12:59:45&quot;,&quot;report_status&quot;:&quot;0&quot;,&quot;text_color&quot;:&quot;#FFFFFF&quot;},{&quot;id&quot;:&quot;7&quot;,&quot;seq&quot;:&quot;5&quot;,&quot;name&quot;:&quot;Dr. Darwin&quot;,&quot;alias&quot;:&quot;DA&quot;,&quot;obs&quot;:null,&quot;color&quot;:&quot;#17141a&quot;,&quot;enabled&quot;:&quot;1&quot;,&quot;created_time&quot;:&quot;2024-06-01 07:53:53&quot;,&quot;report_status&quot;:&quot;0&quot;,&quot;text_color&quot;:&quot;#FFFFFF&quot;},{&quot;id&quot;:&quot;3&quot;,&quot;seq&quot;:&quot;6&quot;,&quot;name&quot;:&quot;Dra. Fabrina&quot;,&quot;alias&quot;:&quot;FA&quot;,&quot;obs&quot;:null,&quot;color&quot;:&quot;#89ffc3&quot;,&quot;enabled&quot;:&quot;1&quot;,&quot;created_time&quot;:&quot;2019-04-03 10:05:38&quot;,&quot;report_status&quot;:&quot;0&quot;,&quot;text_color&quot;:&quot;#000000&quot;},{&quot;id&quot;:&quot;2&quot;,&quot;seq&quot;:&quot;7&quot;,&quot;name&quot;:&quot;Dr. Giuliano&quot;,&quot;alias&quot;:&quot;GI&quot;,&quot;obs&quot;:null,&quot;color&quot;:&quot;#ffeb90&quot;,&quot;enabled&quot;:&quot;1&quot;,&quot;created_time&quot;:&quot;2019-04-03 10:05:38&quot;,&quot;report_status&quot;:&quot;0&quot;,&quot;text_color&quot;:&quot;#000000&quot;},{&quot;id&quot;:&quot;11&quot;,&quot;seq&quot;:&quot;8&quot;,&quot;name&quot;:&quot;Jhonata&quot;,&quot;alias&quot;:&quot;jho&quot;,&quot;obs&quot;:null,&quot;color&quot;:&quot;#b030df&quot;,&quot;enabled&quot;:&quot;1&quot;,&quot;created_time&quot;:&quot;2025-04-22 06:57:27&quot;,&quot;report_status&quot;:&quot;0&quot;,&quot;text_color&quot;:&quot;#000000&quot;},{&quot;id&quot;:&quot;12&quot;,&quot;seq&quot;:&quot;9&quot;,&quot;name&quot;:&quot;Bernardo&quot;,&quot;alias&quot;:&quot;BER&quot;,&quot;obs&quot;:null,&quot;color&quot;:&quot;#5f5858&quot;,&quot;enabled&quot;:&quot;1&quot;,&quot;created_time&quot;:&quot;2025-05-20 07:47:59&quot;,&quot;report_status&quot;:&quot;0&quot;,&quot;text_color&quot;:&quot;#FFFFFF&quot;}])" class="info open-info study-class-847374"><div class="info-others other-study-847374"><div class="d-flex flex-row flex-align-items-center flex-align-content-center"><div class="desc" style="white-space: normal;">RX PANORAMICO</div> <span class="flex"></span> <div class="info-data_847374"><span style="font-size: 12px;"> 17/06/2025 </span> <br> <span style="font-size: 12px;"> 359260 </span></div> <div class="workflow-status printer-hide icon-data_847374" style="display: none;"><span data-prd-tooltip="" aria-label="Fluxo" class="workflow-chip prd-chip wf_10"> 
+										FINAL									</span> <span class="workflow-select-container" style="display: none;"><select class="workflow-select select2-teste-victor select2-hidden-accessible" data-select2-id="28" tabindex="-1" aria-hidden="true"><option data-select2-id="30"></option> <option data-alias="PRO" data-name="Em Processo" value="9">
+													(PRO) Em Processo												</option> <option data-alias="FINAL" data-name="Finalizado" value="10">
+													(FINAL) Finalizado												</option> <option data-alias="AL" data-name="Dra. Aline" value="4">
+													(AL) Dra. Aline												</option> <option data-alias="BR" data-name="Dra. Bruna" value="8">
+													(BR) Dra. Bruna												</option> <option data-alias="DA" data-name="Dr. Darwin" value="7">
+													(DA) Dr. Darwin												</option> <option data-alias="FA" data-name="Dra. Fabrina" value="3">
+													(FA) Dra. Fabrina												</option> <option data-alias="GI" data-name="Dr. Giuliano" value="2">
+													(GI) Dr. Giuliano												</option> <option data-alias="jho" data-name="Jhonata" value="11">
+													(jho) Jhonata												</option> <option data-alias="BER" data-name="Bernardo" value="12">
+													(BER) Bernardo												</option></select><span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="29" style="width: 13.6px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-3j6g-container"><span class="select2-selection__rendered" id="select2-3j6g-container" role="textbox" aria-readonly="true" title="" data-hasqtip="true"></span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span> <span></span></span></div> <div class="icon-data_847374" style="display: none;"><span class="prd-chip sent-to-central color-1" oldtitle="Enviado para central de exames" title="" data-hasqtip="true"><span class="fa-stack fa-lg"><i class="fa fa-cloud fa-stack-2x"></i> <i class="fa fa-check fa-inverse fa-stack-1x"></i></span></span></div> <div class="icon-data_847374" style="display: none;"><span class="prd-chip sent-to-central done"><span class="fa-stack fa-lg"><i class="fa fa-check fa-stack-2x"></i></span></span></div></div> <div class="control d-flex flex-row flex-align-items-center flex-align-content-center printer-hide icon-data_847374" style="display: none;"><button title="Upload" class="prd-btn prd-btn-icon upload-image upload fa fa-upload dz-clickable"></button> <a data-prd-tooltip="" aria-label="Laudo" href="https://oralx.smartris.com.br/ris/report_pan/produce/VMTS9leqbxZmapigcvkdhHxqIY-_pp_pp_-RWS0JEK70agolnY43OdCQezXqD-_ll_ll_-iD688rbjYxLN3hofMjAbO8m9AWjo6qeg_-TA_TA-_" target="_blank" class="prd-btn prd-btn-icon report"><i class="fa fa-file-text-o"></i></a> <a data-prd-tooltip="" aria-label="Visualizador" href="https://oralx.smartris.com.br/ris/viewer/proradis/?studyUID=1.2.640.0.31017449.3.2.101.9.359260.528700" target="viewer" class="prd-btn prd-btn-icon viewer"><i class="fa fa-eye"></i></a> <a data-prd-tooltip="" aria-label="Informações do pedido" data-study="847374" class="prd-btn prd-btn-icon attendance-info"><i class="fa fa-search"></i></a> <span class="flex"></span> <a data-files="0" class="prd-btn prd-btn-icon attach dz-clickable" oldtitle="Nenhum arquivo" title="" data-hasqtip="true"><i class="fa fa-paperclip"></i></a></div></div></div> <div class="data icon-data_847374" style="display: none;"><div class="series-content-area-control d-flex flex-row flex-align-items-center flex-align-content-center active"><div>Séries (0)</div> <span class="flex"></span> <button><i class="fa fa-chevron-down"></i></button></div> <div data-series-count="0" class="series series-content-area active"></div> <div class="images-content-area-control d-flex flex-row flex-align-items-center flex-align-content-center active"><div>Imagens (2)</div> <span class="flex"></span> <button><i class="fa fa-chevron-down"></i></button></div> <div data-images-count="0" class="images images-content-area active"><div class="img-wrapper content" style=" background-image:url(https://oralx.smartris.com.br/ris/storage/get_image/1.2.640.0.31017449.3.2.101.9.359260.528700/2.25.117410907186087162694398454266456516698/2.25.280391126754164307166424101391301871195/256)" draggable="true" data-id="2.25.280391126754164307166424101391301871195"><a class="fa fa-remove remove-image text-danger" oldtitle="Remover" title="" data-hasqtip="true"></a><a class="fa fa-edit edit-image text-default" oldtitle="Editar" title="" data-hasqtip="true"></a><a class="fa fa-globe online-image active" oldtitle="Disponível Online" title="" data-hasqtip="true"></a><a class="fa fa-download download-image" href="storage/download_image/1.2.640.0.31017449.3.2.101.9.359260.528700/2.25.117410907186087162694398454266456516698/2.25.280391126754164307166424101391301871195" target="_blank" title="Download"></a><a class="fa fa-print print-image" data-url="storage/get_image/1.2.640.0.31017449.3.2.101.9.359260.528700/2.25.117410907186087162694398454266456516698/2.25.280391126754164307166424101391301871195" title="Fila de Impressao"></a></div><div class="img-wrapper content" style=" background-image:url(https://oralx.smartris.com.br/ris/storage/get_image/1.2.640.0.31017449.3.2.101.9.359260.528700/2.25.140670400803020340961163096500872490857/2.25.396959401502236856312777402708272663/256)" draggable="true"><a class="fa fa-remove remove-image text-danger" oldtitle="Remover" title="" data-hasqtip="true"></a><a class="fa fa-edit edit-image text-default" oldtitle="Editar" title="" data-hasqtip="true"></a><a class="fa fa-globe online-image active" oldtitle="Disponível Online" title="" data-hasqtip="true"></a><a class="fa fa-download download-image" href="storage/download_image/1.2.640.0.31017449.3.2.101.9.359260.528700/2.25.140670400803020340961163096500872490857/2.25.396959401502236856312777402708272663" target="_blank" title="Download"></a><a class="fa fa-print print-image" data-url="storage/get_image/1.2.640.0.31017449.3.2.101.9.359260.528700/2.25.140670400803020340961163096500872490857/2.25.396959401502236856312777402708272663" title="Fila de Impressao"></a></div></div> <div class="report-data printer-hide"><ul><li class="content" draggable="true">Laudo</li><li class="content" draggable="true">Anotação</li><li class="content" draggable="true">Odontograma</li></ul></div></div></li></ul></nav> <div id="template-content" class="prd-form"><div class="template-control d-flex flex-column shadow-dp1"><div class="d-flex flex-row flex-align-items-center flex-align-content-center"><div class="input-control"><label for="share_emails">Enviar para web</label> <div class="d-flex flex-row flex-align-items-center flex-align-content-center"><input type="text" name="share_emails" id="share_emails" placeholder="Emails separados por vírgula" style="width: 220px;"> <button title="Clique nos exames para selecionar os desejados" id="email-notification" data-referring-doctor-email="darwinbraga@gmail.com" data-referring-doctor-id="av6HSdxFTEGmUMLSQm0QX9KULSu0Div1hwFaVDw5oFPV6Q3DgWRimTyEsx2f0ZQfxims6LvXgKYz1dI3MslC3w_-TA_TA-_" class="send-to-central prd-btn prd-btn-icon"><i class="fa fa-cloud-upload"></i></button></div></div> <div class="input-control"><label for="template_select">Adicionar template</label> <div class="d-flex flex-row flex-align-items-center flex-align-content-center"><select name="template_select" class="template_select chzn-done" id="selPY9" style="display: none;"><option></option> <option data-value="12446" value="RNVsPr3anCfpK783UrunEnpE8Ff-_pp_pp_-65WgxULOIG5TjjhrEcZHZnP80GQEFU-_ll_ll_-ryj11MvvqSVR2KuAfWBlTdOop8w_-TA_TA-_">3D  7</option> <option data-value="67595" value="MsHyorpRaN74xkg1a4J-_pp_pp_-k2BZ6K8VCR3udTi2O6-_pp_pp_-ozcHy5N8m9oWAAcIMeRlnPA3UTlimsyJ-_ll_ll_--_ll_ll_-pV0G6fIwpNl6w_-TA_TA-_">3D  8 horizontal</option> <option data-value="54947" value="fbzNJcY-_ll_ll_-ZYXqTiJy4sExDYdEjFUamMyc7MjaY4-_ll_ll_-XDohyb-_pp_pp_-juUvq9-_pp_pp_-G2o9See5oq1mOZvK2Qsm5NGAjMAoIuTHg_-TA_TA-_">3D  8 vertical</option> <option data-value="12084" value="LerMvKpDH-_pp_pp_-XiGobCvp6nrex8eUEqmRQF6IOWstMBOaMmBO3pj5bRa-_pp_pp_-Y-_ll_ll_-rYglvJj9aXPzgeSaj0Z2JHbIE1CnyA_-TA_TA-_">3D 4</option> <option data-value="209414" value="35fJRaURqkrNoDBMS3vN6e7FPqIPJ4n-_pp_pp_-Z-_ll_ll_-ZFxkv2kczPLaKYEfoOx5VOU-_pp_pp_-G5IiwoNzr26Td4wwMdQ-_pp_pp_-WoKMRdpw_-TA_TA-_">ETIQUETA ARGOX 1</option> <option data-value="209412" value="EuXQIkNtil8ssrxHc4Edhmc5td-_pp_pp_-BVQAOsN-_ll_ll_-hFrUfMiGjY-_ll_ll_-r8s37HI5X-_ll_ll_-gAy404si2TNtLsI3cYmMfCKu4SvOBQ_-TA_TA-_">ETIQUETA ARGOX 2</option> <option data-value="209388" value="05QWOr5km-_ll_ll_-2HZ3mMxyvX4Orsvsa76nEM0yFpKa69qcobsHV-_ll_ll_-vlAd65IJ8Q67fNeK2PWoABTDk70gJJbvqlBNZg_-TA_TA-_">ETIQUETA ARGOX 3</option> <option data-value="209413" value="5HUcjd67qAVjfXDLhG9aV9jEfVkP9fp6pRZm-_ll_ll_-X949oiyWHPMI9rVumauKaYkzkdUCank9hKxZtSWxqL8FnilZg_-TA_TA-_">ETIQUETA ARGOX 4</option> <option data-value="56425" value="ZfE-_ll_ll_-u0n9zx2FTXzkeGN7DBGjrxsBUf7Yqw46lqZYkttw3yOSwF6Yn3GroLsYKuJrUQ1iMXp99oj1qjc5MSvj9Q_-TA_TA-_">ETIQUETA DE CD ANGELICA</option> <option data-value="194397" value="RSne3QEg0Kg8C96FFPYQkbBCEQRo07V9PGvayPsA7pnN4RY1jGVre0HXEqR2whIh0vw-_pp_pp_-2c6feigfs8fquQkiKA_-TA_TA-_">ETIQUETA DE CD NOVE DE JULHO</option> <option data-value="194396" value="HbEhuagqCyyOI2NLdLx0T9gTO6maXfbFYCltSSo2z5V3C9gZmSvT23rAKAv6hkQVRtCklhwy4q-_pp_pp_-OKgW3GIpFBQ_-TA_TA-_">ETIQUETA DE CD PINHEIROS</option> <option data-value="470952" value="o1HxHG9zLBcvPBJpOlMNThDo1yJGKEfO-_pp_pp_-PAzmc09jbi5I38bhG4jHhPNA73rasVEo3d6UYjSpMdyLMXXFqt9tw_-TA_TA-_">ETIQUETA DE CD TATUAPE</option> <option data-value="10571" value="lhd-_pp_pp_-gbBhwfVWiM6k5fiZ3e-_ll_ll_-czAEBSYoObWgjBKtnMkaQ9i6uV1TJcWO8hYnWBMmya0q7Et2zag9eABLeI49cNg_-TA_TA-_">ETIQUETA PASTA E CAIXA ANGELICA</option> <option data-value="194402" value="AbIMu1knbjjcR31MfVqFOKYinCpqJL6Yjntq5Uo2I3hS6pTljUk8NzKqKk1ySItJ-_ll_ll_-UkTEOT23shkr9WS9ou9PQ_-TA_TA-_">ETIQUETA PASTA E CAIXA NOVE DE JULHO</option> <option data-value="194401" value="2eLVExxWOcNjSlyP-_pp_pp_-3oYDy1ThlfkyRnpyfqIl6lBjvd0uJMQcVfYDuHjtV-_ll_ll_-GfusQvFS4lzrNJ-_pp_pp_-dnY9xRzgyeSw_-TA_TA-_">ETIQUETA PASTA E CAIXA PINHEIROS</option> <option data-value="470953" value="tuQXvEdpGJWx-_ll_ll_-GJSJ33-_pp_pp_--_pp_pp_-LMa3AUi7d78dBs-_pp_pp_-7455ySq-_ll_ll_-yzvCuOFeK-_pp_pp_-mPTGXbehwrBvoK7NjLKrz3l9-_ll_ll_-aGLfkYw_-TA_TA-_">ETIQUETA PASTA E CAIXA TATUAPE</option> <option data-value="10261" value="iw36E5RKLDho-_ll_ll_-SU42o-_ll_ll_-d55n25QF6L4Skd50i32U6AajkR-_ll_ll_-tgYdsuQjxVgr5lhU1PE1N-_pp_pp_-cjWAKX6ba9NSs7dKSQ_-TA_TA-_">FICHA DO PACIENTE DOCUMENTAÇÃO A4</option> <option data-value="35329" value="j0me-_ll_ll_-PrDMkiVIiHCR4mjcOCqjlpH-_ll_ll_-NR37atOrnDl7cQL1mtnxysbnwujwXVfVat29YgoghM-_pp_pp_--_ll_ll_-pqAFFus3fuV0A_-TA_TA-_">FOTOGRAFIA 10 EXTRA  A4 FUNDO BRANCO</option> <option data-value="440858" value="HKBT-_pp_pp_-009jrKnA4XE-_ll_ll_-Miqm7G386MNr3Xk0X5swM3101NxzzulH5r-_pp_pp_-l-_ll_ll_-Qhp3VjrzfJ-_ll_ll_-VgfQAVtX6Cz0MfChvqlvA_-TA_TA-_">FOTOGRAFIA 10 EXTRA  A4 FUNDO BRANCO CLONE</option> <option data-value="413404" value="xvOBChIU6Hks5fDgy1JjZ4cwuU61Z7lCwxApRXvgOu1jvKHFjxEvzobo-_pp_pp_-Qq770yAJ-_ll_ll_-nBB646msxeAagIhI88bg_-TA_TA-_">FOTOGRAFIA 3 INTRA 2 EXTRA  A4 FUNDO BRANCO </option> <option data-value="12307" value="OAoG5YBHlteZu-_ll_ll_-SGG3Wcm9vfNdWPaXxxHRsTQZQ3eIPmBDOM97H3i-_pp_pp_-CxGR78gFUYto5VE1wz1cHEbGpKDOKD8Q_-TA_TA-_">FOTOGRAFIA 3 INTRA 3 EXTRA  A4 FUNDO BRANCO</option> <option data-value="123846" value="C-_ll_ll_-ZD9-_ll_ll_-trIXdPFObeCZHw46cRRG1tyZjIpTWomlPB50ZMb3sQSskuiTnCPzqo7arwElu3TJobCyJi8EoiB-_pp_pp_-4pig_-TA_TA-_">FOTOGRAFIA 5  EXTRA A4 RETRATO FUNDO BRANCO</option> <option data-value="10271" value="7vWBLSW-_pp_pp_-G5Ao6XQXJsQ4qew9tWrNCIaRBcJVo1lUXPHElwxwnoNRJv7QuvlJprYhRBo-_ll_ll_-U08VKcraP1Mv8yfsZA_-TA_TA-_">FOTOGRAFIA 5  INTRA OVER A4 FUNDO BRANCO</option> <option data-value="10241" value="IY0srdtrXg-_pp_pp_-q2PmAPHUShn-_ll_ll_-kSjgtceHzDt-_ll_ll_-K4xU87qVfaet3Fz3Xny-_ll_ll_-aqzuxjY0xVeLSUGWH1C0rhQyRsgaAuQ_-TA_TA-_">FOTOGRAFIA 5 INTRA 3 EXTRA  A4 RETRATO FUNDO BRANCO</option> <option data-value="10239" value="2-_pp_pp_-b5KQGfLbUo-_pp_pp_-15-_ll_ll_-3-_pp_pp_-qMv9-_pp_pp_-tqbtjKdBcZmbY2JMsb-_pp_pp_-N59IcYPzHUeVTQlv35kKl9Sz9tEN-_pp_pp_-gsKCcHq9nCBKD3w_-TA_TA-_">FOTOGRAFIA 5 INTRA OCLUSAL A4 FUNDO BRANCO</option> <option data-value="10240" value="352I4P3UGDU4sg7pF3iS-_pp_pp_-Mo9aWyVICIKJv6WLtRluC8ZwZ8FOev1ooc7JBLGkpUmZTaDD1bFOD4Bm9IAqfexxw_-TA_TA-_">FOTOGRAFIA 5 INTRA OVER  A4 PORTRAIT FUNDO BRANCO</option> <option data-value="10273" value="FhDEQG5b6e7CT9zyo4-_ll_ll_-qGqkJhRF2rAg5ge103AOppwf-_pp_pp_-sj0RaVGhQ3Uu6TmOg46SB0-_ll_ll_-9IF2m5TykjVmgxy0xWg_-TA_TA-_">FOTOGRAFIA 8 FOTOS LANDSCAPE A4 FUNDO BRANCO</option> <option data-value="10274" value="Yp4FYMQozOUgqwGXdhjC5KbJ9exWUcd2RiHJcdwPXzQkSyBFyY8ecxllOr6BouasPGwVqHqQx18ZM4v6RcX1Hg_-TA_TA-_">FOTOGRAFIA 8 FOTOS LANDSCAPE A4 FUNDO BRANCO</option> <option data-value="12097" value="ak1-_ll_ll_-byYTmye1rGI1GBs74te5G1VIt76Ny3Mhu2o0Uys815-_pp_pp_-RRMFxdeNx-_pp_pp_-mQxHd3BVTgQvEXmvHzPii93fzD3Hg_-TA_TA-_">FOTOGRAFIAS 4 DE CORPO INTEIRO</option> <option data-value="10246" value="DJ2spG-_pp_pp_-TVmHRe80PU4e1fp8vQB6O7GJqDbAI5iHJJZpQxrI4KUNAqsKESxA55JLnbU-_pp_pp_-K9gW3K44lRLKyGILLEA_-TA_TA-_">FOTOGRAFIAS 5 INTRA 3 EXTRAS A4 LANDSCAPE</option> <option data-value="10275" value="jZshJMu4qYmuUDqxDCPrXQH7pOST2gOlth2gsU0jCpqBpSLfDJpUd43cfAvX5ifEQpCcxqfdCRBOxE3M9-_pp_pp_-b9ag_-TA_TA-_">FOTOGRAFIAS 5 INTRA 3 EXTRAS A4 PAISAGEM FUNDO BRANCO</option> <option data-value="372740" value="Mn-_pp_pp_-RcC0ogGvCAcef4dxskAHfoAUUCsBg4ey5onLPZPN0BUvPsCG1w8G6nian5vNtAzkJD8uAmBBTluSaecIrrA_-TA_TA-_">IMPRESSÃO 20 X 25 HORIZONTAL</option> <option data-value="372748" value="KBB4nRosPgtkTpJeGfWe20VXaxaM8NW2RtBRSyua8rzbK-_pp_pp_-PtjdILoW6dr-_ll_ll_-S6T-_pp_pp_-6Dq6JJuGqljVKm2uuOpJSnOA_-TA_TA-_">IMPRESSÃO 20 X 25 VERTICAL</option> <option data-value="415240" value="WPV4VwiaD8zkG5U9RayzRsRUpUtFsz5fkVXmQUtJUDPOx1dysD8xvsYjgIWHK3WScOUWRD0qd-_pp_pp_-kp5zaE-_ll_ll_-tnWuQ_-TA_TA-_">IMPRESSÃO A4 TOMOGRAFIA</option> <option data-value="32527" value="H6-_pp_pp_-0wZPye55OGpXnw95a5cpDLeS2P56cZPG5apyZ5I9d-_pp_pp_-miNDTUEFvyYvup8q27m1tko2VaVF8clILRe9Gv0Lg_-TA_TA-_">IMPRESSAO PROTOCOLO SEG</option> <option data-value="10248" value="tUmyhmY2AwUHS5DPittCAkn5pcVmx-_ll_ll_-axe71vRZay7WCGFDKYOxib6RQnjrkeuWFFtEXI-_pp_pp_-k1KhryguPzAID55Ug_-TA_TA-_">INTERPROXIMAL BITEWING 20 X 25</option> <option data-value="192466" value="ajmQM8B6s5t6tp3ZO7hQzWALiL7483hj-_pp_pp_-LfKrXlAn2d-_ll_ll_-rM9o6akfs-_ll_ll_-AcrxXhsJ-_pp_pp_-2hyHPnA7hwdkMvUERHegOKA_-TA_TA-_">LEVANTAMENTO PERIAPICAL 20 X 25</option> <option data-value="252086" value="2bh8E4p3tbccdArniLlRD68vu0MFFBp4hixbiHDYHvZWdVoZjqqaXdkFFpFW6d9O7ALped3MzCaps0vnuU4HKw_-TA_TA-_">LEVANTAMENTO PERIAPICAL 20 X 25 PRORADIS</option> <option data-value="220411" value="zX2lm-_pp_pp_-AfUC76En-_pp_pp_-og3Cl-_ll_ll_-BmCqGwJ3g-_ll_ll_-2QwE3L7c-_ll_ll_-NWNLGguIiLj3ABj7Vt9zZmFePcjr5VTZOnOZKBwaMB8POQ_-TA_TA-_">LEVANTAMENTO PERIAPICAL 20 X 25 VERTICAL</option> <option data-value="30939" value="r3X4PuSuyqoz42BrdrPyLWEYhcY1aH36yaVGOZ96YqJljZKLf8wv5xy2DH3eo2HH3GxbLgUqT5paxAB37pEE6w_-TA_TA-_">LEVANTAMENTO PERIAPICAL COM INTERPROXIMAIS</option> <option data-value="53284" value="Yd4ScGzQqY9RM8sMjkyzhAiWjjxs2hbVDrS1eSZDlCHM9yDDKPn5y-_ll_ll_-BWnJRMcJMbv0CBvpz7w98Tg2EL6OfIrQ_-TA_TA-_">P ANTERIOR ETIQUETA ARGOX 1</option> <option data-value="10215" value="mK3rXIhAe3o55NYPIAhMdKuVvYjDjFm3i4b9GrN-_pp_pp_-x27-_pp_pp_-tRUo-_ll_ll_-ZvVmyG5TtPJ18Rc6-_pp_pp_-kOy3EtfmkEq21sjsS4jg_-TA_TA-_">P ANTERIOR ETIQUETA ARGOX 2</option> <option data-value="47612" value="-_pp_pp_-OFRsIXX9oq07xSgQ5bQladeRpTqFjaSvbCUbGJBz3pIg-_pp_pp_-T74uogeO6bKKpFN-_pp_pp_-tUpdl5XSMtXLPGgCPRsKoNYQ_-TA_TA-_">P ANTERIOR ETIQUETA ARGOX 3</option> <option data-value="10266" value="T2R6l6jMeFis2WmIs956dMx7oJgJprKmJqLM-_pp_pp_-iBPyOjYEofB0hcoBV30VM0WiVg68v7hMsXnYAMxqRxsTjdokQ_-TA_TA-_">P ANTERIOR ETIQUETA ARGOX 4</option> <option data-value="10247" value="MV85WU0HEBbFfaXRXjBvNq4muZyRpFsoBLvTw9FlWQnLmxjN1PuDEh7SJ3KEq6x7rh-_pp_pp_-gJKnjQv-_ll_ll_-Tv-_pp_pp_-OQJFfCfQ_-TA_TA-_">PERIAPICAIS AMPLIADAS  4 20 X  25</option> <option data-value="10256" value="n7tfd8UycM5LosOba6v9-_pp_pp_-X5jhqnrxE5-_ll_ll_-nrGA2un4aFlAjBwWlxMcYC5zGBXW52nZXbif9T0603ngG4lqaLfW2g_-TA_TA-_">PERIAPICAIS AMPLIADAS  4 20 X 25 A/P</option> <option data-value="10254" value="jm7RMAtKA-_ll_ll_-XpCYuBSk3EEBSvDnxoEVXukJf8dzV-_ll_ll_-WI9S70F7HC6bjnDQaYAMkC44lwUR-_ll_ll_-NSKLDJONX4gb-_pp_pp_-SR7Q_-TA_TA-_">PERIAPICAIS AMPLIADAS  8  POSTERIORES 20 X 25</option> <option data-value="32261" value="sc-_ll_ll_-s8H2xUa4LQbB85Qz3xPJA-_ll_ll_-ERhspQVtYkcKzS5kfE2kSf0xtmeuE9X06aQrW92zdC0d1PCLzG3m6eo04ClAw_-TA_TA-_">PERIAPICAIS AMPLIADAS  DO ARCOS 4 DIREITO 20-X 25</option> <option data-value="32262" value="SENVMs25eD2h-_ll_ll_--_ll_ll_-NYghivZmQ4agF9j2RpmLcw6D7cLUa2dMmL0NuFX-_ll_ll_-6-_ll_ll_-lUw6g6Cr2zDc85QOvE400e8onBU0hA_-TA_TA-_">PERIAPICAIS AMPLIADAS  DO ARCOS 4 ESQUERDO 20-X 25</option> <option data-value="32256" value="9yzE3yG0u09LPN5zJ0OHL-_ll_ll_-MFfe7XqeMGl1v-_pp_pp_-k-_ll_ll_-58w0qa95VIxh7G2KVIsaj64dKDpOn-_pp_pp_-rFD0jt876pViXrpy7g_-TA_TA-_">PERIAPICAIS AMPLIADAS  DO ARCOS 6 ANTERIORES 20-X 25</option> <option data-value="482955" value="IFQ6AphAcBqE9GWZNY-_ll_ll_-CIpgVmMlX96yaiwkS6q-_ll_ll_-sTU-_ll_ll_--_pp_pp_-wh88r4cII4XVXXnRqHnTWwFKbIrNQBZdSNFp4ub81A_-TA_TA-_">PERIAPICAIS AMPLIADAS  DO ARCOS 6 ANTERIORES 20-X 25 CLONE</option> <option data-value="10253" value="iMBDbNwiZDvvXdI6Z0PcLT-_ll_ll_-kaH6DuEXpylSalgTF5E4kImqgkYWsfYlnsNPX85VpwwSBaA9urhRdX9mzoesAuA_-TA_TA-_">PERIAPICAIS AMPLIADAS&nbsp;3 20-X 25</option> <option data-value="10216" value="VUc2lvqohfAwm5NaOJuPXmbifpnZ-_ll_ll_-5GM5t-_pp_pp_-jY1KDKe9FtTEpIOTOfBxkNq1fIUnE8kN5scAtKooW3K6rdEvY2A_-TA_TA-_">PERSONALIZADA</option> <option data-value="313956" value="XSDZZwjFYtMw81WmTx4ZVRYVwhnlRvp81gFHsFecbyfam3IaJySj1dF1Fpyf-_ll_ll_-dHS1zVGXNU3V9SUwD2hIGMJHw_-TA_TA-_">Protocolo Easy</option> <option data-value="77459" value="oe2zw8zGG8cij2u17N1op77ficr-_pp_pp_-2WcVXiZ3R4yqYQ-_pp_pp_-Ykwh6QUQedqagewCMmBJ-_ll_ll_-0xUyG-_ll_ll_-CO3R-_pp_pp_-bEbFGsBpFYw_-TA_TA-_">RAIO-X OCLUSAL 20 X 25</option> <option data-value="10276" value="IBVwdrC2805OZzns0Q-_pp_pp_-JfVRBEA66l-_pp_pp_-UgAhEWU-_ll_ll_-AjPdwcIfk2DklsVUffTdxTAr4J-_pp_pp_-hgSFOV-_ll_ll_-fRoGWLj5sf0vUA_-TA_TA-_">RAIO-X PANORÂMICA 20 x 25</option> <option data-value="381160" value="U0ErD1xK0Ef-_pp_pp_-VFoVk1fjBrhrep1MnetuTlrlk5QH3nUpUUiWcWDkl8LzDptTaTPv5D4i2LC8DP4NDX344gbDIA_-TA_TA-_">RAIO-X PANORÂMICA 20 x 25 C/ PERIAPICAIS 20 X 25</option> <option data-value="378184" value="GHl7eWNtfrR2bumU-_ll_ll_-PtCR5mAYfT-_pp_pp_-XNqSeUMCcTHc7NFpMtlYMrGc2wl27kzyO6pp9UKIh-_ll_ll_-L9RvffRxA2dtPrcQ_-TA_TA-_">RAIO-X TELERRADIOGRAFIA CARPAL 20 X 25 ANGELICA E TATUAPE</option> <option data-value="170864" value="VifNV0uHDTOK2bw78LNZvef0dwCRXf-_ll_ll_-MyKpOnG1A-_pp_pp_-i-_ll_ll_-EMYnwa3FCnFjw5njHsRBFnxTVO0sV4ukjtHVfZFUKAg_-TA_TA-_">RAIO-X TELERRADIOGRAFIA CARPAL 20 X 25 NOVE DE JULHO</option> <option data-value="398605" value="lZnONoDZmYvzS4MlTg5xdE9TFvOiiNzRYoYu-_pp_pp_-vm4DJDRQaylR8AxFyjO5xPiac-_pp_pp_-B7CNpMYdLWyouflO-_pp_pp_--_pp_pp_-mXcJA_-TA_TA-_">RAIO-X TELERRADIOGRAFIA CARPAL 20 X 25 PINHEIROS</option> <option data-value="10626" value="pJ7NMkVnlnFL9t0mkPeqy9oyVsgZaBBVL4-_ll_ll_-Vw2qE9qKRmgjBNA1MnchyD9jMR2Op-_ll_ll_-90Q-_ll_ll_-Ph1MJR1sPKuknvaVw_-TA_TA-_">TC DRY</option> <option data-value="152127" value="-_ll_ll_-YraoyJwB1CQ2cGFGzCuVdFNp2iq2nESKw9dOxsDxos-_pp_pp_-PvbukQXHUuTu-_ll_ll_-QF0MTF-_ll_ll_-57Rbr1pVoktUmSbI6OqPdw_-TA_TA-_">TC PAPEL FOTOGRAFICO</option> <option data-value="289635" value="9NEkvRDOE84R3c0l21hst2-_ll_ll_-SBHs2GzL-_pp_pp_-3F-_ll_ll_-qLnAPMmi8A4iKwo4PhEbuJHtVIG8omAF3NZOxMnD0ANKMptZkYQ_-TA_TA-_">TELE FRONTAL 20 X 25 ANGELICA E TATUAPE</option> <option data-value="222534" value="Dw4ZIVd7LfrQmexnFXWhT8re4HWmdNBbp7uFDRpZhR-_pp_pp_-kNSG5WFOEEPL2eUOJmocGC9pw8vCSFPZJ5dEVXlsYsQ_-TA_TA-_">TELE FRONTAL 20 X 25 NOVE DE JULHO KAVO</option> <option data-value="222527" value="KlwZ9Yk-_ll_ll_-DchNy6C4iG3Sgon03JtfYxkbJ6ynMEEgDWaqQS2ePmrwRqsPhINgVwGl-_pp_pp_-7LIMbpykelSQn3YDVEvaA_-TA_TA-_">TELE FRONTAL 20 X 25 NOVE DE JULHO PAX 400</option> <option data-value="223051" value="OxdzfilKlZYmkI-_ll_ll_-EzygqeNFTobEAEjSWHNfZZ-_pp_pp_-xgIe686D1cBbuiDgUDQkJowtUWYcVif6QAQ3MQTje5V5zLlA_-TA_TA-_">TELE FRONTAL 20 X 25 PINHEIROS</option> <option data-value="348221" value="80moyErEhy3-_ll_ll_-dp-_ll_ll_-P3HRIedW1S78ZXX2YxnHAlZAcHVzJhvsr23EJ1HGh1hyMbrDSmoIyPYC6jHUGtgOXiISQRA_-TA_TA-_">TELE LATERAL 20 X 25 ANGELICA E TATUAPE</option> <option data-value="222530" value="JC08yHcmUQ9Bxo96VH7i5dMEmrtkS8-_ll_ll_-Vm3m1ae95Co0B6JOAj-_ll_ll_-LtUUkYoOe-_pp_pp_-kLq3-_ll_ll_-jtKwPtpClJS4ux-_ll_ll_-TIVhgw_-TA_TA-_">TELE LATERAL 20 X 25 NOVE DE JULHO KAVO</option> <option data-value="132473" value="MMUQVNwVSnYEXCpZqMnRj6bpqSFMCefCD6JOn0QJSw3Ne2yBM8-_pp_pp_-NKo3c7wefi0Z28qP8G3yy96xmb2P99Zom3A_-TA_TA-_">TELE LATERAL 20 X 25 NOVE DE JULHO PAX 400</option> <option data-value="222907" value="F3U1JYCjR40rakob81L3-_pp_pp_-tzFJK9UoGZivWLYYY9qcyNw3LDS6YpXPhdk7SrKAVQUxSOorZotumElVuhsq2Mggw_-TA_TA-_">TELE LATERAL 20 X 25 PINHEIROS</option> <option data-value="10244" value="RL99BeM8AR8hl975-_pp_pp_-Nm3PRf6Qn5T4rnU9x7L-_pp_pp_-p6dg3DNvuq-_ll_ll_-nRJt2Dq1H8BIJs-_pp_pp_-ytlg-_pp_pp_-PjUNfXCApfse5lrEww_-TA_TA-_">TELERRADIOGRAFIA - ANALISES</option> <option data-value="10258" value="JYYtjn-_pp_pp_-hQtsjQN9qq66SEuZOWAluwicf2UvCao-_ll_ll_-XAMjEaSg-_ll_ll_-SRdYN8YvWNfohJbUYkZqALdmccCB1Ih2u-_ll_ll_-VvYA_-TA_TA-_">TELERRADIOGRAFIA - TRAÇADOS margem nenhum SIRONA</option> <option data-value="214052" value="adXnpOyUqMB7QIQFqaosoC8VCn9mIIaMHcrBZCyqAvWcQUfqQe-_ll_ll_-ykLkJhFdwFC6ygec1Bs3wml8dsUS4heppHg_-TA_TA-_">Teste</option> <option data-value="374570" value="rSynLP8Edr19GxsiLUCmicmTWIqap99KrMQgheKLJLK6lvTcSoyCrVwVXlGjlEPlSSj7CVjLOt-_pp_pp_-2-_ll_ll_-Yqo90YzRg_-TA_TA-_">TRAÇADO PANORÂMICA PARA IMPLANTE</option> <option data-value="10299" value="X3Uu-_pp_pp_-wQ1hjibushCyxIuCBaEX-_pp_pp_--_ll_ll_-xMPaYAVUVG-_pp_pp_-WGXZTptKzm61sRmz4l2NSKyEc4F17ZrNZD9g8bFN7nmjVl1g_-TA_TA-_">TRAÇADOS CEFALOMÉTRICOS VATECH</option></select><div id="selPY9_chzn" class="chzn-container chzn-container-single" style="width: 502px;"><a href="javascript:void(0)" class="chzn-single chzn-default"><span>Selecione uma opção</span><div><b></b></div></a><div class="chzn-drop" style="left: -9000px; width: 500.4px; top: 33px;"><div class="chzn-search"><input type="text" autocomplete="off" style="width: 476.4px;"></div><ul class="chzn-results"><li id="selPY9_chzn_o_1" class="active-result" style="">3D  7</li><li id="selPY9_chzn_o_2" class="active-result" style="">3D  8 horizontal</li><li id="selPY9_chzn_o_3" class="active-result" style="">3D  8 vertical</li><li id="selPY9_chzn_o_4" class="active-result" style="">3D 4</li><li id="selPY9_chzn_o_5" class="active-result" style="">ETIQUETA ARGOX 1</li><li id="selPY9_chzn_o_6" class="active-result" style="">ETIQUETA ARGOX 2</li><li id="selPY9_chzn_o_7" class="active-result" style="">ETIQUETA ARGOX 3</li><li id="selPY9_chzn_o_8" class="active-result" style="">ETIQUETA ARGOX 4</li><li id="selPY9_chzn_o_9" class="active-result" style="">ETIQUETA DE CD ANGELICA</li><li id="selPY9_chzn_o_10" class="active-result" style="">ETIQUETA DE CD NOVE DE JULHO</li><li id="selPY9_chzn_o_11" class="active-result" style="">ETIQUETA DE CD PINHEIROS</li><li id="selPY9_chzn_o_12" class="active-result" style="">ETIQUETA DE CD TATUAPE</li><li id="selPY9_chzn_o_13" class="active-result" style="">ETIQUETA PASTA E CAIXA ANGELICA</li><li id="selPY9_chzn_o_14" class="active-result" style="">ETIQUETA PASTA E CAIXA NOVE DE JULHO</li><li id="selPY9_chzn_o_15" class="active-result" style="">ETIQUETA PASTA E CAIXA PINHEIROS</li><li id="selPY9_chzn_o_16" class="active-result" style="">ETIQUETA PASTA E CAIXA TATUAPE</li><li id="selPY9_chzn_o_17" class="active-result" style="">FICHA DO PACIENTE DOCUMENTAÇÃO A4</li><li id="selPY9_chzn_o_18" class="active-result" style="">FOTOGRAFIA 10 EXTRA  A4 FUNDO BRANCO</li><li id="selPY9_chzn_o_19" class="active-result" style="">FOTOGRAFIA 10 EXTRA  A4 FUNDO BRANCO CLONE</li><li id="selPY9_chzn_o_20" class="active-result" style="">FOTOGRAFIA 3 INTRA 2 EXTRA  A4 FUNDO BRANCO </li><li id="selPY9_chzn_o_21" class="active-result" style="">FOTOGRAFIA 3 INTRA 3 EXTRA  A4 FUNDO BRANCO</li><li id="selPY9_chzn_o_22" class="active-result" style="">FOTOGRAFIA 5  EXTRA A4 RETRATO FUNDO BRANCO</li><li id="selPY9_chzn_o_23" class="active-result" style="">FOTOGRAFIA 5  INTRA OVER A4 FUNDO BRANCO</li><li id="selPY9_chzn_o_24" class="active-result" style="">FOTOGRAFIA 5 INTRA 3 EXTRA  A4 RETRATO FUNDO BRANCO</li><li id="selPY9_chzn_o_25" class="active-result" style="">FOTOGRAFIA 5 INTRA OCLUSAL A4 FUNDO BRANCO</li><li id="selPY9_chzn_o_26" class="active-result" style="">FOTOGRAFIA 5 INTRA OVER  A4 PORTRAIT FUNDO BRANCO</li><li id="selPY9_chzn_o_27" class="active-result" style="">FOTOGRAFIA 8 FOTOS LANDSCAPE A4 FUNDO BRANCO</li><li id="selPY9_chzn_o_28" class="active-result" style="">FOTOGRAFIA 8 FOTOS LANDSCAPE A4 FUNDO BRANCO</li><li id="selPY9_chzn_o_29" class="active-result" style="">FOTOGRAFIAS 4 DE CORPO INTEIRO</li><li id="selPY9_chzn_o_30" class="active-result" style="">FOTOGRAFIAS 5 INTRA 3 EXTRAS A4 LANDSCAPE</li><li id="selPY9_chzn_o_31" class="active-result" style="">FOTOGRAFIAS 5 INTRA 3 EXTRAS A4 PAISAGEM FUNDO BRANCO</li><li id="selPY9_chzn_o_32" class="active-result" style="">IMPRESSÃO 20 X 25 HORIZONTAL</li><li id="selPY9_chzn_o_33" class="active-result" style="">IMPRESSÃO 20 X 25 VERTICAL</li><li id="selPY9_chzn_o_34" class="active-result" style="">IMPRESSÃO A4 TOMOGRAFIA</li><li id="selPY9_chzn_o_35" class="active-result" style="">IMPRESSAO PROTOCOLO SEG</li><li id="selPY9_chzn_o_36" class="active-result" style="">INTERPROXIMAL BITEWING 20 X 25</li><li id="selPY9_chzn_o_37" class="active-result" style="">LEVANTAMENTO PERIAPICAL 20 X 25</li><li id="selPY9_chzn_o_38" class="active-result" style="">LEVANTAMENTO PERIAPICAL 20 X 25 PRORADIS</li><li id="selPY9_chzn_o_39" class="active-result" style="">LEVANTAMENTO PERIAPICAL 20 X 25 VERTICAL</li><li id="selPY9_chzn_o_40" class="active-result" style="">LEVANTAMENTO PERIAPICAL COM INTERPROXIMAIS</li><li id="selPY9_chzn_o_41" class="active-result" style="">P ANTERIOR ETIQUETA ARGOX 1</li><li id="selPY9_chzn_o_42" class="active-result" style="">P ANTERIOR ETIQUETA ARGOX 2</li><li id="selPY9_chzn_o_43" class="active-result" style="">P ANTERIOR ETIQUETA ARGOX 3</li><li id="selPY9_chzn_o_44" class="active-result" style="">P ANTERIOR ETIQUETA ARGOX 4</li><li id="selPY9_chzn_o_45" class="active-result" style="">PERIAPICAIS AMPLIADAS  4 20 X  25</li><li id="selPY9_chzn_o_46" class="active-result" style="">PERIAPICAIS AMPLIADAS  4 20 X 25 A/P</li><li id="selPY9_chzn_o_47" class="active-result" style="">PERIAPICAIS AMPLIADAS  8  POSTERIORES 20 X 25</li><li id="selPY9_chzn_o_48" class="active-result" style="">PERIAPICAIS AMPLIADAS  DO ARCOS 4 DIREITO 20-X 25</li><li id="selPY9_chzn_o_49" class="active-result" style="">PERIAPICAIS AMPLIADAS  DO ARCOS 4 ESQUERDO 20-X 25</li><li id="selPY9_chzn_o_50" class="active-result" style="">PERIAPICAIS AMPLIADAS  DO ARCOS 6 ANTERIORES 20-X 25</li><li id="selPY9_chzn_o_51" class="active-result" style="">PERIAPICAIS AMPLIADAS  DO ARCOS 6 ANTERIORES 20-X 25 CLONE</li><li id="selPY9_chzn_o_52" class="active-result" style="">PERIAPICAIS AMPLIADAS&nbsp;3 20-X 25</li><li id="selPY9_chzn_o_53" class="active-result" style="">PERSONALIZADA</li><li id="selPY9_chzn_o_54" class="active-result" style="">Protocolo Easy</li><li id="selPY9_chzn_o_55" class="active-result" style="">RAIO-X OCLUSAL 20 X 25</li><li id="selPY9_chzn_o_56" class="active-result" style="">RAIO-X PANORÂMICA 20 x 25</li><li id="selPY9_chzn_o_57" class="active-result" style="">RAIO-X PANORÂMICA 20 x 25 C/ PERIAPICAIS 20 X 25</li><li id="selPY9_chzn_o_58" class="active-result" style="">RAIO-X TELERRADIOGRAFIA CARPAL 20 X 25 ANGELICA E TATUAPE</li><li id="selPY9_chzn_o_59" class="active-result" style="">RAIO-X TELERRADIOGRAFIA CARPAL 20 X 25 NOVE DE JULHO</li><li id="selPY9_chzn_o_60" class="active-result" style="">RAIO-X TELERRADIOGRAFIA CARPAL 20 X 25 PINHEIROS</li><li id="selPY9_chzn_o_61" class="active-result" style="">TC DRY</li><li id="selPY9_chzn_o_62" class="active-result" style="">TC PAPEL FOTOGRAFICO</li><li id="selPY9_chzn_o_63" class="active-result" style="">TELE FRONTAL 20 X 25 ANGELICA E TATUAPE</li><li id="selPY9_chzn_o_64" class="active-result" style="">TELE FRONTAL 20 X 25 NOVE DE JULHO KAVO</li><li id="selPY9_chzn_o_65" class="active-result" style="">TELE FRONTAL 20 X 25 NOVE DE JULHO PAX 400</li><li id="selPY9_chzn_o_66" class="active-result" style="">TELE FRONTAL 20 X 25 PINHEIROS</li><li id="selPY9_chzn_o_67" class="active-result" style="">TELE LATERAL 20 X 25 ANGELICA E TATUAPE</li><li id="selPY9_chzn_o_68" class="active-result" style="">TELE LATERAL 20 X 25 NOVE DE JULHO KAVO</li><li id="selPY9_chzn_o_69" class="active-result" style="">TELE LATERAL 20 X 25 NOVE DE JULHO PAX 400</li><li id="selPY9_chzn_o_70" class="active-result" style="">TELE LATERAL 20 X 25 PINHEIROS</li><li id="selPY9_chzn_o_71" class="active-result" style="">TELERRADIOGRAFIA - ANALISES</li><li id="selPY9_chzn_o_72" class="active-result" style="">TELERRADIOGRAFIA - TRAÇADOS margem nenhum SIRONA</li><li id="selPY9_chzn_o_73" class="active-result" style="">Teste</li><li id="selPY9_chzn_o_74" class="active-result" style="">TRAÇADO PANORÂMICA PARA IMPLANTE</li><li id="selPY9_chzn_o_75" class="active-result" style="">TRAÇADOS CEFALOMÉTRICOS VATECH</li></ul></div></div> <button class="prd-btn prd-btn-icon add-template"><i class="fa fa-plus"></i></button></div></div></div> <div class="report-control-actions d-flex flex-row flex-align-content-center flex-align-items-center"><button id="download-reports" title="Gravar CD" class="prd-btn prd-btn-icon download"><i class="fa fa-download"></i></button> <a class="prd-btn prd-btn-icon upload-to-exam" oldtitle="Sem exames selecionados" title="" data-hasqtip="true"><i class="fa fa-upload"></i></a> <a class="prd-btn prd-btn-icon image" oldtitle="Gerar Imagem" title="" data-hasqtip="true"><i class="fa fa-file-image-o"></i></a> <a class="prd-btn prd-btn-icon activate-grid" oldtitle="Grid de Edição" title="" data-hasqtip="true"><i class="fa fa-th"></i></a> <a class="prd-btn prd-btn-icon pdf" oldtitle="Gerar PDF" title="" data-hasqtip="true"><i class="fa fa-file-pdf-o"></i></a> <span class="flex"></span> <button data-prd-tooltip="" aria-label="Nenhum template selecionado" disabled="disabled" class="prd-btn color-1"><i class="fa fa-print"></i> Imprimir</button> <button title="Impressora DICOM" class="prd-btn dcm-print color-1"><i class="fa fa-print"></i> DICOM</button></div></div> <div id="template-area"><div class="ghost template-paper template-section" style="display: none;"><div class="grid-editor"></div> <div class="margin top"><div class="template-header content-area"></div></div> <div class="margin right"></div> <div class="margin bottom"><div class="template-footer content-area"></div></div> <div class="margin left"></div> <div class="paper-area content-area"></div> <ul class="paper-control"><li data-tip="Remover página"><button class="remove-page prd-btn prd-btn-icon"><i class="fa fa-trash"></i></button></li></ul></div></div></div> <div class="metrouicss ceph-growth-report ghost"><h3 class="title">Curva de Crescimento</h3> <div id="ceph-growth-text" class="metrouicss"><div id="growth-observation" style="display: none;"><h4 class="title">Observado:</h4> <span></span></div> <div id="growth-conclusion" style="display: none;"><h4 class="title">Conclusão:</h4> <span></span></div> <div id="growth-not-in-order" style="display: none;"><span>Eventos não ocorreram na sequência esperada</span></div></div> <object id="ceph-growth-chart" type="image/svg+xml" data="https://oralx.smartris.com.br/ris/public/img/growth-chart-model.svg"></object></div> <!----></div>
+</div>
+
+<style>
+.image-editor-container {
+	width:100%;
+	height:100%;
+	position:fixed;
+	top:0;
+	left:0;
+	z-index:100000001;
+}
+</style>
+
+<div id="injection_site"></div>
+<img id="image1" style="display:none;" src="" width="100%" height="100%">
+<img id="image1_new" style="display:none;" src="" width="100%" height="100%">
+<input type="hidden" id="actualEditingImagem" value="">
+<link rel="stylesheet" href="https://oralx.smartris.com.br/ris/public/plugins/qtip/jquery.qtip.min.css">
+<script type="application/javascript" src="https://oralx.smartris.com.br/ris/public/plugins/qtip/jquery.qtip.min.js"></script>
+<script type="application/javascript" src="https://oralx.smartris.com.br/ris/public/js/image-editor.min.js"></script>
+<script type="application/javascript" src="https://oralx.smartris.com.br/ris/public/plugins/dropzone/dropzone.min.js"></script>
+<script type="application/javascript">
+	vm = new Vue({
+		el: '.report-doc',
+		data() {
+			return {
+				studys: [],
+				studyEls: [],
+				templatesCount: 0,
+				showEditor: false,
+				editorProps: null
+			}
+		},
+		mounted() {
+			this.update();
+			setInterval(() => {
+				this.templatesCount = (document.getElementsByClassName('template-paper').length - 1);
+			}, 250);
+		},
+		methods: {
+			update() {
+				Object.keys(this.$refs).forEach((e) => {
+					let item = this.$refs[e],
+                        obj = this.studyEls.find((i) => i.ref == e);
+					if(obj) {
+                        obj.count = item.childNodes.length;
+						obj.images = item.childNodes.length;
+						obj.active = item.childNodes.length <= 12;
+					} else {
+						this.studyEls.push({
+							ref: e,
+                            active: item.childNodes.length <= 12,
+                            count: item.childNodes.length,
+							images: item.childNodes.length
+						})
+					}
+				});
+			},
+			openImageEditor(_data) {
+				this.showEditor = !this.showEditor;
+				_data.image = _data.image.replace('/220', '');
+				this.editorProps = _data;
+			},
+			closeEditor() {
+				this.showEditor = false;
+				this.editorProps = null;
+			},
+			saveImage(_imageContent) {
+				var content = _imageContent.detail[0];
+				var image = new ImageModel(this.editorProps.image.replace(base_url('storage/get_image'), ''));
+				
+				var study_list = jQuery('input[name="study_id"]');
+				jQuery.ajax({
+					url: base_url('storage/save_image'),
+					type:'post',
+					data: {
+						image_url : content,
+						study_id : this.editorProps.study.id,
+						old_study_id : image.study_iuid,
+						old_series_id : image.series_iuid,
+						old_sop_id : image.sop_iuid
+					},
+					success:() => {
+						
+						save_image_semaphore = 1;
+
+						var onLoadContent = (study) => {
+							var element = jQuery('input[value="' + study.id + '"]');
+							var study_data = element.siblings('div.data');
+							var study_li = element.closest('li.doc-procedure');
+
+                            var data_container = study_data.find('div.report-data');
+                            var series_container = study_data.find('div.series');
+							var images_container = study_data.find('div.images');
+
+                            study.generateSeriesList(series_container[0]);
+							study.generateImageList(images_container[0]);
+
+							jQuery('.content')
+							.on('dragstart', doc.drag_content)
+							.on('dragend', doc.undrag_content);
+						};
+
+						var options = {
+							onLoadContent : onLoadContent,
+						};
+
+						doc.controller = new DocController(jQuery('#doc-id').val(), study_list, options);
+						
+						this.closeEditor();
+					}
+				});
+            },
+            toggleSeries: function(_el) {
+				let a = this.studyEls.find((item) => item.ref == _el);
+				a.active = !a.active;
+            },
+            countSeries: function(_el) {
+                let a = this.studyEls.find((item) => item.ref == _el);
+				return a ? a.count : 0;
+            },
+			toggleImages: function(_el) {
+				let a = this.studyEls.find((item) => item.ref == _el);
+				a.active = !a.active;
+            },
+			countImages: function(_el) {
+                let a = this.studyEls.find((item) => item.ref == _el);
+				return a ? a.images : 0;
+			},
+			isActive: function(_el) {
+				let a = this.studyEls.find((item) => item.ref == _el);
+				return a ? a.active : false;
+			},
+			toggleStudy: function(_studyPk) {
+				let ix = this.studys.indexOf(_studyPk);
+
+				if(ix == -1) this.studys.push(_studyPk)
+				else this.studys.splice(ix, 1)
+			},
+			dcm_print: function(){
+				doc.dcm_print();
+			},
+			print_template: function(event){
+				jQuery('canvas').remove();
+				doc.print(event)
+			},
+			print: function(_laudo) {
+				var docId = jQuery('#doc-id').val(),
+					templates = jQuery('div.template-paper:not(.ghost)').clone(),
+					pages = []
+				;
+
+				templates.find('button').remove();
+				
+				var globalOptions = {
+					'page-width' : `${template.paper.config.width}`,
+					'page-height' : `${template.paper.config.height}`,
+					'margin-top' : 0,
+					'margin-left' : 0,
+					'margin-right' : 0,
+					'margin-bottom' : 0,
+				};
+
+				templates.each(function() {
+					var html = this.outerHTML;
+					var page = {
+						html: html
+					};
+
+					pages.push(page);
+				});
+
+				swal({
+					text: 'Aguarde, criando documento para impressão',
+					icon: "info",
+					buttons: false,
+					allowOutsideClick: false
+				})
+
+				this.$http.post(base_url('reports_doc/print_pdf'), {
+					docId: docId,
+					studys: this.studys,
+					pages: pages,
+					laudo: _laudo,
+					globalOptions: globalOptions
+				}, {responseType:'arraybuffer'}).then((response) => response.data).then(data => {
+					var file = new Blob([data], {type: 'application/pdf'});
+					var fileURL = URL.createObjectURL(file);
+					var iframe = this._printIframe;
+					
+					if (!this._printIframe) {
+						iframe = this._printIframe = document.createElement('iframe');
+						document.body.appendChild(iframe);
+
+						iframe.style.display = 'none';
+						iframe.onload = function() {
+							setTimeout(function() {
+								iframe.focus();
+								iframe.contentWindow.print();
+								swal.close();
+							}, 1);
+						};
+					}
+
+					iframe.src = fileURL;
+				})
+			}
+		}
+	})
+
+	template_contents = [{"type":"report","contents":"[\"text\",\"image\"]"},{"type":"report_ceph","contents":"[\"analysis\",\"image\",\"trace\",\"summary\",\"growthCurve\"]"},{"type":"report_fake","contents":"[\"image\"]"},{"type":"report_pan","contents":"[\"text\",\"image\",\"annotation\"]"}];
+
+	content_types = [];
+
+	for(var i in [{"type":"report","contents":"[\"text\",\"image\"]"},{"type":"report_ceph","contents":"[\"analysis\",\"image\",\"trace\",\"summary\",\"growthCurve\"]"},{"type":"report_fake","contents":"[\"image\"]"},{"type":"report_pan","contents":"[\"text\",\"image\",\"annotation\"]"}]) {
+		var types = JSON.parse(template_contents[i].contents);
+		jQuery.each(types, function(index, type) {
+			if( content_types.indexOf(type) === -1 )
+				content_types.push(type);
+		});
+	};
+
+	doc.header = {"pat_id":"184950","pat_name":"PEDRO CRISTIANO PEREIRA DA SILVA FERREIRA","name":"PEDRO CRISTIANO PEREIRA DA SILVA FERREIRA","sex":"M","cel":"(11)96528-3426","cep":"","uf":"","city":"","complement":"","cpf":"","rg":"","email":"","profession":"","responsible_name":"","responsible_birthdate":"0000-00-00","neighborhood":"","mother_name":"","access_protocol":"89C793BA","password_protocol":"0A9D006E","insurance":"SMS","id":"498075","study_desc":"DOC COMPLETA","pat_origin":"MOTOBOY CORTESIA","referring_doctor_eid":"av6HSdxFTEGmUMLSQm0QX9KULSu0Div1hwFaVDw5oFPV6Q3DgWRimTyEsx2f0ZQfxims6LvXgKYz1dI3MslC3w_-TA_TA-_","referring_doctor":"NILZE VILELA LINS ","referring_doctor_obs":" ","referring_doctor_email":"darwinbraga@gmail.com","referring_doctor_street":"Rua Jo\u00e3o Augusto Morais","referring_doctor_number":"348","referring_doctor_city":"S\u00e3o Paulo","referring_doctor_uf":"SP","referring_doctor_neighborhood":"Vila Doutor Eiras","referring_doctor_comp":"2\u00b0 ANDAR ","referring_doctor_crm":"37819","referring_doctor_cep":"08010-150\t","referring_doctor_tel":"","company_name":"Oral X Diagn\u00f3stico por Imagem","company_uf":"SP","company_street":"Rua Teodoro Sampaio","company_city":"Sao Paulo","company_number":"744","company_complement":"0","company_phone":"11 3064-4668","company_cell":"11 98730-1139","company_reason":"Oral X Odontologia ltda","company_responsible":"Dr. Darwin Martins Braga","company_email":"oralx@oralx.com.br","attendance_id":"185629","exam":"DOC COMPLETA","attendance_number":"185629","company_cnpj":"67.182.147\/0001-10","age":"8","responsible_age":null,"address":"  ,  -  ","date_realiz":"20\/06\/2025 14:00","date_realiz_dma":"20\/06\/2025","realized_date":"20\/06\/2025 14:00","birthdate":"07\/01\/2017","accession_no":"359260","phone":"(11)96528-3426","guide":"315748","referring_doctor_phone":" ","date":"26\/06\/2025","issue_date":"26\/06\/2025","total_value":"R$ 165.00","received_value":"R$ 165.00","discount":"R$ 0.00","hashed_pat_id":"nP09xvqhKsA-_pp_pp_-jvrqCsUgRHU6YBg57QuF2OPAbPpPoAbnn4CgvJTb50vOnWt1GQ7-_pp_pp_-Jhq9lTTJPQbjPaXOYpKBBA_-TA_TA-_"};
+	doc.ghost = {
+		'div.content-area' : '<div class="analysis-results"><h3 class="analysis-title"></h3><table class="results-table"><thead><tr><th class="id"></th><th class="name">Nome</th><th class="value">Valor</th><th class="avg">Padrão</th><th class="std">Desvio</th><th class="class">Classe</th></tr></thead><tbody></tbody></table></div>',
+		'table.results-table tbody' : '<tr><td class="id"></td><td class="name"></td><td class="value"></td><td class="avg"></td><td class="std"></td><td class="class"></td></tr>',
+		'element-control' : '<ul class="element-control"><li class="fa fa-recycle clear"></li></ul>',
+	};
+
+	dictionary = {
+		'image' : 'Imagem',
+		'edit_image' :  'Editar',
+		'remove_image' :  'Remover',
+		'analysis' : 'Análise',
+		'trace' : 'Tra&ccedil;ado',
+		'close': 'Fechar',
+		'report' : 'Laudo',
+		'odontogram' : 'Odontograma',
+		'report_must_be_validated' : 'Laudo precisa estar validado.',
+		'no_content_avaliable' :  'Não existe conteúdo disponível',
+		'annotation' : 'Anotação',
+		'cephalogram' : 'Cefalograma',
+		'page' : 'Página',
+		'removed' : 'Removida',
+		'growth_curve' : 'Curva de Crescimento',
+		'summary-report' : 'An&aacute;lise Sint&eacute;tica',
+		'remove_image_warning' : 'Esta é uma ação irreversivel! Deseja mesmo continuar?',
+		// central
+		'send_to_central' : 'Enviar para central de exames',
+		'no_exams_selected' : 'Sem exames selecionados',
+		'select_exams_on_left' : 'Clique nos exames para selecionar os desejados',
+		'failed_to_send' : 'Falha ao enviar exames para central',
+		'upload_image' : 'Subir imagem para exames',
+		// laudo sintético
+		'summary-report' : 'An&aacute;lise Sint&eacute;tica',
+		'growth_rank_P2D' : '1',
+		'growth_rank_P1N' : '2',
+		'growth_rank_A2D' : '2',
+		'growth_rank_R2D' : '3',
+		'growth_rank_R1N' : '4',
+		'growth_rank_R3M' : '5',
+		'growth_rank_A1N' : '5',
+		'growth_rank_A1D' : '5',
+		'growth_rank_P1M' : '5',
+		'growth_rank_A3M' : '6',
+		'growth_rank_P3M' : '6',
+		'growth_rotation_R' : 'Neutro',
+		'growth_rotation_P' : 'Posterior',
+		'growth_rotation_A' : 'Anterior',
+		'growth_diff_1' : 'Crescimento da mandíbula é menor que o da maxila',
+		'growth_diff_2' : 'Crescimento da mandíbula é menor que o da maxila',
+		'growth_diff_3' : 'Crescimento da mandíbula é menor que o da maxila',
+		'growth_diff_4' : 'Crescimento igual entre mandibula',
+		'growth_diff_5' : 'Crescimento da mandíbula é maior que o da maxila',
+		'growth_diff_6' : 'Crescimento da mandíbula é maior que o da maxila',
+		'growth_vertical_OB' : 'Mordida Aberta',
+		'growth_vertical_N' : 'Normal',
+		'growth_vertical_DB' : 'Mordida Profunda'
+	};
+
+	jQuery(document).ready(function() {
+		/*jQuery("#share_emails").select2({
+		tags: true
+	});*/
+	jQuery(".doc-procedure .prd-btn-icon").click( (e) => {
+		// previne que o clique dentro do info selecione o exame
+		e.stopPropagation();
+	})	
+	jQuery('body').on('dragenter', doc.drag_file);
+	jQuery('html').on('mouseup', doc.done_drag);
+	jQuery('.template-control a.print').on('click', doc.print);
+	jQuery('.template-control a.dcm-print').on('click', doc.dcm_print);
+	jQuery('.template-control a.pdf').on('click', doc.save2pdf);
+	jQuery('.template-control a.image').on('click', {upload : false}, doc.save2imagedown);
+	jQuery('.template-control a.dropbox').on('click', {upload : false}, doc.save2dropbox);
+	jQuery('.template-control a.upload-to-exam').on('click', {upload : true}, doc.save2image);
+
+	CephController.prototype.config =   {"hotkeys_ceph":{"set_point":"1","lightness":"2","zoom":"3","pan":"4","rotate":"5","path_selector":"6","fit_to_screen":"7","sobel":"8","invert_color":"9","clear_ceph":"Q","text_edit":"W","element_selector":"E"},"point_config":{"fill":"#000000","r":".3%"},"plane_config":{"stroke":"#0016ff","stroke-width":".2%"},"path_config":{"stroke":"#000000","stroke-width":".2%"},"tooth_config":{"stroke":"#ff0000"},"config_report":{"header":"#c5022a","header_font":"#FFFFFF","group":"#E0E0E0","group_font":"#0A2644","gradient_begin":"#FFFFFF","gradient_end":"#FF7F7F","gradiente_linha":"false"},"arc_config":{"stroke":"#ff0000","stroke-width":".2%"},"print_config":{"showImage":"false","showPoints":"false","page_width":"210","page_height":"296.5","header_content":"<p data-mce-style=\"text-align: center;\" style=\"text-align: right;\"><img src=\"\/ris\/images\/company\/2\" style=\"float: right;\" \/><\/p>\n\n<p><strong>Paciente:<\/strong> {pat_name}<br \/>\n<strong>Data Nasc.:<\/strong> {birthdate} Idade: {age}<br \/>\n<strong>Data Ex.:<\/strong> {date_realiz}<br \/>\n<strong>Dentista:<\/strong> {reffering_doctor}<br \/>\n<strong>N&uacute;mero do pedido:<\/strong> {accession_no}<\/p>\n","header_height":"35","footer_content":"<p>&nbsp;<\/p>\n","footer_height":"5"}}; 	config =   {"hotkeys_ceph":{"set_point":"1","lightness":"2","zoom":"3","pan":"4","rotate":"5","path_selector":"6","fit_to_screen":"7","sobel":"8","invert_color":"9","clear_ceph":"Q","text_edit":"W","element_selector":"E"},"point_config":{"fill":"#000000","r":".3%"},"plane_config":{"stroke":"#0016ff","stroke-width":".2%"},"path_config":{"stroke":"#000000","stroke-width":".2%"},"tooth_config":{"stroke":"#ff0000"},"config_report":{"header":"#c5022a","header_font":"#FFFFFF","group":"#E0E0E0","group_font":"#0A2644","gradient_begin":"#FFFFFF","gradient_end":"#FF7F7F","gradiente_linha":"false"},"arc_config":{"stroke":"#ff0000","stroke-width":".2%"},"print_config":{"showImage":"false","showPoints":"false","page_width":"210","page_height":"296.5","header_content":"<p data-mce-style=\"text-align: center;\" style=\"text-align: right;\"><img src=\"\/ris\/images\/company\/2\" style=\"float: right;\" \/><\/p>\n\n<p><strong>Paciente:<\/strong> {pat_name}<br \/>\n<strong>Data Nasc.:<\/strong> {birthdate} Idade: {age}<br \/>\n<strong>Data Ex.:<\/strong> {date_realiz}<br \/>\n<strong>Dentista:<\/strong> {reffering_doctor}<br \/>\n<strong>N&uacute;mero do pedido:<\/strong> {accession_no}<\/p>\n","header_height":"35","footer_content":"<p>&nbsp;<\/p>\n","footer_height":"5"}}; 	PanController.prototype.config =   {"text_config":{"font-size":"12"},"report_default_color":{"color":"#ce0000"},"feature_title_config":{"font":"Times","font-size":"12","line_height":"12","color":"#ffffff","dentition_panel_title":"TIPO DE DENTI\u00c7\u00c3O","findings_panel_title":"DETALHAMENTO DE ACHADOS"},"feature_text_config":{"font":"Times","font-size":"12"},"print_config":{"use_odontogram":"true","use_image":"false","odontogram_size":"350","image_size":"200","page_width":"210","page_height":"296.5","header_content":"<p data-mce-style=\"text-align: center;\" style=\"text-align: center;\"><img src=\"\/ris\/images\/company\/2\" style=\"float: right;\" \/><\/p>\n\n<p><strong>Paciente:<\/strong> {pat_name}<br \/>\n<strong>Data Nasc.:<\/strong> {birthdate} Idade: {age}<br \/>\n<strong>Data Ex.:<\/strong> {date_realiz}<br \/>\n<strong>Dentista:<\/strong> {reffering_doctor}<br \/>\n<strong>N&uacute;mero do pedido:<\/strong> {accession_no}<\/p>\n","header_height":"30","footer_content":"<p>&nbsp;<\/p>\n","footer_height":"1"},"display_config":{"use_odontogram":"true","use_image":"false","odontogram_size":"300","image_size":"450"},"trace_config":{"stroke-width":".2%"}}; 
+	CKEDITOR.config.allowedContent = true; 
+	CKEDITOR.config.toolbar = [
+	{ name: 'paragraph', groups: [ 'list', 'indent', 'blocks', 'align', 'bidi' ], items: [ 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock' ] },
+	{ name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ], items: [ 'Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'RemoveFormat' ] },
+	'/',
+	{ name: 'styles', items: [ 'Styles', 'Format', 'Font', 'FontSize' ] },
+	{ name: 'colors', items: [ 'TextColor', 'BGColor' ] }
+	];
+
+		//carrega informações e conteúdos de cada study
+		var study_list = jQuery('input[name="study_id"]');
+		var refreshImageList = function() {
+			for (var i = study_list.length - 1; i >= 0; i--) {
+				var study_id = jQuery(study_list[i]).val();
+				var element = jQuery('input[value="' + study_id + '"]');
+				var study_data = element.siblings('div.data');
+				var study_li = element.closest('li.doc-procedure');
+
+                var data_container = study_data.find('div.report-data');
+                var series_container = study_data.find('div.series');
+                var images_container = study_data.find('div.images');
+
+				var study = jQuery.data(study_data[0], 'controller');
+
+                study.generateContentList(data_container[0]);
+                study.generateSeriesList(series_container[0]);
+				study.generateImageList(images_container[0]);
+
+				jQuery('.content')
+				.on('dragstart', doc.drag_content)
+				.on('dragend', doc.undrag_content);
+			}
+		};
+		var onLoadContent = function(study) {
+			var element = jQuery('input[value="' + study.id + '"]');
+			var study_data = element.siblings('div.data');
+			var study_li = element.closest('li.doc-procedure');
+
+			jQuery.data(study_data[0], 'controller', study);
+			var ac = new AttachController(study_li[0], study);
+
+
+            var data_container = study_data.find('div.report-data');
+            var series_container = study_data.find('div.series');
+			var images_container = study_data.find('div.images');
+
+            study.generateContentList(data_container[0]);
+            study.generateSeriesList(series_container[0]);
+			study.generateImageList(images_container[0]);
+
+			jQuery('.content')
+			.on('dragstart', doc.drag_content)
+			.on('dragend', doc.undrag_content);
+		};
+
+		var createSpecialContentList = function(docCtrl) {
+			var element = jQuery('#content-nav ul');	
+			for(var id in docCtrl.contents) {
+				var special_element = element.find('.ghost.doc-special-content').clone();
+				special_element.removeClass('ghost');
+				special_element.attr('id', id);
+				element.prepend(special_element);
+				jQuery.data(special_element[0], 'model', new SpecialContentModel(docCtrl, docCtrl.contents[id].content));
+				special_element.html(docCtrl.contents[id].name ? docCtrl.contents[id].name : 'Conteúdo Especial ' + Object.keys(docCtrl.contents).length);
+
+				//workaround por nao funcionar em determinados perfis
+				jQuery("#"+id).data("model",new SpecialContentModel(docCtrl, docCtrl.contents[id].content))
+				jQuery("#"+id).html(docCtrl.contents[id].name ? docCtrl.contents[id].name : 'Conteúdo Especial ' + Object.keys(docCtrl.contents).length)
+
+			}            
+		}
+		var onLoadSpecialContent = function(docCtrl) {
+			var element = jQuery('#content-nav ul');
+			var doc_data = jQuery('#doc-id');
+			jQuery.data(doc_data[0], 'controller', docCtrl);
+
+			createSpecialContentList(docCtrl);
+
+			jQuery('.doc-special-content')
+			.on('dragstart', doc.drag_special_content)
+			.on('dragend', doc.undrag_content); 
+		};
+		doc.config =  doc.defaultConfig; 		save_image_semaphore = 1;
+		var onSaveImageEditor = function(saveButton) {
+			if(save_image_semaphore == 1){
+				save_image_semaphore = 0;
+			}else{
+				return true;
+			}
+			event.preventDefault();
+
+			var canvas = document.getElementById("avpw_canvas_element");
+			document.getElementById("image1_new").src = canvas.toDataURL();
+
+
+			var img_src = jQuery("#image1").attr("src")
+			image = new ImageModel(img_src.replace(base_url('storage/get_image'), ''));
+
+			jQuery.ajax({
+				url: base_url('storage/save_image'),
+				type:'post',
+				data: {
+					image_url : jQuery("#image1_new").attr("src"),
+					study_id : jQuery("#actualEditingImagem").val(),
+					old_study_id : image.study_iuid,
+					old_series_id : image.series_iuid,
+					old_sop_id : image.sop_iuid
+				},
+				success:function() {
+					save_image_semaphore = 1;
+					var onLoadContent = function(study) {
+						var element = jQuery('input[value="' + study.id + '"]');
+						var study_data = element.siblings('div.data');
+						var study_li = element.closest('li.doc-procedure');
+
+                        var data_container = study_data.find('div.report-data');
+                        var series_container = study_data.find('div.series');
+						var images_container = study_data.find('div.images');
+
+                        study.generateSeriesList(series_container[0]);
+						study.generateImageList(images_container[0]);
+
+						jQuery('.content')
+						.on('dragstart', doc.drag_content)
+						.on('dragend', doc.undrag_content);
+					};
+					var options = {
+						onLoadContent : onLoadContent,
+						// onLoadSpecialContent : onLoadSpecialContent, RIS-128
+						featherEditor: featherEditor
+					};
+					doc.controller = new DocController(jQuery('#doc-id').val(), study_list, options);
+					featherEditor.close();
+				}
+			});
+		};
+
+	var featherEditor = new Aviary.Feather({
+		apiKey: '5870c5ef08714eae82fbb4c1b79e7384',
+			theme: 'dark', // Check out our new 'light' and 'dark' themes!
+			tools: [
+				'brightness',
+				'orientation',
+				'crop',
+				'resize',
+				'lightning',
+				'color',
+				'sharpness',
+				'focus',
+				'blemish',
+				'whiten',
+				'redeye',
+				'colorsplash',
+				'text',
+				'enhance' 
+			],
+			cropPresets: [
+				'Custom',
+				'Original',
+				['Square', '1:1'],
+				'3:2', '5:3', '4:3', '5:4', '6:4', '7:5', '10:15', '15:10'
+			],
+			language: 'pt',
+			appendTo: '',
+			maxSize: "5000",
+			onReady : function(){
+				jQuery('#avpw_save_button').on('click', onSaveImageEditor);
+			},
+			onSave: function(imageID, newURL) {
+			},
+			onError: function(errorObj) {
+				alert(errorObj.message);
+			}
+		});
+
+	var options = {
+		onLoadContent : onLoadContent,
+		onLoadSpecialContent : onLoadSpecialContent,
+		featherEditor: featherEditor
+	};
+
+	doc.controller = new DocController(jQuery('#doc-id').val(), study_list, options);
+	doc.transparency = doc.config.transparency;
+	if(doc.config.print_config && doc.config.print_config.transparency) {
+		try{
+			doc.transparency = eval(doc.config.print_config.transparency);
+		} catch(error){
+
+		}
+
+	}
+	doc.showPoints = doc.config.showPoints;
+	if(doc.config.print_config && doc.config.print_config.showPoints) {
+		try{
+			doc.showPoints = eval(doc.config.print_config.showPoints);
+		} catch(error){
+
+		}
+	}
+
+	doc.defaultConfig.style =  {}; 
+	doc.upload_image = {};
+	jQuery('#content-nav li.doc-procedure')
+	.each( function() {
+		var id = jQuery(this).attr('id');
+		doc.upload_image[id] = new Dropzone( `#${id} .upload`, {
+			parallelUploads: 1,
+			url : base_url('storage/upload_image/'),
+			createImageThumbnails : false,
+			acceptedFiles : 'image/jpeg, application/pdf, application/dicom, image/png',
+			params : { study_id : jQuery(this).find('input[name=study_id]').val() }
+		})
+		.on('addedfile', doc.added_file)
+		.on('uploadprogress', doc.upload_progress)
+		.on('success', doc.upload_success)
+		.on('complete', doc.upload_complete)
+		.on('drop', doc.done_drag)
+
+		;
+	});
+
+	jQuery('#content-nav li.doc-procedure .info')
+	.on('click', doc.toggle_exam);
+
+	jQuery('#template-content select[name=template_select]')
+	.chosen();
+
+	jQuery('#template-content button.add-template')
+	.on('click', doc.load_template);
+
+	jQuery(".attendance-info").on('click',doc.attendance_info)
+
+	jQuery('#template-area').on('dragover', 'div.content-area', stop_propagation);
+	jQuery('.images').on('dragover', 'div.img-wrapper', stop_propagation);
+	jQuery('.images').on('drop', 'div.img-wrapper', doc.sort_item);
+	jQuery('#template-area').on('drop', 'div.content-area', doc.drop_content);
+	jQuery('.send-to-central').on('click', doc.send_to_central );
+
+
+	// Tornar a função refresh_reports assíncrona
+	refresh_reports = async function() {
+		var ids = [];
+		jQuery('li.doc-procedure.selected input[name=study_id]').each(function() {
+			ids.push(jQuery(this).val());
+		});
+		console.log(ids);
+		ids = ids.join('.');
+		return ids; // Retornar os IDs concatenados
+	}
+
+	// Adicionar evento de clique no botão de download
+	jQuery('#download-reports').on("click", async function(event) {
+		event.preventDefault(); // Prevenir o comportamento padrão do link
+		const ids = await refresh_reports(); // Chamar a função e aguardar os IDs
+		
+		// Verificar se ids é uma string vazia (resultado de um array vazio)
+		if (ids.length === 0 || ids === '') {
+			alert('Por favor, selecione pelo menos um estudo.');
+			return; // Sair da função se não houver IDs
+		}
+		
+		// Abrir a URL de download em uma nova janela
+		window.open(base_url('storage/report?type=study_pk&ids=' + ids + '&format=iso'), "download");
+	});
+	
+	jQuery('span[title], a[title]:not(.attach)').qtip({
+		position: {
+			my: 'top center',
+			at: 'bottom center'
+		},
+		style: 'qtip-tipsy'
+	});
+
+
+	jQuery('a[title].attach').qtip({
+		position: {
+			my: 'left center',
+			at: 'right center'
+		},
+		show:{
+			solo: true
+		},
+		hide: 'unfocus',
+		style: 'qtip-bootstrap',
+		events:{
+			show: function(event, api){
+				var element = this;
+				jQuery(element).find("a.dl-attach").each(function(){
+					var that = this;
+					var id = jQuery(that).data("id")
+					var url = base_url("report/download_file/"+id)
+					jQuery(that).attr("href",url).attr("target","_blank")
+				})
+			}
+		}
+	})
+
+});
+
+jQuery(".activate-grid").on("click",function(){
+		jQuery(".grid-editor").toggle()
+		jQuery(".grid-editor").toggleClass("active")
+		
+		jQuery(".content-area").find("img").each(function(){
+				if(jQuery(this).closest(".paper-area").siblings(".grid-editor").hasClass("active")){
+						jQuery(this).css("opacity","0.7")
+				}else{ 
+						jQuery(this).css("opacity","1")
+
+				}
+		})
+})
+
+jQuery(".workflow-select").select2({
+	templateResult: formatWorkflow
+});
+
+jQuery(".workflow-chip").on("click",function(){
+		event.stopPropagation();
+		jQuery(this).hide();
+		jQuery(this).siblings(".workflow-select-container").show()
+		jQuery(this).siblings(".workflow-select-container").find(".select2-selection").css("min-width","150px");
+		jQuery(this).siblings(".workflow-select-container").find("select").select2("open")
+})
+jQuery(".workflow-select").on("change",function(){
+		var val = jQuery(this).val()
+		var pk = jQuery(this).closest("li").data("hash")
+		var chip = jQuery(this).parent().siblings(".workflow-chip");
+		var data = jQuery(this).find("option:selected").data()
+		if(data.alias){
+			jQuery(chip).html(data.alias)
+		}else{
+			jQuery(chip).html(data.name)
+		}
+		jQuery(chip).show()
+		jQuery(this).closest(".workflow-select-container").hide()
+		jQuery(chip).removeClass().addClass("workflow-chip").addClass("wf_"+val).addClass("prd-chip");
+        jQuery.ajax({
+            url:jQuery('body').data('baseurl')+'report/set_workflow',
+            type:'POST',
+            dataType:'JSON',
+            data:{
+				study_id:pk,
+				workflow_id : val
+            },
+            error: function(response){
+		jQuery(chip).html("")
+            }
+        })
+})
+
+jQuery(".workflow-select-container").hide()
+
+setTimeout(function(){
+	jQuery(".doc-procedure[data-component=PRINTER]").find(".printer-hide").hide()
+	jQuery(".doc-procedure[data-component=PRINTER]").find(".img-wrapper a").not(".printer-show").remove()
+	jQuery(".doc-procedure[data-component!=PRINTER]").find(".printer-show").remove()
+	jQuery(".printer-show").show()
+
+	jQuery(".clean_printer_queue").click(function(){
+		var msg = "Deseja limpar a cesta de impress&atilde;o? Ser&aacute; necess&aacute;rio recarregar a p&aacute;gina."
+		confirm(msg,function(ok){
+			if(!ok) return false;
+			jQuery.ajax({
+				url: jQuery('body').data('baseurl')+"printer/clean_queue",
+				type:'post',
+				dataType:'JSON',
+				success: function(response){
+					if(response.status == "OK"){
+						window.location.reload()
+					}
+				}
+			})
+		})
+
+	})
+},1000)
+
+
+function open_procedure(data, workflow){
+	jQuery('.select2').css('width','251px')
+	
+	if(jQuery( "#div_open_study_"+data.study_pk ).hasClass('study-class-'+data.study_pk)){
+
+		if(jQuery('.open-study-'+data.study_pk).length != 1){
+		jQuery('.icon-data_'+data.study_pk).css('display', '')
+		jQuery('.info-data_'+data.study_pk).css('display', 'none')
+	
+		jQuery("#study-"+data.study_pk+"-others").appendTo( jQuery( ".procedures-open" ) );
+		jQuery("#study-"+data.study_pk+"-others").removeClass('data-li-close');
+		jQuery("#div_open_study_"+data.study_pk).removeClass('study-class-'+data.study_pk);
+		// jQuery('.other-study-'+data.study_pk).click()
+		
+		}else{
+			jQuery("#study-"+data.study_pk+"-others").remove();
+			jQuery('.study-'+data.study_pk).click()
+		}
+
+	}
+
+}
+
+
+</script>
+
+
+	<style>
+		#template-area div.analysis-results thead tr{
+			background-color: #c5022a;
+			color: #FFFFFF;
+		}
+		tr.factor-group{
+			background-color: #E0E0E0 !important;
+			color: #0A2644;
+		}
+		.positive-0{
+			background-color: #FF7F7F00;
+		}
+		.positive-1{
+			background-color: #FF7F7F33 !important;;
+		}
+		.positive-2{
+			background-color: #FF7F7F4D !important;
+		}
+		.positive-3{
+			background-color: #FF7F7F66 !important;
+		}
+		.negative-0{
+			background-color: #FFFFFF00 !important;;
+		}
+		.negative-1{
+			background-color: #FFFFFF33 !important;;
+		}
+		.negative-2{
+			background-color: #FFFFFF4D !important;;
+		}
+		.negative-3{
+			background-color: #FFFFFF66 !important;;
+		}		
+	</style>
+
+        </div>
+    </div>
+
+
+
+<script>
+    apiKey = '13Ha7i9DYaLBOd5rW7RvtITiGRTqu9MQt5qkWdJh';
+        </script>
+
+
+<input type="hidden" id="logged_username" value="bernardo.braga"> 
+
+<script>
+    var time_out_seconds = "7200";
+    var userIdleTime = 0;
+    var idleInterval;
+    var idleLimitSeconds = time_out_seconds; // Defina o tempo limite de inatividade em segundos aqui
+    var countdownSeconds = idleLimitSeconds;
+    // Função para iniciar o temporizador de inatividade
+    function startIdleTimer() {
+            idleInterval = setInterval(decrementTimer, 1000); // A cada segundo
+        }
+
+    // Função para decrementar o tempo restante
+    function decrementTimer() {
+            userIdleTime++;
+            countdownSeconds--;
+            
+
+            if (userIdleTime > idleLimitSeconds) {
+                 //Chamar função para deslogar o usuário quando o tempo limite de inatividade for atingido
+                clearInterval(idleInterval);
+                logoutUser();
+            }
+    }
+    // Função para reiniciar o temporizador quando houver interação do usuário
+    function resetIdleTimer() {
+            userIdleTime = 0;
+            countdownSeconds = idleLimitSeconds;
+            
+    }
+    function formatTime(seconds) {
+            var minutes = Math.floor(seconds / 60);
+            var remainingSeconds = seconds % 60;
+            return (minutes < 10 ? "0" : "") + minutes + ":" + (remainingSeconds < 10 ? "0" : "") + remainingSeconds;
+    }
+    // Função para deslogar o usuário (chamada quando o tempo limite de inatividade é atingido)
+    function logoutUser() {
+            // Aqui você pode fazer uma solicitação AJAX para deslogar o usuário no backend
+            // Implemente a função de logout de acordo com a sua lógica
+            var url = jQuery("body").data("baseurl") + "monitor/logout_inactivity"
+            jQuery.ajax({
+                url: url,
+                type: 'post',
+                dataType: 'json',
+                success: function(response) {
+                    var quit = false;
+                    if(response.status != "OK" ){
+                        quit = true;
+                    }
+                    if(quit){
+                        msg = "Você foi deslogado devido à inatividade.";
+                        confirm(msg,function(ok){
+                            window.location = jQuery("body").data("baseurl") + "login/logout";                        
+                        })  
+                    }
+                },
+                error: function(response){
+
+                }
+            });
+            
+    }
+    // Reiniciar o temporizador quando houver interação do usuário
+    document.addEventListener("mousemove", resetIdleTimer);
+    document.addEventListener("keypress", resetIdleTimer);
+
+    startIdleTimer();
+
+    setInterval(function(){
+        var current_username = jQuery("#logged_username").val();
+        var url = jQuery("body").data("baseurl") + "monitor/logged_user"
+        jQuery.ajax({
+            url: url,
+            type: 'post',
+            dataType: 'json',
+            success: function(response) {
+                var quit = false;
+                if(typeof response.status == "undefined"){
+                    quit = true;
+                }else
+                if(response.status != "OK" || response.username != current_username){
+                    quit = true;
+                }
+                if(quit){
+                    msg = "Você foi desconectado. Autentique-se novamente.";
+                    if(typeof response.name != "undefined") {
+                        msg = "Você foi desconectado por "+ response.name;
+                    }
+                    confirm(msg,function(ok){
+                        window.location = jQuery("body").data("baseurl") + "login/logout";                        
+                    })  
+                }
+            },
+            error: function(response){
+
+            }
+        });
+    },120000)
+</script>
+
+<style>
+</style>
+
+
+
+<input type="file" multiple="multiple" class="dz-hidden-input" accept="image/jpeg, application/pdf, application/dicom, image/png" style="visibility: hidden; position: absolute; top: 0px; left: 0px; height: 0px; width: 0px;"><input type="file" multiple="multiple" class="dz-hidden-input" accept="image/jpeg, application/pdf, application/dicom, image/png" style="visibility: hidden; position: absolute; top: 0px; left: 0px; height: 0px; width: 0px;"><input type="file" multiple="multiple" class="dz-hidden-input" accept="image/jpeg, application/pdf, application/dicom, image/png" style="visibility: hidden; position: absolute; top: 0px; left: 0px; height: 0px; width: 0px;"><input type="file" multiple="multiple" class="dz-hidden-input" accept="image/jpeg, application/pdf, application/dicom, image/png" style="visibility: hidden; position: absolute; top: 0px; left: 0px; height: 0px; width: 0px;"><input type="file" multiple="multiple" class="dz-hidden-input" accept="image/jpeg, application/pdf, application/dicom, image/png" style="visibility: hidden; position: absolute; top: 0px; left: 0px; height: 0px; width: 0px;"><input type="file" multiple="multiple" class="dz-hidden-input" accept="image/jpeg, application/pdf, application/dicom, image/png" style="visibility: hidden; position: absolute; top: 0px; left: 0px; height: 0px; width: 0px;"><input type="file" multiple="multiple" class="dz-hidden-input" accept="image/jpeg, application/pdf, application/dicom, image/png" style="visibility: hidden; position: absolute; top: 0px; left: 0px; height: 0px; width: 0px;"><input type="file" multiple="multiple" class="dz-hidden-input" accept="image/jpeg, application/pdf, application/dicom, image/png" style="visibility: hidden; position: absolute; top: 0px; left: 0px; height: 0px; width: 0px;"><input type="file" multiple="multiple" class="dz-hidden-input" accept="image/jpeg, application/pdf, application/dicom, image/png" style="visibility: hidden; position: absolute; top: 0px; left: 0px; height: 0px; width: 0px;"><input type="file" multiple="multiple" class="dz-hidden-input" accept="image/jpeg, application/pdf, application/dicom, image/png" style="visibility: hidden; position: absolute; top: 0px; left: 0px; height: 0px; width: 0px;"><input type="file" multiple="multiple" class="dz-hidden-input" style="visibility: hidden; position: absolute; top: 0px; left: 0px; height: 0px; width: 0px;"><input type="file" multiple="multiple" class="dz-hidden-input" style="visibility: hidden; position: absolute; top: 0px; left: 0px; height: 0px; width: 0px;"><input type="file" multiple="multiple" class="dz-hidden-input" style="visibility: hidden; position: absolute; top: 0px; left: 0px; height: 0px; width: 0px;"><input type="file" multiple="multiple" class="dz-hidden-input" style="visibility: hidden; position: absolute; top: 0px; left: 0px; height: 0px; width: 0px;"><input type="file" multiple="multiple" class="dz-hidden-input" style="visibility: hidden; position: absolute; top: 0px; left: 0px; height: 0px; width: 0px;"><input type="file" multiple="multiple" class="dz-hidden-input" style="visibility: hidden; position: absolute; top: 0px; left: 0px; height: 0px; width: 0px;"><input type="file" multiple="multiple" class="dz-hidden-input" style="visibility: hidden; position: absolute; top: 0px; left: 0px; height: 0px; width: 0px;"><input type="file" multiple="multiple" class="dz-hidden-input" style="visibility: hidden; position: absolute; top: 0px; left: 0px; height: 0px; width: 0px;"><input type="file" multiple="multiple" class="dz-hidden-input" style="visibility: hidden; position: absolute; top: 0px; left: 0px; height: 0px; width: 0px;"><input type="file" multiple="multiple" class="dz-hidden-input" style="visibility: hidden; position: absolute; top: 0px; left: 0px; height: 0px; width: 0px;"></body>

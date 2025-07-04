@@ -31,3 +31,5 @@ openpyxl
 pymupdf
 playwright
 setuptools
+openai
+holidays

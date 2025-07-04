@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'comercial',
     'senhas',
     'modelos',
+    'agente_gpt',
+    'recepcao',
 ]
 
 MIDDLEWARE = [
@@ -161,21 +163,13 @@ from utils.utils import DatabaseLogHandler
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
-    'handlers': {
-        'db': {
-            'level': 'DEBUG',
-            'class': 'utils.utils.DatabaseLogHandler',
-        },
-    },
-    'loggers': {
-        'django': {
-            'handlers': ['db'],
-            'level': 'DEBUG',
-            'propagate': True,
-        },
-    },
 }
 
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
 ]
+
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(Path(__file__).resolve().parent.parent.parent, 'media')

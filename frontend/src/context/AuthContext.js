@@ -35,8 +35,13 @@ const AuthProvider = ({ children }) => {
       return { success: true };
     } catch (error) {
       console.error("Login error:", error);
+      const detail =
+      error.response?.data?.detail ||
+      error.response?.data?.error ||
+      "Erro inesperado";
       return {
         success: false,
+        detail,
         error: error.response?.data || "Erro inesperado",
       };
     }

@@ -1,0 +1,60 @@
+.gpt-agent-wrapper {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 24px;
+  background-color: #ffffff;
+  border: 2px solid #e1e1e1;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.gpt-agent-title {
+  font-size: 1.8rem;
+  margin-bottom: 16px;
+  color: #333333;
+  text-align: center;
+}
+
+.gpt-agent-textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #cccccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  resize: vertical;
+  margin-bottom: 16px;
+  font-family: 'Courier New', monospace;
+}
+
+.gpt-agent-button {
+  background-color: #4a90e2;
+  color: white;
+  padding: 10px 18px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.gpt-agent-button:disabled {
+  background-color: #9bb8e2;
+  cursor: not-allowed;
+}
+
+.gpt-agent-button:hover:not(:disabled) {
+  background-color: #357ac9;
+}
+
+.gpt-agent-resposta {
+  margin-top: 20px;
+  padding: 16px;
+  background-color: #f8f8f8;
+  border-radius: 8px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  border: 1px solid #dddddd;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}

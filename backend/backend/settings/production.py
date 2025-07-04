@@ -1,3 +1,4 @@
+from sqlalchemy import true
 from .base import *
 
 DEBUG = False

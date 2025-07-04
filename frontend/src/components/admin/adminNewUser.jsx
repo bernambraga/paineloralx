@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axiosInstance from "../../services/axiosInstance";
-import "./adminNewUser.css";
+import "./admin.css";
 
 const NewUser = ({ onUserCreated }) => {
   const [form, setForm] = useState({

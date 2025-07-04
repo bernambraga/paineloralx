@@ -17,6 +17,7 @@ const Geral = React.lazy(() => import("./pages/comercialGeral"));
 const Top15 = React.lazy(() => import("./pages/comercialTop15"));
 const Admin = React.lazy(() => import("./pages/admin"));
 const Modelos = React.lazy(() => import("./pages/Modelos"));
+const Recepcao = React.lazy(() => import("./pages/Recepcao"));
 
 const App = () => {
   return (
@@ -63,6 +64,7 @@ const AppContent = () => {
             <Route path="/senhas" element={<Senhas />} />
             <Route path="/admin" element={<Admin />} />
             <Route path="/modelos" element={<Modelos />} />
+            <Route path="/recepcao" element={<Recepcao />} />
           </Route>
         </Routes>
       </Suspense>

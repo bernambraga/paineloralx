@@ -8,3 +8,94 @@
 2025-06-10 19:52:07,576:INFO:Linha 8 de 9
 2025-06-10 19:52:07,669:INFO:Linha 9 de 9
 2025-06-10 19:52:08,110:INFO:Nenhum dado novo foi encontrado.
+2025-06-24 20:36:28,370:INFO:Busca de dados iniciada.
+2025-06-24 20:36:41,951:INFO:Linha 1 de 12
+2025-06-24 20:36:42,101:INFO:Linha 2 de 12
+2025-06-24 20:36:42,223:INFO:Linha 3 de 12
+2025-06-24 20:36:42,349:INFO:Linha 4 de 12
+2025-06-24 20:36:42,468:INFO:Linha 5 de 12
+2025-06-24 20:36:42,565:INFO:Linha 6 de 12
+2025-06-24 20:36:42,673:INFO:Linha 7 de 12
+2025-06-24 20:36:42,843:INFO:Linha 8 de 12
+2025-06-24 20:36:42,975:INFO:Linha 9 de 12
+2025-06-24 20:36:43,065:INFO:Linha 10 de 12
+2025-06-24 20:36:43,165:INFO:Linha 11 de 12
+2025-06-24 20:36:43,272:INFO:Linha 12 de 12
+2025-06-24 20:36:43,354:INFO:Pedido novo nº 357274, extração detalhada.
+2025-06-24 20:42:03,528:INFO:Busca de dados iniciada.
+2025-06-24 20:42:15,837:INFO:Linha 1 de 12
+2025-06-24 20:42:15,956:INFO:Linha 2 de 12
+2025-06-24 20:42:16,073:INFO:Linha 3 de 12
+2025-06-24 20:42:16,188:INFO:Linha 4 de 12
+2025-06-24 20:42:16,289:INFO:Linha 5 de 12
+2025-06-24 20:42:16,417:INFO:Linha 6 de 12
+2025-06-24 20:42:16,506:INFO:Linha 7 de 12
+2025-06-24 20:42:16,606:INFO:Linha 8 de 12
+2025-06-24 20:42:16,690:INFO:Linha 9 de 12
+2025-06-24 20:42:16,790:INFO:Linha 10 de 12
+2025-06-24 20:42:16,872:INFO:Linha 11 de 12
+2025-06-24 20:42:16,974:INFO:Linha 12 de 12
+2025-06-24 20:42:17,072:INFO:Pedido novo nº 357274, extração detalhada.
+2025-06-24 20:46:10,438:INFO:Busca de dados iniciada.
+2025-06-24 20:46:22,334:INFO:Linha 1 de 9
+2025-06-24 20:46:22,444:INFO:Pedido novo nº 360463, extração detalhada.
+2025-06-24 20:46:24,721:INFO:Prazo ajustado para SMS: 25/06/2025
+2025-06-24 20:46:24,721:INFO:Linha 2 de 9
+2025-06-24 20:46:24,865:INFO:Pedido novo nº 361138, extração detalhada.
+2025-06-24 20:46:27,128:INFO:Linha 3 de 9
+2025-06-24 20:46:27,236:INFO:Pedido novo nº 359260, extração detalhada.
+2025-06-24 20:46:29,468:INFO:Prazo ajustado para SMS: 28/06/2025
+2025-06-24 20:46:29,469:INFO:Linha 4 de 9
+2025-06-24 20:46:29,587:INFO:Pedido novo nº 361552, extração detalhada.
+2025-06-24 20:46:31,819:INFO:Linha 5 de 9
+2025-06-24 20:46:31,921:INFO:Pedido novo nº 361832, extração detalhada.
+2025-06-24 20:46:34,182:INFO:Linha 6 de 9
+2025-06-24 20:46:34,294:INFO:Pedido novo nº 359292, extração detalhada.
+2025-06-24 20:46:36,616:INFO:Prazo ajustado para SMS: 28/06/2025
+2025-06-24 20:46:36,616:INFO:Linha 7 de 9
+2025-06-24 20:46:36,723:INFO:Pedido novo nº 361549, extração detalhada.
+2025-06-24 20:46:39,033:INFO:Linha 8 de 9
+2025-06-24 20:46:39,141:INFO:Pedido novo nº 357786, extração detalhada.
+2025-06-24 20:46:41,433:INFO:Linha 9 de 9
+2025-06-24 20:47:40,755:INFO:Busca de dados iniciada.
+2025-06-24 20:47:53,660:INFO:Linha 1 de 9
+2025-06-24 20:47:53,755:INFO:Pedido novo nº 360463, extração detalhada.
+2025-06-24 20:47:56,057:INFO:Prazo ajustado para SMS: 25/06/2025
+2025-06-24 20:47:56,057:INFO:Linha 2 de 9
+2025-06-24 20:47:56,198:INFO:Pedido novo nº 361138, extração detalhada.
+2025-06-24 20:47:58,438:INFO:Linha 3 de 9
+2025-06-24 20:47:58,558:INFO:Pedido novo nº 359260, extração detalhada.
+2025-06-24 20:48:00,770:INFO:Prazo ajustado para SMS: 28/06/2025
+2025-06-24 20:48:00,770:INFO:Linha 4 de 9
+2025-06-24 20:48:00,886:INFO:Pedido novo nº 361552, extração detalhada.
+2025-06-24 20:48:03,086:INFO:Linha 5 de 9
+2025-06-24 20:48:03,186:INFO:Pedido novo nº 361832, extração detalhada.
+2025-06-24 20:48:05,420:INFO:Linha 6 de 9
+2025-06-24 20:48:05,519:INFO:Pedido novo nº 359292, extração detalhada.
+2025-06-24 20:48:07,812:INFO:Prazo ajustado para SMS: 28/06/2025
+2025-06-24 20:48:07,812:INFO:Linha 7 de 9
+2025-06-24 20:48:07,928:INFO:Pedido novo nº 361549, extração detalhada.
+2025-06-24 20:48:10,223:INFO:Linha 8 de 9
+2025-06-24 20:48:10,321:INFO:Pedido novo nº 357786, extração detalhada.
+2025-06-24 20:48:12,629:INFO:Linha 9 de 9
+2025-06-25 17:57:37,429:INFO:Busca de dados iniciada.
+2025-06-25 17:57:52,776:INFO:Linha 1 de 6
+2025-06-25 17:57:52,887:INFO:Linha 2 de 6
+2025-06-25 17:57:53,015:INFO:Linha 3 de 6
+2025-06-25 17:57:53,121:INFO:Linha 4 de 6
+2025-06-25 17:57:53,221:INFO:Linha 5 de 6
+2025-06-25 17:57:53,333:INFO:Linha 6 de 6
+2025-06-25 17:57:53,426:INFO:Pedido novo nº 361715, extração detalhada.
+2025-06-25 17:57:56,148:INFO:Busca de dados finalizada. Inserindo dados novos no banco.
+2025-06-25 17:57:57,598:INFO:Dados inseridos no banco de dados com sucesso.
+2025-06-30 17:52:28,869:INFO:Busca de dados iniciada.
+2025-06-30 17:52:48,718:INFO:Linha 1 de 6
+2025-06-30 17:52:48,829:INFO:Linha 2 de 6
+2025-06-30 17:52:48,928:INFO:Linha 3 de 6
+2025-06-30 17:52:49,035:INFO:Linha 4 de 6
+2025-06-30 17:52:49,130:INFO:Linha 5 de 6
+2025-06-30 17:52:49,210:INFO:Pedido novo nº 361136, extração detalhada.
+2025-06-30 17:52:51,472:INFO:Linha 6 de 6
+2025-06-30 17:52:51,575:INFO:Pedido novo nº 363395, extração detalhada.
+2025-06-30 17:52:53,971:INFO:Busca de dados finalizada. Inserindo dados novos no banco.
+2025-06-30 17:52:54,034:INFO:Dados inseridos no banco de dados com sucesso.

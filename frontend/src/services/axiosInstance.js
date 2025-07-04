@@ -46,14 +46,18 @@ axiosInstance.interceptors.response.use(
         const response = await axios.post(`${getBaseUrl()}/token/refresh/`, { refresh: refreshToken });
         const newAccessToken = response.data.access;
         localStorage.setItem('access_token', newAccessToken);
-        
-        // Atualiza Authorization e reenvia a requisição
+
         axiosInstance.defaults.headers.common['Authorization'] = `Bearer ${newAccessToken}`;
         originalRequest.headers['Authorization'] = `Bearer ${newAccessToken}`;
         return axiosInstance(originalRequest);
       } catch (refreshError) {
-        console.error('Falha ao renovar token', refreshError);
-        // Opcional: pode fazer logout automático aqui se quiser
+        console.error('Falha ao renovar token:', refreshError);
+
+        // ⚠️ Refresh falhou: remove tokens e redireciona
+        localStorage.removeItem('access_token');
+        localStorage.removeItem('refresh_token');
+        window.location.href = '/'; // redireciona para tela de login
+        return Promise.reject(refreshError);
       }
     }
 

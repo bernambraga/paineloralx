@@ -10,6 +10,11 @@ export const LINKS = [
         allowedGroups: ['SuperAdmin'],
     },
     {
+        to: '/recepcao',
+        name: 'Recepção',
+        allowedGroups: ['Geral'],
+    },
+    {
         to: '/comercial',
         name: 'Comercial',
         allowedGroups: ['Comercial','SuperAdmin', 'Admin'],
